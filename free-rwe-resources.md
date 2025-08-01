@@ -12,7 +12,7 @@ These curated, freely accessible resources provide foundational knowledge, pract
   Taught by Danielle Boyce (ALS TDI) and Pavel Goriacko (Montefiore)  
   [Enroll in the course](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18)
 
- **Curated Resource Overview:**  
+-  **Curated Resource Overview:**  
   *OHDSI, OMOP, and FHIR for Neurodegenerative Disease Researchers*  
   Created by Danielle Boyce (ALS TDI)  
   [Access the resource](https://view.genially.com/6655cfe3a5fcfd00138cc914/interactive-content-ohdsi-omop-and-fhir-for-neurodegenerative-disease-researchers)
