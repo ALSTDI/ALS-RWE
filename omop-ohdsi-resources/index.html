@@ -1,0 +1,865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../als-tdi-omop-data-set/">
+      
+      
+        <link rel="next" href="../free-rwe-resources/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>OMOP OHDSI Resources - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omopohdsi-resources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OMOP OHDSI Resources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../als-tdi-omop-data-set/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ALS TDI OMOP Data Set
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  OMOP OHDSI Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../free-rwe-resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Free RWE Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../author/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Author
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../als-tdi-omop-data-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ALS TDI OMOP Data Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OMOP OHDSI Resources
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    OMOP OHDSI Resources
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#omopohdsi-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📐 OMOP/OHDSI Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-cdm-basic-data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 OMOP CDM Basic Data Dictionary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects-best-suited-for-observational-research-and-ohdsi-network-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Projects Best Suited for Observational Research and OHDSI Network Studies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-ohdsi-2023-save-our-sisyphus-challenge-slides-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source: OHDSI. (2023). Save Our Sisyphus Challenge Slides (PDF)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-code-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 OMOP Code Snippets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 OMOP Code Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youll-find-in-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 What You'll Find in this Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#folder-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Folder Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-rwe-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Free RWE Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../author/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Author
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#omopohdsi-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      📐 OMOP/OHDSI Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-cdm-basic-data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 OMOP CDM Basic Data Dictionary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects-best-suited-for-observational-research-and-ohdsi-network-studies" class="md-nav__link">
+    <span class="md-ellipsis">
+      📈 Projects Best Suited for Observational Research and OHDSI Network Studies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-ohdsi-2023-save-our-sisyphus-challenge-slides-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source: OHDSI. (2023). Save Our Sisyphus Challenge Slides (PDF)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#omop-code-snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 OMOP Code Snippets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 OMOP Code Snippets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youll-find-in-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 What You'll Find in this Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#folder-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Folder Highlights
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      📘 Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>OMOP OHDSI Resources</h1>
+
+<h2 id="omopohdsi-resources">📐 OMOP/OHDSI Resources</h2>
+<p>This chapter contains practical resources for working with OMOP data, including an interactive OMOP data dictionary, code snippets for common analytic tasks, and examples of observational research projects suited to OMOP/OHDSI frameworks.</p>
+<p>Resources include:</p>
+<ul>
+<li><strong>Interactive OMOP CDM Data Dictionary</strong></li>
+<li><strong>Analytic Use Cases and Research Examples</strong></li>
+<li><strong>OMOP Code Snippets (SQL, R, Python)</strong></li>
+</ul>
+<hr />
+<h2 id="omop-cdm-basic-data-dictionary">📊 OMOP CDM Basic Data Dictionary</h2>
+<p>For a sample interactive OMOP data dictionary detailing the fields in the OMOP CDM, please click on the thumbnail below. For the specific ARC study data dictionary, visit the <a href="https://data.answerals.org/home">Neuromine Data Portal</a>.</p>
+<p><a href="../assets/OMOPDD.html"><img alt="OMOP Data Dictionary Thumbnail" src="../assets/DDthumbnail.png" /></a></p>
+<h2 id="projects-best-suited-for-observational-research-and-ohdsi-network-studies">📈 Projects Best Suited for Observational Research and OHDSI Network Studies</h2>
+<hr />
+<h3>🧪 Analytic Use Cases and Examples</h3>
+
+<style>
+  table.use-case-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+
+  table.use-case-table th,
+  table.use-case-table td {
+    border: 1px solid #aaa;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  table.use-case-table th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<table class="use-case-table">
+  <thead>
+    <tr>
+      <th>Analytic Use Case</th>
+      <th>Type</th>
+      <th>Structure</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><strong>Clinical Characterization</strong></td>
+      <td>Disease Natural History</td>
+      <td>Amongst patients who are diagnosed with &lt;insert your disease of interest&gt;, what are the patient’s characteristics from their medical history?</td>
+      <td>Amongst patients with rheumatoid arthritis, what are their demographics (age, gender), prior conditions, medications, and health service utilization behaviors?</td>
+    </tr>
+    <tr>
+      <td>Treatment Utilization</td>
+      <td>Amongst patients who have &lt;insert your disease of interest&gt;, which treatments were patients exposed to amongst &lt;list of treatments for disease&gt; and in which sequence?</td>
+      <td>Amongst patients with depression, which treatments were patients exposed to SSRI, SNRI, TCA, bupropion, esketamine and in which sequence?</td>
+    </tr>
+    <tr>
+      <td>Outcome Incidence</td>
+      <td>Amongst patients who are new users of &lt;insert your drug of interest&gt;, how many patients experienced &lt;insert your known adverse event of interest from the drug profile&gt; within &lt;time horizon following exposure start&gt;?</td>
+      <td>Amongst patients who are new users of methylphenidate, how many patients experienced psychosis within 1 year of initiating treatment?</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Population-level Effect Estimation</strong></td>
+      <td>Safety Surveillance</td>
+      <td>Does exposure to &lt;insert your drug of interest&gt; increase the risk of experiencing &lt;insert an adverse event&gt; within &lt;time horizon following exposure start&gt;?</td>
+      <td>Does exposure to ACE inhibitor increase the risk of experiencing Angioedema within 1 month after exposure start?</td>
+    </tr>
+    <tr>
+      <td>Comparative Effectiveness</td>
+      <td>Does exposure to &lt;insert your drug of interest&gt; have a different risk of experiencing &lt;insert any outcome (safety or benefit)&gt; within &lt;time horizon following exposure start&gt;, relative to &lt;insert your comparator treatment&gt;?</td>
+      <td>Does exposure to ACE inhibitor have a different risk of experiencing acute myocardial infarction while on treatment, relative to thiazide diuretic?</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>Patient-level Prediction</strong></td>
+      <td>Disease Onset and Progression</td>
+      <td>For a given patient who is diagnosed with &lt;insert your disease of interest&gt;, what is the probability that they will go on to have &lt;another disease or related complication&gt; within &lt;time horizon from diagnosis&gt;?</td>
+      <td>For a given patient who is newly diagnosed with atrial fibrillation, what is the probability that they will go on to have ischemic stroke in next 3 years?</td>
+    </tr>
+    <tr>
+      <td>Treatment Response</td>
+      <td>For a given patient who is a new user of &lt;insert your chronically-used drug of interest&gt;, what is the probability that they will &lt;insert desired effect&gt; in &lt;time window&gt;?</td>
+      <td>For a given patient with T2DM who starts on metformin, what is the probability that they will maintain HbA1C &lt;6.5% after 3 years?</td>
+    </tr>
+    <tr>
+      <td>Treatment Safety</td>
+      <td>For a given patient who is a new user of &lt;insert your drug of interest&gt;, what is the probability that they will experience &lt;insert adverse event&gt; within &lt;time horizon following exposure&gt;?</td>
+      <td>For a given patient who is a new user of warfarin, what is the probability that they will have GI bleed in 1 year?</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="source-ohdsi-2023-save-our-sisyphus-challenge-slides-pdf"><strong>Source:</strong> OHDSI. <em>(2023).</em> <a href="https://www.ohdsi.org/wp-content/uploads/2023/01/SOS-challenge-intro-24jan2023.pdf">Save Our Sisyphus Challenge Slides (PDF)</a></h2>
+<h2 id="omop-code-snippets">💻 OMOP Code Snippets</h2>
+<p>We provide a publicly available set of OMOP code snippets used in the <a href="https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18">I-LEARN Course</a> to help learners explore and analyze OMOP Common Data Model datasets using tools like <strong>R</strong>, <strong>SQL</strong>, and <strong>Python</strong>.</p>
+<p>🔗 <strong>Repository</strong>: <a href="https://github.com/BoyceLab/OMOP-Code-Snippets-for-I-LEARN-Course">BoyceLab/OMOP-Code-Snippets-for-I-LEARN-Course</a></p>
+<h3 id="what-youll-find-in-this-repository">🧰 What You'll Find in this Repository</h3>
+<p>The repository contains example scripts and templates to:</p>
+<ul>
+<li>Query OMOP data using <strong>SQL</strong></li>
+<li>Analyze OMOP-mapped data using <strong>R</strong></li>
+<li>Connect and run queries via <strong>RPostgreSQL</strong></li>
+<li>Explore how standard concepts relate to source codes</li>
+</ul>
+<h3 id="folder-highlights">📂 Folder Highlights</h3>
+<ul>
+<li>SQL/: Ready-to-use SQL queries for common OMOP domains (e.g., drug exposure, observation).</li>
+<li>R/: R scripts that demonstrate how to load, analyze, and visualize OMOP data.</li>
+<li>concepts/: Examples for working with concept_id and concept_relationship tables.</li>
+</ul>
+<h3 id="use-cases">📘 Use Cases</h3>
+<p>These snippets are designed for:
+- Learners in the <strong>Tufts CTSI I-LEARN course</strong>
+- Researchers new to <strong>OHDSI/OMOP</strong>
+- Analysts working with <strong>OMOP-formatted ALS datasets</strong></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
