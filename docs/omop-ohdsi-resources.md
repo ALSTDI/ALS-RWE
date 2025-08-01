@@ -12,13 +12,9 @@ Resources include:
 
 ## 📊 OMOP CDM Basic Data Dictionary
 
-For a sample interactive OMOP data dictionary of what the fields in the OMOP CDM represent, please click on the image below.  Note:  for a data dictionary of the ARC study, please see **[Neuromine Data Portal](https://data.answerals.org/home)**
+For a sample interactive OMOP data dictionary detailing the fields in the OMOP CDM, please click on the thumbnail below. For the specific ARC study data dictionary, visit the [Neuromine Data Portal](https://data.answerals.org/home).
 
-<a href="OMOPDD.html" target="_blank">
-  <img src="DDthumbnail.png" alt="OMOP Data Dictionary Thumbnail" style="max-width: 400px; height: auto; border: 1px solid #ccc; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
-</a>
-
-
+[![OMOP Data Dictionary Thumbnail](assets/DDthumbnail.png)](assets/OMOPDD.html)
 
 ## 📈 Projects Best Suited for Observational Research and OHDSI Network Studies
 
