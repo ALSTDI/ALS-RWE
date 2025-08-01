@@ -9,7 +9,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-  logo: assets/DDthumbnail.png # Optional: your custom logo, remove if not desired
+  #logo: assets/DDthumbnail.png # Optional: your custom logo, remove if not desired
 
 nav:
   - Home: index.md
