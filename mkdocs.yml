@@ -1,4 +1,4 @@
-site_name: ALS TDI RWE Resources
+site_name: ALS TDI Real World Evidence Resources
 
 theme:
   name: material
@@ -9,7 +9,6 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-  #logo: assets/DDthumbnail.png # Optional: your custom logo, remove if not desired
 
 nav:
   - Home: index.md
@@ -19,6 +18,8 @@ nav:
   - Free RWE Resources: free-rwe-resources.md
   - Authors: authors.md
 
-#extra:
- # generator: false # Removes "Made with MkDocs" clutter at the bottom
-site_name: ALS TDI Real World Evidence Resources
+markdown_extensions:
+  - meta
+
+extra:
+  generator: false  # Removes the "Made with MkDocs" footer for a cleaner look
