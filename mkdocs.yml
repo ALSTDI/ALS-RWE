@@ -15,10 +15,10 @@ nav:
   - Home: index.md
   - Introduction: introduction.md
   - ALS TDI OMOP Data Set: als-tdi-omop-data-set.md
-  - OMOP OHDSI Resources: omop-ohdsi-resources.md
+  - OMOP/OHDSI Resources: omop-ohdsi-resources.md
   - Free RWE Resources: free-rwe-resources.md
   - Author: author.md
 
 extra:
   generator: false # Removes "Made with MkDocs" clutter at the bottom
-site_name: My Docs
+site_name: ALS TDI Real World Evidence Resources
