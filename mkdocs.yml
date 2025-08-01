@@ -9,6 +9,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.header  # Add this line explicitly
 
 nav:
   - Home: index.md
@@ -23,3 +24,4 @@ markdown_extensions:
 
 extra:
   generator: false  # Removes the "Made with MkDocs" footer for a cleaner look
+
