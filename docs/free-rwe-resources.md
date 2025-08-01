@@ -1,3 +1,10 @@
+---
+title: Free RWE Resources
+hide:
+  - title
+---
+
+
 ## 🚩 New to RWE? Start Here: Free Real World Evidence Resources
 
 These curated, freely accessible resources provide foundational knowledge, practical examples, and step-by-step instructions for navigating Real World Evidence (RWE), OHDSI, OMOP, and related frameworks:

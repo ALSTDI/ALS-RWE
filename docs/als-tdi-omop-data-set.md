@@ -1,3 +1,9 @@
+---
+title: ALS TDI OMOP Data Set
+hide:
+  - title
+---
+
 # 📦 Release Notes: Version 0.1.0
 
 The first release of the [ALS TDI ARC Study](https://www.als.net/arc/), mapped to the [Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)](https://ohdsi.github.io/CommonDataModel/), restructures a subset of the ARC Natural HIstory Study into the OMOP CDM structure and maps a subset to standardized vocabularies.
