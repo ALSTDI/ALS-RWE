@@ -122,7 +122,7 @@ In the ALS TDI OMOP data set, custom concepts were created for:
 
 ---
 
-## 🧭 Guidance for Using This Dataset
+## 🧭 Guidance for Using This Data Set
 
 - 🔍 **Review the *_source_value or *_source_concept_id columns** in each OMOP table to understand how data were originally captured. These often contain verbatim responses or terms from the source survey.
 

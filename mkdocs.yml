@@ -17,7 +17,7 @@ nav:
   - ALS TDI OMOP Data Set: als-tdi-omop-data-set.md
   - OMOP OHDSI Resources: omop-ohdsi-resources.md
   - Free RWE Resources: free-rwe-resources.md
-  - Author: authors.md
+  - Author: author.md
 
 extra:
   generator: false # Removes "Made with MkDocs" clutter at the bottom
