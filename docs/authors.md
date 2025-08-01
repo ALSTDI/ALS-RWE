@@ -1,6 +1,10 @@
-This guide was developed by:
+---
+title: Authors
+hide:
+  - title
+---
 
-# Authors
+This guide was developed by:
 
 - **Danielle Boyce, MPH, DPA**, Principal Investigator, Real World Evidence  
 - **Hannah Walters, MPH, PhD**, Postdoctoral Researcher  
