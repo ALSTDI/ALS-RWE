@@ -19,6 +19,6 @@ nav:
   - Free RWE Resources: free-rwe-resources.md
   - Author: author.md
 
-extra:
-  generator: false # Removes "Made with MkDocs" clutter at the bottom
+#extra:
+ # generator: false # Removes "Made with MkDocs" clutter at the bottom
 site_name: ALS TDI Real World Evidence Resources
