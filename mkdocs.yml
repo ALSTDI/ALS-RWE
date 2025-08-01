@@ -1,1 +1,24 @@
+site_name: ALS TDI RWE Resources
+
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: purple
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+  logo: assets/DDthumbnail.png # Optional: your custom logo, remove if not desired
+
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - ALS TDI OMOP Data Set: als-tdi-omop-data-set.md
+  - OMOP OHDSI Resources: omop-ohdsi-resources.md
+  - Free RWE Resources: free-rwe-resources.md
+  - Author: authors.md
+
+extra:
+  generator: false # Removes "Made with MkDocs" clutter at the bottom
 site_name: My Docs
