@@ -1,8 +1,6 @@
 ---
-title: ALS-RWE Documentation
+title: ALS TDI RWE Resources
 ---
-
-# ALS-RWE Documentation
 
 ## Table of Contents
 
