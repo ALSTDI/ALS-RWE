@@ -1,3 +1,5 @@
+This guide was developed by:
+
 *Danielle Boyce*, MPH, DPA, Principal Investigator, Real World Evidence
 *Hannah Walters*, MPH, PhD, Postdoctoral Researcher
 *Alan Premasiri*, MS, Director of Clinical Operations
