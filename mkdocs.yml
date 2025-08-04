@@ -5,11 +5,12 @@ theme:
   palette:
     primary: deep purple
     accent: purple
+  logo: assets/ALSTDI-logo-stacked-color.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.header  # Add this line explicitly
+    - navigation.header
 
 nav:
   - Home: index.md
@@ -25,3 +26,5 @@ markdown_extensions:
 extra:
   generator: false  # Removes the "Made with MkDocs" footer for a cleaner look
 
+extra_css:
+  - assets/css/custom.css
