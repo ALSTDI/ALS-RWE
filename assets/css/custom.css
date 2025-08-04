@@ -1,0 +1,11 @@
+:root {
+    --md-primary-fg-color: #904199; /* Pantone 254 C */
+    --md-accent-fg-color: #904199;
+}
+
+/* Gotham Narrow font setup */
+@import url('https://fonts.cdnfonts.com/css/gotham-narrow');
+
+body, input {
+    font-family: 'Gotham Narrow', sans-serif;
+}
