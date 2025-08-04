@@ -1,3 +1,5 @@
+/* Custom CSS for ALS TDI RWE MkDocs site */
+
 :root {
     --md-primary-fg-color: #904199; /* Pantone 254 C */
     --md-accent-fg-color: #904199;
@@ -6,6 +8,45 @@
 /* Gotham Narrow font setup */
 @import url('https://fonts.cdnfonts.com/css/gotham-narrow');
 
-body, input {
-    font-family: 'Gotham Narrow', sans-serif;
+/* Apply Gotham Narrow to all elements consistently */
+body,
+input,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+ul,
+ol,
+table,
+.md-header,
+.md-nav,
+.md-footer {
+    font-family: 'Gotham Narrow', sans-serif !important;
+}
+
+/* Logo resizing for optimal display */
+.md-header__button.md-logo img {
+    max-height: 80px !important; /* Adjust as needed */
+    width: auto !important;
+}
+
+/* Optional: Additional styling to enhance readability */
+.md-content h1,
+.md-content h2,
+.md-content h3 {
+    color: #904199;
+}
+
+.md-typeset a {
+    color: #904199;
+}
+
+.md-typeset a:hover {
+    color: #702e75;
 }
