@@ -32,7 +32,7 @@ table,
 
 /* Logo resizing for optimal display */
 .md-header__button.md-logo img {
-    max-height: 80px !important; /* Adjust as needed */
+    max-height: 200px !important; /* Adjust as needed */
     width: auto !important;
 }
 
