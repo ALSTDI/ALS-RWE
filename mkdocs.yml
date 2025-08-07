@@ -2,10 +2,13 @@ site_name: ALS TDI Real World Evidence Resources
 
 theme:
   name: material
-  palette:
-    primary: deep purple
-    accent: purple
   logo: assets/ALSTDI-logo-stacked-color.png
+  font:
+    text: "EB Garamond"   # Google Fonts – Material auto-loads it
+  palette:
+    scheme: default
+    primary: custom        # tells Material to use the CSS variables below
+    accent: custom
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -24,7 +27,8 @@ markdown_extensions:
   - meta
 
 extra:
-  generator: false  # Removes the "Made with MkDocs" footer for a cleaner look
+  generator: false
 
 extra_css:
   - assets/css/custom.css
+
