@@ -19,14 +19,21 @@
 */
 
 /* === Logo sizing (make it fill the header height) ======================== */
+/* === Bigger logo override === */
 .md-header__button.md-logo {
   margin: 0;
   padding: 0;
 }
+
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 2.6rem;   /* bump this up/down to taste */
-  width: auto;
+  height: 3.5rem !important;  /* was 2.6rem before — bump up */
+  width: auto !important;
+}
+
+/* Allow header to grow taller to fit the logo */
+.md-header {
+  min-height: 4rem !important; /* matches larger logo height */
 }
 
 /* Optional: tighten header a bit so the logo looks crisp */
