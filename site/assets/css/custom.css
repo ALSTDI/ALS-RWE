@@ -27,7 +27,7 @@
 
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 3.5rem !important;  /* was 2.6rem before — bump up */
+  height: 6.5rem !important;  /* was 2.6rem before — bump up */
   width: auto !important;
 }
 
