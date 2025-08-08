@@ -10,6 +10,12 @@ The first release of the [ALS TDI ARC Study](https://www.als.net/arc/), mapped t
 
 This is part of a larger harmonization effort with [Answer ALS](https://www.answerals.org/) and the [Critical Path Institute](https://c-path.org/program/critical-path-for-rare-neurodegenerative-diseases/).
 
+> **Note about EHR data:** We are actively working to include electronic health record (EHR) data in our next release.  Tools that we use for EHR data and related analytics include:
+> - [**CDAtransformer**](https://github.com/BoyceLab/CDAtransformer) — This R Shiny application allows users to upload and parse C-CDA and FHIR text files. It extracts relevant elements and presents them in a tabular format for easy viewing and download.  
+> - [**RWDExchange**](https://github.com/BoyceLab/RWDExchange) — RWDExchange is an R Shiny application designed to evaluate the exchangeability potential of your real-world data (RWD) including electronic health records and patient registries for use as external comparators in clinical trials.
+
+---
+
 ---
 
 ### 📁 Complete Data Set and Documentation Location  
