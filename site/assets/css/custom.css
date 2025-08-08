@@ -1,70 +1,45 @@
-/* === Brand colors (Pantone 254 C #904199) ================================ */
-:root {
-  /* Primary */
+/* --- Brand colors (Pantone 254 C) --- */
+:root{
   --md-primary-fg-color: #904199;
-  --md-primary-fg-color--light: #b872c0;  /* tweak if you want a different hover shade */
+  --md-primary-fg-color--light: #b872c0;
   --md-primary-fg-color--dark: #6d2f77;
-
-  /* Accent (same as primary to keep brand tight; change if you want a different accent) */
   --md-accent-fg-color: #904199;
-  --md-accent-fg-color--light: #b872c0;
-  --md-accent-fg-color--dark: #6d2f77;
+
+  --md-typeset-font-size: 1.02rem;
+  --md-typeset-line-height: 1.65;
 }
 
-/* If you later enable a dark scheme, uncomment and tune these
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #904199;
-  --md-accent-fg-color:  #904199;
-}
-*/
-
-/* === Logo sizing (make it fill the header height) ======================== */
-/* === Bigger logo override === */
+/* --- Always show header logo in white tile --- */
 .md-header__button.md-logo {
-  margin: 0;
-  padding: 0;
+  display: inline-flex !important;
+  align-items: center;
+  margin: 0 0.5rem 0 0;
 }
 
-.md-header__button.md-logo img,
-.md-header__button.md-logo svg {
-  height: 6.5rem !important;  /* was 2.6rem before — bump up */
-  width: auto !important;
-}
-
-/* Allow header to grow taller to fit the logo */
-.md-header {
-  min-height: 4rem !important; /* matches larger logo height */
-}
-
-/* Optional: tighten header a bit so the logo looks crisp */
-.md-header {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* === Typographic tweaks for EB Garamond ================================ */
-/* Material already injects EB Garamond via theme.font.text,
-   but these help the look & legibility a bit. */
-:root {
-  /* Slightly increase base size because Garamond reads smaller than Roboto */
-  --md-typeset-font-size: 0.95rem;
-  --md-typeset-line-height: 1.55;
-}
-
-/* Headings a touch tighter with Garamond */
-.md-typeset h1,
-.md-typeset h2,
-.md-typeset h3 {
-  letter-spacing: 0.01em;
-}
-
-/* Make white-on-transparent logo visible on light headers */
 .md-header__button.md-logo img {
-  background: rgba(255,255,255,0.92);
-  padding: 6px 10px;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.12);
-  max-height: 80px !important;
+  display: block !important;
+  height: 64px !important;          /* adjust size to taste */
   width: auto !important;
-  margin-top: 10px; /* Adjust this number until it looks centered */
+  background: #fff;                 /* solid white background */
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+
+/* Keep logo consistent in mobile drawer */
+.md-nav__title .md-logo img {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  height: 56px;
+  width: auto;
+}
+
+/* Table zebra striping */
+.md-typeset table:not([class]) tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: #ffffff;
 }

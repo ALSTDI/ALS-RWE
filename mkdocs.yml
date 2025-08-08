@@ -8,7 +8,7 @@ theme:
     text: "EB Garamond"
   palette:
     scheme: default
-    primary: custom          # uses your CSS variables for the purple
+    primary: custom         # uses your CSS variables for the purple
     accent: custom
   features:
     - navigation.tabs
@@ -17,7 +17,7 @@ theme:
     - navigation.header
     - search.suggest
     - search.highlight
-    # (intentionally NOT enabling content.action.view/edit/repository to avoid repo clutter)
+  # no repo_url and no content.action.view/edit to avoid top-right clutter
 
 nav:
   - Home: index.md
@@ -28,8 +28,6 @@ nav:
   - Free RWE Resources: free-rwe-resources.md
   - Select Publications: select-publications.md
   - Authors: authors.md
-
-# Do NOT set repo_url here to keep the top-right header clean.
 
 markdown_extensions:
   - meta
@@ -65,4 +63,5 @@ extra_css:
 watch:
   - docs/assets
   - docs/assets/css
+
 
