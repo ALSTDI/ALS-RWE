@@ -1,0 +1,1086 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../introduction/">
+      
+      
+        <link rel="next" href="../als-tdi-omop-data-set/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>The STARDUSTT Framework Addresses the Curse of Knowledge in Clinical Informatics - ALS TDI Real World Evidence Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"EB Garamond";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-stardustt-framework-addresses-the-curse-of-knowledge-in-clinical-informatics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ALS TDI Real World Evidence Resources" class="md-header__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ALS TDI Real World Evidence Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The STARDUSTT Framework Addresses the Curse of Knowledge in Clinical Informatics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  STARDUSTT Approach
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../als-tdi-omop-data-set/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ALS TDI OMOP Data Set
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../omop-ohdsi-resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  OMOP/OHDSI Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../free-rwe-resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Free RWE Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../authors/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Authors
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ALS TDI Real World Evidence Resources" class="md-nav__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    ALS TDI Real World Evidence Resources
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    STARDUSTT Approach
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    STARDUSTT Approach
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stardustt-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      The STARDUSTT Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-curse-of-knowledge-and-its-impact-on-omop-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Curse of Knowledge and Its Impact on OMOP Projects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-1-strategies-for-resolving-common-problems-in-omop-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table 1. Strategies for Resolving Common Problems in OMOP Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-2-applying-the-stardustt-framework-to-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table 2. Applying the STARDUSTT Framework to Personas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Personas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Availability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../als-tdi-omop-data-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ALS TDI OMOP Data Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omop-ohdsi-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OMOP/OHDSI Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-rwe-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Free RWE Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stardustt-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      The STARDUSTT Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-curse-of-knowledge-and-its-impact-on-omop-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Curse of Knowledge and Its Impact on OMOP Projects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-1-strategies-for-resolving-common-problems-in-omop-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table 1. Strategies for Resolving Common Problems in OMOP Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-2-applying-the-stardustt-framework-to-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table 2. Applying the STARDUSTT Framework to Personas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-personas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Personas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Availability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="the-stardustt-framework-addresses-the-curse-of-knowledge-in-clinical-informatics">The STARDUSTT Framework Addresses the Curse of Knowledge in Clinical Informatics</h1>
+<p><strong>Authors:</strong> Danielle Boyce, Pavel Goriacko, William M Garneau, Pamela Dasher, William Roddy, Wesley Anderson, Smith F. Heavner<br />
+<strong>Corresponding Author:</strong> <a href="mailto:dboyce3@als.net">Danielle Boyce</a><br />
+<strong>Affiliations:</strong><br />
+- ALS Therapy Development Institute<br />
+- Johns Hopkins University School of Medicine<br />
+- Tufts University School of Medicine<br />
+- Montefiore Einstein, Center for Health Data Innovations<br />
+- Critical Path Institute<br />
+- Clemson University, Department of Public Health Sciences  </p>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p>With the increasing adoption of standardized data frameworks, many healthcare centers are transforming electronic health records into common data models (CDMs) such as the Observational Medical Outcomes Partnership (OMOP). The OMOP extract–transform–load (ETL) process is complex and necessitates collaboration among data engineers, clinical informaticists, clinicians, and health system leaders—groups with widely varying technical backgrounds and obligations. A recurring challenge is translating technical knowledge across these diverse groups, often hindered by the <strong>curse of knowledge</strong>.  </p>
+<p>We describe best practices for coordinating a large, multi-institution OMOP project and propose the <strong>STARDUSTT framework</strong>—<strong>S</strong>ecure Data, <strong>T</strong>echnology Awareness, <strong>A</strong>ctive Clinical Representation, <strong>R</strong>elational Databases, <strong>D</strong>ata Quality, <strong>U</strong>tilization of GitHub, <strong>S</strong>tandardized Vocabularies, <strong>T</strong>raining &amp; Documentation, <strong>T</strong>ranslation &amp; Communication—as a structured approach to ensure implementation readiness across sites.</p>
+<p><strong>Keywords:</strong> OMOP, OHDSI, observational research, ETL, standardized vocabularies</p>
+<hr />
+<h2 id="background">Background</h2>
+<p>Large-scale OMOP CDM initiatives such as the National COVID Cohort Collaborative (N3C), the All of Us Research Program, and the European Health Data &amp; Evidence Network (EHDEN) have raised the visibility of observational research and data harmonization. In the <strong>CURE ID</strong> project, which supported sites across the United States, Asia, and South America, we observed consistent foundational knowledge gaps between stakeholder groups.</p>
+<p>Participating effectively in OMOP projects requires more than knowledge of the CDM schema. Teams must also understand:
+- Principles of observational research<br />
+- Standardized terminologies and concept hierarchies<br />
+- Programming languages (e.g., SQL, R, Python)<br />
+- Tooling (e.g., GitHub, Docker, OHDSI software stack)<br />
+- Relational database concepts and DDL<br />
+- Basics of privacy-preserving data sharing</p>
+<p>Many clinical and informatics leaders trained before the advent of modern real-world data workflows, open-source analytics, and DevOps-style collaboration tools—creating real barriers to onboarding without structured support.</p>
+<hr />
+<h2 id="methods">Methods</h2>
+<p>More than <strong>30 hospital sites</strong> were recruited to participate in an OMOP implementation initiative. After initial buy-in, each site underwent a structured evaluation to confirm readiness. Qualified sites met regularly with the technical team to work through:
+- Concept mapping and vocabulary alignment<br />
+- ETL script design and development<br />
+- OHDSI tooling setup and use<br />
+- De-identification protocols and export procedures  </p>
+<p>Data quality was assessed using automated checks (e.g., conformance, completeness, plausibility) to provide oversight of the transferred data. We used the <strong>EPIS framework</strong> (Exploration, Preparation, Implementation, Sustainment) to guide ongoing process evaluation and to adapt our approach based on stakeholder feedback. Interim findings were presented at the <strong>16th Annual Conference on Dissemination and Implementation Science</strong>.</p>
+<p><strong>Challenges</strong> included time and resource constraints, regulatory considerations, and cross-disciplinary communication barriers. We conducted key informant interviews at institutions that declined to participate and at institutions that adopted OMOP processes. We compared emergent conceptual models to <strong>CFIR</strong> and <strong>RE-AIM</strong> and, through member checking and iterative synthesis of project notes, developed the <strong>STARDUSTT</strong> framework to guide future implementations.</p>
+<hr />
+<h2 id="the-stardustt-framework">The STARDUSTT Framework</h2>
+<p><img alt="STARDUSTT Framework" src="assets/STARDUSTT.png" /><br />
+<em>Figure 1. Overview of the STARDUSTT framework.</em></p>
+<p>The framework addresses nine capabilities necessary for OMOP implementation readiness:</p>
+<ol>
+<li><strong>Secure Data</strong> — Practical training in de-identification and PHI protection; robust security practices for secondary use of EHR data.  </li>
+<li><strong>Technology Awareness</strong> — Familiarity with Docker, command line, SQL, and OHDSI tooling; understanding of local SQL dialects and infrastructure.  </li>
+<li><strong>Active Clinical Representation</strong> — Interdisciplinary participation from physicians, nurses, and other clinicians to ensure clinical context, provenance, and priorities are reflected in technical decisions.  </li>
+<li><strong>Relational Databases</strong> — Foundations in schema design, indexing, joins, and SQL querying; understanding OMOP table relationships.  </li>
+<li><strong>Data Quality</strong> — Routine checks for conformance, completeness, and plausibility; processes to triage and remediate issues before data sharing.  </li>
+<li><strong>Utilization of GitHub</strong> — Version control, issue tracking, and collaborative workflows to manage ETL code, documentation, and change control.  </li>
+<li><strong>Standardized Vocabularies</strong> — SNOMED CT, LOINC, RxNorm, and use of <strong>Athena</strong>; local-to-standard mapping practices aligned with OHDSI conventions.  </li>
+<li><strong>Training &amp; Documentation</strong> — Protocols, SOPs, MOPs/MOOs, step-by-step guides, and curated learning paths; emphasis on reproducibility and standardization.  </li>
+<li><strong>Translation &amp; Communication</strong> — Clear, audience-specific messaging that turns technical jargon into plain language; bidirectional feedback; consistent terminology; shared artifacts (infographics, glossaries, executive summaries) to maintain alignment across leadership, clinical, and engineering teams.</li>
+</ol>
+<hr />
+<h2 id="the-curse-of-knowledge-and-its-impact-on-omop-projects">The Curse of Knowledge and Its Impact on OMOP Projects</h2>
+<p>A root cause of many misalignments is the <strong>curse of knowledge</strong>—the tendency of experts to overestimate what others know, which hinders instruction and communication (Camerer, Loewenstein, &amp; Weber, 1989). In OMOP implementations, leaders and developers who are fluent in open-source tooling (Docker, GitHub, OHDSI stack) may not appreciate prerequisite gaps in database fundamentals, command line usage, or data governance. Mitigating this bias requires:
+- Simplifying explanations and actively checking for understanding<br />
+- Using consistent language and shared glossaries<br />
+- Tailoring content to personas (executives, clinical informaticists, engineers)<br />
+- Providing incremental learning with real-world, hands-on exercises</p>
+<p>The <strong>STARDUSTT</strong> framework operationalizes these practices so that sites develop the skills—and shared language—required to implement and sustain OMOP successfully.</p>
+<hr />
+<h2 id="table-1-strategies-for-resolving-common-problems-in-omop-implementation">Table 1. Strategies for Resolving Common Problems in OMOP Implementation</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Impact</th>
+<th>Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Team members have varying levels of expertise</td>
+<td>Leaders have difficulty making decisions</td>
+<td>Level the playing field with foundational training</td>
+</tr>
+<tr>
+<td>OHDSI resources are abundant but overwhelming</td>
+<td>Learners are discouraged or lost</td>
+<td>Provide curated, annotated resources by role/scope</td>
+</tr>
+<tr>
+<td>Technical jargon</td>
+<td>Miscommunication and misunderstandings</td>
+<td>Use accessible language; maintain a shared glossary</td>
+</tr>
+<tr>
+<td>Jumping into complex topics too quickly</td>
+<td>Frustration and disengagement</td>
+<td>Build knowledge incrementally with scaffolding</td>
+</tr>
+<tr>
+<td>Passive, asynchronous learning only</td>
+<td>Lower retention and skill transfer</td>
+<td>Incorporate active learning and hands-on exercises</td>
+</tr>
+<tr>
+<td>Infrequent feedback loops</td>
+<td>Persistent misunderstandings; slow progress</td>
+<td>Schedule regular check-ins and feedback cycles</td>
+</tr>
+<tr>
+<td>One-size-fits-all instruction</td>
+<td>Inconsistent outcomes across roles</td>
+<td>Diversify teaching methods to match personas</td>
+</tr>
+<tr>
+<td>Incomplete or unclear documentation</td>
+<td>Poor reproducibility; limited autonomy</td>
+<td>Provide clear, accessible, versioned documentation</td>
+</tr>
+<tr>
+<td>Isolated learning</td>
+<td>Slower problem-solving and innovation</td>
+<td>Encourage mentorship and peer-to-peer learning</td>
+</tr>
+<tr>
+<td>Emphasis on theory without practice</td>
+<td>Difficulty applying knowledge</td>
+<td>Use real-world case studies and ETL labs</td>
+</tr>
+<tr>
+<td>Static training programs</td>
+<td>Outdated practices and tools</td>
+<td>Continuously refine and update materials</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="table-2-applying-the-stardustt-framework-to-personas">Table 2. Applying the STARDUSTT Framework to Personas</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>C-Suite Executives</th>
+<th>Clinical Informaticists</th>
+<th>Data Engineers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Secure Data</strong></td>
+<td>Emphasize compliance, risk, and strategic value</td>
+<td>IRB/PHI safeguards; site-specific processes</td>
+<td>Advanced de-identification and security patterns</td>
+</tr>
+<tr>
+<td><strong>Technology Awareness</strong></td>
+<td>Strategic implications and ROI of tooling</td>
+<td>OHDSI tools in clinical workflows</td>
+<td>Deep dives into Docker, OHDSI stack, CLI</td>
+</tr>
+<tr>
+<td><strong>Active Clinical Representation</strong></td>
+<td>Sponsor and protect interdisciplinary time</td>
+<td>Bridge between clinical SMEs and engineers</td>
+<td>Incorporate clinical context in technical choices</td>
+</tr>
+<tr>
+<td><strong>Relational Databases</strong></td>
+<td>Role of data architecture in decisions</td>
+<td>Querying; joins; OMOP relationships</td>
+<td>Dialect-specific scripts; performance and schema</td>
+</tr>
+<tr>
+<td><strong>Data Quality</strong></td>
+<td>Impact on outcomes and trust</td>
+<td>Use of DQD/Achilles/Ares, triage of issues</td>
+<td>Design pipelines for automated DQ checks</td>
+</tr>
+<tr>
+<td><strong>Utilization of GitHub</strong></td>
+<td>Governance and change control</td>
+<td>Simple workflows for versioning and issues</td>
+<td>Advanced branching, reviews, CI for ETL</td>
+</tr>
+<tr>
+<td><strong>Standardized Vocabularies</strong></td>
+<td>Interoperability in strategy</td>
+<td>SNOMED/LOINC/RxNorm usage patterns</td>
+<td>Mapping, concept relationships, Athena exports</td>
+</tr>
+<tr>
+<td><strong>Training &amp; Documentation</strong></td>
+<td>Executive summaries and dashboards</td>
+<td>Guides, glossaries, mentor networks</td>
+<td>Tutorials, code reviews, runbooks, APIs</td>
+</tr>
+<tr>
+<td><strong>Translation &amp; Communication</strong></td>
+<td>Strategic framing and alignment</td>
+<td>Clinical translation of technical plans</td>
+<td>Turn clinical requirements into actionable tasks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="understanding-personas">Understanding Personas</h2>
+<p><strong>C-Suite Executives.</strong> Focus on strategic overviews, risk management, compliance, ROI, and resourcing. Provide non-technical summaries and clear decision points.  </p>
+<p><strong>Physician/Nurse Clinical Informaticists.</strong> Often serve as PIs or project leaders; require a working knowledge of EHR schema, standardized terminologies, IRB/privacy, and OHDSI workflows. Training should be time-efficient and jargon-light, with practical examples.  </p>
+<p><strong>Data Engineers.</strong> Need detailed instruction in relational databases, SQL dialects, OMOP versions, GitHub workflows, and containerized deployments. Provide project context along with technical depth to avoid “building in the dark.”</p>
+<p>By tailoring the STARDUSTT framework to these personas, teams align strategy, clinical reality, and technical execution.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>“If you’ve seen one hospital, you’ve seen one hospital.” OMOP implementations succeed when training and communication are tailored to diverse roles. By recognizing and countering the <strong>curse of knowledge</strong>, teams can provide clear, incremental, and practical training that builds shared understanding and capability. The <strong>STARDUSTT</strong> framework offers a structured, adaptable approach to develop implementation readiness and sustain high-quality participation in OHDSI/OMOP projects.</p>
+<hr />
+<h2 id="data-availability">Data Availability</h2>
+<p>Training materials and related resources are available via:<br />
+- <strong>CURE ID GitHub Book</strong> — C-PATH / JH guide to getting started with OMOP for CURE ID<br />
+- <strong>Genially Course:</strong> https://view.genially.com/667178efe55dd50015cd9de5</p>
+<hr />
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>We thank <strong>Irina Titkova, PhD</strong> (Show-cell.com, Barts Cancer Institute, Queen Mary University of London) for graphic design and <strong>Grace Zaikoski</strong> for editorial support.</p>
+<hr />
+<h2 id="references">References</h2>
+<ol>
+<li>Heavner SF, Anderson W, Kashyap R, Dasher P, Mathé EA, Merson L, Guerin PJ, Weaver J, Robinson M, Schito M, Kumar VK, Nagy P. A Path to Real-World Evidence in Critical Care Using Open-Source Data Harmonization Tools. <em>Crit Care Explor.</em> 2023;5(4):e0893. doi:10.1097/CCE.0000000000000893.  </li>
+<li>Camerer C, Loewenstein G, Weber M. The curse of knowledge in economic settings: An experimental analysis. <em>J Polit Econ.</em> 1989;97(5):1232–1254.  </li>
+<li>Hripcsak G, Mirhaji P, Low AF, Malin BA. Preserving temporal relations in clinical data while maintaining privacy. <em>J Am Med Inform Assoc.</em> 2016;23(6):1040–1045. doi:10.1093/jamia/ocw001.  </li>
+<li>Kahn MG, Callahan TJ, Barnard J, et al. A Harmonized Data Quality Assessment Terminology and Framework for the Secondary Use of Electronic Health Record Data. <em>EGEMS.</em> 2016;4(1):1244.  </li>
+<li>Observational Health Data Sciences and Informatics (OHDSI). <em>The Book of OHDSI.</em> 2023. https://ohdsi.github.io/TheBookOfOhdsi/</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.header"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
