@@ -106,16 +106,16 @@ For a sample interactive OMOP data dictionary detailing the fields in the OMOP C
 
 ## 🧭 Current CDM
 
-![CDM54 Image](https://github.com/DBJHU/DBJHU.github.io/blob/main/cdm54.png)
+![CDM54 Image](assets/cdm54.png)
 
 *Source: [OHDSI Common Data Model](https://ohdsi.github.io/CommonDataModel/index.html)*
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 - 🔗 **Interactive (Select) OMOP Data Dictionary**  
   https://github.com/DBJHU/DBJHU.github.io/blob/main/SelectOMOPDataDictionaryInteractivev2.html
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -135,7 +135,7 @@ The OMOP common data model (CDM) is a relational database made up of different t
 | **Device_exposure**  | Captures information about a person's exposure to a foreign physical object or instrument which is used for diagnostic or therapeutic purposes. Devices include implantable objects, blood transfusions, medical equipment and supplies, other instruments used in medical procedures, and material used in clinical care. |
 | **Death**            | Contains the clinical events surrounding how and when a participant dies. |
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -151,7 +151,7 @@ The OMOP common data model (CDM) is a relational database made up of different t
 - PDF: https://www.ohdsi.org/wp-content/uploads/2019/09/OMOP-Common-Data-Model-Extract-Transform-Load.pdf  
 - Book: https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -221,7 +221,7 @@ The OMOP common data model (CDM) is a relational database made up of different t
 R, SQL, Python, or any preferred data analysis software.  
 **Reference:** [The Book of OHDSI — Chapter 9: SQL and R](https://ohdsi.github.io/TheBookOfOhdsi/SqlAndR.html)
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -229,7 +229,7 @@ R, SQL, Python, or any preferred data analysis software.
 
 [Open, rigorous and reproducible research: A practitioner’s handbook](https://datascience.stanford.edu/programs/stanford-data-science-scholars-program/data-science-handbook) — Stanford Data Science
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -260,7 +260,7 @@ R, SQL, Python, or any preferred data analysis software.
 - NIH “All of Us” documentation:  
   [Jupyter & programming](https://support.researchallofus.org/hc/en-us/articles/360039690191-Jupyter-Notebooks-and-programming)
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -283,7 +283,7 @@ R, SQL, Python, or any preferred data analysis software.
 - [OHDSI software](https://ohdsi.org/software-tools/)  
 - [NIH All of Us — OMOP documentation](https://support.researchallofus.org/hc/en-us/articles/360039585391-How-the-Observational-Medical-Outcomes-Partnership-OMOP-vocabulary-are-structured)
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ---
 
@@ -293,7 +293,7 @@ R, SQL, Python, or any preferred data analysis software.
 
 - Slides: [Clinical Registries in OHDSI — September 2022 (PDF)](https://www.ohdsi.org/wp-content/uploads/2022/09/OHDSI-Clinical_Registries.pdf)
 
-<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
 
 ## 💻 OMOP Code Snippets
 
