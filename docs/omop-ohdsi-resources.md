@@ -147,13 +147,15 @@ The OMOP common data model (CDM) is a relational database made up of different t
 ---
 
 ## 🔧 ETL Basics
-- [📄 PDF: OMOP Common Data Model — Extract, Transform, Load](https://www.ohdsi.org/wp-content/uploads/2019/09/OMOP-Common-Data-Model-Extract-Transform-Load.pdf)  
-- [📘 Book: The Book of OHDSI — Extract, Transform, Load](https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html)
+
+- PDF: https://www.ohdsi.org/wp-content/uploads/2019/09/OMOP-Common-Data-Model-Extract-Transform-Load.pdf  
+- Book: https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html
+
 
 
 ---
 
-### 🛠️ ETL Steps
+## 🛠️ ETL Steps
 
 1. **Dataset profiling and documentation**
    - Create data model documentation, sample data, data dictionaries, code lists, and other relevant information (23-Aug)
@@ -218,6 +220,7 @@ The OMOP common data model (CDM) is a relational database made up of different t
 
 R, SQL, Python, or any preferred data analysis software.  
 **Reference:** [The Book of OHDSI — Chapter 9: SQL and R](https://ohdsi.github.io/TheBookOfOhdsi/SqlAndR.html)
+
 
 
 ---

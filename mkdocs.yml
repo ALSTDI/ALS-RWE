@@ -18,8 +18,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - navigation.header
-    - content.code.copy
-    - toc.integrate
+  
 
 nav:
   - Home: index.md
@@ -31,13 +30,6 @@ nav:
 
 markdown_extensions:
   - meta
-  - admonition
-  - tables
-  - toc:
-      permalink: true
-
-plugins:
-  - search
 
 extra:
   generator: false  # remove "Made with MkDocs"
