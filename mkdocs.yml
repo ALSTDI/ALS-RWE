@@ -8,17 +8,13 @@ theme:
     text: "EB Garamond"
   palette:
     scheme: default
-    primary: indigo       # dark enough for white logo to be visible
-    accent: indigo
+    primary: custom       # use your purple from custom.css
+    accent: custom
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.header
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - content.action.view
 
 nav:
   - Home: index.md
@@ -61,7 +57,3 @@ extra:
 extra_css:
   - assets/css/custom.css
 
-# Optional: reload these while serving locally
-watch:
-  - docs/assets
-  - docs/assets/css
