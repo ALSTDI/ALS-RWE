@@ -1,38 +1,67 @@
 site_name: ALS TDI Real World Evidence Resources
-site_url: https://alstdi.github.io/ALS-RWE/
-repo_url: https://github.com/ALSTDI/ALS-RWE
-repo_name: ALSTDI/ALS-RWE
+site_url: https://alstdi.github.io/ALS-RWE
 
 theme:
   name: material
   logo: assets/ALSTDI-logo-stacked-color.png
-  favicon: assets/ALSTDI-logo-stacked-color.png
   font:
-    text: "EB Garamond"   # Material will load from Google Fonts
+    text: "EB Garamond"
   palette:
-    scheme: default       # keep light mode for now
-    primary: custom       # use our CSS variables below
-    accent: custom
+    scheme: default
+    primary: indigo       # dark enough for white logo to be visible
+    accent: indigo
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.header
-  
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.view
 
 nav:
   - Home: index.md
   - Introduction: introduction.md
+  - STARDUSTT Approach: stardustt-approach.md
   - ALS TDI OMOP Data Set: als-tdi-omop-data-set.md
   - OMOP/OHDSI Resources: omop-ohdsi-resources.md
   - Free RWE Resources: free-rwe-resources.md
+  - Select Publications: select-publications.md
   - Authors: authors.md
 
 markdown_extensions:
   - meta
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
 
 extra:
-  generator: false  # remove "Made with MkDocs"
+  generator: false
 
 extra_css:
   - assets/css/custom.css
+
+# Optional: reload these while serving locally
+watch:
+  - docs/assets
+  - docs/assets/css
