@@ -19,7 +19,7 @@ These curated, freely accessible resources provide foundational knowledge, pract
   Created by Danielle Boyce (ALS TDI)  
   [Access the resource](https://view.genially.com/6655cfe3a5fcfd00138cc914/interactive-content-ohdsi-omop-and-fhir-for-neurodegenerative-disease-researchers)
 
-  - **ALS Geospatial Health:**
+  - **ALS Geospatial Hub:**
   The ALS Geospatial Hub brings together authoritative data from federal agencies, research institutions, and non-profit organizations, organizing it by geography. 
   [Access the resource](https://als-geospatial-hub-nonprofit.hub.arcgis.com/)
 
