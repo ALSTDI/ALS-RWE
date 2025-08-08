@@ -1,0 +1,993 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../stardustt-approach/">
+      
+      
+        <link rel="next" href="../omop-ohdsi-resources/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>ALS TDI OMOP Data Set - ALS TDI Real World Evidence Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"EB Garamond";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-notes-version-010" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ALS TDI Real World Evidence Resources" class="md-header__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ALS TDI Real World Evidence Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ALS TDI OMOP Data Set
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../introduction/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../stardustt-approach/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  STARDUSTT Approach
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ALS TDI OMOP Data Set
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../omop-ohdsi-resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  OMOP/OHDSI Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../free-rwe-resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Free RWE Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../authors/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Authors
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ALS TDI Real World Evidence Resources" class="md-nav__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    ALS TDI Real World Evidence Resources
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stardustt-approach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    STARDUSTT Approach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ALS TDI OMOP Data Set
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ALS TDI OMOP Data Set
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#complete-data-set-and-documentation-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Complete Data Set and Documentation Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 CDM Version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#participant-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Participant Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Citation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Mappings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-mapping-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Notes on Mapping Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Notes on Mapping Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dates-and-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗓️ Dates and Timing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❓ Missing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Custom Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medications" class="md-nav__link">
+    <span class="md-ellipsis">
+      💊 Medications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guidance-for-using-this-data-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Guidance for Using This Data Set
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../omop-ohdsi-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OMOP/OHDSI Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../free-rwe-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Free RWE Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#complete-data-set-and-documentation-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Complete Data Set and Documentation Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cdm-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 CDM Version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#participant-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Participant Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Citation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Mappings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-mapping-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Notes on Mapping Decisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Notes on Mapping Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dates-and-timing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🗓️ Dates and Timing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❓ Missing Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Custom Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medications" class="md-nav__link">
+    <span class="md-ellipsis">
+      💊 Medications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guidance-for-using-this-data-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Guidance for Using This Data Set
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="release-notes-version-010">📦 Release Notes: Version 0.1.0</h1>
+<p>The first release of the <a href="https://www.als.net/arc/">ALS TDI ARC Study</a>, mapped to the <a href="https://ohdsi.github.io/CommonDataModel/">Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)</a>, restructures a subset of the ARC Natural HIstory Study into the OMOP CDM structure and maps a subset to standardized vocabularies.</p>
+<p>This is part of a larger harmonization effort with <a href="https://www.answerals.org/">Answer ALS</a> and the <a href="https://c-path.org/program/critical-path-for-rare-neurodegenerative-diseases/">Critical Path Institute</a>.</p>
+<blockquote>
+<p><strong>Note about EHR data:</strong> We are actively working to include electronic health record (EHR) data in our next release.  Tools that we use for EHR data and related analytics include:</p>
+<ul>
+<li><a href="https://github.com/BoyceLab/CDAtransformer"><strong>CDAtransformer</strong></a> — This R Shiny application allows users to upload and parse C-CDA and FHIR text files. It extracts relevant elements and presents them in a tabular format for easy viewing and download.  </li>
+<li><a href="https://github.com/BoyceLab/RWDExchange"><strong>RWDExchange</strong></a> — RWDExchange is an R Shiny application designed to evaluate the exchangeability potential of your real-world data (RWD) including electronic health records and patient registries for use as external comparators in clinical trials.</li>
+</ul>
+</blockquote>
+<hr />
+<hr />
+<h3 id="complete-data-set-and-documentation-location">📁 Complete Data Set and Documentation Location</h3>
+<p><strong><a href="https://data.answerals.org/home">Neuromine Data Portal</a></strong></p>
+<hr />
+<h3 id="cdm-version">🧮 CDM Version</h3>
+<ul>
+<li><strong>OMOP CDM Version 5.4</strong> – <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">View Documentation</a></li>
+</ul>
+<h3 id="participant-summary">👥 Participant Summary</h3>
+<ul>
+<li><strong>Total number of participants</strong>: 1,676  <blockquote>
+<p><em>Note: not all participants answered all surveys</em></p>
+</blockquote>
+</li>
+</ul>
+<p>The dataset contains data from the following participant types:
+- People with ALS
+- Asymptomatic carriers
+- Healthy controls  </p>
+<blockquote>
+<p>Participant type can be found in the <strong>Person</strong> table, under the participant_source column.</p>
+</blockquote>
+<p>This version of the ALS TDI dataset includes:
+- Self-reported surveys and ALSFRS-R (ALS Functional Rating Scale – Revised) data
+- Laboratory results from analyzed blood samples</p>
+<hr />
+<h3 id="citation">📚 Citation</h3>
+<blockquote>
+<p><strong>ALS Therapy Development Institute (ALS TDI). (2023).</strong>  <em>ALS Research Collaborative (ARC) [Data set].</em>  Amyotrophic Lateral Sclerosis Therapy Development Institute.   https://doi.org/10.71944/C3NA-9124</p>
+</blockquote>
+<hr />
+<h2 id="mappings">🧩 Mappings</h2>
+<ul>
+<li>
+<p><strong>🧍 Person</strong>:<br />
+  Demographics including year of birth, sex, race, and ethnicity.<br />
+  See accepted concepts <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">here</a>.</p>
+</li>
+<li>
+<p><strong>🗒️ Observation</strong>:  </p>
+</li>
+<li>ALSFRS-R (individual items and total score)  </li>
+<li>Family and personal medical history  </li>
+<li>Site of onset  </li>
+<li>Injury history  </li>
+<li>Military service  </li>
+<li>
+<p>Tobacco use</p>
+</li>
+<li>
+<p><strong>💊 Drug Exposure</strong>:<br />
+  Medications and select supplements</p>
+</li>
+<li>
+<p><strong>⚰️ Mortality</strong>:<br />
+  Date of death</p>
+</li>
+<li>
+<p><strong>🧪 Measurement</strong>:  </p>
+</li>
+<li>Laboratory data from blood draws  </li>
+<li>
+<p>Self-reported genetic mutations</p>
+</li>
+<li>
+<p><strong>📌 Other Variables</strong>:  </p>
+</li>
+<li>Military service  </li>
+<li>Industry of employment  </li>
+<li>Injury history</li>
+</ul>
+<hr />
+<h2 id="notes-on-mapping-decisions">📌 Notes on Mapping Decisions</h2>
+<h3 id="dates-and-timing">🗓️ Dates and Timing</h3>
+<p>Dates may be shifted for deidentification purposes using the method described in:</p>
+<blockquote>
+<p>Hripcsak G, Mirhaji P, Low AF, Malin BA.  <em>Preserving temporal relations in clinical data while maintaining privacy.</em>  J Am Med Inform Assoc. 2016 Nov;23(6):1040-1045.<br />
+<a href="https://doi.org/10.1093/jamia/ocw001">Link to publication</a>  </p>
+</blockquote>
+<p>In the <strong>Observation Period</strong> OMOP domain:
+- observation_period_start_date = first event date (usually first survey)<br />
+- observation_period_end_date = last event date or date of death</p>
+<hr />
+<h3 id="missing-data">❓ Missing Data</h3>
+<p>If a data point was not collected, it is excluded unless required by OMOP CDM.<br />
+See the "Required" column in the <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">CDM v5.4 guidance</a></p>
+<p><strong>Examples:</strong>
+- If <strong>ethnicity</strong> is unknown → concept_id = 0<br />
+- If <strong>race</strong> is unknown or multiple → concept_id = 0</p>
+<hr />
+<h3 id="custom-concepts">🛠️ Custom Concepts</h3>
+<blockquote>
+<p><strong>What are custom concepts?</strong><br />
+In the OMOP Common Data Model, most clinical information is standardized using concept IDs from shared vocabularies (like SNOMED, RxNorm, LOINC, etc.). However, sometimes source data includes important information that <strong>doesn’t have an existing standardized concept</strong> in these vocabularies.</p>
+</blockquote>
+<p>In those cases, researchers define <strong>custom (or local) concepts</strong> with unique concept IDs (usually starting above 2,000,000,000). These custom concepts allow valuable variables — such as ALS symptom onset patterns, survey-specific fields, or patient-reported values — to be included in the dataset in a structured, queryable way.</p>
+<p>In the ALS TDI OMOP data set, custom concepts were created for:
+- <strong>ALS symptom onset</strong>
+- <strong>Anatomical site of symptom onset</strong>
+- Additional variables unique to the ARC study</p>
+<blockquote>
+<p>These custom concepts are stored and referenced just like standard concepts, allowing them to be queried and analyzed using the same OMOP framework.</p>
+</blockquote>
+<hr />
+<h3 id="medications">💊 Medications</h3>
+<ul>
+<li>Mapped to <strong>ingredient level</strong> wherever possible  </li>
+<li><strong>Dose not calculated</strong>  </li>
+<li><strong>All source values retained</strong>  </li>
+<li>If the drug or supplement was <strong>unmapped</strong>:</li>
+<li>concept_id = 0</li>
+<li>Source data included in the appropriate source column</li>
+</ul>
+<hr />
+<h2 id="guidance-for-using-this-data-set">🧭 Guidance for Using This Data Set</h2>
+<ul>
+<li>
+<p>🔍 <strong>Review the <em>_source_value or </em>_source_concept_id columns</strong> in each OMOP table to understand how data were originally captured. These often contain verbatim responses or terms from the source survey.</p>
+</li>
+<li>
+<p>🧠 <strong>Explore concept definitions</strong> and standardized codes using the <a href="https://athena.ohdsi.org/">OHDSI Athena</a> tool. You can look up concept IDs used throughout the dataset and understand their relationships and domains.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.header"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
