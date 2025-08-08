@@ -27,7 +27,7 @@ Watch Dr. Danielle Boyce present **STARDUSTT-ALS** — a new approach to capturi
 6. Clemson University, Department of Public Health Sciences  
 ---
 
-## Executive Summary
+### Executive Summary
 
 Adopting the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) requires collaboration across diverse stakeholders—executives, clinical informaticists, and technical teams—each with different expertise. Too often, the **curse of knowledge** impedes effective communication, slowing progress.
 
@@ -35,7 +35,7 @@ The **STARDUSTT Framework**—**S**ecure Data, **T**echnology Awareness, **A**ct
 
 ---
 
-## Background
+### Background
 
 Large-scale OMOP CDM projects such as the National COVID Cohort Collaborative (N3C), All of Us, and EHDEN have created unprecedented opportunities for observational research. Yet, many sites face challenges due to:
 - Limited technical readiness
@@ -49,12 +49,12 @@ In OMOP projects, this bias can manifest when experienced informaticists, engine
 Our work on the **CURE ID** project provided direct, practical experience with these challenges and informed the development of the **STARDUSTT Framework** as a structured approach to address them.
 
 
-## The STARDUSTT Framework
+### The STARDUSTT Framework
 
 ![STARDUSTT Framework](assets/STARDUSTT.png)  
 *Figure 1: Overview of the STARDUSTT Framework*
 
-### STARDUSTT Components
+#### STARDUSTT Components
 1. **Secure Data** — De-identification, privacy protection, and regulatory compliance.
 2. **Technology Awareness** — Familiarity with Docker, SQL, and OHDSI tools.
 3. **Active Clinical Representation** — Inclusion of clinicians in decision-making and workflow mapping.
@@ -67,16 +67,17 @@ Our work on the **CURE ID** project provided direct, practical experience with t
 
 ---
 
-## Implementation Insights
+### Implementation Insights
 
 The framework emerged from interviews with both successful and hesitant OMOP adopters. Three key findings shaped its design:
+
 - **Tailor training by role**: Executives, clinicians, and engineers have different needs.
 - **Focus on prerequisites**: Don’t assume baseline skills in databases, GitHub, or coding.
 - **Use shared language**: Maintain glossaries and avoid unnecessary jargon.
 
 ---
 
-## Common Problems and Strategies
+### Common Problems and Strategies
 
 | Problem | Impact | Strategy |
 |---|---|---|
@@ -94,7 +95,7 @@ The framework emerged from interviews with both successful and hesitant OMOP ado
 
 ---
 
-## Applying STARDUSTT to Personas
+### Applying STARDUSTT to Personas
 
 | Component | C-Suite Executives | Clinical Informaticists | Data Engineers |
 |---|---|---|---|
@@ -110,7 +111,7 @@ The framework emerged from interviews with both successful and hesitant OMOP ado
 
 ---
 
-## Personas in Practice
+### Personas in Practice
 
 **C-Suite Executives** need strategic summaries, compliance implications, and ROI metrics.  
 **Clinical Informaticists** benefit from practical workflow examples and clear connections to patient care.  
@@ -118,19 +119,19 @@ The framework emerged from interviews with both successful and hesitant OMOP ado
 
 ---
 
-## Conclusion
+### Conclusion
 
 The STARDUSTT Framework bridges gaps in knowledge, builds shared understanding, and accelerates OMOP adoption. By addressing role-specific needs and the curse of knowledge, it improves efficiency, reduces frustration, and increases sustainability in data harmonization projects.
 
 ---
 
-## Acknowledgements
+### Acknowledgements
 
 We thank **Irina Titkova, PhD** (Show-cell.com, Barts Cancer Institute, Queen Mary University of London) for graphic design and **Grace Zaikoski** for editorial support.
 
 ---
 
-## References
+### References
 
 1. Heavner SF, Anderson W, Kashyap R, Dasher P, Mathé EA, Merson L, Guerin PJ, Weaver J, Robinson M, Schito M, Kumar VK, Nagy P. A Path to Real-World Evidence in Critical Care Using Open-Source Data Harmonization Tools. *Crit Care Explor.* 2023;5(4):e0893. doi:10.1097/CCE.0000000000000893.  
 2. Camerer C, Loewenstein G, Weber M. The curse of knowledge in economic settings: An experimental analysis. *J Polit Econ.* 1989;97(5):1232–1254.  
