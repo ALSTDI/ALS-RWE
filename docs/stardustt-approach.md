@@ -3,9 +3,10 @@ title: The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implem
 hide:
   - title
 ---
+
 # The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
 
-**Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, William M Garneau<sup>5</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
+**Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, William M Garneau<sup>2</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
 
 **Corresponding Author:** [Danielle Boyce](mailto:dboyce3@als.net)  
 
@@ -27,8 +28,6 @@ Adopting the Observational Medical Outcomes Partnership (OMOP) Common Data Model
 The **STARDUSTT Framework**—**S**ecure Data, **T**echnology Awareness, **A**ctive Clinical Representation, **R**elational Databases, **D**ata Quality, **U**tilization of GitHub, **S**tandardized Vocabularies, **T**raining & Documentation, **T**ranslation & Communication—offers a structured approach to build readiness and overcome these barriers.
 
 ---
-
-## Background
 
 ## Background
 
