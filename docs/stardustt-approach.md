@@ -9,15 +9,18 @@ hide:
 
 # The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
 
-**Authors:** Danielle Boyce, Pavel Goriacko, William M Garneau, Pamela Dasher, William Roddy, Wesley Anderson, Smith F. Heavner  
+**Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, William M Garneau<sup>5</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
+
 **Corresponding Author:** [Danielle Boyce](mailto:dboyce3@als.net)  
+
 **Affiliations:**  
-- ALS Therapy Development Institute  
-- Johns Hopkins University School of Medicine  
-- Tufts University School of Medicine  
-- Montefiore Einstein, Center for Health Data Innovations  
-- Critical Path Institute  
-- Clemson University, Department of Public Health Sciences  
+1. ALS Therapy Development Institute  
+2. Johns Hopkins University School of Medicine  
+3. Tufts University School of Medicine  
+4. Montefiore Einstein, Center for Health Data Innovations  
+5. Critical Path Institute  
+6. Clemson University, Department of Public Health Sciences  
+  
 
 ---
 
@@ -31,14 +34,19 @@ The **STARDUSTT Framework**—**S**ecure Data, **T**echnology Awareness, **A**ct
 
 ## Background
 
-Large-scale OMOP projects such as the National COVID Cohort Collaborative (N3C), All of Us, and EHDEN have created unprecedented opportunities for observational research. Yet, many sites face challenges due to:
+## Background
+
+Large-scale OMOP CDM projects such as the National COVID Cohort Collaborative (N3C), All of Us, and EHDEN have created unprecedented opportunities for observational research. Yet, many sites face challenges due to:
 - Limited technical readiness
 - Gaps in shared understanding
 - Lack of role-specific training
 
-The **curse of knowledge**—a cognitive bias where experts struggle to convey concepts to non-experts—exacerbates these challenges. Without tailored onboarding, new participants can be quickly overwhelmed.
+One important contributor to these challenges is the **curse of knowledge**—a cognitive bias first described by Camerer, Loewenstein, and Weber (1989) in *The Curse of Knowledge in Economic Settings: An Experimental Analysis*. This bias occurs when individuals with expertise find it difficult to imagine what it is like for others not to possess that knowledge, often leading to overestimations of others’ understanding and ineffective communication.
 
----
+In OMOP projects, this bias can manifest when experienced informaticists, engineers, or OHDSI community members assume that all team members are familiar with prerequisites such as relational databases, GitHub workflows, or the OHDSI toolchain. Without intentional, role-specific onboarding, new participants can become overwhelmed and disengaged.
+
+Our work on the **CURE ID** project provided direct, practical experience with these challenges and informed the development of the **STARDUSTT Framework** as a structured approach to address them.
+
 
 ## The STARDUSTT Framework
 
