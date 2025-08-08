@@ -6,6 +6,9 @@ hide:
 
 # The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
 
+
+# The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
+
 **Authors:** Danielle Boyce, Pavel Goriacko, William M Garneau, Pamela Dasher, William Roddy, Wesley Anderson, Smith F. Heavner  
 **Corresponding Author:** [Danielle Boyce](mailto:dboyce3@als.net)  
 **Affiliations:**  
