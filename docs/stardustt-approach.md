@@ -5,17 +5,14 @@ hide:
 ---
 # 🎥 STARDUSTT-ALS Presentation
 
-Watch Dr. Danielle Boyce present **STARDUSTT-ALS** — a new approach to capturing, managing, and analyzing “big data” in ALS natural history studies.  
-When working with large, multimodal datasets, researchers face the challenge of varying data collection and organization practices.
+## Watch Dr. Danielle Boyce present **STARDUSTT-ALS** — a new approach to capturing, managing, and analyzing “big data” in ALS natural history studies.  
 
 [![STARDUSTT-ALS Presentation](https://img.youtube.com/vi/9h89iHEiIPs/0.jpg)](https://youtu.be/9h89iHEiIPs?feature=shared)
 
 ---
 
-# White paper:  The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
-
-
-# The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
+## White paper
+**The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation**
 
 **Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, William M Garneau<sup>2</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
 
