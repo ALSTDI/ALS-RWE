@@ -102,6 +102,198 @@ For a sample interactive OMOP data dictionary detailing the fields in the OMOP C
 
 **Source:** OHDSI. *(2023).* [Save Our Sisyphus Challenge Slides (PDF)](https://www.ohdsi.org/wp-content/uploads/2023/01/SOS-challenge-intro-24jan2023.pdf)
 ---
+---
+
+## 🧭 Current CDM
+
+![CDM54 Image](https://github.com/DBJHU/DBJHU.github.io/blob/main/cdm54.png)
+
+*Source: [OHDSI Common Data Model](https://ohdsi.github.io/CommonDataModel/index.html)*
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+- 🔗 **Interactive (Select) OMOP Data Dictionary**  
+  https://github.com/DBJHU/DBJHU.github.io/blob/main/SelectOMOPDataDictionaryInteractivev2.html
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## 🗂️ Commonly Used CDM Tables Overview
+
+The OMOP common data model (CDM) is a relational database made up of different tables that relate to each other by foreign keys (XXXX_ID values; e.g., PERSON_ID or PROVIDER_ID). The OMOP tables in your data export are as follows:
+
+| Table                | Description |
+|----------------------|-------------|
+| **Person**           | Contains basic demographic information describing a participant, including biological sex, birth date, race, and ethnicity. |
+| **Visit_occurrence** | Captures encounters with healthcare providers or similar events. Contains the type of visit a person has (outpatient care, inpatient care, or long-term care), as well as the date and duration information. Rows in other tables can reference this table, for example, condition_occurrences related to a specific visit. |
+| **Condition_occurrence** | Indicates the presence of a disease or medical condition stated as a diagnosis, a sign, or symptom, which is either observed by a provider or reported by the patient. |
+| **Drug_exposure**    | Captures records about the utilization of a medication. Drug exposures include prescription and over-the-counter medicines, vaccines, and large-molecule biologic therapies. Radiological devices ingested or applied locally do not count as drugs. Drug exposure is inferred from clinical events associated with orders, prescriptions written, pharmacy dispensing, procedural administrations, and other patient-reported information. |
+| **Measurement**      | Contains both orders and results of a systematic and standardized examination or testing of a participant or participant's sample, including laboratory tests, vital signs, quantitative findings from pathology reports, etc. |
+| **Procedure_occurrence** | Contains records of activities or processes ordered by or carried out by a healthcare provider on the patient to have a diagnostic or therapeutic purpose. |
+| **Observation**      | Captures clinical facts about a person obtained in the context of an examination, questioning, or a procedure. Any data that cannot be represented by another domain, such as social and lifestyle facts, medical history, and family history, are recorded here. |
+| **Device_exposure**  | Captures information about a person's exposure to a foreign physical object or instrument which is used for diagnostic or therapeutic purposes. Devices include implantable objects, blood transfusions, medical equipment and supplies, other instruments used in medical procedures, and material used in clinical care. |
+| **Death**            | Contains the clinical events surrounding how and when a participant dies. |
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## ✅ OMOP Data Quality
+
+- [The Book of OHDSI — Chapter 15: Data Quality](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html)  
+- [Kahn et al. (2016): A Harmonized Data Quality Assessment Terminology and Framework](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5051581/)
+
+---
+
+## 🔧 ETL Basics
+
+- PDF: https://www.ohdsi.org/wp-content/uploads/2019/09/OMOP-Common-Data-Model-Extract-Transform-Load.pdf  
+- Book: https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## 🛠️ ETL Steps
+
+1. **Dataset profiling and documentation**
+   - Create data model documentation, sample data, data dictionaries, code lists, and other relevant information (23-Aug)
+   - Execute database profiling scan (WhiteRabbit) on source database
+   - Prepare mapping approach/documents based on scan reports from database profiling scan
+
+2. **Generation of the ETL Design**
+   - Mapping workshop with all relevant parties to:
+     1. Understand the source
+     2. Define the scope of source data to be transformed
+     3. Define acceptance criteria for OMOP output  
+     **Output:** draft mapping document
+   - Finalize mapping document:
+     - Integrate all notes/documentation from workshop
+     - Work through mappings and verify, update, fill in gaps
+     - Meetings/emails with data contact/technical contact (TC) as needed
+
+3. **Source Data Integrations and Semantic Mapping**
+   - Source Code mapping:
+     - Identify which codes are already mapped to standard vocabulary
+     - Identify code types for codes that need to be mapped
+     - Translation of code description/phrases to English, if/as needed
+     - Create proposed code mappings
+   - Generate mappings for data coming out of flowsheets (together with consortium)
+   - Review/approval of code mappings (often by medical experts with the Data Owner)
+   - Identify imaging & waveform data; map using consortium-defined guidelines
+   - Use OHNLP to extract OMOP data from unstructured sources
+
+4. **Technical architecture design**
+   - CI/CD strategy & version control
+   - OHDSI ecosystem needs & infrastructure design
+
+5. **Technical ETL Development**
+   - Implement ETL (preferred language/structure)
+   - Update ETL based on testing/QA/feedback (8, 9)
+
+6. **Setting up Infrastructure**
+   - Deploy core servers and services based on (4)
+
+7. **Install OHDSI tools**
+   - Database server, Achilles/DQD/Ares, Atlas/WebAPI, RStudio Server, HADES, notebooks & other site-specific tools
+
+8. **ETL Testing and Validation**
+   - Test ETL on sample/dev data, then DO data
+   - Verify & document QA
+   - Submit Achilles/DQD/AresIndexer results regularly
+   - Plan & manage ETL development
+
+9. **Data Quality Assessment**
+   - QA/Acceptance testing for mapping accuracy & completeness
+   - Review & approval by Data Owner
+
+10. **Documentation**
+    - Mapping Documentation, Themis checks, and technical/transform documentation
+
+11. **Project Management Throughout**
+    - Organize tasks, milestones, and follow-up
+
+---
+
+## 🧪 OHDSI Analysis Tools
+
+R, SQL, Python, or any preferred data analysis software.  
+**Reference:** [The Book of OHDSI — Chapter 9: SQL and R](https://ohdsi.github.io/TheBookOfOhdsi/SqlAndR.html)
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## 📘 Data Science Handbook
+
+[Open, rigorous and reproducible research: A practitioner’s handbook](https://datascience.stanford.edu/programs/stanford-data-science-scholars-program/data-science-handbook) — Stanford Data Science
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## 🧰 Data Management Tools & Resources
+
+- DMP Tool:  https://dmptool.org/  
+- NIH DMS Policy Planning: https://sharing.nih.gov/data-management-and-sharing-policy/planning-and-budgeting-for-data-management-and-sharing/writing-a-data-management-and-sharing-plan#after
+
+---
+
+## 💻 Programming Resources (Jupyter, Python, SQL, R)
+
+- [Project Jupyter](https://jupyter.org/)
+- [What is the Jupyter Notebook?](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html)
+- [NIAID NIH Informatics resources](https://bioinformatics.niaid.nih.gov/resources)
+
+**Software Carpentry (free lessons):**
+- [Programming with Python](http://swcarpentry.github.io/python-novice-inflammation/)
+- [Programming with R](http://swcarpentry.github.io/r-novice-inflammation/)
+- [Databases and SQL](http://swcarpentry.github.io/sql-novice-survey/)
+
+**Additional resources:**
+- [DataCamp](http://www.datacamp.com/)
+- [Khan Academy — SQL Basics](https://www.khanacademy.org/computing/computer-programming/sql/sql-basics/v/welcome-to-sql)
+- [Codecademy — Learn Python 2](https://www.codecademy.com/learn/learn-python)
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/)
+- [R for Data Science](https://r4ds.had.co.nz/)
+- NIH “All of Us” documentation:  
+  [Jupyter & programming](https://support.researchallofus.org/hc/en-us/articles/360039690191-Jupyter-Notebooks-and-programming)
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## 🌐 OHDSI Resources
+
+- [OHDSI Forums](https://forums.ohdsi.org/) — *Introduce yourself on the “Welcome to OHDSI” thread!*  
+- [The Book of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/)  
+- [OMOP CDM FAQ](https://ohdsi.github.io/CommonDataModel/faq.html)  
+- [OHDSI Microsoft Teams](https://forms.office.com/Pages/ResponsePage.aspx?id=lAAPoyCRq0q6TOVQkCOy1ZyG6Ud_r2tKuS0HcGnqiQZUQ05MOU9BSzEwOThZVjNQVVFGTDNZRENONiQlQCN0PWcu)  
+- [MIMIC-IV demo OMOP dataset](https://physionet.org/content/mimic-iv-demo-omop/0.9/1_omop_data_csv/)  
+- [EHDEN Academy](https://academy.ehden.eu/)  
+- [Atlas Demo](https://atlas-demo.ohdsi.org/) and [Athena](https://athena.ohdsi.org/search-terms/start)  
+- [OHDSI YouTube: tutorials & workshops](https://youtube.com/playlist?list=PLpzbqK7kvfeXRQktX0PV-cRpb3EFA2e7Z)  
+- [OHDSI Community Dashboard](https://dash.ohdsi.org/)  
+- [OMOP Common Data Model (docs)](https://ohdsi.github.io/CommonDataModel/index.html)  
+- [Learn GitHub](https://docs.github.com/en/get-started/quickstart/hello-world)  
+- [Community Calls](https://ohdsi.org/community-calls/) and [Workgroups](https://ohdsi.org/upcoming-working-group-calls/)  
+- Follow OHDSI: [Twitter](https://twitter.com/OHDSI) • [LinkedIn](https://www.linkedin.com/company/ohdsi)  
+- [Subscribe to the OHDSI Newsletter](https://ohdsi.org/subscribe-to-our-newsletter/)  
+- [OHDSI software](https://ohdsi.org/software-tools/)  
+- [NIH All of Us — OMOP documentation](https://support.researchallofus.org/hc/en-us/articles/360039585391-How-the-Observational-Medical-Outcomes-Partnership-OMOP-vocabulary-are-structured)
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
+
+---
+
+## ⭐ Special Topic: Clinical Registries Using OHDSI
+
+[![OHDSI and Clinical Registries: Sanity for Health Systems (Aug. 22 Community Call)](http://img.youtube.com/vi/DPatSxFkIpI/0.jpg)](https://youtu.be/DPatSxFkIpI?si=VOqE4VTlzIcxuWdP)
+
+- Slides: [Clinical Registries in OHDSI — September 2022 (PDF)](https://www.ohdsi.org/wp-content/uploads/2022/09/OHDSI-Clinical_Registries.pdf)
+
+<div style="text-align: right"><a href="#table-of-contents">Back to Table of Contents</a></div>
 
 ## 💻 OMOP Code Snippets
 
