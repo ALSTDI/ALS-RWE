@@ -140,3 +140,125 @@ In the ALS TDI OMOP data set, custom concepts were created for:
 - 🔍 **Review the *_source_value or *_source_concept_id columns** in each OMOP table to understand how data were originally captured. These often contain verbatim responses or terms from the source survey.
 
 - 🧠 **Explore concept definitions** and standardized codes using the [OHDSI Athena](https://athena.ohdsi.org/) tool. You can look up concept IDs used throughout the dataset and understand their relationships and domains.
+
+## 📋 List of Surveys
+
+The ALS TDI ARC dataset contains the following participant surveys:
+
+- Enrollment
+- General Information
+- Family History
+- Geography
+- Lifestyle
+- Occupation
+- Medical History – Hospitalization
+- Medical History – Injuries
+- Medical History – Clinical Trials
+- Medical History – Conditions
+- Your ALS Experience
+- Medications
+- Supplements
+
+---
+
+# 📄 Survey Questionnaires
+
+Below are summaries of the survey forms. Click a section to expand the full question set.
+
+## **Enrollment**
+
+- Date of Birth*
+- Primary Phone*
+- Address* (Street, City, State, Country, Postal Code)
+- Gender*: Male / Female / Other / Prefer not to say
+- Ethnicity*: Caucasian/White, Hispanic, African American/Black, Asian, Native American, Middle Eastern, Other (specify)
+
+## **ALS Diagnostic Status:**
+- Possible*, Lab-Supported Probable*, Probable*, Definitive*, Asymptomatic Carrier, PLS  
+  *Per El Escorial diagnostic criteria.*
+
+## **Timeline:**
+- First Symptom Date (Month/Year) and location (e.g., Left Hand, Right Foot, Swallowing, Breathing, etc.)
+- First Neurology Visit Date (Month/Year)
+- First Possible ALS Diagnosis Date (Month/Year)
+- Formal ALS Diagnosis Date (Month/Year)
+
+## **Physician Information:**
+- Primary Care Physician*
+- Neurologist*
+
+## **Health & Function:**
+- Active infections? Tracheostomy? Feeding tube? CPAP use? DPS device? Major comorbidities? Relatives with ALS? Genetic screening? ALS-related medications? Clinical trial participation? Bleeding disorders? Functional abilities (stairs, arm raise, wheelchair use)
+
+## **Emergency Contact:**
+- Name*, Relation*, Phone*, Email*
+
+## **Free Text:**
+- Open comments on health or survey items
+
+## **Demographics:**
+- Race/ethnic group (select all)
+- Marital status
+- Education level
+
+## **Anthropometrics:**
+- Current height and weight
+- Height and weight at age 40 (if applicable)
+
+## **Family History**
+
+- Relation (parents, siblings, children, grandparents)
+- Living status
+- Physician-diagnosed conditions (ALS, Alzheimer’s, MS, autoimmune disorders, etc.)
+
+## **Geography**
+
+- Birth country/state/region, city*
+- Residences (≥6 months), years moved in/out
+- Ever lived on a farm/ranch?*
+
+## **Lifestyle**
+
+- Smoking history
+- Vigorous physical activity by age range (frequency per week/month/year)
+
+## **Occupation**
+
+- Current employment, job title, industry
+- Previous jobs/industries
+- Military service, deployment history
+
+## **Your ALS Experience**
+
+- Diagnosis details and age at diagnosis
+- Health events since ALS onset (pneumonia, falls, blood clots)
+- Symptom timelines (muscle cramps, twitching, swallowing, speech, bowel/bladder control)
+
+
+## **>Medical History – Hospitalization**
+
+- ER visits and hospitalizations in past 3 months
+- Number of visits/days
+
+## **Medical History – Injuries**
+
+- Head/neck injury history by cause (vehicle, falls, sports, assault, blast exposure, electrical shock)
+- Age at first/worst injury, loss of consciousness, hospitalization, associated conditions (fracture, seizure, memory loss)
+
+## **Medical History – Conditions**
+
+- List of physician-diagnosed conditions (ALS, Alzheimer’s, MS, autoimmune diseases, thyroid disease, etc.)
+
+## **Clinical Trials**
+
+- Trial name, start/end dates, Gov ID, sponsor, phase, type, treatment type, enrollment size
+
+## **Medications**
+
+- Drug name, dosage form, dosage, start/end dates, frequency
+
+## **Supplements**
+
+- Product name, brand, start/end dates, frequency, net contents, serving size
+
+
