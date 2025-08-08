@@ -1,5 +1,5 @@
 ---
-title: The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation
+title: The STARDUSTT Framework -- Addressing the Curse of Knowledge in OMOP Implementation
 hide:
   - title
 ---
