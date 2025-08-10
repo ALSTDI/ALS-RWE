@@ -4,7 +4,7 @@ title: Select Publications
 
 # 📚 Select Publications
 
-This is an assortment of scientific articles authored or co-authored by our team members, covering **real-world evidence (RWE)** in **amyotrophic lateral sclerosis (ALS)** and other disease areas. 
+This is an assortment of scientific articles authored or co-authored by our team members, covering **real-world evidence** in **amyotrophic lateral sclerosis (ALS)** and other disease areas. 
 
 ---
 ## 2025
