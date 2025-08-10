@@ -118,7 +118,7 @@ In the ALS TDI OMOP data set, custom concepts were created for:
 - **Anatomical site of symptom onset**
 - **El Escorial criteria**
 
-### El Escorial Criteria Harmonization
+#### El Escorial Criteria Harmonization
 
 We harmonized the El Escorial diagnostic criteria with Answer ALS and C-Path into a single custom concept set, and we are working to officially add El Escorial to the OMOP vocabulary.
 

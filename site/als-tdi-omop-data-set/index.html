@@ -568,7 +568,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="🛠️ Custom Concepts">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#el-escorial-criteria-harmonization" class="md-nav__link">
@@ -577,8 +578,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="El Escorial Criteria Harmonization">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#custom-concept-codes" class="md-nav__link">
@@ -830,7 +830,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="🛠️ Custom Concepts">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#el-escorial-criteria-harmonization" class="md-nav__link">
@@ -839,8 +840,7 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="El Escorial Criteria Harmonization">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#custom-concept-codes" class="md-nav__link">
@@ -906,7 +906,7 @@
 
 
 
-<h1 id="release-notes-version-010">📦 Release Notes: Version 0.1.0<a class="headerlink" href="#release-notes-version-010" title="Permanent link">&para;</a></h1>
+<h1 id="release-notes-version-010">📦 Release Notes: Version 0.1.0</h1>
 <p>The first release of the <a href="https://www.als.net/arc/">ALS TDI ARC Study</a>, mapped to the <a href="https://ohdsi.github.io/CommonDataModel/">Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)</a>, restructures a subset of the ARC Natural HIstory Study into the OMOP CDM structure and maps a subset to standardized vocabularies.</p>
 <p>This is part of a larger harmonization effort with <a href="https://www.answerals.org/">Answer ALS</a> and the <a href="https://c-path.org/program/critical-path-for-rare-neurodegenerative-diseases/">Critical Path Institute</a>.</p>
 <blockquote>
@@ -916,14 +916,14 @@
 </blockquote>
 <hr />
 <hr />
-<h3 id="complete-data-set-and-documentation-location">📁 Complete Data Set and Documentation Location<a class="headerlink" href="#complete-data-set-and-documentation-location" title="Permanent link">&para;</a></h3>
+<h3 id="complete-data-set-and-documentation-location">📁 Complete Data Set and Documentation Location</h3>
 <p><strong><a href="https://data.answerals.org/home">Neuromine Data Portal</a></strong></p>
 <hr />
-<h3 id="cdm-version">🧮 CDM Version<a class="headerlink" href="#cdm-version" title="Permanent link">&para;</a></h3>
+<h3 id="cdm-version">🧮 CDM Version</h3>
 <ul>
 <li><strong>OMOP CDM Version 5.4</strong> – <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">View Documentation</a></li>
 </ul>
-<h3 id="participant-summary">👥 Participant Summary<a class="headerlink" href="#participant-summary" title="Permanent link">&para;</a></h3>
+<h3 id="participant-summary">👥 Participant Summary</h3>
 <ul>
 <li><strong>Total number of participants</strong>: 1,676  <blockquote>
 <p><em>Note: not all participants answered all surveys</em></p>
@@ -941,12 +941,12 @@
 - Self-reported surveys and ALSFRS-R (ALS Functional Rating Scale – Revised) data
 - Laboratory results from analyzed blood samples</p>
 <hr />
-<h3 id="citation">📚 Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h3>
+<h3 id="citation">📚 Citation</h3>
 <blockquote>
 <p><strong>ALS Therapy Development Institute (ALS TDI). (2023).</strong>  <em>ALS Research Collaborative (ARC) [Data set].</em>  Amyotrophic Lateral Sclerosis Therapy Development Institute.   https://doi.org/10.71944/C3NA-9124</p>
 </blockquote>
 <hr />
-<h2 id="mappings">🧩 Mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h2>
+<h2 id="mappings">🧩 Mappings</h2>
 <ul>
 <li>
 <p><strong>🧍 Person</strong>:<br />
@@ -987,8 +987,8 @@
 <li>Injury history</li>
 </ul>
 <hr />
-<h2 id="notes-on-mapping-decisions">📌 Notes on Mapping Decisions<a class="headerlink" href="#notes-on-mapping-decisions" title="Permanent link">&para;</a></h2>
-<h3 id="dates-and-timing">🗓️ Dates and Timing<a class="headerlink" href="#dates-and-timing" title="Permanent link">&para;</a></h3>
+<h2 id="notes-on-mapping-decisions">📌 Notes on Mapping Decisions</h2>
+<h3 id="dates-and-timing">🗓️ Dates and Timing</h3>
 <p>Dates may be shifted for deidentification purposes using the method described in:</p>
 <blockquote>
 <p>Hripcsak G, Mirhaji P, Low AF, Malin BA.  <em>Preserving temporal relations in clinical data while maintaining privacy.</em>  J Am Med Inform Assoc. 2016 Nov;23(6):1040-1045.<br />
@@ -998,14 +998,14 @@
 - observation_period_start_date = first event date (usually first survey)<br />
 - observation_period_end_date = last event date or date of death</p>
 <hr />
-<h3 id="missing-data">❓ Missing Data<a class="headerlink" href="#missing-data" title="Permanent link">&para;</a></h3>
+<h3 id="missing-data">❓ Missing Data</h3>
 <p>If a data point was not collected, it is excluded unless required by OMOP CDM.<br />
 See the "Required" column in the <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html">CDM v5.4 guidance</a></p>
 <p><strong>Examples:</strong>
 - If <strong>ethnicity</strong> is unknown → concept_id = 0<br />
 - If <strong>race</strong> is unknown or multiple → concept_id = 0</p>
 <hr />
-<h3 id="custom-concepts">🛠️ Custom Concepts<a class="headerlink" href="#custom-concepts" title="Permanent link">&para;</a></h3>
+<h3 id="custom-concepts">🛠️ Custom Concepts</h3>
 <blockquote>
 <p><strong>What are custom concepts?</strong><br />
 In the OMOP Common Data Model, most clinical information is standardized using concept IDs from shared vocabularies (like SNOMED, RxNorm, LOINC, etc.). However, sometimes source data includes important information that <strong>doesn’t have an existing standardized concept</strong> in these vocabularies.</p>
@@ -1015,7 +1015,7 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 - <strong>ALS symptom onset</strong>
 - <strong>Anatomical site of symptom onset</strong>
 - <strong>El Escorial criteria</strong></p>
-<h3 id="el-escorial-criteria-harmonization">El Escorial Criteria Harmonization<a class="headerlink" href="#el-escorial-criteria-harmonization" title="Permanent link">&para;</a></h3>
+<h4 id="el-escorial-criteria-harmonization">El Escorial Criteria Harmonization</h4>
 <p>We harmonized the El Escorial diagnostic criteria with Answer ALS and C-Path into a single custom concept set, and we are working to officially add El Escorial to the OMOP vocabulary.</p>
 <p><strong>Important note:</strong> In ARC, El Escorial status is <strong>self-reported</strong> based on the question:</p>
 <p><strong>Status of ALS Diagnosis*</strong><br />
@@ -1024,7 +1024,7 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 - Probable<em><br />
 - Definite</em></p>
 <p>*These are specific terms derived from the El Escorial diagnostic criteria. These classifications are based on which areas of the body are affected by ALS symptoms, as determined during examination by your clinician.</p>
-<h4 id="custom-concept-codes">Custom Concept Codes<a class="headerlink" href="#custom-concept-codes" title="Permanent link">&para;</a></h4>
+<h4 id="custom-concept-codes">Custom Concept Codes</h4>
 <table>
 <thead>
 <tr>
@@ -1059,7 +1059,7 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 <p>These custom concepts are stored and referenced just like standard concepts, allowing them to be queried and analyzed using the same OMOP framework.</p>
 </blockquote>
 <hr />
-<h3 id="medications">💊 Medications<a class="headerlink" href="#medications" title="Permanent link">&para;</a></h3>
+<h3 id="medications">💊 Medications</h3>
 <ul>
 <li>Mapped to <strong>ingredient level</strong> wherever possible  </li>
 <li><strong>Dose not calculated</strong>  </li>
@@ -1069,7 +1069,7 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 <li>Source data included in the appropriate source column</li>
 </ul>
 <hr />
-<h2 id="guidance-for-using-this-data-set">🧭 Guidance for Using This Data Set<a class="headerlink" href="#guidance-for-using-this-data-set" title="Permanent link">&para;</a></h2>
+<h2 id="guidance-for-using-this-data-set">🧭 Guidance for Using This Data Set</h2>
 <ul>
 <li>
 <p>🔍 <strong>Review the <em>_source_value or </em>_source_concept_id columns</strong> in each OMOP table to understand how data were originally captured. These often contain verbatim responses or terms from the source survey.</p>
@@ -1078,7 +1078,7 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 <p>🧠 <strong>Explore concept definitions</strong> and standardized codes using the <a href="https://athena.ohdsi.org/">OHDSI Athena</a> tool. You can look up concept IDs used throughout the dataset and understand their relationships and domains.</p>
 </li>
 </ul>
-<h2 id="list-of-surveys">📋 List of Surveys<a class="headerlink" href="#list-of-surveys" title="Permanent link">&para;</a></h2>
+<h2 id="list-of-surveys">📋 List of Surveys</h2>
 <p>The ALS TDI ARC dataset contains the following participant surveys:</p>
 <ul>
 <li>Enrollment</li>
@@ -1096,9 +1096,9 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 <li>Supplements</li>
 </ul>
 <hr />
-<h1 id="survey-questionnaires">📄 Survey Questionnaires<a class="headerlink" href="#survey-questionnaires" title="Permanent link">&para;</a></h1>
+<h1 id="survey-questionnaires">📄 Survey Questionnaires</h1>
 <p>Below are summaries of the survey forms. <em>Note:</em> not all of the ARC surveys are mapped to OMOP in this release; the full (deidentified) dataset is available to eligible researchers through a data use agreement by <a href="https://www.als.net/arc/">contacting us</a>.</p>
-<h2 id="enrollment"><strong>Enrollment</strong><a class="headerlink" href="#enrollment" title="Permanent link">&para;</a></h2>
+<h2 id="enrollment"><strong>Enrollment</strong></h2>
 <ul>
 <li>Date of Birth</li>
 <li>Primary Phone</li>
@@ -1107,98 +1107,98 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 <li>Ethnicity<em>: Caucasian/White, Hispanic, African American/Black, Asian, Native American, Middle Eastern, Other (specify)
 </em>Note:  protected health information and other identifying characteristics are removed when data are shared with researchers.</li>
 </ul>
-<h2 id="als-diagnostic-status"><strong>ALS Diagnostic Status:</strong><a class="headerlink" href="#als-diagnostic-status" title="Permanent link">&para;</a></h2>
+<h2 id="als-diagnostic-status"><strong>ALS Diagnostic Status:</strong></h2>
 <ul>
 <li>Possible<em>, Lab-Supported Probable</em>, Probable<em>, Definitive</em>, Asymptomatic Carrier, PLS<br />
 <em>Per El Escorial diagnostic criteria.</em></li>
 </ul>
-<h2 id="timeline"><strong>Timeline:</strong><a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h2>
+<h2 id="timeline"><strong>Timeline:</strong></h2>
 <ul>
 <li>First Symptom Date (Month/Year) and location (e.g., Left Hand, Right Foot, Swallowing, Breathing, etc.)</li>
 <li>First Neurology Visit Date (Month/Year)</li>
 <li>First Possible ALS Diagnosis Date (Month/Year)</li>
 <li>Formal ALS Diagnosis Date (Month/Year)</li>
 </ul>
-<h2 id="physician-information"><strong>Physician Information:</strong><a class="headerlink" href="#physician-information" title="Permanent link">&para;</a></h2>
+<h2 id="physician-information"><strong>Physician Information:</strong></h2>
 <ul>
 <li>Primary Care Physician*</li>
 <li>Neurologist*</li>
 </ul>
-<h2 id="health-function"><strong>Health &amp; Function:</strong><a class="headerlink" href="#health-function" title="Permanent link">&para;</a></h2>
+<h2 id="health-function"><strong>Health &amp; Function:</strong></h2>
 <ul>
 <li>Active infections? Tracheostomy? Feeding tube? CPAP use? DPS device? Major comorbidities? Relatives with ALS? Genetic screening? ALS-related medications? Clinical trial participation? Bleeding disorders? Functional abilities (stairs, arm raise, wheelchair use)</li>
 </ul>
-<h2 id="emergency-contact"><strong>Emergency Contact:</strong><a class="headerlink" href="#emergency-contact" title="Permanent link">&para;</a></h2>
+<h2 id="emergency-contact"><strong>Emergency Contact:</strong></h2>
 <ul>
 <li>Name<em>, Relation</em>, Phone<em>, Email</em></li>
 </ul>
-<h2 id="free-text"><strong>Free Text:</strong><a class="headerlink" href="#free-text" title="Permanent link">&para;</a></h2>
+<h2 id="free-text"><strong>Free Text:</strong></h2>
 <ul>
 <li>Open comments on health or survey items</li>
 </ul>
-<h2 id="demographics"><strong>Demographics:</strong><a class="headerlink" href="#demographics" title="Permanent link">&para;</a></h2>
+<h2 id="demographics"><strong>Demographics:</strong></h2>
 <ul>
 <li>Race/ethnic group (select all)</li>
 <li>Marital status</li>
 <li>Education level</li>
 </ul>
-<h2 id="anthropometrics"><strong>Anthropometrics:</strong><a class="headerlink" href="#anthropometrics" title="Permanent link">&para;</a></h2>
+<h2 id="anthropometrics"><strong>Anthropometrics:</strong></h2>
 <ul>
 <li>Current height and weight</li>
 <li>Height and weight at age 40 (if applicable)</li>
 </ul>
-<h2 id="family-history"><strong>Family History</strong><a class="headerlink" href="#family-history" title="Permanent link">&para;</a></h2>
+<h2 id="family-history"><strong>Family History</strong></h2>
 <ul>
 <li>Relation (parents, siblings, children, grandparents)</li>
 <li>Living status</li>
 <li>Physician-diagnosed conditions (ALS, Alzheimer’s, MS, autoimmune disorders, etc.)</li>
 </ul>
-<h2 id="geography"><strong>Geography</strong><a class="headerlink" href="#geography" title="Permanent link">&para;</a></h2>
+<h2 id="geography"><strong>Geography</strong></h2>
 <ul>
 <li>Birth country/state/region, city*</li>
 <li>Residences (≥6 months), years moved in/out</li>
 <li>Ever lived on a farm/ranch?*</li>
 </ul>
-<h2 id="lifestyle"><strong>Lifestyle</strong><a class="headerlink" href="#lifestyle" title="Permanent link">&para;</a></h2>
+<h2 id="lifestyle"><strong>Lifestyle</strong></h2>
 <ul>
 <li>Smoking history</li>
 <li>Vigorous physical activity by age range (frequency per week/month/year)</li>
 </ul>
-<h2 id="occupation"><strong>Occupation</strong><a class="headerlink" href="#occupation" title="Permanent link">&para;</a></h2>
+<h2 id="occupation"><strong>Occupation</strong></h2>
 <ul>
 <li>Current employment, job title, industry</li>
 <li>Previous jobs/industries</li>
 <li>Military service, deployment history</li>
 </ul>
-<h2 id="your-als-experience"><strong>Your ALS Experience</strong><a class="headerlink" href="#your-als-experience" title="Permanent link">&para;</a></h2>
+<h2 id="your-als-experience"><strong>Your ALS Experience</strong></h2>
 <ul>
 <li>Diagnosis details and age at diagnosis</li>
 <li>Health events since ALS onset (pneumonia, falls, blood clots)</li>
 <li>Symptom timelines (muscle cramps, twitching, swallowing, speech, bowel/bladder control)</li>
 </ul>
-<h2 id="medical-history-hospitalization"><strong>&gt;Medical History – Hospitalization</strong><a class="headerlink" href="#medical-history-hospitalization" title="Permanent link">&para;</a></h2>
+<h2 id="medical-history-hospitalization"><strong>&gt;Medical History – Hospitalization</strong></h2>
 <ul>
 <li>ER visits and hospitalizations in past 3 months</li>
 <li>Number of visits/days</li>
 </ul>
-<h2 id="medical-history-injuries"><strong>Medical History – Injuries</strong><a class="headerlink" href="#medical-history-injuries" title="Permanent link">&para;</a></h2>
+<h2 id="medical-history-injuries"><strong>Medical History – Injuries</strong></h2>
 <ul>
 <li>Head/neck injury history by cause (vehicle, falls, sports, assault, blast exposure, electrical shock)</li>
 <li>Age at first/worst injury, loss of consciousness, hospitalization, associated conditions (fracture, seizure, memory loss)</li>
 </ul>
-<h2 id="medical-history-conditions"><strong>Medical History – Conditions</strong><a class="headerlink" href="#medical-history-conditions" title="Permanent link">&para;</a></h2>
+<h2 id="medical-history-conditions"><strong>Medical History – Conditions</strong></h2>
 <ul>
 <li>List of physician-diagnosed conditions (ALS, Alzheimer’s, MS, autoimmune diseases, thyroid disease, etc.)</li>
 </ul>
-<h2 id="clinical-trials"><strong>Clinical Trials</strong><a class="headerlink" href="#clinical-trials" title="Permanent link">&para;</a></h2>
+<h2 id="clinical-trials"><strong>Clinical Trials</strong></h2>
 <ul>
 <li>Trial name, start/end dates, Gov ID, sponsor, phase, type, treatment type, enrollment size</li>
 </ul>
-<h2 id="medications_1"><strong>Medications</strong><a class="headerlink" href="#medications_1" title="Permanent link">&para;</a></h2>
+<h2 id="medications_1"><strong>Medications</strong></h2>
 <ul>
 <li>Drug name, dosage form, dosage, start/end dates, frequency</li>
 </ul>
-<h2 id="supplements"><strong>Supplements</strong><a class="headerlink" href="#supplements" title="Permanent link">&para;</a></h2>
+<h2 id="supplements"><strong>Supplements</strong></h2>
 <ul>
 <li>Product name, brand, start/end dates, frequency, net contents, serving size</li>
 </ul>
