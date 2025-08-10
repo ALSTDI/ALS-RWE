@@ -8,7 +8,7 @@ theme:
     text: "EB Garamond"
   palette:
     scheme: default
-    primary: custom         # uses your CSS variables for the purple
+    primary: custom         # uses CSS variables for the purple
     accent: custom
   features:
     - navigation.tabs
