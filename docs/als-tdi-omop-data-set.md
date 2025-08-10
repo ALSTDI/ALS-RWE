@@ -111,15 +111,38 @@ See the "Required" column in the [CDM v5.4 guidance](https://ohdsi.github.io/Com
 > **What are custom concepts?**  
 In the OMOP Common Data Model, most clinical information is standardized using concept IDs from shared vocabularies (like SNOMED, RxNorm, LOINC, etc.). However, sometimes source data includes important information that **doesn’t have an existing standardized concept** in these vocabularies.
 
-In those cases, researchers define **custom (or local) concepts** with unique concept IDs (usually starting above 2,000,000,000). These custom concepts allow valuable variables — such as ALS symptom onset patterns, survey-specific fields, or patient-reported values — to be included in the dataset in a structured, queryable way.
+In those cases, researchers define **custom (or local) concepts** with unique concept IDs (usually starting above 2,000,000,000). These custom concepts allow valuable variables to be included in the dataset in a structured, queryable way.
 
 In the ALS TDI OMOP data set, custom concepts were created for:
 - **ALS symptom onset**
 - **Anatomical site of symptom onset**
-- Additional variables unique to the ARC study
+- **El Escorial criteria**
+
+### El Escorial Criteria Harmonization
+
+We harmonized the El Escorial diagnostic criteria with Answer ALS and C-Path into a single custom concept set, and we are working to officially add El Escorial to the OMOP vocabulary.
+
+**Important note:** In ARC, El Escorial status is **self-reported** based on the question:
+
+**Status of ALS Diagnosis\***  
+- Possible*  
+- Laboratory-Supported Probable*  
+- Probable*  
+- Definite*
+
+\*These are specific terms derived from the El Escorial diagnostic criteria. These classifications are based on which areas of the body are affected by ALS symptoms, as determined during examination by your clinician.
+
+#### Custom Concept Codes
+| El Escorial Status              | Custom Concept ID |
+|---------------------------------|------------------:|
+| Suspected                       | 2000000062        |
+| Possible                        | 2000000058        |
+| Probable Laboratory Supported   | 2000000060        |
+| Probable                        | 2000000059        |
+| Definite                        | 2000000057        |
+
 
 > These custom concepts are stored and referenced just like standard concepts, allowing them to be queried and analyzed using the same OMOP framework.
-
 
 ---
 
@@ -162,15 +185,17 @@ The ALS TDI ARC dataset contains the following participant surveys:
 
 # 📄 Survey Questionnaires
 
-Below are summaries of the survey forms. Click a section to expand the full question set.
+Below are summaries of the survey forms. *Note:* not all of the ARC surveys are mapped to OMOP in this release; the full (deidentified) dataset is available to eligible researchers through a data use agreement by [contacting us](https://www.als.net/arc/).
+
 
 ## **Enrollment**
 
-- Date of Birth*
-- Primary Phone*
-- Address* (Street, City, State, Country, Postal Code)
-- Gender*: Male / Female / Other / Prefer not to say
+- Date of Birth
+- Primary Phone
+- Address (Street, City, State, Country, Postal Code)
+- Gender: Male / Female / Other / Prefer not to say
 - Ethnicity*: Caucasian/White, Hispanic, African American/Black, Asian, Native American, Middle Eastern, Other (specify)
+*Note:  protected health information and other identifying characteristics are removed when data are shared with researchers.
 
 ## **ALS Diagnostic Status:**
 - Possible*, Lab-Supported Probable*, Probable*, Definitive*, Asymptomatic Carrier, PLS  
