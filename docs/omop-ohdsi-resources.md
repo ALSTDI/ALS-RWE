@@ -11,7 +11,7 @@ In addition to the essential resources listed on "New to RWE?  Start Here" page,
 ---
 ## Join the Community
 ### ☐ [Introduce yourself on the OHDSI Forums](https://forums.ohdsi.org/) — “Welcome to OHDSI” thread
-### ☐ [Follow OHDSI on Twitter/X](https://twitter.com/OHDSI) and [LinkedIn](https://www.linkedin.com/company/ohdsi)
+### ☐ [Follow OHDSI on [LinkedIn](https://www.linkedin.com/company/ohdsi)
 ### ☐ [Subscribe to the OHDSI Newsletter](https://ohdsi.org/subscribe-to-our-newsletter/)
 ### ☐ [Learn about OHDSI Workgroups](https://ohdsi.org/upcoming-working-group-calls/)
 ### ☐ [Attend an OHDSI Community Call](https://ohdsi.org/community-calls/)
@@ -20,7 +20,7 @@ In addition to the essential resources listed on "New to RWE?  Start Here" page,
 
 ## Reading and Reference
 ### ☐ [Bookmark the Book of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/)
-### ☐ [Read NIH All of Us OMOP documentation](https://support.researchallofus.org/hc/en-us/articles/360039585391-How-the-Observational-Medical-Outcomes-Partnership-OMOP-vocabulary-are-structured)
+### ☐ [Bookmark NIH All of Us OMOP documentation](https://support.researchallofus.org/hc/en-us/articles/360039585391-How-the-Observational-Medical-Outcomes-Partnership-OMOP-vocabulary-are-structured)
 
 ## OMOP Training & Tutorials
 ### ☐ [Enroll in the EHDEN Academy](https://academy.ehden.eu/)
@@ -31,7 +31,7 @@ In addition to the essential resources listed on "New to RWE?  Start Here" page,
 ### ☐ [Read the OMOP CDM FAQ](https://ohdsi.github.io/CommonDataModel/faq.html)
 
 ## Standardized Vocabularies
-### ☐ [Search vocabularies in Athena](https://athena.ohdsi.org/search-terms/start) — look up individual concepts
+### ☐ [Search vocabularies in Athena](https://athena.ohdsi.org/search-terms/start) — look up individual concepts of interest to you
 
 ## Data
 ### ☐ [Download the MIMIC-IV demo OMOP dataset](https://physionet.org/content/mimic-iv-demo-omop/0.9/1_omop_data_csv/)
@@ -39,8 +39,6 @@ In addition to the essential resources listed on "New to RWE?  Start Here" page,
 ## Software & Tools
 ### ☐ [Review OHDSI software tools](https://ohdsi.org/software-tools/)
 ### ☐ [Explore the Atlas Demo](https://atlas-demo.ohdsi.org/)
-
-
 
 ---
 
