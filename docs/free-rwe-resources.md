@@ -1,8 +1,8 @@
 ---
-title: New to RWE? Start Here: Free Real World Evidence Resources
+title: New to RWE? Start Here: Free RWE Resources
 ---
 
-## These curated, freely accessible resources provide foundational knowledge, practical examples, and step-by-step instructions for navigating real world evidence:
+These curated, freely accessible resources provide foundational knowledge, practical examples, and step-by-step instructions for navigating real world evidence:
 
 ### **Book:**  
   *Guide to Real-World Data for Clinical Research*  
