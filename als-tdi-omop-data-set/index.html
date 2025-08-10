@@ -571,6 +571,30 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#el-escorial-criteria-harmonization" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Escorial Criteria Harmonization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Escorial Criteria Harmonization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-concept-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Concept Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#medications" class="md-nav__link">
     <span class="md-ellipsis">
       💊 Medications
@@ -809,6 +833,30 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#el-escorial-criteria-harmonization" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Escorial Criteria Harmonization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El Escorial Criteria Harmonization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-concept-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Concept Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#medications" class="md-nav__link">
     <span class="md-ellipsis">
       💊 Medications
@@ -962,11 +1010,51 @@ See the "Required" column in the <a href="https://ohdsi.github.io/CommonDataMode
 <p><strong>What are custom concepts?</strong><br />
 In the OMOP Common Data Model, most clinical information is standardized using concept IDs from shared vocabularies (like SNOMED, RxNorm, LOINC, etc.). However, sometimes source data includes important information that <strong>doesn’t have an existing standardized concept</strong> in these vocabularies.</p>
 </blockquote>
-<p>In those cases, researchers define <strong>custom (or local) concepts</strong> with unique concept IDs (usually starting above 2,000,000,000). These custom concepts allow valuable variables — such as ALS symptom onset patterns, survey-specific fields, or patient-reported values — to be included in the dataset in a structured, queryable way.</p>
+<p>In those cases, researchers define <strong>custom (or local) concepts</strong> with unique concept IDs (usually starting above 2,000,000,000). These custom concepts allow valuable variables to be included in the dataset in a structured, queryable way.</p>
 <p>In the ALS TDI OMOP data set, custom concepts were created for:
 - <strong>ALS symptom onset</strong>
 - <strong>Anatomical site of symptom onset</strong>
-- Additional variables unique to the ARC study</p>
+- <strong>El Escorial criteria</strong></p>
+<h3 id="el-escorial-criteria-harmonization">El Escorial Criteria Harmonization<a class="headerlink" href="#el-escorial-criteria-harmonization" title="Permanent link">&para;</a></h3>
+<p>We harmonized the El Escorial diagnostic criteria with Answer ALS and C-Path into a single custom concept set, and we are working to officially add El Escorial to the OMOP vocabulary.</p>
+<p><strong>Important note:</strong> In ARC, El Escorial status is <strong>self-reported</strong> based on the question:</p>
+<p><strong>Status of ALS Diagnosis*</strong><br />
+- Possible<em><br />
+- Laboratory-Supported Probable</em><br />
+- Probable<em><br />
+- Definite</em></p>
+<p>*These are specific terms derived from the El Escorial diagnostic criteria. These classifications are based on which areas of the body are affected by ALS symptoms, as determined during examination by your clinician.</p>
+<h4 id="custom-concept-codes">Custom Concept Codes<a class="headerlink" href="#custom-concept-codes" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>El Escorial Status</th>
+<th style="text-align: right;">Custom Concept ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suspected</td>
+<td style="text-align: right;">2000000062</td>
+</tr>
+<tr>
+<td>Possible</td>
+<td style="text-align: right;">2000000058</td>
+</tr>
+<tr>
+<td>Probable Laboratory Supported</td>
+<td style="text-align: right;">2000000060</td>
+</tr>
+<tr>
+<td>Probable</td>
+<td style="text-align: right;">2000000059</td>
+</tr>
+<tr>
+<td>Definite</td>
+<td style="text-align: right;">2000000057</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>These custom concepts are stored and referenced just like standard concepts, allowing them to be queried and analyzed using the same OMOP framework.</p>
 </blockquote>
@@ -1009,14 +1097,15 @@ In the OMOP Common Data Model, most clinical information is standardized using c
 </ul>
 <hr />
 <h1 id="survey-questionnaires">📄 Survey Questionnaires<a class="headerlink" href="#survey-questionnaires" title="Permanent link">&para;</a></h1>
-<p>Below are summaries of the survey forms. Click a section to expand the full question set.</p>
+<p>Below are summaries of the survey forms. <em>Note:</em> not all of the ARC surveys are mapped to OMOP in this release; the full (deidentified) dataset is available to eligible researchers through a data use agreement by <a href="https://www.als.net/arc/">contacting us</a>.</p>
 <h2 id="enrollment"><strong>Enrollment</strong><a class="headerlink" href="#enrollment" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Date of Birth*</li>
-<li>Primary Phone*</li>
-<li>Address* (Street, City, State, Country, Postal Code)</li>
-<li>Gender*: Male / Female / Other / Prefer not to say</li>
-<li>Ethnicity*: Caucasian/White, Hispanic, African American/Black, Asian, Native American, Middle Eastern, Other (specify)</li>
+<li>Date of Birth</li>
+<li>Primary Phone</li>
+<li>Address (Street, City, State, Country, Postal Code)</li>
+<li>Gender: Male / Female / Other / Prefer not to say</li>
+<li>Ethnicity<em>: Caucasian/White, Hispanic, African American/Black, Asian, Native American, Middle Eastern, Other (specify)
+</em>Note:  protected health information and other identifying characteristics are removed when data are shared with researchers.</li>
 </ul>
 <h2 id="als-diagnostic-status"><strong>ALS Diagnostic Status:</strong><a class="headerlink" href="#als-diagnostic-status" title="Permanent link">&para;</a></h2>
 <ul>
