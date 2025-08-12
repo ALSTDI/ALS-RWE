@@ -32,7 +32,7 @@ Watch Dr. Danielle Boyce present **STARDUSTT-ALS** — a new approach to capturi
 
 Adopting the Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM) requires collaboration across diverse stakeholders—executives, clinical informaticists, and technical teams—each with different expertise. Too often, the **curse of knowledge** impedes effective communication, slowing progress.
 
-The **STARDUSTT Framework**—**S**ecure Data, **T**echnology Awareness, **A**ctive Clinical Representation, **R**elational Databases, **D**ata Quality, **U**tilization of GitHub, **S**tandardized Vocabularies, **T**raining & Documentation, **T**ranslation & Communication—offers a structured approach to build readiness and overcome these barriers.
+The **STARDUSTT Framework**—**S**ecure Data, **T**echnology Awareness, **A**ctive Clinical Representation, **R**elational Databases, **D**ata Quality, **U**tilization of Git, **S**tandardized Vocabularies, **T**raining & Documentation, **T**ranslation & Communication—offers a structured approach to build readiness and overcome these barriers.
 
 ---
 
@@ -61,7 +61,7 @@ Our work on the **CURE ID** project provided direct, practical experience with t
 3. **Active Clinical Representation** — Inclusion of clinicians in decision-making and workflow mapping.
 4. **Relational Databases** — Understanding schema, joins, and OMOP table relationships.
 5. **Data Quality** — Processes for completeness, accuracy, and plausibility.
-6. **Utilization of GitHub** — Version control, collaboration, and issue tracking.
+6. **Utilization of Git** — Version control, collaboration, and issue tracking.
 7. **Standardized Vocabularies** — SNOMED, LOINC, RxNorm, and use of Athena for mapping.
 8. **Training & Documentation** — SOPs, MOPs, and curated learning paths.
 9. **Translation & Communication** — Plain-language messaging, feedback loops, and artifacts for different personas.
@@ -105,7 +105,7 @@ The framework emerged from interviews with both successful and hesitant OMOP ado
 | **Active Clinical Representation** | Sponsor collaboration | Bridge to technical teams | Integrate clinical context |
 | **Relational Databases** | Decision-making role | Basic querying | Dialect-specific scripting |
 | **Data Quality** | Impact on trust | Use of DQD/Achilles | Automated DQ pipelines |
-| **Utilization of GitHub** | Governance | Simplified workflows | Advanced branching & CI |
+| **Utilization of Git** | Governance | Simplified workflows | Advanced branching & CI |
 | **Standardized Vocabularies** | Interoperability strategy | Vocabulary use in practice | Mapping & Athena mastery |
 | **Training & Documentation** | Executive dashboards | Guides & glossaries | Tutorials & peer reviews |
 | **Translation & Communication** | Strategic framing | Clinical translation | Technical action from requirements |
