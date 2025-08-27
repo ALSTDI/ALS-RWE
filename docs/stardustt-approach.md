@@ -15,7 +15,7 @@ Watch Dr. Danielle Boyce present **STARDUSTT-ALS** — a new approach to capturi
 
 **The STARDUSTT Framework: Addressing the Curse of Knowledge in OMOP Implementation**
 
-**Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, William M Garneau<sup>2</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
+**Authors:** Danielle Boyce<sup>1,2,3</sup>, Pavel Goriacko<sup>4</sup>, Pamela Dasher<sup>5</sup>, William Roddy<sup>5</sup>, Wesley Anderson<sup>5</sup>, Smith F. Heavner<sup>5,6</sup>  
 
 **Corresponding Author:** [Danielle Boyce](mailto:dboyce3@als.net)  
 
