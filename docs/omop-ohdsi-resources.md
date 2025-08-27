@@ -15,7 +15,7 @@ In addition to the essential resources listed on "New to RWE?  Start Here" page,
 ### ☐ [Subscribe to the OHDSI Newsletter](https://ohdsi.org/subscribe-to-our-newsletter/)
 ### ☐ [Learn about OHDSI Workgroups](https://ohdsi.org/upcoming-working-group-calls/)
 ### ☐ [Attend an OHDSI Community Call](https://ohdsi.org/community-calls/)
-### ☐ [Review past & upcoming OHDSI events](https://ohdsi.org/2023-ohdsi-events/)
+### ☐ [Review past & upcoming OHDSI events](https://www.ohdsi.org/ohdsi2025/)
 ### ☐ [Join the OHDSI Microsoft Teams environment](https://forms.office.com/Pages/ResponsePage.aspx?id=lAAPoyCRq0q6TOVQkCOy1ZyG6Ud_r2tKuS0HcGnqiQZUQ05MOU9BSzEwOThZVjNQVVFGTDNZRENONiQlQCN0PWcu)
 
 ## Reading and Reference
