@@ -21,7 +21,6 @@ This is an assortment of scientific articles authored or co-authored by our team
 - **Consumer-grade wearables and machine learning sensitively capture disease progression in amyotrophic lateral sclerosis**  
   Gupta AS, Patel S, Premasiri A, Vieira F. *medRxiv*. 2023. doi:[10.1101/2023.03.28.23287869](https://doi.org/10.1101/2023.03.28.23287869). [Preprint](https://www.medrxiv.org/content/10.1101/2023.03.28.23287869v1)
 
-## 2022
 - **A machine-learning based objective measure for ALS disease severity**  
   Vieira FG, Venugopalan S, Premasiri AS, et al. *npj Digital Medicine*. 2022;5:45. doi:[10.1038/s41746-022-00588-8](https://doi.org/10.1038/s41746-022-00588-8). [Full text](https://www.nature.com/articles/s41746-022-00588-8)
 
