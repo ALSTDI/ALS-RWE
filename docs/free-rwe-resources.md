@@ -1,7 +1,3 @@
----
-title: New to RWE? Start Here: Free RWE Resources
----
-
 # New to RWE? Start Here
 
 These curated, freely accessible resources provide foundational knowledge, practical examples, and step-by-step instructions for navigating real world evidence:
@@ -26,13 +22,43 @@ These curated, freely accessible resources provide foundational knowledge, pract
   [Access the resource](https://als-geospatial-hub-nonprofit.hub.arcgis.com/)
 
 
-## Additional Resources to Support the STARDUSTT framework
-### Git and GitHub
-  [GitHub’s “Hello World” quickstart](https://docs.github.com/en/get-started/quickstart/hello-world)
+## 📚 Additional Resources to Support the STARDUSTT Framework  
 
+### 🔧 Git & GitHub  
+- [GitHub Hello World Quickstart](https://docs.github.com/en/get-started/quickstart/hello-world) — Learn the basics of GitHub by creating your first repository.  
 
-### Relational Databases
-  [Microsoft’s “Explore relational data concepts” module](https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/)
+### 🗄️ Relational Databases  
+- [Microsoft Learn: Explore Relational Data Concepts](https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/) — Introduction to relational databases and core concepts.  
 
+---
 
-## ***See "OMOP and OHDSI Resources" Chapter for More OMOP CDM Resources***
+### 📘 Data Science Handbook  
+- [Open, Rigorous, and Reproducible Research: A Practitioner’s Handbook](https://datascience.stanford.edu/programs/stanford-data-science-scholars-program/data-science-handbook) — Stanford Data Science’s guide for reproducible research.  
+
+---
+
+### 🧰 Data Management Tools & Guidance  
+- [DMPTool](https://dmptool.org/) — Create and manage data management plans.  
+- [NIH Data Management & Sharing Policy](https://sharing.nih.gov/data-management-and-sharing-policy/planning-and-budgeting-for-data-management-and-sharing/writing-a-data-management-and-sharing-plan#after) — Guidance on planning and budgeting for data sharing.  
+
+---
+
+### 💻 Programming & Data Science Resources  
+
+**Core Platforms:**  
+- [Project Jupyter](https://jupyter.org/) — Interactive computing.  
+- [What is the Jupyter Notebook?](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html) — Beginner-friendly guide.  
+- [NIAID NIH Informatics Resources](https://bioinformatics.niaid.nih.gov/resources).  
+
+**Software Carpentry (free, hands-on lessons):**  
+- [Python](http://swcarpentry.github.io/python-novice-inflammation/)  
+- [R](http://swcarpentry.github.io/r-novice-inflammation/)  
+- [Databases & SQL](http://swcarpentry.github.io/sql-novice-survey/)  
+
+**Additional Learning:**  
+- [DataCamp](http://www.datacamp.com/) — Interactive coding lessons.  
+- [Khan Academy: SQL Basics](https://www.khanacademy.org/computing/computer-programming/sql/sql-basics/v/welcome-to-sql).  
+- [Codecademy: Learn Python](https://www.codecademy.com/learn/learn-python).  
+- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) by Jake VanderPlas.  
+- [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham & Garrett Grolemund.  
+- [NIH “All of Us” Jupyter & Programming Docs](https://support.researchallofus.org/hc/en-us/articles/360039690191-Jupyter-Notebooks-and-programming).  
