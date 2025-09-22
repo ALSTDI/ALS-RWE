@@ -17,6 +17,9 @@ This site brings together resources, methods, and publications to support the us
 
 This project is an initiative of the **[ALS Therapy Development Institute](http://www.als.net).**  We invite clinicians, researchers, and data scientists to use these materials as a foundation for further studies and to join the effort of advancing data-driven ALS research.  
 
+**Citation**
+Boyce, D. (2025). ALS TDI Real World Evidence Resources. Amyotrophic Lateral Sclerosis Therapy Development Institute. https://doi.org/10.71944/FBZ2-T881
+
 ## Table of Contents
 
 - [New to RWE? Start Here](free-rwe-resources.md)
