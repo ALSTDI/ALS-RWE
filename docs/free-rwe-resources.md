@@ -12,6 +12,12 @@ These curated, freely accessible resources provide foundational knowledge, pract
   Taught by Danielle Boyce (ALS TDI) and Pavel Goriacko (Montefiore)  
   [Enroll in the course](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18)
 
+### Train-the-Trainer (OHDSI/OMOP)
+
+[👉 Open the Train-the-Trainer materials](train-the-trainer/)
+
+> A curated, hands-on curriculum covering OMOP/CDM fundamentals, vocabularies, Atlas, and exercises.
+
 ### **Curated Resource Overview**  
   *OHDSI, OMOP, and FHIR for Neurodegenerative Disease Researchers*  
   Created by Danielle Boyce (ALS TDI)  
