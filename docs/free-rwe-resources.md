@@ -67,4 +67,5 @@ These curated, freely accessible resources provide foundational knowledge, pract
 - [Codecademy: Learn Python](https://www.codecademy.com/learn/learn-python).  
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/) by Jake VanderPlas.  
 - [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham & Garrett Grolemund.  
-- [NIH “All of Us” Jupyter & Programming Docs](https://support.researchallofus.org/hc/en-us/articles/360039690191-Jupyter-Notebooks-and-programming).  
+- [NIH “All of Us” Jupyter & Programming Docs](https://support.researchallofus.org/hc/en-us/articles/360039690191-Jupyter-Notebooks-and-programming).
+- 
