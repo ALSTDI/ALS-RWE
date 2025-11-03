@@ -2,7 +2,7 @@
 title: OMOP/OHDSI Resources
 ---
 
-This chapter contains practical resources for working with Observational Health Data Science and Informatics (OHDSI) community resources and Observational Medical Outcomes Partnership (OMOP) data, including an interactive OMOP data dictionary, code snippets for common analytic tasks using a variety of software, and examples of observational research projects suited to OMOP/OHDSI frameworks.  For a good overview of OHDSI/OMOP, please see the resources in the chapter, "New to RWE?  Start Here."
+This page contains practical resources for working with Observational Health Data Science and Informatics (OHDSI) community resources and Observational Medical Outcomes Partnership (OMOP) data, including an interactive OMOP data dictionary, code snippets for common analytic tasks using a variety of software, and examples of observational research projects suited to OMOP/OHDSI frameworks.  For a good overview of OHDSI/OMOP, please see the resources in the chapter, "New to RWE?  Start Here."
 
 # OMOP Scavenger Hunt
 
