@@ -51,7 +51,7 @@ This version includes:
 <ul>
   <li>
     <strong>🧍 Person</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON">Person Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#person">Person Domain</a>)
     <ul>
           <li>Year of birth</li>
           <li>Sex</li>
@@ -64,7 +64,7 @@ This version includes:
 
   <li>
     <strong>📝 Observation</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#OBSERVATION">Observation Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#observation">Observation Domain</a>)
     <ul>
       <li>Validated, self-reported ALSFRS-R (mapped using custom concepts; more details in the custom concepts section of this page)
         <ul>
@@ -109,7 +109,7 @@ This version includes:
 
   <li>
     <strong>🧪 Measurement</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT">Measurement Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#measurement">Measurement Domain</a>)
     <ul>
       <li>Laboratory measurements: lab-provided measurements from blood draws, including
         <ul>
@@ -167,7 +167,7 @@ This version includes:
 
   <li>
     <strong>💊 Drug Exposure</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE">Drug Exposure Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#drug_exposure">Drug Exposure Domain</a>)
     <ul>
       <li>Self-reported medications and supplements</li>
       <li>Ingredient-level mapping (≥20 frequency mapped, others = 0)</li>
@@ -179,7 +179,7 @@ This version includes:
 
   <li>
     <strong>⚰️ Mortality</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#DEATH">Death Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#death">Death Domain</a>)
     <ul>
       <li>Date of death (month/day set to <code>12-31</code> for privacy)</li>
     </ul>
