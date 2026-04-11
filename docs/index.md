@@ -8,7 +8,7 @@ hide:
 # Home  
 
 Welcome to the **ALS-RWE Knowledge Hub**.  
-This XXsite brings together resources, methods, and publications to support the use of real-world evidence (RWE) in ALS research. Our goal is to promote transparency, reproducibility, and collaboration by providing a centralized space for:  
+This AAAsite brings together resources, methods, and publications to support the use of real-world evidence (RWE) in ALS research. Our goal is to promote transparency, reproducibility, and collaboration by providing a centralized space for:  
 
 - Understanding how ALS data sets can be transformed into the **OMOP Common Data Model**.  
 - Learning about methods such as the **STARDUSTT approach** for structuring analyses.  
