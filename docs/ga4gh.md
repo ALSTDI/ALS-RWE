@@ -8,9 +8,6 @@ This page brings together resources for the **April 16 workshop at GA4GH Connect
 
 Materials for the April 16 GA4GH Connect workshop will be posted here.
 
-### Workshop downloads
-- [ALS TDI data dictionary (CSV)](assets/datadictionary.csv)
-
 ---
 ## Accessing ALS TDI data through ARC Data Commons
 
