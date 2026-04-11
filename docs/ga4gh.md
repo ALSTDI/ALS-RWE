@@ -230,7 +230,7 @@ This may suggest early or subclinical bulbar involvement, or differences in meas
 | Surveys | Extensive |
 | EHR | Longitudinal (ICD, RxNorm, LOINC, CPT) |
 
-### 10. Phenopacket-Ready Abstraction
+### 10. Abstraction
 **Disease:** ALS (G12.21)  
 **Onset:** 57 years  
 **Course:** Slow progression
