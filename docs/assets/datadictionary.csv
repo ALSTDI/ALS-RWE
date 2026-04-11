@@ -1,0 +1,464 @@
+﻿Sheet Name,Variable Name,Data Type,Non-Null Count,Unique Values
+Family History,Subject,int64,5050,758
+Family History,Submitted,object,5050,758
+Family History,Relation,object,5050,10
+Family History,Is this person still living?,object,5049,2
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Allergies,object,339,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - ALS or other neuromuscular disease,object,113,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Alzheimer's disease or other dementia,object,280,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Asthma,object,170,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Behcet's disease,object,1,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Blood cancer,object,41,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Chronic fatigue syndrome,object,8,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Crohn's disease,object,17,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Cushing's disease,object,2,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Fibromyalgia,object,41,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Guillain Barre syndrome,object,3,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Idiopathic thrombocytopenic purpura,object,2,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Multiple sclerosis,object,15,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Muscle dystrophy,object,10,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Neuromyelitis optica,object,1,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Peripheral neuropathy,object,43,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Psoriasis,object,54,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Rheumatoid arthritis,object,141,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Systemic lupus erythematosus,object,11,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Thyroid disease,object,195,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Transient ischemic attack,object,62,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Ulcerative colitis,object,30,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Other - Write In,object,870,564
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - None of these,object,2539,1
+Family History,Has this person ever been diagnosed by a physician with any of the following medical conditions? - Don't know,object,540,1
+General Information 1,Subject,int64,766,766
+General Information 1,Submitted,object,766,766
+General Information 1,Current Marital Status,object,759,5
+General Information 1,Highest Level of Education,object,766,12
+General Information 1,Current Height (Feet),int64,766,5
+General Information 1,Current Height (Inches),int64,766,13
+General Information 1,Current Weight,int64,766,168
+General Information 1,Height @ 40 (Feet),float64,691,5
+General Information 1,Height @ 40 (Inches),float64,658,12
+General Information 1,Weight @ 40,float64,687,120
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Asian",object,20,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Native Hawaiian or Other Pacific Islander",object,2,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Black/African-American",object,15,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - White",object,695,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Hispanic/Latino",object,32,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - American Indian/Alaska Native",object,6,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Prefer not to answer",object,1,1
+General Information 1,"What do you consider your race or ethnic group? If you belong to more than one of these groups, please indicate all groups that apply to you? - Other - Write In",object,23,20
+General Information 2,Subject,int64,692,692
+General Information 2,Submitted,object,692,692
+General Information 2,"Prior to onset of any ALS symptoms, which hand did you typically use to write?",object,692,3
+General Information 2,"Prior to onset of any ALS symptoms, with which foot would you have typically kicked a ball?",object,692,4
+General Information 2,Which of your two hands do you think you use more frequently now?,object,691,3
+General Information 2,Which of your legs do you consider to be stronger now?,object,691,3
+Lifestyle 1,Subject,int64,4388,762
+Lifestyle 1,Submitted,object,4388,762
+Lifestyle 1,Have you ever smoked one or more cigarettes per day for six months or longer?,object,762,3
+Lifestyle 1,How old were you when you first started smoking one or more cigarettes per day?,float64,255,22
+Lifestyle 1,"During periods when you smoked, for how many years in total did you smoke cigarettes?",float64,255,42
+Lifestyle 1,"During period when you smoked, how many cigarettes did you usually smoke per day? (One pack usually contains 20 cigarettes)",float64,255,19
+Lifestyle 1,Have you ever engaged in a routine that includes vigorous leisure time physical activity for at least 10 minutes a day that caused heavy sweating or large increases in breathing or heart rate?,object,762,3
+Lifestyle 1,For each of the following age ranges please specify the estimated number of times of activity per (week/month/year)? - Age Range,object,3619,6
+Lifestyle 1,For each of the following age ranges please specify the estimated number of times of activity per (week/month/year)? - Activity?,object,2772,2
+Lifestyle 1,For each of the following age ranges please specify the estimated number of times of activity per (week/month/year)? - Estimated number of times,object,2430,78
+Lifestyle 1,For each of the following age ranges please specify the estimated number of times of activity per (week/month/year)? - Per (week/month/year),object,2396,3
+Lifestyle 2,Subject,int64,845,679
+Lifestyle 2,Submitted,object,845,679
+Lifestyle 2,Are you currently smoking one ore more cigarettes per day?,object,679,3
+Lifestyle 2,How old were you when you first started smoking one or more cigarettes per day?,float64,22,11
+Lifestyle 2,"During period when you smoked, how many cigarettes did you usually smoke per day? (One pack usually contains 20 cigarettes)",float64,22,7
+Lifestyle 2,"In the last 3 months, have you engaged in a routine that includes vigorous leisure time physical activity for at least 10 minutes a day that caused heavy sweating or large increases in breathing or heart rate?",object,679,3
+Lifestyle 2,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Range",object,166,1
+Lifestyle 2,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Activity?",object,166,2
+Lifestyle 2,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Estimated number of times",object,164,24
+Lifestyle 2,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Per (week/month/year)",object,163,3
+Lifestyle 3,Subject,int64,730,594
+Lifestyle 3,Submitted,object,730,594
+Lifestyle 3,Are you currently smoking one ore more cigarettes per day?,object,594,3
+Lifestyle 3,How old were you when you first started smoking one or more cigarettes per day?,float64,18,10
+Lifestyle 3,"During period when you smoked, how many cigarettes did you usually smoke per day? (One pack usually contains 20 cigarettes)",float64,18,9
+Lifestyle 3,"In the last 3 months, have you engaged in a routine that includes vigorous leisure time physical activity for at least 10 minutes a day that caused heavy sweating or large increases in breathing or heart rate?",object,594,3
+Lifestyle 3,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Range",object,136,1
+Lifestyle 3,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Activity?",object,136,2
+Lifestyle 3,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Estimated number of times",object,136,21
+Lifestyle 3,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Per (week/month/year)",object,133,2
+Lifestyle 4,Subject,int64,600,504
+Lifestyle 4,Submitted,object,600,504
+Lifestyle 4,Are you currently smoking one ore more cigarettes per day?,object,504,3
+Lifestyle 4,How old were you when you first started smoking one or more cigarettes per day?,float64,15,7
+Lifestyle 4,"During period when you smoked, how many cigarettes did you usually smoke per day? (One pack usually contains 20 cigarettes)",float64,15,6
+Lifestyle 4,"In the last 3 months, have you engaged in a routine that includes vigorous leisure time physical activity for at least 10 minutes a day that caused heavy sweating or large increases in breathing or heart rate?",object,504,3
+Lifestyle 4,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Range",object,95,1
+Lifestyle 4,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Activity?",object,94,2
+Lifestyle 4,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Estimated number of times",object,95,16
+Lifestyle 4,"In the last 3 months, please specify the estimated number of times per (week/month/year) you are active? - Per (week/month/year)",object,96,2
+Clinical Trials,Subject,int64,649,227
+Clinical Trials,Submitted,object,649,648
+Clinical Trials,Name,object,649,115
+Clinical Trials,Start Date,object,612,422
+Clinical Trials,End Date,object,518,407
+Clinical Trials,Gov ID,object,649,115
+Clinical Trials,Sponsor,object,649,65
+Clinical Trials,Phase,object,456,9
+Clinical Trials,Trial Type,object,510,49
+Clinical Trials,Status,object,9,2
+Clinical Trials,Treatment Type,object,400,67
+Clinical Trials,Est. Enrollment,float64,647,85
+Clinical Trials,URL,object,640,113
+Clinical Trials,Sponsor URL,object,634,79
+Clinical Trials,Enrollment Open,object,109,1
+Clinical Trials,Collaborator 1,object,543,59
+Clinical Trials,Collaborator 2,object,194,20
+Clinical Trials,Collaborator 3,object,90,12
+Clinical Trials,Primary Investigator,object,548,79
+Conditions 1,Subject,int64,460,460
+Conditions 1,Submitted,object,460,460
+Conditions 1,Allergies,object,212,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Alzheimer's disease or other dementia,object,3,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Asthma,object,70,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Behcet's disease,float64,0,0
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Blood cancer,object,2,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Chronic fatigue syndrome,object,5,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Crohn's disease,object,6,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Cushing's disease,object,1,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Fibromyalgia,object,15,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Guillain Barre syndrome,object,1,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Idiopathic thrombocytopenic purpura,object,1,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Multiple sclerosis,object,1,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Muscle dystrophy,object,6,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Neuromyelitis optica,float64,0,0
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Other non-ALS neuromuscular disease,object,24,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Peripheral neuropathy,object,29,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Psoriasis,object,23,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Rheumatoid arthritis,object,10,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Systemic lupus erythematosus,object,1,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Thyroid disease,object,64,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Transient ischemic attack,object,3,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Ulcerative colitis,object,10,1
+Conditions 1,Have you ever been diagnosed by a physician with any of the following medical conditions? - Other - Write In,object,209,192
+Conditions 2,Subject,int64,102,102
+Conditions 2,Submitted,object,102,102
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Allergies",object,18,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Alzheimer's disease or other dementia",object,2,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Asthma",object,7,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Behcet's disease",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Blood cancer",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Chronic fatigue syndrome",object,1,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Crohn's disease",object,1,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Cushing's disease",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Fibromyalgia",object,3,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Guillain Barre syndrome",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Idiopathic thrombocytopenic purpura",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Multiple sclerosis",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Muscle dystrophy",object,5,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Neuromyelitis optica",float64,0,0
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other non-ALS neuromuscular disease",object,12,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Peripheral neuropathy",object,5,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Psoriasis",object,3,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Rheumatoid arthritis",object,2,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Systemic lupus erythematosus",object,1,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Thyroid disease",object,5,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Transient ischemic attack",object,1,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Ulcerative colitis",object,1,1
+Conditions 2,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other - Write In",object,57,49
+Conditions 3,Subject,int64,80,80
+Conditions 3,Submitted,object,80,80
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Allergies",object,17,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Alzheimer's disease or other dementia",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Asthma",object,5,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Behcet's disease",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Blood cancer",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Chronic fatigue syndrome",object,1,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Crohn's disease",object,1,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Cushing's disease",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Fibromyalgia",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Guillain Barre syndrome",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Idiopathic thrombocytopenic purpura",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Multiple sclerosis",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Muscle dystrophy",object,3,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Neuromyelitis optica",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other non-ALS neuromuscular disease",object,7,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Peripheral neuropathy",object,6,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Psoriasis",object,4,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Rheumatoid arthritis",object,1,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Systemic lupus erythematosus",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Thyroid disease",object,4,1
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Transient ischemic attack",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Ulcerative colitis",float64,0,0
+Conditions 3,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other - Write In",object,46,41
+Conditions 4,Subject,int64,75,75
+Conditions 4,Submitted,object,75,75
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Allergies",object,15,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Alzheimer's disease or other dementia",object,2,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Asthma",object,2,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Behcet's disease",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Blood cancer",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Chronic fatigue syndrome",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Crohn's disease",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Cushing's disease",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Fibromyalgia",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Guillain Barre syndrome",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Idiopathic thrombocytopenic purpura",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Multiple sclerosis",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Muscle dystrophy",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Neuromyelitis optica",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other non-ALS neuromuscular disease",object,6,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Peripheral neuropathy",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Psoriasis",object,2,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Rheumatoid arthritis",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Systemic lupus erythematosus",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Thyroid disease",object,3,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Transient ischemic attack",float64,0,0
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Ulcerative colitis",object,1,1
+Conditions 4,"In the past 3 months, have you been diagnosed by a physician with any of the following medical conditions? - Other - Write In",object,49,41
+Hospitalization 1,Subject,int64,755,755
+Hospitalization 1,Submitted,object,755,755
+Hospitalization 1,Have you been hospitalized in the past 3 months?,object,755,3
+Hospitalization 1,Have you gone to the Emergency Room in the past 3 months?,object,755,2
+Hospitalization 1,How many times have you visited the Emergency Room?,float64,96,5
+Hospitalization 1,How many times were you in the hospital?,float64,60,3
+Hospitalization 1,How many days were you hospitalized?,float64,59,13
+Hospitalization 2,Subject,int64,654,654
+Hospitalization 2,Submitted,object,654,654
+Hospitalization 2,Have you been hospitalized in the past 3 months?,object,654,2
+Hospitalization 2,Have you gone to the Emergency Room in the past 3 months?,object,654,2
+Hospitalization 2,How many times have you visited the Emergency Room?,float64,91,4
+Hospitalization 2,How many times were you in the hospital?,float64,56,5
+Hospitalization 2,How many days were you hospitalized?,float64,56,13
+Hospitalization 3,Subject,int64,557,557
+Hospitalization 3,Submitted,object,557,557
+Hospitalization 3,Have you been hospitalized in the past 3 months?,object,556,2
+Hospitalization 3,Have you gone to the Emergency Room in the past 3 months?,object,557,2
+Hospitalization 3,How many times have you visited the Emergency Room?,float64,70,4
+Hospitalization 3,How many times were you in the hospital?,float64,47,4
+Hospitalization 3,How many days were you hospitalized?,float64,48,14
+Hospitalization 4,Subject,int64,475,475
+Hospitalization 4,Submitted,object,475,475
+Hospitalization 4,Have you been hospitalized in the past 3 months?,object,475,3
+Hospitalization 4,Have you gone to the Emergency Room in the past 3 months?,object,475,3
+Hospitalization 4,How many times have you visited the Emergency Room?,float64,69,4
+Hospitalization 4,How many times were you in the hospital?,float64,40,2
+Hospitalization 4,How many days were you hospitalized?,float64,40,10
+Injuries,Subject,int64,753,753
+Injuries,Submitted,object,753,753
+Injuries,Have you ever had an injury to your head or neck? Thank about any childhood injuries you remember or were told about?,object,753,4
+Injuries,How many head or neck injuries have you had?,float64,549,15
+Injuries,At what age did the FIRST injury occur?,float64,364,60
+Injuries,At what age did the seemingly WORST injury occur?,float64,364,66
+Injuries,Did you lose consciousness from this injury?,object,364,4
+Injuries,How long were you unconscious?,object,123,4
+Injuries,Did you go to the emergency room or were you hospitalized for this injury?,object,364,3
+Injuries,Skull Fracture,object,15,1
+Injuries,Seizure,object,4,1
+Injuries,Memory Loss,object,48,1
+Injuries,None of the Above,object,261,1
+Injuries,Don't Know,object,38,1
+Injuries,Have you ever injured your head or neck in a car accident or from some other moving vehicle accident?,object,753,4
+Injuries,How many head or neck injuries have you had?.1,float64,489,8
+Injuries,At what age did the FIRST injury occur?.1,float64,163,53
+Injuries,At what age did the seemingly WORST injury occur?.1,float64,163,54
+Injuries,Did you lose consciousness from this injury?.1,object,163,4
+Injuries,How long were you unconscious?.1,object,40,4
+Injuries,Did you go to the emergency room or were you hospitalized for this injury?.1,object,163,3
+Injuries,Skull Fracture.1,object,2,1
+Injuries,Seizure.1,object,2,1
+Injuries,Memory Loss.1,object,19,1
+Injuries,None of the Above.1,object,133,1
+Injuries,Don't Know.1,object,8,1
+Injuries,"Have you ever injured your head or neck in a fall or from being hit by something (falling from a bike, horse, rollerblades, falling ice, being hit by a rock, etc), playing sports, or on the playground?",object,753,4
+Injuries,How many head or neck injuries have you had?.2,float64,539,14
+Injuries,At what age did the FIRST injury occur?.2,float64,316,63
+Injuries,At what age did the seemingly WORST injury occur?.2,float64,315,65
+Injuries,Did you lose consciousness from this injury?.2,object,317,4
+Injuries,How long were you unconscious?.2,object,86,4
+Injuries,Did you go to the emergency room or were you hospitalized for this injury?.2,object,317,4
+Injuries,Skull Fracture.2,object,7,1
+Injuries,Seizure.2,object,4,1
+Injuries,Memory Loss.2,object,33,1
+Injuries,None of the Above.2,object,236,1
+Injuries,Don't Know.2,object,34,1
+Injuries,"Have you ever injured your head or neck in a fight, from being hit by someone, or from being shaken violently?",object,753,4
+Injuries,How many head or neck injuries have you had?.3,float64,437,13
+Injuries,At what age did the FIRST injury occur?.3,float64,72,25
+Injuries,At what age did the seemingly WORST injury occur?.3,float64,72,25
+Injuries,Did you lose consciousness from this injury?.3,object,71,4
+Injuries,How long were you unconscious?.3,object,23,3
+Injuries,Did you go to the emergency room or were you hospitalized for this injury?.3,object,71,3
+Injuries,Skull Fracture.3,object,1,1
+Injuries,Seizure.3,float64,0,0
+Injuries,Memory Loss.3,object,14,1
+Injuries,None of the Above.3,object,50,1
+Injuries,Don't Know.3,object,6,1
+Injuries,"Have you ever been nearby when an explosion or blast occurred? If you served in the military, think about any combat, or training related accidents?",object,753,4
+Injuries,How many head or neck injuries have you had?.4,float64,417,7
+Injuries,At what age did the FIRST injury occur?.4,float64,23,19
+Injuries,At what age did the seemingly WORST injury occur?.4,float64,23,17
+Injuries,Did you lose consciousness from this injury?.4,object,23,3
+Injuries,How long were you unconscious?.4,object,3,1
+Injuries,Did you go to the emergency room or were you hospitalized for this injury?.4,object,23,3
+Injuries,Skull Fracture.4,float64,0,0
+Injuries,Seizure.4,float64,0,0
+Injuries,Memory Loss.4,object,2,1
+Injuries,None of the Above.4,object,18,1
+Injuries,Don't Know.4,object,3,1
+Injuries,Have you ever received a severe electrical shock that resulted in unconsciousness?,object,753,3
+Medications,Subject,int64,33724,673
+Medications,Submitted,object,33724,10129
+Medications,Drug Name,object,33724,750
+Medications,Dosage Form,object,31685,296
+Medications,Dosage,object,31853,688
+Medications,Start Date,object,28846,1923
+Medications,End Date,object,14824,1110
+Medications,Frequency,float64,30085,12
+Medications,Active Ingredient,object,33724,511
+Medications,Reference Drug,object,9639,1
+Supplements,Subject,int64,1928,382
+Supplements,Submitted,object,1928,881
+Supplements,Product Name,object,1928,848
+Supplements,Brand Name,object,1928,319
+Supplements,Start Date,object,1711,635
+Supplements,End Date,object,926,364
+Supplements,Frequency,float64,1796,8
+Supplements,Net Contents,float64,1919,67
+Supplements,Net Content Unit,object,1229,106
+Supplements,Serving Size Quantity,float64,1928,27
+Supplements,Serving Size Unit,object,1238,67
+Supplements,On Market,object,1701,1
+Occupation 1,Subject,int64,1682,755
+Occupation 1,Submitted,object,1682,755
+Occupation 1,Currently Employed,object,755,3
+Occupation 1,Current job title,object,291,263
+Occupation 1,Current industry,object,291,35
+Occupation 1,Member of the armed forces,object,755,2
+Occupation 1,In which branch of the armed forces were you employed? - Air Force and Air Force Reserve,object,16,1
+Occupation 1,In which branch of the armed forces were you employed? - Air National Guard,object,2,1
+Occupation 1,In which branch of the armed forces were you employed? - Army and Army Reserve,object,29,1
+Occupation 1,In which branch of the armed forces were you employed? - Army National Guard,object,3,1
+Occupation 1,In which branch of the armed forces were you employed? - Coast Guard and Coast Guard Reserve,object,8,1
+Occupation 1,In which branch of the armed forces were you employed? - Marine Corps and Marine Corps Reserve,float64,0,0
+Occupation 1,In which branch of the armed forces were you employed? - Navy and Navy Reserve,object,20,1
+Occupation 1,In which branch of the armed forces were you employed? - Other - Write In,object,16,16
+Occupation 1,Were you ever deployed to a war arena?,object,79,4
+Occupation 1,To which war arena(s) were you deployed? - World War I,float64,0,0
+Occupation 1,To which war arena(s) were you deployed? - World War II,float64,0,0
+Occupation 1,To which war arena(s) were you deployed? - Korean War,float64,0,0
+Occupation 1,To which war arena(s) were you deployed? - Vietnam War,object,3,1
+Occupation 1,To which war arena(s) were you deployed? - Gulf War,object,6,1
+Occupation 1,To which war arena(s) were you deployed? - Afghanistan War,object,6,1
+Occupation 1,To which war arena(s) were you deployed? - Iraq War,object,10,1
+Occupation 1,To which war arena(s) were you deployed? - Other - Write In,float64,0,0
+Occupation 1,Past job title,object,1203,884
+Occupation 1,Past industries,object,1197,35
+Occupation 2,Subject,int64,666,666
+Occupation 2,Submitted,object,666,666
+Occupation 2,In the last 6 months has your occupation changed?,object,666,3
+Occupation 2,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Job Title",object,11,11
+Occupation 2,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Industry",object,11,10
+Occupation 3,Subject,int64,577,577
+Occupation 3,Submitted,object,577,577
+Occupation 3,In the last 6 months has your occupation changed?,object,577,3
+Occupation 3,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Job Title",object,3,3
+Occupation 3,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Industry",object,3,2
+Occupation 4,Subject,int64,485,485
+Occupation 4,Submitted,object,485,485
+Occupation 4,In the last 6 months has your occupation changed?,object,485,3
+Occupation 4,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Job Title",object,3,3
+Occupation 4,"If changed in the last 6 months, what is your current job title and the industry in which you work? - Industry",object,3,3
+Your ALS Experience 1,Subject,int64,751,751
+Your ALS Experience 1,Submitted,object,751,751
+Your ALS Experience 1,"As of today, what is your ALS diagnosis?",object,751,4
+Your ALS Experience 1,How old were you when you were told by a neurologist that you had ALS?,float64,605,60
+Your ALS Experience 1,"Since you developed ALS, have you had any of the following? (mark all that apply) - Pneumonia that required treatment with prescription medication",object,750,4
+Your ALS Experience 1,"Since you developed ALS, have you had any of the following? (mark all that apply) - Falls that caused injury significant enough that you were seen by a physician",object,750,3
+Your ALS Experience 1,"Since you developed ALS, have you had any of the following? (mark all that apply) - A blood clot in an arm, leg, or in the lung that required treatment with blood thinner medication",object,750,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Cramps or muscle spasms? -  Experienced",object,750,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Cramps or muscle spasms? -  Month",object,443,12
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Cramps or muscle spasms? -  Year",object,465,44
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Scattered muscle twitching? -  Experienced",object,738,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Scattered muscle twitching? -  Month",object,403,12
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Scattered muscle twitching? -  Year",object,424,34
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty swallowing? -  Experienced",object,744,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty swallowing? -  Month",object,120,12
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty swallowing? -  Year",object,125,18
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Problems with speech? -  Experienced",object,745,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Problems with speech? -  Month",object,191,12
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Problems with speech? -  Year",object,200,25
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty controlling bowels or bladder? -  Experienced",object,738,4
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty controlling bowels or bladder? -  Month",object,51,11
+Your ALS Experience 1,"Before you noticed weakness that turned out to be ALS, did you experience Difficulty controlling bowels or bladder? -  Year",float64,54,19
+Your ALS Experience 2,Subject,int64,663,663
+Your ALS Experience 2,Submitted,object,663,663
+Your ALS Experience 2,Has your ALS Diagnosis changed in the last 3 months? If so please specify your current diagnosis.,object,663,5
+Your ALS Experience 2,How old were you when you were told by a neurologist that you had ALS?,float64,57,29
+Your ALS Experience 2,What is your current weight?,int64,663,166
+Your ALS Experience 2,"In the last 3 months, have you had Pneumonia that required treatment with prescription medication?",object,663,3
+Your ALS Experience 2,"In the last 3 months, have you had Falls that caused injury significant enough that you were seen by a physician?",object,663,2
+Your ALS Experience 2,"In the last 3 months, have you had A blood clot in an arm, leg, or in the lung that required treatment with blood thinner medication?",object,663,3
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Experienced",object,659,4
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Head/Neck",object,165,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Arm",object,238,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Arm",object,228,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Trunk",object,218,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Leg",object,376,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Leg",object,361,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Experienced",object,647,4
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Head/Neck",object,165,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Arm",object,412,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Arm",object,400,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Trunk",object,267,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Leg",object,413,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Leg",object,401,1
+Your ALS Experience 2,"In the past 3 months, have you experienced Difficulty swallowing?",object,656,4
+Your ALS Experience 2,"In the past 3 months, have you experienced Problems with speech?",object,656,4
+Your ALS Experience 2,"In the past 3 months, have you experienced Difficulty controlling bowels or bladder?",object,654,4
+Your ALS Experience 3,Subject,int64,572,572
+Your ALS Experience 3,Submitted,object,572,572
+Your ALS Experience 3,Has your ALS Diagnosis changed in the last 3 months? If so please specify your current diagnosis.,object,572,5
+Your ALS Experience 3,How old were you when you were told by a neurologist that you had ALS?,float64,52,26
+Your ALS Experience 3,What is your current weight?,int64,572,155
+Your ALS Experience 3,"In the last 3 months, have you had Pneumonia that required treatment with prescription medication?",object,572,3
+Your ALS Experience 3,"In the last 3 months, have you had Falls that caused injury significant enough that you were seen by a physician?",object,572,3
+Your ALS Experience 3,"In the last 3 months, have you had A blood clot in an arm, leg, or in the lung that required treatment with blood thinner medication?",object,572,3
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Experienced",object,571,4
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Head/Neck",object,163,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Arm",object,226,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Arm",object,220,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Trunk",object,194,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Leg",object,330,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Leg",object,322,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Experienced",object,562,4
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Head/Neck",object,156,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Arm",object,364,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Arm",object,342,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Trunk",object,251,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Leg",object,355,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Leg",object,345,1
+Your ALS Experience 3,"In the past 3 months, have you experienced Difficulty swallowing?",object,568,4
+Your ALS Experience 3,"In the past 3 months, have you experienced Problems with speech?",object,567,4
+Your ALS Experience 3,"In the past 3 months, have you experienced Difficulty controlling bowels or bladder?",object,570,4
+Your ALS Experience 4,Subject,int64,478,478
+Your ALS Experience 4,Submitted,object,478,478
+Your ALS Experience 4,Has your ALS Diagnosis changed in the last 3 months? If so please specify your current diagnosis.,object,478,5
+Your ALS Experience 4,How old were you when you were told by a neurologist that you had ALS?,float64,41,22
+Your ALS Experience 4,What is your current weight?,int64,478,151
+Your ALS Experience 4,"In the last 3 months, have you had Pneumonia that required treatment with prescription medication?",object,478,3
+Your ALS Experience 4,"In the last 3 months, have you had Falls that caused injury significant enough that you were seen by a physician?",object,478,3
+Your ALS Experience 4,"In the last 3 months, have you had A blood clot in an arm, leg, or in the lung that required treatment with blood thinner medication?",object,478,3
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Experienced",object,473,3
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Head/Neck",object,150,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Arm",object,191,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Arm",object,189,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Trunk",object,178,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Left Leg",object,278,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Cramps or muscle spasms?  - Right Leg",object,279,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Experienced",object,464,3
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Head/Neck",object,139,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Arm",object,310,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Arm",object,295,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Trunk",object,228,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Left Leg",object,296,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Scattered Muscle Twitching?  - Right Leg",object,297,1
+Your ALS Experience 4,"In the past 3 months, have you experienced Difficulty swallowing?",object,476,4
+Your ALS Experience 4,"In the past 3 months, have you experienced Problems with speech?",object,476,4
+Your ALS Experience 4,"In the past 3 months, have you experienced Difficulty controlling bowels or bladder?",object,475,4
