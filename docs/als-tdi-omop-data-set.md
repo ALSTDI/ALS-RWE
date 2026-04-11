@@ -64,10 +64,10 @@ This version includes:
   - El Escorial Criteria (custom concept mapping)  
 
 - **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT))  
-  - Laboratory results from blood draws:  
+  - Laboratory results from blood draws:
     - A/G Ratio, Albumin, Alkaline Phosphatase, Basophils (%/Abs), Bilirubin Total, BUN, Creatinine, Calcium, Chloride, CO2, EGFR, Eosinophils (%/Abs), Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes (%/Abs), MCH, Monocytes (%/Abs), Neutrophils (%/Abs), Platelets, Potassium, RDW, RBC Count, SGOT, SGPT, Sodium, Total Protein, WBC Count  
-  - Self-reported ALS-linked genetic mutations:  
-    PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1  
+  - Self-reported ALS-linked genetic mutations:
+    - PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1  
 
 - **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE))  
   - Self-reported medications & supplements  
@@ -97,7 +97,6 @@ This version includes:
 - Not collected → excluded unless required by OMOP CDM.  
 - Not all participants have complete data.  
 - Controls and asymptomatic carriers often have fewer entries.  
-
 ---
 
 ## 🛠️ Custom Concepts
