@@ -11,6 +11,11 @@ Academic and nonprofit researchers can access **ARC Data Commons** resources **a
 [Request access to ARC Data Commons](https://www.als.net/arc/data-commons/)
 
 ---
+
+## How to cite ARC data
+ALS Therapy Development Institute (ALS TDI). (2023). ALS Research Collaborative (ARC) [Data set]. Amyotrophic Lateral Sclerosis Therapy Development Institute. https://doi.org/10.71944/C3NA-9124
+
+---
 ## Preprint
 
 For additional background on the ALS TDI ARC Natural History Study ARC data resource, see our preprint:
