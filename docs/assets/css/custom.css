@@ -43,3 +43,55 @@
 .md-typeset table:not([class]) tbody tr:nth-child(even) {
   background-color: #ffffff;
 }
+
+/* Search box */
+.ga4gh-search-input {
+  width: 100%;
+  max-width: 700px;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Table wrapper */
+.ga4gh-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styling */
+#ga4gh-dict-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#ga4gh-dict-table th,
+#ga4gh-dict-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Sticky header */
+#ga4gh-dict-table th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+/* Loading message */
+.ga4gh-loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Help text */
+.ga4gh-help-text {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
