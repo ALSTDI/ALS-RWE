@@ -1,24 +1,26 @@
 # GA4GH Connect 2026 Workshop Resources
 
-This page brings together resources for the **April 16 workshop at GA4GH Connect in Montreal** and materials related to **accessing ALS TDI data**.
+This page brings together the ALS TDI resources for the **April 16 workshop at GA4GH Connect in Montreal** and materials related to **accessing ALS TDI data**.
 
 ---
 
-## Workshop materials
-
-Materials for the April 16 GA4GH Connect workshop will be posted here.
-
----
 ## Accessing ALS TDI data through ARC Data Commons
 
 Academic and nonprofit researchers can access **ARC Data Commons** resources **at no cost** with a **Data Use Agreement**.
 
-
 [Request access to ARC Data Commons](https://www.als.net/arc/data-commons/)
+
+---
+## ALS TDI Data Resource
+
+For additional background on the ALS TDI data resource, see our preprint:
+
+[**Boyce et al. — The ALS Research Collaborative: A Long Running Multimodal ALS Natural History Resource**](https://www.researchsquare.com/article/rs-8272744/v1)
 
 
 
 ---
+
 
 ## Search the ALS TDI data dictionary
 
@@ -40,8 +42,6 @@ Use the search box below to filter variables in the uploaded data dictionary.
         <th>Sheet Name</th>
         <th>Variable Name</th>
         <th>Data Type</th>
-        <th>Non-Null Count</th>
-        <th>Unique Values</th>
       </tr>
     </thead>
     <tbody>
