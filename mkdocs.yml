@@ -66,4 +66,5 @@ watch:
   - docs/assets
   - docs/assets/css
 
-
+extra_javascript:
+  - assets/js/ga4gh-datadictionary.js
