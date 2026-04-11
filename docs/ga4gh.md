@@ -25,6 +25,7 @@ For additional background on the ALS TDI data resource, see our preprint:
 ## Search the ALS TDI data dictionary
 
 Use the search box below to filter variables in the uploaded data dictionary.
+Note that this contains **select surveys only**: please see preprint above for a comprehensive overview of the ARC data.
 
 <div class="ga4gh-search-block">
 
