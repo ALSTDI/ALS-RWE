@@ -54,7 +54,7 @@ This version includes:
   - IDs sequentialized; prefixes `CASE_`, `CONTROL_`, `ASYMP_` retained  
   - Unknown/multiple race/ethnicity/sex → `concept_id = 0`  
 
-- **📝 Observation** ([Observation Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#OBSERVATION))  
+- **📝 Observation** ([Observation Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#observation))  
   - ALSFRS-R (12 functional items + total score)  
   - Family & personal medical history  
   - History of head/neck injuries  
@@ -63,20 +63,20 @@ This version includes:
   - Occupation/industry, military service  
   - El Escorial Criteria (custom concept mapping)  
 
-- **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT))  
+- **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#measurement))  
   - Laboratory results from blood draws:
     - A/G Ratio, Albumin, Alkaline Phosphatase, Basophils (%/Abs), Bilirubin Total, BUN, Creatinine, Calcium, Chloride, CO2, EGFR, Eosinophils (%/Abs), Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes (%/Abs), MCH, Monocytes (%/Abs), Neutrophils (%/Abs), Platelets, Potassium, RDW, RBC Count, SGOT, SGPT, Sodium, Total Protein, WBC Count  
   - Self-reported ALS-linked genetic mutations:
     - PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1  
 
-- **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE))  
+- **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#drug_exposure))  
   - Self-reported medications & supplements  
   - Ingredient-level mapping (≥20 frequency mapped, others = 0)  
   - Dosage not calculated; source values retained  
   - Missing start date → dummy `1900-01-01`  
   - Missing end date → start date reused  
 
-- **⚰️ Mortality** ([Death Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DEATH))  
+- **⚰️ Mortality** ([Death Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#death))  
   - Date of death (month/day set to `12-31` for privacy)  
 
 ---
