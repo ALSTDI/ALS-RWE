@@ -230,7 +230,7 @@ This may suggest early or subclinical bulbar involvement, or differences in meas
 | Surveys | Extensive |
 | EHR | Longitudinal (ICD, RxNorm, LOINC, CPT) |
 
-### 10. Abstraction
+### 10. Abstract
 **Disease:** ALS (G12.21)  
 **Onset:** 57 years  
 **Course:** Slow progression
