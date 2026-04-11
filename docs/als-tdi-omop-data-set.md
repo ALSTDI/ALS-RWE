@@ -46,60 +46,172 @@ This version includes:
 > **ALS Therapy Development Institute (ALS TDI). (2023).** *ALS Research Collaborative (ARC) [Data set].* ALS Therapy Development Institute. https://doi.org/10.71944/C3NA-9124  
 
 ---
+-<h2>🧩 Domain Mappings</h2>
 
-## 🧩 Domain Mappings
+<ul>
+  <li>
+    <strong>🧍 Person</strong>
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON">Person Domain</a>)
+    <ul>
+      <li>Year of birth</li>
+      <li>Sex</li>
+      <li>Race</li>
+      <li>Ethnicity</li>
+      <li>IDs sequentialized; prefixes <code>CASE_</code>, <code>CONTROL_</code>, <code>ASYMP_</code> retained</li>
+      <li>Unknown/multiple race/ethnicity/sex → <code>concept_id = 0</code></li>
+    </ul>
+  </li>
 
-- **🧍 Person** ([Person Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON))
-  - Year of birth, sex, race, ethnicity
-  - IDs sequentialized; prefixes `CASE_`, `CONTROL_`, `ASYMP_` retained
-  - Unknown/multiple race/ethnicity/sex → `concept_id = 0`
+  <li>
+    <strong>📝 Observation</strong>
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#OBSERVATION">Observation Domain</a>)
+    <ul>
+      <li>Validated, self-reported ALSFRS-R (mapped using custom concepts; more details in the custom concepts section of this page)
+        <ul>
+          <li>Speech</li>
+          <li>Salivation</li>
+          <li>Swallowing</li>
+          <li>Handwriting</li>
+          <li>Cutting Food</li>
+          <li>Dressing Hygiene</li>
+          <li>Turning in Bed</li>
+          <li>Walking</li>
+          <li>Climbing Stairs</li>
+          <li>Dyspnea</li>
+          <li>Orthopnea</li>
+          <li>Respiratory Insufficiency</li>
+          <li>Total Score</li>
+        </ul>
+      </li>
+      <li>Self-reported ALS diagnosis (mapped using custom concepts; more details in the custom concepts section of this page)</li>
+      <li>El Escorial Criteria (revised) categories
+        <ul>
+          <li>Definitive</li>
+          <li>Possible</li>
+          <li>Probable – Lab Supported</li>
+          <li>Suspected</li>
+        </ul>
+      </li>
+      <li>Medical history
+        <ul>
+          <li>Family medical history</li>
+          <li>Personal medical history</li>
+          <li>History of head injury</li>
+          <li>ALS symptom onset</li>
+          <li>Anatomical site of symptom onset</li>
+          <li>Lifestyle: tobacco use</li>
+          <li>Occupation/industry</li>
+          <li>Military service</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 
-- **📝 Observation** ([Observation Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#OBSERVATION))
-  - ALSFRS-R (12 functional items + total score)
-  - Family & personal medical history
-  - History of head/neck injuries
-  - Symptom onset & anatomical site
-  - Lifestyle: tobacco use
-  - Occupation/industry, military service
-  - El Escorial Criteria (custom concept mapping)
+  <li>
+    <strong>🧪 Measurement</strong>
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT">Measurement Domain</a>)
+    <ul>
+      <li>Laboratory measurements: lab-provided measurements from blood draws, including
+        <ul>
+          <li>A/G Ratio</li>
+          <li>Albumin (g/dL)</li>
+          <li>Alkaline Phosphatase (U/L)</li>
+          <li>Basophils (%)</li>
+          <li>Basophils Abs (10^3/mm3)</li>
+          <li>Bilirubin Total (mg/dL)</li>
+          <li>BUN (mg/dL)</li>
+          <li>BUN/Creatinine Ratio</li>
+          <li>Calcium (mg/dL)</li>
+          <li>Chloride (MM01/L)</li>
+          <li>CO2 (MM01/L)</li>
+          <li>Creatinine (mg/dL)</li>
+          <li>EGFR (mL/min/1.3 sq m)</li>
+          <li>Eosinophils (%)</li>
+          <li>Eosinophils Abs (10^3/mm3)</li>
+          <li>Globulin (g/dL)</li>
+          <li>Glucose (mg/dL)</li>
+          <li>Hematocrit (%)</li>
+          <li>Hemoglobin (%)</li>
+          <li>Lymphocytes (%)</li>
+          <li>Lymphocytes Abs (10^3/mm3)</li>
+          <li>MCH (PB)</li>
+          <li>Monocytes (%)</li>
+          <li>Monocytes Abs (10^3/mm3)</li>
+          <li>Neutrophils (%)</li>
+          <li>Neutrophils Abs (10^3/mm3)</li>
+          <li>Platelet Count (10^3/mm3)</li>
+          <li>Potassium (MM01/L)</li>
+          <li>RDW (%)</li>
+          <li>Red Blood Cell Count (10^6/mm3)</li>
+          <li>SGOT (AST) (U/L)</li>
+          <li>SGPT (ALT) (U/L)</li>
+          <li>Sodium (MM01/L)</li>
+          <li>Total Protein (g/dL)</li>
+          <li>White Blood Cell Count (10^3/mm3)</li>
+        </ul>
+      </li>
+      <li>Self-reported ALS-linked genetic mutations
+        <ul>
+          <li>PFN1</li>
+          <li>SOD1</li>
+          <li>SPG11</li>
+          <li>FUS</li>
+          <li>TARDBP</li>
+          <li>C90RF72</li>
+          <li>VCP</li>
+          <li>NEK1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 
-- **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT))
-  - Laboratory results from blood draws
+  <li>
+    <strong>💊 Drug Exposure</strong>
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE">Drug Exposure Domain</a>)
+    <ul>
+      <li>Self-reported medications and supplements</li>
+      <li>Ingredient-level mapping (≥20 frequency mapped, others = 0)</li>
+      <li>Dosage not calculated; source values retained</li>
+      <li>Missing start date → dummy <code>1900-01-01</code></li>
+      <li>Missing end date → start date reused</li>
+    </ul>
+  </li>
 
-    - A/G Ratio, Albumin, Alkaline Phosphatase, Basophils (%/Abs), Bilirubin Total, BUN, Creatinine, Calcium, Chloride, CO2, EGFR, Eosinophils (%/Abs), Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes (%/Abs), MCH, Monocytes (%/Abs), Neutrophils (%/Abs), Platelets, Potassium, RDW, RBC Count, SGOT, SGPT, Sodium, Total Protein, WBC Count
+  <li>
+    <strong>⚰️ Mortality</strong>
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#DEATH">Death Domain</a>)
+    <ul>
+      <li>Date of death (month/day set to <code>12-31</code> for privacy)</li>
+    </ul>
+  </li>
+</ul>
 
-  - Self-reported ALS-linked genetic mutations
+<h2>🗓️ Dates and Timing</h2>
 
-    - PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1
+<ul>
+  <li>Dates may be shifted for de-identification (<a href="https://doi.org/10.1093/jamia/ocw001">Hripcsak et al., JAMIA 2016</a>).</li>
+  <li>If missing:
+    <ul>
+      <li>Survey date</li>
+      <li>Dummy <code>1900-01-01</code></li>
+      <li>Approximate date applied</li>
+    </ul>
+  </li>
+  <li>Observation period:
+    <ul>
+      <li>Start = first survey date</li>
+      <li>End = last event or death date</li>
+    </ul>
+  </li>
+</ul>
 
-- **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE))
-  - Self-reported medications & supplements
-  - Ingredient-level mapping (≥20 frequency mapped, others = 0)
-  - Dosage not calculated; source values retained
-  - Missing start date → dummy `1900-01-01`
-  - Missing end date → start date reused
+<h2>❓ Missing Data</h2>
 
-- **⚰️ Mortality** ([Death Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DEATH))
-  - Date of death (month/day set to `12-31` for privacy)
-
----
-
-## 🗓️ Dates and Timing
-
-- Dates may be shifted for de-identification ([Hripcsak et al., JAMIA 2016](https://doi.org/10.1093/jamia/ocw001)).
-- If missing:
-  - Survey date, dummy `1900-01-01`, or approximate date applied.
-- Observation period:
-  - Start = first survey date
-  - End = last event or death date
-
----
-
-## ❓ Missing Data
-
-- Not collected → excluded unless required by OMOP CDM.
-- Not all participants have complete data.
-- Controls and asymptomatic carriers often have fewer entries.
+<ul>
+  <li>Not collected → excluded unless required by OMOP CDM.</li>
+  <li>Not all participants have complete data.</li>
+  <li>Controls and asymptomatic carriers often have fewer entries.</li>
+</ul>
 ---
 
 ## 🛠️ Custom Concepts
