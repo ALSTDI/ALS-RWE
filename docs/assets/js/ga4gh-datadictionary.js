@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!rows.length) {
         tableBody.innerHTML =
-          "<tr><td colspan='5'>No data found.</td></tr>";
+          "<tr><td colspan='3'>No data found.</td></tr>";
         return;
       }
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderRows(rows) {
     if (!rows.length) {
       tableBody.innerHTML =
-        "<tr><td colspan='5'>No matching rows.</td></tr>";
+        "<tr><td colspan='3'>No matching rows.</td></tr>";
       return;
     }
 
@@ -61,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <td>${escapeHtml(row["Sheet Name"] || "")}</td>
             <td>${escapeHtml(row["Variable Name"] || "")}</td>
             <td>${escapeHtml(row["Data Type"] || "")}</td>
-            <td>${escapeHtml(row["Non-Null Count"] || "")}</td>
-            <td>${escapeHtml(row["Unique Values"] || "")}</td>
           </tr>
         `
       )
