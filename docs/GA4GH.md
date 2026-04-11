@@ -16,11 +16,10 @@ Materials for the April 16 GA4GH Connect workshop will be posted here.
 
 Academic and nonprofit researchers can access **ARC Data Commons** resources **at no cost** with a **Data Use Agreement**.
 
-To request access, visit the ARC Data Commons access page:
 
 [Request access to ARC Data Commons](https://www.als.net/arc/data-commons/)
 
-![ARC Data Commons access page](assets/accessARC.png)
+
 
 ---
 
