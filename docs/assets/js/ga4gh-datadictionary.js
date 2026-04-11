@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("ga4gh-dict-search");
   const tableBody = document.querySelector("#ga4gh-dict-table tbody");
+  const MAX_ROWS = 50;
 
   if (!input || !tableBody) return;
 
-  fetch("../assets/datadictionary.csv")
+  tableBody.innerHTML =
+    "<tr><td colspan='3'>Type at least 2 characters to search the data dictionary.</td></tr>";
+
+  fetch("/ALS-RWE/assets/datadictionary.csv")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
@@ -29,21 +33,27 @@ document.addEventListener("DOMContentLoaded", function () {
         return obj;
       });
 
-      renderRows(data);
-
       input.addEventListener("input", function () {
         const q = input.value.toLowerCase().trim();
+
+        if (q.length < 2) {
+          tableBody.innerHTML =
+            "<tr><td colspan='3'>Type at least 2 characters to search the data dictionary.</td></tr>";
+          return;
+        }
+
         const filtered = data.filter((row) =>
-          Object.values(row).some((value) =>
-            String(value).toLowerCase().includes(q)
+          ["Sheet Name", "Variable Name", "Data Type"].some((key) =>
+            String(row[key] || "").toLowerCase().includes(q)
           )
         );
+
         renderRows(filtered);
       });
     })
     .catch((error) => {
       tableBody.innerHTML =
-        "<tr><td colspan='5'>Could not load data dictionary.</td></tr>";
+        "<tr><td colspan='3'>Could not load data dictionary.</td></tr>";
       console.error("Data dictionary load error:", error);
     });
 
@@ -54,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    tableBody.innerHTML = rows
+    const displayRows = rows.slice(0, MAX_ROWS);
+
+    tableBody.innerHTML = displayRows
       .map(
         (row) => `
           <tr>
@@ -65,6 +77,14 @@ document.addEventListener("DOMContentLoaded", function () {
         `
       )
       .join("");
+
+    if (rows.length > MAX_ROWS) {
+      tableBody.innerHTML += `
+        <tr>
+          <td colspan="3"><em>Showing first ${MAX_ROWS} matches. Keep typing to narrow results.</em></td>
+        </tr>
+      `;
+    }
   }
 
   function parseCSV(text) {
