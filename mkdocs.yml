@@ -28,7 +28,7 @@ nav:
       - Overview: free-rwe-resources.md
       - Train-the-Trainer (OHDSI/OMOP): free-rwe-resources/train-the-trainer/index.md
   - Select Publications: select-publications.md
-  - GA4GH Connect 2026: GA4GH.md
+  - GA4GH Connect 2026: ga4gh.md
 
   
 markdown_extensions:
