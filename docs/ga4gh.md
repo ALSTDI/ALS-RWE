@@ -28,30 +28,43 @@ Academic and nonprofit researchers can access **ARC Data Commons** resources **a
 Use the search box below to filter variables in the uploaded data dictionary.
 
 <div class="ga4gh-search-block">
-  <input
-    type="text"
-    id="ga4gh-dict-search"
-    placeholder="Search by sheet name, variable name, or data type"
-    style="width:100%;max-width:700px;padding:0.7rem;margin:0.5rem 0 1rem 0;border:1px solid #ccc;border-radius:6px;"
-  />
 
-  <div style="overflow-x:auto;">
-    <table id="ga4gh-dict-table" class="md-typeset__table">
-      <thead>
-        <tr>
-          <th>Sheet Name</th>
-          <th>Variable Name</th>
-          <th>Data Type</th>
-          <th>Non-Null Count</th>
-          <th>Unique Values</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td colspan="5">Loading data dictionary...</td></tr>
-      </tbody>
-    </table>
-  </div>
+<input
+  type="text"
+  id="ga4gh-dict-search"
+  placeholder="Search by sheet name, variable name, or data type"
+  class="ga4gh-search-input"
+/>
+
+<div class="ga4gh-table-wrapper">
+  <table id="ga4gh-dict-table" class="md-typeset__table">
+    <thead>
+      <tr>
+        <th>Sheet Name</th>
+        <th>Variable Name</th>
+        <th>Data Type</th>
+        <th>Non-Null Count</th>
+        <th>Unique Values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="5" class="ga4gh-loading">
+          Loading data dictionary...
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<div class="ga4gh-help-text">
+  If the table does not load, you can download the data dictionary directly:
+  <a href="../assets/datadictionary.csv">Download CSV</a>
+</div>
+
+</div>
+
+---
 
 ---
 
