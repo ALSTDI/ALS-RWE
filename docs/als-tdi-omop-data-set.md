@@ -109,7 +109,7 @@ This version includes:
 
   <li>
     <strong>🧪 Measurement</strong>
-    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#measurement">Measurement Domain</a>)
+    (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT">Measurement Domain</a>)
     <ul>
       <li>Laboratory measurements: lab-provided measurements from blood draws, including
         <ul>
