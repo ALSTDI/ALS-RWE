@@ -76,6 +76,13 @@ Below is a prototype synthetic participant narrative.
 **Cohort:** ALS Natural History  
 **Demographics:** 72-year-old male, New York, USA
 
+#### Participant voice
+> “My hands weakened first, but my speech hasn’t changed much.”
+
+> “I’ve slowed down a lot over the years, especially with physical work.”
+
+> “Breathing feels okay most days, but I get tired faster.”
+
 ### 1. Clinical Identity
 **Primary Diagnosis:** Amyotrophic Lateral Sclerosis (Definitive)
 
@@ -156,13 +163,6 @@ Below is a prototype synthetic participant narrative.
 
 #### Family history
 - Cancer, including bone and kidney cancer
-
-#### Participant voice
-> “My hands weakened first, but my speech hasn’t changed much.”
-
-> “I’ve slowed down a lot over the years, especially with physical work.”
-
-> “Breathing feels okay most days, but I get tired faster.”
 
 ### 6. EHR Validation Layer
 #### Diagnosis concordance
