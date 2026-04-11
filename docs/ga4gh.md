@@ -13,7 +13,7 @@ Academic and nonprofit researchers can access **ARC Data Commons** resources **a
 ---
 ## Preprint
 
-For additional background on the ALS TDI ARC Natural History Studt data resource, see our preprint:
+For additional background on the ALS TDI ARC Natural History Study ARC data resource, see our preprint:
 
 [**Boyce et al. — The ALS Research Collaborative: A Long Running Multimodal ALS Natural History Resource**](https://www.researchsquare.com/article/rs-8272744/v1)
 
