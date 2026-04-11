@@ -57,7 +57,7 @@ Use the search box below to filter variables in the uploaded data dictionary.
 
 ## Prototype patient narrative
 
-Below is a prototype synthetic participant narrative converted to Markdown from the draft text you provided. :contentReference[oaicite:0]{index=0}
+Below is a prototype synthetic participant narrative.
 
 ### Participant Summary
 **Participant ID:** 123  
