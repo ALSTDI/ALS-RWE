@@ -53,12 +53,12 @@ This version includes:
     <strong>🧍 Person</strong>
     (<a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON">Person Domain</a>)
     <ul>
-      <li>Year of birth</li>
-      <li>Sex</li>
-      <li>Race</li>
-      <li>Ethnicity</li>
-      <li>IDs sequentialized; prefixes <code>CASE_</code>, <code>CONTROL_</code>, <code>ASYMP_</code> retained</li>
-      <li>Unknown/multiple race/ethnicity/sex → <code>concept_id = 0</code></li>
+          <li>Year of birth</li>
+          <li>Sex</li>
+          <li>Race</li>
+          <li>Ethnicity</li>
+          <li>IDs sequentialized; prefixes <code>CASE_</code>, <code>CONTROL_</code>, <code>ASYMP_</code> retained</li>
+          <li>Unknown/multiple race/ethnicity/sex → <code>concept_id = 0</code></li>
     </ul>
   </li>
 
