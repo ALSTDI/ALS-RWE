@@ -49,54 +49,57 @@ This version includes:
 
 ## 🧩 Domain Mappings
 
-- **🧍 Person** ([Person Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON))  
-  - Year of birth, sex, race, ethnicity  
-  - IDs sequentialized; prefixes `CASE_`, `CONTROL_`, `ASYMP_` retained  
-  - Unknown/multiple race/ethnicity/sex → `concept_id = 0`  
+- **🧍 Person** ([Person Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#PERSON))
+  - Year of birth, sex, race, ethnicity
+  - IDs sequentialized; prefixes `CASE_`, `CONTROL_`, `ASYMP_` retained
+  - Unknown/multiple race/ethnicity/sex → `concept_id = 0`
 
-- **📝 Observation** ([Observation Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#observation))  
-  - ALSFRS-R (12 functional items + total score)  
-  - Family & personal medical history  
-  - History of head/neck injuries  
-  - Symptom onset & anatomical site  
-  - Lifestyle: tobacco use  
-  - Occupation/industry, military service  
-  - El Escorial Criteria (custom concept mapping)  
+- **📝 Observation** ([Observation Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#OBSERVATION))
+  - ALSFRS-R (12 functional items + total score)
+  - Family & personal medical history
+  - History of head/neck injuries
+  - Symptom onset & anatomical site
+  - Lifestyle: tobacco use
+  - Occupation/industry, military service
+  - El Escorial Criteria (custom concept mapping)
 
-- **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#measurement))  
-  - Laboratory results from blood draws:
-    - A/G Ratio, Albumin, Alkaline Phosphatase, Basophils (%/Abs), Bilirubin Total, BUN, Creatinine, Calcium, Chloride, CO2, EGFR, Eosinophils (%/Abs), Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes (%/Abs), MCH, Monocytes (%/Abs), Neutrophils (%/Abs), Platelets, Potassium, RDW, RBC Count, SGOT, SGPT, Sodium, Total Protein, WBC Count  
-  - Self-reported ALS-linked genetic mutations:
-    - PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1  
+- **🧪 Measurement** ([Measurement Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#MEASUREMENT))
+  - Laboratory results from blood draws
 
-- **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#drug_exposure))  
-  - Self-reported medications & supplements  
-  - Ingredient-level mapping (≥20 frequency mapped, others = 0)  
-  - Dosage not calculated; source values retained  
-  - Missing start date → dummy `1900-01-01`  
-  - Missing end date → start date reused  
+    - A/G Ratio, Albumin, Alkaline Phosphatase, Basophils (%/Abs), Bilirubin Total, BUN, Creatinine, Calcium, Chloride, CO2, EGFR, Eosinophils (%/Abs), Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes (%/Abs), MCH, Monocytes (%/Abs), Neutrophils (%/Abs), Platelets, Potassium, RDW, RBC Count, SGOT, SGPT, Sodium, Total Protein, WBC Count
 
-- **⚰️ Mortality** ([Death Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#death))  
-  - Date of death (month/day set to `12-31` for privacy)  
+  - Self-reported ALS-linked genetic mutations
+
+    - PFN1, SOD1, SPG11, FUS, TARDBP, C90RF72, VCP, NEK1
+
+- **💊 Drug Exposure** ([Drug Exposure Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DRUG_EXPOSURE))
+  - Self-reported medications & supplements
+  - Ingredient-level mapping (≥20 frequency mapped, others = 0)
+  - Dosage not calculated; source values retained
+  - Missing start date → dummy `1900-01-01`
+  - Missing end date → start date reused
+
+- **⚰️ Mortality** ([Death Domain](https://ohdsi.github.io/CommonDataModel/cdm54.html#DEATH))
+  - Date of death (month/day set to `12-31` for privacy)
 
 ---
 
 ## 🗓️ Dates and Timing
 
-- Dates may be shifted for de-identification ([Hripcsak et al., JAMIA 2016](https://doi.org/10.1093/jamia/ocw001)).  
-- If missing:  
-  - Survey date, dummy `1900-01-01`, or approximate date applied.  
-- Observation period:  
-  - Start = first survey date  
-  - End = last event or death date  
+- Dates may be shifted for de-identification ([Hripcsak et al., JAMIA 2016](https://doi.org/10.1093/jamia/ocw001)).
+- If missing:
+  - Survey date, dummy `1900-01-01`, or approximate date applied.
+- Observation period:
+  - Start = first survey date
+  - End = last event or death date
 
 ---
 
 ## ❓ Missing Data
 
-- Not collected → excluded unless required by OMOP CDM.  
-- Not all participants have complete data.  
-- Controls and asymptomatic carriers often have fewer entries.  
+- Not collected → excluded unless required by OMOP CDM.
+- Not all participants have complete data.
+- Controls and asymptomatic carriers often have fewer entries.
 ---
 
 ## 🛠️ Custom Concepts
