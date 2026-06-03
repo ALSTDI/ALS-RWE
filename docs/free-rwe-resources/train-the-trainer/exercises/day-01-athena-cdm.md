@@ -1,5 +1,10 @@
 # 🧭 Day 1 · Athena Vocabulary Exploration & Quiz
 
+!!! tip "Sample notebook"
+    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
+    or [download it]( ../notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb).
+
+
 > **Purpose:** Learn to explore OMOP standardized vocabularies in [Athena](https://athena.ohdsi.org/)  
 > and test your understanding of OMOP CDM concepts, vocabularies, and relationships.
 

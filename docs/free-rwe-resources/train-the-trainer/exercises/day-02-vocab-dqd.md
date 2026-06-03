@@ -1,5 +1,10 @@
 # Exercises · Day 2 — Concept Sets in Atlas and SQL Validation
 
+!!! tip "Sample notebook"
+    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb)
+    or [download it]( ../notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb).
+
+
 !!! abstract "What you will do"
     1. Build a concept set in Atlas using descendants.
     2. Inspect the "mapped" view to confirm coverage.

@@ -123,3 +123,39 @@
 
 > Trainers: Customize this page with site-specific references, URLs, and internal data access resources as needed. Include institutional VPNs, intranet documentation, or Teams/Slack channels for communication.
 
+
+---
+
+## 📥 Train-the-Trainer downloads
+
+All materials below are ALS TDI branded and live in this repository so they
+travel together. Please keep the template with these materials rather than
+sharing it on its own.
+
+### Slide template
+- [ALS TDI presentation template (PPTX)](templates/ALS-TDI-Template.pptx), use it as the starting point for any new deck.
+
+### Sample notebooks (Colab ready, synthetic data, no credentials)
+- Day 1, OMOP CDM and vocabularies: [download](notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
+- Day 2, concept sets and data quality: [download](notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb)
+- Day 3, cohort building: [download](notebooks/Day3-Cohort-Building.ipynb)
+- Day 5, treatment pathways: [download](notebooks/Day5-Treatment-Pathways.ipynb)
+- Day 6, patient-level prediction: [download](notebooks/Day6-Patient-Level-Prediction.ipynb)
+
+### Day 3, cohort definitions
+- [Cohort Definitions tutorial (DOCX)](training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx)
+
+### Day 5, treatment pathways kit
+- [Instructor deck with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
+- [Participant workbook](training/day-05-treatment-pathways/kit/Participant-Workbook.pptx)
+- [Kahoot quiz (CSV)](training/day-05-treatment-pathways/kit/Kahoot-Quiz.csv)
+- The full kit (handouts, answer keys, scripts, interpretation guides) is in `training/day-05-treatment-pathways/kit/`.
+
+### Day 6, advanced analytics with HADES kit
+- [Instructor deck](training/day-06-hades/kit/Instructor-Deck.pptx)
+- [Participant workbook](training/day-06-hades/kit/Participant-Workbook.pptx)
+- [Kahoot quiz (CSV)](training/day-06-hades/kit/Kahoot-Quiz.csv)
+- The full kit is in `training/day-06-hades/kit/`.
+
+> The large lecture decks (Day 1 to Day 6 full slide sets) are hosted separately
+> in Google Drive because of their size, and linked from there.

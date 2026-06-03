@@ -1,5 +1,10 @@
 # Exercises · Day 3 — Cohorts in ATLAS
 
+!!! tip "Sample notebook"
+    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day3-Cohort-Building.ipynb)
+    or [download it]( ../notebooks/Day3-Cohort-Building.ipynb).
+
+
 !!! abstract "What you will do"
     1. Build a new-user metformin cohort in ATLAS.
     2. Add an inclusion rule with a temporal window.

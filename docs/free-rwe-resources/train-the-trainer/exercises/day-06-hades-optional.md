@@ -1,4 +1,9 @@
 # Exercises · Day 6 (Optional) — HADES
+
+!!! tip "Sample notebook"
+    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day6-Patient-Level-Prediction.ipynb)
+    or [download it]( ../notebooks/Day6-Patient-Level-Prediction.ipynb).
+
 # 🚧 Page Under Construction
 
 This section of the *OHDSI Train-the-Trainer* site is currently being developed.  

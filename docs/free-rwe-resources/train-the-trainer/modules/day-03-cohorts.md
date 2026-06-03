@@ -40,7 +40,7 @@ Once a cohort is generated, characterization summarizes who is in it: demographi
 ---
 
 ## Tutorial and materials
-A written tutorial, "Cohort Definitions in OHDSI: Basics and Atlas," walks through a full metformin new-user example and is kept with the course kit. The hands-on lab is on the [Day 3 exercise](../exercises/day-03-cohorts.md) page.
+A written tutorial, [Cohort Definitions in OHDSI: Basics and Atlas](../training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx) walks through a full metformin new-user example. The hands-on lab is on the [Day 3 exercise](../exercises/day-03-cohorts.md) page.
 
 ## Further reading
 - The Book of OHDSI, Chapter 10 (Defining Cohorts): https://ohdsi.github.io/TheBookOfOhdsi/
