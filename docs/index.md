@@ -31,8 +31,7 @@ Contact: [dboyce@als.net](mailto:dboyce@als.net)
 
 ## **Citation**
 
-Boyce, D. (2025). ALS TDI Real World Evidence Resources. Amyotrophic Lateral Sclerosis Therapy Development Institute. https://doi.org/10.71944/FBZ2-T881
-
+Boyce, D., Vieira, F., Premasiri, A., Walters, H., & Huynh, N. (2025). ALS TDI Real World Evidence Resources. ALS Therapy Development Institute. https://doi.org/10.71944/5PP1-7X96
 
   
 
