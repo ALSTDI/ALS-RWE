@@ -34,6 +34,8 @@ nav:
               - Module 00 · Environment Setup: free-rwe-resources/train-the-trainer/modules/00-environment-walkthrough.md
               - Day 1 · OMOP Common Data Model: free-rwe-resources/train-the-trainer/modules/day-01-omop-cdm.md
               - Day 2 · Vocabulary & Data Quality: free-rwe-resources/train-the-trainer/modules/day-02-vocab-dqd.md
+              - Day 3 · Cohort Definition: free-rwe-resources/train-the-trainer/modules/day-03-cohorts.md
+              - Day 4 · Data Extraction (site specific): free-rwe-resources/train-the-trainer/modules/day-04-extraction.md
           - Exercises:
               - Day 1 · Athena & CDM: free-rwe-resources/train-the-trainer/exercises/day-01-athena-cdm.md
               - Day 2 · Atlas: free-rwe-resources/train-the-trainer/exercises/day-02-vocab-dqd.md
@@ -43,6 +45,7 @@ nav:
               - Day 6 · HADES (Optional): free-rwe-resources/train-the-trainer/exercises/day-06-hades-optional.md
               - Day 1 · Code Snippets: free-rwe-resources/train-the-trainer/exercises/code_snippets/day-01-snippets.md
           - Common Artifacts:
+              - Environment Setup Handout: free-rwe-resources/train-the-trainer/common_artifacts/environment-setup-handout.md
               - OMOP Vocabulary & SQL Cheat Sheet: free-rwe-resources/train-the-trainer/common_artifacts/omop-vocab-sql-cheat-sheet.md
               - SQL Validation Mini Lab: free-rwe-resources/train-the-trainer/common_artifacts/sql-validation-mini-lab.md
               - Environment Checklist Template: free-rwe-resources/train-the-trainer/common_artifacts/environment-checklist-template.md
