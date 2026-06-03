@@ -14,7 +14,7 @@ These curated, freely accessible resources provide foundational knowledge, pract
 
 ### Train-the-Trainer (OHDSI/OMOP)
 
-[👉 Open the Train-the-Trainer materials](train-the-trainer/)
+[👉 Open the Train-the-Trainer materials](free-rwe-resources/train-the-trainer/index.md)
 
 > A curated, hands-on curriculum covering OMOP/CDM fundamentals, vocabularies, Atlas, and exercises.
 

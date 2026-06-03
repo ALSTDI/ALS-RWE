@@ -36,14 +36,14 @@ By the end of this session, you should be able to:
 ## 🧠 Slides & Materials
 - 📑 **Lecture slides:** [Download Day 1 Slides (PPTX)](../training/day1-omop-cdm/Day1.pptx)
 - 🧩 **SQL Examples:** [Day 1 · Code Snippets](../exercises/code_snippets/day-01-snippets.md)  
-- 📘 **Cheat Sheet:** [OMOP Vocabulary and SQL Cheat Sheet](../training/day1-omop-cdm/OMOP_Vocabulary_and_SQL_Cheat_Sheet.md)
+- 📘 **Cheat Sheet:** [OMOP Vocabulary and SQL Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
 
 ---
 
 ## 🧭 Hands-on Activities
 - The full in-class exercise lives here: **[Day 1 · Exercises](../exercises/day-01-athena-cdm.md)**.
 - Need queries? See **[Day 1 · Code Snippets](../exercises/code_snippets/day-01-snippets.md)**.
-- Slides: **[PPTX](../training/day1-omop-cdm/Exploring_Concepts_with_OMOP_and_SQL.pptx)**.
+- Slides: **[PPTX](../training/day1-omop-cdm/Day1.pptx)**.
 
 ---
 
@@ -88,7 +88,7 @@ WHERE cr.concept_id_1 = <standard_concept_id>;
 !!! tip "Check your understanding"
     The Day 1 self-check quiz and practice tasks are included in  
     **[Day 1 · Exercises](../exercises/day-01-athena-cdm.md)**.  
-    Use the **[Cheat Sheet](../training/day1-omop-cdm/OMOP_Vocabulary_and_SQL_Cheat_Sheet.md)** and  
+    Use the **[Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md)** and  
     **[Day 1 Slides](../training/day1-omop-cdm/Day1.pptx)** for reference.
  
 > See the slides and cheat sheet for full practice queries.

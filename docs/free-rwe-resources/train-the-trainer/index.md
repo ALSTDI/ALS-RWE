@@ -10,10 +10,11 @@ This multi-day training series provides participants with a comprehensive, hands
     Each week builds on the last — start with the earliest modules and progress through the sequence.  
 
     **How to get the most out of it:**
-    - 📘 **Follow the modules in order** — each one includes objectives, slides, and hands-on exercises.  
-    - 🧭 **Explore the “Exercises” section** for SQL labs, Atlas walkthroughs, and vocabulary practice.  
-    - 🗂️ **Check “Resources”** for curated references, external tools, and reading materials.  
-    - 🧑‍🏫 **Trainers:** use the instructor notes and add site updates or examples as your sessions evolve.  
+
+    - 📘 **Follow the modules in order.** Each one includes objectives, slides, and hands-on exercises.
+    - 🧭 **Explore the “Exercises” section** for SQL labs, Atlas walkthroughs, and vocabulary practice.
+    - 🗂️ **Check “Resources”** for curated references, external tools, and reading materials.
+    - 🧑‍🏫 **Trainers:** use the instructor notes and add site updates or examples as your sessions evolve.
 
     All content in `docs/` is **version-controlled**, so updates and new contributions are tracked automatically.
 

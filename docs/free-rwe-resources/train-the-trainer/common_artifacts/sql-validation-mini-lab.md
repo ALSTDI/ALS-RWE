@@ -17,7 +17,7 @@ You’ll export SQL from Atlas, run it yourself, and compare results — reinfor
 - Read access to your **OMOP training database**.
 - Atlas account with access to the training environment.
 - A configured SQL client (**Databricks** or **DBeaver**).  
-- The reference: **[OMOP SQL Examples](../common_artifacts/omop-sql-examples.md)**.
+- The reference: **[OMOP SQL Examples](../common_artifacts/omop-vocab-sql-cheat-sheet.md)**.
 
 ---
 
@@ -131,7 +131,7 @@ WHERE condition_concept_id IN ( /* concept set IDs */ )
 ---
 
 ## 📚 References
-- [OMOP SQL Examples](../common_artifacts/omop-sql-examples.md)
+- [OMOP SQL Examples](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
 - [Book of OHDSI – Data Quality Concepts](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html)
 - [Book of OHDSI – Standardized Vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html)
 - [Book of OHDSI – Common Data Model](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html)
