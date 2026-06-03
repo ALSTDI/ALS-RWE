@@ -1,0 +1,46 @@
+# Day 3 · Cohort Definition and Characterization
+
+!!! abstract "Objectives"
+    By the end of Day 3 you will be able to:
+
+    1. Define an OHDSI cohort and explain how it differs from a simple code list.
+    2. Identify the four parts of a cohort definition: entry event, concept sets, inclusion criteria, and exit.
+    3. Apply temporal logic to inclusion rules.
+    4. Build and generate a cohort in ATLAS.
+    5. Characterize a generated cohort and read the output.
+
+## What a cohort is
+In OHDSI, a cohort is a set of persons who satisfy one or more criteria for a period of time. This is an important distinction: a cohort is not just a list of people with a diagnosis code. It is a rule set that says who qualifies, under what conditions, and for how long. The same definition, run on any OMOP CDM, should produce a comparable cohort, which is what makes studies reproducible across sites.
+
+## The four parts of a cohort definition
+Every cohort definition answers four questions:
+
+1. **Cohort entry event (initial event):** what event qualifies a person to enter, for example the first exposure to metformin? This is built on a concept set.
+2. **Concept set:** the reusable set of standard concepts that the entry event and rules reference. (This is the Day 2 building block.)
+3. **Inclusion criteria:** additional conditions applied to the entry events, for example "at least 365 days of prior observation" or "no prior insulin." In OHDSI there is no separate exclusion list; an exclusion is written as an inclusion rule that must be false.
+4. **Cohort exit:** when and how a person stops being in the cohort, for example at the end of continuous drug exposure or end of observation.
+
+## Temporal logic
+Inclusion rules are usually time-relative. "No prior insulin" really means "no insulin exposure in some window before the entry event." Getting the window right (for example 365 days before, anytime prior, or during a fixed period) is where most cohort logic errors live, so it deserves explicit attention.
+
+## Building a cohort in ATLAS
+ATLAS is the graphical interface for cohort building. The typical flow:
+
+1. Start a new cohort definition.
+2. Define the entry event using a concept set (for example new use of metformin).
+3. Add inclusion criteria, each as its own named rule with its temporal window.
+4. Define the exit.
+5. Save, generate against a CDM, and review the counts and attrition at each inclusion step.
+
+The attrition report is the teaching moment: it shows how many people each rule removed, which immediately reveals a rule that is too strict or too loose.
+
+## Characterization
+Once a cohort is generated, characterization summarizes who is in it: demographics, conditions, drugs, and procedures before and after entry. It is the first sanity check that your definition captured the population you intended.
+
+---
+
+## Tutorial and materials
+A written tutorial, "Cohort Definitions in OHDSI: Basics and Atlas," walks through a full metformin new-user example and is kept with the course kit. The hands-on lab is on the [Day 3 exercise](../exercises/day-03-cohorts.md) page.
+
+## Further reading
+- The Book of OHDSI, Chapter 10 (Defining Cohorts): https://ohdsi.github.io/TheBookOfOhdsi/

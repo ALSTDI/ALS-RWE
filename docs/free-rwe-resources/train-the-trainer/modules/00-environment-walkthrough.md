@@ -5,6 +5,10 @@
     It intentionally avoids site-specific branding so it can be **cloned and customized** by any institution or trainer team.  
     Replace placeholders and add links for your local environment as needed.
 
+!!! warning "Setup and extraction are site specific"
+    There is no single correct environment. Institutions differ in their data warehouse, SQL client, and extraction tooling. These materials use Databricks and DBeaver as examples, but not everyone uses Databricks. Your site may use Snowflake, Postgres, BigQuery, SQL Server, Posit Workbench, or another stack. The OMOP CDM and OHDSI tools are the same everywhere; only the connection details change. See the [Environment Setup Handout](../common_artifacts/environment-setup-handout.md) for the participant quick guide.
+
+
 ---
 
 ## Overview
