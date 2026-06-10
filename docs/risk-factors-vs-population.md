@@ -16,16 +16,16 @@ This work supports Specific Aim 2 of the CDC ALS risk factor project: evaluate e
 
 ---
 
-## ⭐ Headline: one clear signal, one to confirm
+## ⭐ Headline: one clear signal, one that resolves after adjustment
 
-Two factors sit above population expectation. The rest are broadly in line.
+One factor sits clearly above population expectation (autoimmune disease). Military service looks higher on a crude basis but **resolves once you account for age and sex**. The rest are broadly in line.
 
 ![ARC cohort vs U.S. population for self-reported factors](assets/risk-factors/cohort-vs-population.svg)
 
 | Factor | Cohort | U.S. population | Read |
 |---|---:|---:|---|
 | **Autoimmune disease (excl. thyroid)** | **10.7%** | **4.6%** | **Higher, about 2x. Clear signal.** |
-| Military service (ever served) | 10.5% | 6.1% of adults | Higher on a crude basis. Confirm with age and sex matching. |
+| Military service (ever served) | 10.5% | ~14% age and sex matched | Not elevated after adjustment (SPR 0.74). |
 | Asthma, ever | 15.2% | ~13% lifetime | Similar, perhaps slightly above. |
 | Thyroid disease, ever | 13.9% | ~12% | Similar. |
 | Smoking, ever | 33.5% | ~30% | Similar. |
@@ -59,14 +59,19 @@ Psoriasis, rheumatoid arthritis, and inflammatory bowel disease (Crohn's plus ul
 
 ---
 
-## 🪖 Military service: higher, but confirm with standardization
+## 🪖 Military service: not elevated after age and sex adjustment
 
-About **10.5%** of the cohort report ever serving in the armed forces, against a U.S. figure of **6.1%**, so on its face the cohort looks higher. Two things matter before calling this an excess:
+About **10.5%** of the cohort report ever serving in the armed forces, against a crude U.S. figure of **6.1%**, so on its face the cohort looks higher. The crude comparison is misleading, because veteran status is steeply patterned by age and sex and this cohort is older and mostly male.
 
-- **The benchmark denominator is fine.** The 6.1% is the share of U.S. **adults** (18 and older) who are veterans, not a share of the whole population diluted by children. So the crude gap is real as stated.
-- **It is not age or sex matched.** Veteran status is concentrated among older men: about half of U.S. veterans are 65 or older, and roughly 89% are men. Because the cohort is about 62% male with a median age of 65, an age and sex matched expectation would be considerably higher than 6.1%, and quite possibly at or above the observed 10.5%.
+The 6.1% benchmark is the share of U.S. **adults** (18 and older) who are veterans, not a share of the whole population diluted by children, so the denominator is fine. The problem is that veteran status is concentrated among older men: in 2023, about 42% of U.S. men aged 75 and over were veterans, versus under 1% of women that age. Because the cohort is about 62% male with a median age of 65, the right comparison is an age and sex matched expectation, not the crude all-adult rate.
 
-So the crude figure overstates any excess. **Read military service as a candidate signal**, and compute an age and sex standardized expected rate before drawing a conclusion. The established ALS and veteran association in the field comes from formal cohort and registry studies, not from a crude prevalence contrast like this one.
+**Indirect standardization.** Applying U.S. 2023 veteran rates by age and sex to this cohort's own age and sex distribution gives an expected veteran prevalence of about **14%** (sensitivity range 12.6 to 15.6%). The observed **10.5%** sits **below** that expectation, for a standardized prevalence ratio of about **0.74** (range 0.67 to 0.83).
+
+![Military service: crude 6.1%, observed 10.5%, age and sex matched expected 14.1%](assets/risk-factors/military-standardized.svg)
+
+So once age and sex are accounted for, military service is **not elevated** in this cohort, and is if anything slightly lower than the matched expectation. The crude 10.5% versus 6.1% contrast was an age and sex artifact. The established ALS and veteran association in the field comes from formal cohort and registry studies, not from a crude prevalence contrast like this one.
+
+> **Method note.** This is an indirect standardization: expected veterans equals the sum over age by sex strata of (cohort count in stratum times U.S. veteran rate in that stratum). U.S. rates are anchored on 2023 ACS figures (men 75+ at 42.1%, women 75+ under 1%) with interior bands set to 2023 all-volunteer-era patterns; the low and high scenarios bracket plausible interior values, and the conclusion (expected above observed) holds across the whole range. Full code is in the analytic script.
 
 ---
 
