@@ -1,0 +1,2394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://alstdi.github.io/ALS-RWE/free-rwe-resources/train-the-trainer/exercises/day-01-athena-cdm/">
+      
+      
+        <link rel="prev" href="../../modules/day-04-extraction/">
+      
+      
+        <link rel="next" href="../day-02-vocab-dqd/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Day 1 · Athena & CDM - ALS TDI Real World Evidence Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"EB Garamond";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/css/custom.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/under-construction.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#day-1-athena-vocabulary-exploration-quiz" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <span class="uc-banner">
+    🚧 <strong>Preview: under construction.</strong>
+    This site is a work in progress. Content and figures may change.
+  </span>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ALS TDI Real World Evidence Resources" class="md-header__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../../../../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ALS TDI Real World Evidence Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Day 1 · Athena & CDM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  New to RWE? Start Here
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../als-tdi-omop-data-set/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ALS TDI OMOP Data Set
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../stardustt-approach/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  STARDUSTT Approach
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../risk-factors-vs-population/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Risk Factors vs Population
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+  RWE Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../select-publications/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Select Publications
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../ga4gh/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  GA4GH Connect 2026
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ALS TDI Real World Evidence Resources" class="md-nav__button md-logo" aria-label="ALS TDI Real World Evidence Resources" data-md-component="logo">
+      
+  <img src="../../../../assets/ALSTDI-logo-stacked-color.png" alt="logo">
+
+    </a>
+    ALS TDI Real World Evidence Resources
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New to RWE? Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../als-tdi-omop-data-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALS TDI OMOP Data Set
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stardustt-approach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STARDUSTT Approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../risk-factors-vs-population/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Factors vs Population
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RWE Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    RWE Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    New to RWE? Start Here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Train-the-Trainer (OHDSI/OMOP)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Train-the-Trainer (OHDSI/OMOP)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syllabus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personas & Learning Paths
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/00-environment-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 00 · Environment Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/day-01-omop-cdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 · OMOP Common Data Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/day-02-vocab-dqd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 · Vocabulary & Data Quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/day-03-cohorts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 · Cohort Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modules/day-04-extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 · Data Extraction (site specific)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 · Athena & CDM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 · Athena & CDM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#athena-vocabulary-exploration-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Athena Vocabulary Exploration Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 Athena Vocabulary Exploration Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-getting-started-with-athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Section 1 – Getting Started with Athena
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Section 1 – Getting Started with Athena">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-search-for-a-clinical-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.1 — Search for a Clinical Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-review-concept-details-and-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.2 — Review Concept Details and Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-vocabulary-interpretation-and-mapping-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Section 2 – Vocabulary Interpretation and Mapping Logic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Section 2 – Vocabulary Interpretation and Mapping Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-explore-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2.1 — Explore Relationships
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-vocabulary-hierarchy-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2.2 — Vocabulary Hierarchy Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-reflection-and-data-quality-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Section 3 – Reflection and Data Quality Awareness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trainer-overview-sample-discussion-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧾 Trainer Overview (Sample Discussion Notes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day-02-vocab-dqd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 2 · Atlas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day-03-cohorts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 3 · Cohorts in ATLAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day-04-extraction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 4 · Data Extraction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day-05-pathways-optional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 5 · Treatment Pathways (Optional)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../day-06-hades-optional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 6 · HADES (Optional)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_snippets/day-01-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Day 1 · Code Snippets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_6" id="__nav_6_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Artifacts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Common Artifacts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common_artifacts/environment-setup-handout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Setup Handout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common_artifacts/omop-vocab-sql-cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OMOP Vocabulary & SQL Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common_artifacts/sql-validation-mini-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Validation Mini Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common_artifacts/environment-checklist-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Checklist Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_7" id="__nav_6_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/weekly-meeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Community Meeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/office-hours/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Office Hours
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acknowledgements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../select-publications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Select Publications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ga4gh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GA4GH Connect 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#athena-vocabulary-exploration-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Athena Vocabulary Exploration Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧩 Athena Vocabulary Exploration Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Learning Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-getting-started-with-athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Section 1 – Getting Started with Athena
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Section 1 – Getting Started with Athena">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-search-for-a-clinical-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.1 — Search for a Clinical Condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-review-concept-details-and-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1.2 — Review Concept Details and Hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-vocabulary-interpretation-and-mapping-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Section 2 – Vocabulary Interpretation and Mapping Logic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Section 2 – Vocabulary Interpretation and Mapping Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-21-explore-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2.1 — Explore Relationships
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-22-vocabulary-hierarchy-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2.2 — Vocabulary Hierarchy Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3-reflection-and-data-quality-awareness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Section 3 – Reflection and Data Quality Awareness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Deliverables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trainer-overview-sample-discussion-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧾 Trainer Overview (Sample Discussion Notes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="day-1-athena-vocabulary-exploration-quiz">🧭 Day 1 · Athena Vocabulary Exploration &amp; Quiz</h1>
+<div class="admonition tip">
+<p class="admonition-title">Sample notebook</p>
+<p>Run the companion notebook in Colab (synthetic data, no credentials needed): <a href="https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
+or <a href="../../notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb">download it</a>.</p>
+</div>
+<blockquote>
+<p><strong>Purpose:</strong> Learn to explore OMOP standardized vocabularies in <a href="https://athena.ohdsi.org/">Athena</a><br />
+and test your understanding of OMOP CDM concepts, vocabularies, and relationships.</p>
+</blockquote>
+<hr />
+<h2 id="athena-vocabulary-exploration-exercise">🧩 Athena Vocabulary Exploration Exercise</h2>
+<p>This exercise focuses exclusively on exploring the <strong>OMOP Standardized Vocabularies</strong> using <a href="https://athena.ohdsi.org/">Athena</a>.<br />
+You’ll investigate how OMOP organizes concepts, relationships, and hierarchies — using <em>Type 2 Diabetes Mellitus</em> as an example condition.</p>
+<hr />
+<h3 id="learning-goals">💡 Learning Goals</h3>
+<p>By the end of this exercise, participants will be able to:</p>
+<ul>
+<li>Navigate <strong>Athena</strong> and locate clinical concepts across vocabularies.  </li>
+<li>Distinguish between <strong>standard</strong> and <strong>non-standard</strong> concepts.  </li>
+<li>Interpret concept <strong>relationships</strong> (“Maps to,” “Is a,” “Has ancestor,” etc.).  </li>
+<li>Recognize the structure and purpose of <strong>OMOP vocabularies</strong> and <strong>domains</strong>.  </li>
+<li>Understand how vocabulary choice impacts analytic consistency and data quality.</li>
+</ul>
+<hr />
+<h2 id="section-1-getting-started-with-athena">🔍 Section 1 – Getting Started with Athena</h2>
+<h3 id="step-11-search-for-a-clinical-condition">Step 1.1 — Search for a Clinical Condition</h3>
+<ol>
+<li>Open <a href="https://athena.ohdsi.org/">Athena</a>.  </li>
+<li>Search for <strong>“Type 2 Diabetes Mellitus.”</strong>  </li>
+<li>Identify:</li>
+<li>The <strong>standard concept</strong> (<code>Standard Concept = S</code>)  </li>
+<li>A related <strong>non-standard concept</strong> (<code>Standard Concept = NULL</code>)  </li>
+<li>The <strong>domain</strong>, <strong>vocabulary</strong>, and <strong>concept class</strong></li>
+</ol>
+<p><img alt="Athena search results placeholder" src="../../assets/day1/athena-search.png" /></p>
+<p><strong>Trainer Prompts</strong>
+- What distinguishes “standard” vs “non-standard” in OMOP?<br />
+- Which vocabularies are most common for <em>Condition</em> domains?<br />
+- Why are “mapping” relationships essential for standardization?</p>
+<hr />
+<h3 id="step-12-review-concept-details-and-hierarchies">Step 1.2 — Review Concept Details and Hierarchies</h3>
+<ol>
+<li>Open the <strong>Concept Details</strong> page for your chosen concept.  </li>
+<li>Explore relationships, ancestors / descendants, and concept class.</li>
+</ol>
+<p><img alt="Athena concept details placeholder" src="../../assets/day1/concept-details.png" /></p>
+<p><strong>Trainer Prompts</strong>
+- How do “Is a” and “Has ancestor” define hierarchy?<br />
+- Why might “Maps to” differ from “Is a”?<br />
+- When reviewing descendants, how do you decide what’s “too specific”?</p>
+<hr />
+<h2 id="section-2-vocabulary-interpretation-and-mapping-logic">🧭 Section 2 – Vocabulary Interpretation and Mapping Logic</h2>
+<h3 id="step-21-explore-relationships">Step 2.1 — Explore Relationships</h3>
+<p>Choose a <strong>non-standard ICD10CM</strong> code for Type 2 Diabetes and inspect its mappings.</p>
+<p><img alt="Athena relationships placeholder" src="../../assets/day1/athena-relationships.png" /></p>
+<p><strong>Discussion Questions</strong>
+1. What happens if two ICD codes map to the same SNOMED concept?<br />
+2. How does that improve cross-institution consistency?<br />
+3. What does “Maps to value” mean?</p>
+<hr />
+<h3 id="step-22-vocabulary-hierarchy-practice">Step 2.2 — Vocabulary Hierarchy Practice</h3>
+<p>Pick another condition (e.g., <em>Hypertension</em>, <em>Asthma</em>, <em>Heart Failure</em>).</p>
+<ul>
+<li>Count how many <strong>descendants</strong> the top-level concept has.  </li>
+<li>Identify one or two that might be <strong>too specific</strong>.  </li>
+<li>Review the <strong>vocabulary version</strong> and note updates.</li>
+</ul>
+<p><strong>Trainer Prompts</strong>
+- How frequently are vocabularies updated in Athena?<br />
+- What are the risks of using outdated vocabularies?<br />
+- How can version metadata be stored for reproducibility?</p>
+<hr />
+<h2 id="section-3-reflection-and-data-quality-awareness">🧪 Section 3 – Reflection and Data Quality Awareness</h2>
+<p><strong>Reflection Questions</strong>
+- How does using standardized vocabularies improve analytic reproducibility?<br />
+- What mapping errors could affect cohort counts?<br />
+- Why can’t non-standard codes be used directly?<br />
+- How does vocabulary hierarchy influence inclusion/exclusion?</p>
+<p><strong>Trainer Extension</strong>
+- Explore a multi-domain concept like “HbA1c.”<br />
+  - Compare Measurement vs Observation domains.<br />
+  - Why does domain assignment matter for analytics?</p>
+<hr />
+<h2 id="deliverables">📋 Deliverables</h2>
+<ul>
+<li>Completed answers to vocabulary questions.  </li>
+<li>2–3 screenshots from Athena (search, details, relationships).  </li>
+<li>Reflection notes summarizing insights.</li>
+</ul>
+<hr />
+<h2 id="trainer-overview-sample-discussion-notes">🧾 Trainer Overview (Sample Discussion Notes)</h2>
+<p><strong>Example Discussion</strong></p>
+<ul>
+<li><em>Standard concept:</em> <code>Type 2 diabetes mellitus</code> (SNOMED 201826)  </li>
+<li><em>Non-standard concept:</em> <code>E11.9 – Type 2 diabetes mellitus without complications</code> (ICD10CM) → maps to 201826  </li>
+<li>OMOP standardizes to SNOMED so EHR diagnoses share a common meaning.  </li>
+<li>ICD codes map to SNOMED via “Maps to” relationships in Athena.</li>
+</ul>
+<p><img alt="Trainer example placeholder" src="../assets/day1/trainer-example.png" /></p>
+<hr />
+<h1 id="day-1-omop-vocabulary-cdm-quiz">🧮 Day 1 · OMOP Vocabulary &amp; CDM Quiz</h1>
+<blockquote>
+<p><strong>Goal:</strong> Test your understanding of the OMOP Common Data Model and standardized vocabularies.<br />
+Click <strong>“Show answer”</strong> under each question to reveal the explanation.</p>
+</blockquote>
+<hr />
+<h2 id="1-concepts-standardization">1️⃣ Concepts &amp; Standardization</h2>
+<details class="question">
+<summary>Q1. What does it mean for a concept to be <em>standard</em> in OMOP?</summary>
+<p><strong>Answer:</strong><br />
+A <em>standard concept</em> can be used consistently across all OMOP databases for analysis.<br />
+These concepts serve as universal references that link different vocabularies (e.g., ICD → SNOMED).<br />
+Non-standard concepts exist only for source-specific coding.</p>
+</details>
+<hr />
+<details class="question">
+<summary>Q2. Which table contains information about how one concept maps to another?</summary>
+<p><strong>Answer:</strong><br />
+<code>concept_relationship</code> — this table defines links such as “Maps to,” “Is a,” “Subsumes,” etc.<br />
+It connects source (non-standard) concepts to standard ones used for analytics.</p>
+</details>
+<hr />
+<details class="question">
+<summary>Q3. What is the main purpose of vocabulary standardization in OMOP?</summary>
+<p><strong>Answer:</strong><br />
+To allow consistent analysis across institutions and datasets.<br />
+Standardization ensures that all equivalent source codes map to the same standardized meaning.</p>
+</details>
+<hr />
+<h2 id="2-core-cdm-structure">2️⃣ Core CDM Structure</h2>
+<details class="question">
+<summary>Q4. Which of the following tables contains patient-level clinical events?</summary>
+<p><strong>Answer:</strong><br />
+<code>condition_occurrence</code> — this table stores diagnosis and problem list entries at the person level.</p>
+</details>
+<hr />
+<details class="question">
+<summary>Q5. How are OMOP vocabularies linked to the CDM?</summary>
+<p><strong>Answer:</strong><br />
+By using <code>concept_id</code> foreign keys in domain tables (e.g., <code>condition_concept_id</code>).<br />
+This ties every record to a standardized concept, enabling consistent analytics.</p>
+</details>
+<hr />
+<h2 id="3-vocabulary-navigation-in-athena">3️⃣ Vocabulary Navigation in Athena</h2>
+<details class="question">
+<summary>Q6. What does “Maps to” indicate in Athena?</summary>
+<p><strong>Answer:</strong><br />
+“Maps to” connects a <strong>non-standard</strong> source code (e.g., ICD-10-CM) to its <strong>standard</strong> concept (e.g., SNOMED).<br />
+It defines the translation needed for standardized analytics.</p>
+</details>
+<hr />
+<details class="question">
+<summary>Q7. If you search for <em>Type 2 Diabetes Mellitus</em> in Athena, which vocabulary is typically standard for the Condition domain?</summary>
+<p><strong>Answer:</strong><br />
+<strong>SNOMED CT</strong> — SNOMED serves as the standard vocabulary for clinical conditions in OMOP.</p>
+</details>
+<hr />
+<h2 id="4-relationships-hierarchies">4️⃣ Relationships &amp; Hierarchies</h2>
+<details class="question">
+<summary>Q8. Which pair of relationship IDs defines the hierarchy between general and specific concepts?</summary>
+<p><strong>Answer:</strong><br />
+“Is a” and “Has ancestor.”<br />
+These describe parent–child relationships, defining how concepts nest under broader categories.</p>
+</details>
+<hr />
+<details class="question">
+<summary>Q9. You find two ICD codes that both <em>map to</em> the same SNOMED concept. What does this tell you about the OMOP model?</summary>
+<p><strong>Answer:</strong><br />
+OMOP standardizes multiple source codes to a single concept definition.<br />
+This ensures that analyses aggregate results correctly, even if hospitals use different coding systems.</p>
+</details>
+<hr />
+<h2 id="5-applied-reasoning">5️⃣ Applied Reasoning</h2>
+<details class="question">
+<summary>Q10. A data engineer loads a new EHR table but forgets to translate ICD-9 codes to SNOMED concepts. What is the most likely downstream issue?</summary>
+<p><strong>Answer:</strong><br />
+The analysis tools (ATLAS/HADES) won’t recognize the conditions correctly because they depend on standard concepts.<br />
+Non-standard codes will break standardization and analytic consistency.</p>
+</details>
+<hr />
+<blockquote>
+<p>🧩 Use the <a href="../../common_artifacts/omop-vocab-sql-cheat-sheet/">Cheat Sheet</a> and<br />
+<a href="../../training/day1-omop-cdm/Day1.pptx">Day 1 Slides</a> to review these concepts.<br />
+For deeper exploration, repeat the <a href="./">Athena Vocabulary Exercise</a> with a different condition.</p>
+</blockquote>
+<hr />
+<h3 id="instructor-note">💡 Instructor Note</h3>
+<p>You can turn this into an in-class poll (Kahoot, PollEv) or reuse it for post-training self-checks.<br />
+Answers are embedded but collapsed by default to encourage active recall.</p>
+<hr />
+<details class="info">
+<summary>💬 Trainer Reference – Suggested Answers</summary>
+<h2 id="section-1-getting-started-with-athena_1">🔍 Section 1 – Getting Started with Athena</h2>
+<h3 id="step-11-search-for-a-clinical-condition_1">Step 1.1 — Search for a Clinical Condition</h3>
+<p><strong>Discussion Prompts &amp; Suggested Answers</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prompt</th>
+<th style="text-align: left;">Answer / Talking Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">What distinguishes “standard” vs “non-standard” in OMOP?</td>
+<td style="text-align: left;">Standard concepts (<code>standard_concept = 'S'</code>) are unified reference terms used for analysis; non-standard (<code>NULL</code>) are source codes that require mapping.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which vocabularies are most common for <em>Condition</em> domains?</td>
+<td style="text-align: left;"><strong>SNOMED CT</strong> is the primary standard vocabulary for conditions. Source vocabularies include <strong>ICD-9-CM</strong> and <strong>ICD-10-CM</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Why are “mapping” relationships essential for standardization?</td>
+<td style="text-align: left;">“Maps to” relationships connect local or source-specific codes to a shared standard concept, ensuring consistent meaning and comparable analytics across sites.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-12-review-concept-details-and-hierarchies_1">Step 1.2 — Review Concept Details and Hierarchies</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prompt</th>
+<th style="text-align: left;">Answer / Talking Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">How do “Is a” and “Has ancestor” define hierarchy?</td>
+<td style="text-align: left;">“Is a” indicates a direct parent–child relationship (e.g., <em>Type 2 Diabetes</em> <strong>is a</strong> <em>Diabetes</em>). “Has ancestor” generalizes for all higher-level links.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Why might “Maps to” differ from “Is a”?</td>
+<td style="text-align: left;">“Maps to” connects <strong>different vocabularies</strong> (crosswalk), while “Is a” expresses hierarchy <strong>within</strong> a single vocabulary.</td>
+</tr>
+<tr>
+<td style="text-align: left;">When reviewing descendants, how do you decide what’s “too specific”?</td>
+<td style="text-align: left;">Concepts that narrow the condition beyond your study purpose (e.g., “Hypertension complicating pregnancy” for a general hypertension study). Exclude when clinically irrelevant.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="section-2-vocabulary-interpretation-and-mapping-logic_1">🧭 Section 2 – Vocabulary Interpretation and Mapping Logic</h2>
+<h3 id="step-21-explore-relationships_1">Step 2.1 — Explore Relationships</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Question</th>
+<th style="text-align: left;">Suggested Answer / Talking Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">What happens if two ICD codes map to the same SNOMED concept?</td>
+<td style="text-align: left;">They represent clinically equivalent conditions. Mapping merges them into one concept, preventing double-counting.</td>
+</tr>
+<tr>
+<td style="text-align: left;">How does that improve cross-institution consistency?</td>
+<td style="text-align: left;">Different coding systems converge on one shared concept ID, ensuring identical interpretation and patient counts.</td>
+</tr>
+<tr>
+<td style="text-align: left;">What does “Maps to value” mean?</td>
+<td style="text-align: left;">Used for <strong>Measurement/Observation</strong> domains — connects a source <em>value</em> concept (e.g., “positive,” “abnormal”) to its standardized result meaning.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-22-vocabulary-hierarchy-practice_1">Step 2.2 — Vocabulary Hierarchy Practice</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Prompt</th>
+<th style="text-align: left;">Answer / Talking Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">How frequently are vocabularies updated in Athena?</td>
+<td style="text-align: left;">Monthly or bi-monthly; SNOMED and RxNorm update frequently. Always note the <strong>vocabulary_version</strong> when downloading.</td>
+</tr>
+<tr>
+<td style="text-align: left;">What are the risks of using outdated vocabularies?</td>
+<td style="text-align: left;">Mappings may be deprecated or missing; new terms could be excluded, leading to data quality issues or incorrect cohorts.</td>
+</tr>
+<tr>
+<td style="text-align: left;">How can version metadata be stored for reproducibility?</td>
+<td style="text-align: left;">Document versions in ETL logs, study protocol, or CDM metadata (<code>vocabulary</code> table fields).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="section-3-reflection-and-data-quality-awareness_1">🧪 Section 3 – Reflection and Data Quality Awareness</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Question</th>
+<th style="text-align: left;">Suggested Answer / Talking Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">How does using standardized vocabularies improve analytic reproducibility?</td>
+<td style="text-align: left;">Ensures all sites interpret and aggregate data identically, supporting consistent multi-site results.</td>
+</tr>
+<tr>
+<td style="text-align: left;">What mapping errors could affect cohort counts?</td>
+<td style="text-align: left;">Missing or incorrect “Maps to” links can misclassify or exclude patients.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Why can’t non-standard codes be used directly?</td>
+<td style="text-align: left;">They don’t have consistent meaning across vocabularies; analytic tools require standard concepts.</td>
+</tr>
+<tr>
+<td style="text-align: left;">How does vocabulary hierarchy influence inclusion/exclusion?</td>
+<td style="text-align: left;">The ancestor/descendant range affects cohort breadth — too high = over-inclusive, too low = overly narrow.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Multi-domain example (<em>HbA1c</em>) — Why does domain assignment matter?</td>
+<td style="text-align: left;">“HbA1c as Measurement” indicates a lab test; as Observation, it might represent a note. Correct domain ensures proper table joins and analysis.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">💡 Key Takeaways</h2>
+<ul>
+<li><strong>SNOMED CT</strong> is the standard for clinical conditions in OMOP.  </li>
+<li><strong>Mapping relationships</strong> (“Maps to,” “Maps to value”) form the backbone of standardization.  </li>
+<li><strong>Hierarchy</strong> (“Is a,” “Has ancestor”) controls the precision of concept sets.  </li>
+<li><strong>Version tracking</strong> is essential for reproducibility across time and data partners.  </li>
+</ul>
+<hr />
+<p>🧩 <em>Instructor Tip:</em> Review these answers <strong>after</strong> learners share findings to reinforce reasoning.<br />
+Keep this section collapsed in MkDocs — it’s hidden by default and easy to expand during class.</p>
+</details>
+<hr />
+<p><a href="../../modules/day-01-omop-cdm/">⬅ Back to the module: <strong>Day 1 · OMOP CDM</strong></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.header", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../assets/js/ga4gh-datadictionary.js"></script>
+      
+    
+  </body>
+</html>

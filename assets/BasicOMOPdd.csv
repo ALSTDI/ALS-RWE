@@ -1,0 +1,261 @@
+﻿Relevant OMOP Table,Field Name,Description
+person,person_id,A unique identifier for each person. 
+person,gender_concept_id,A foreign key that refers to an identifier in the CONCEPT table for self-reported genderor sex at birth for the participant.
+person,year_of_birth,"The year of birth of the person. For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available."
+person,month_of_birth,"The month of birth of the person. For data sources that provide the precise date of birth, the month is extracted and stored in this field."
+person,day_of_birth,"The day of the month of birth of the person. For data sources that provide the precise date of birth, the day is extracted and stored in this field."
+person,birth_datetime,The date and time of birth of the person. 
+person,race_concept_id,"A foreign key that refers to an identifier in the CONCEPT table for the unique race of the person, belonging to the 'Race' vocabulary."
+person,ethnicity_concept_id,"A foreign key that refers to the standard concept identifier in the Standardized Vocabularies for the ethnicity of the person, belonging to the 'Ethnicity' vocabulary."
+person,location_id,"A foreign key to the place of residency for the person in the location table, where the detailed address information is stored."
+person,provider_id,A foreign key to the primary care provider the person is seeing in the PROVIDER table.
+person,care_site_id,"A foreign key to the site of primary care in the care_site table, where the details of the care site are stored."
+person,person_source_value,An (encrypted) key derived from the person identifier in the source data. This is necessary when a use case requires a link back to the person data at the source dataset.
+person,gender_source_value,The source code for the self-reported gender or sex at birth for the participant as it appears in the source data. The person’s response is mapped to a standardconcept in the Standardized Vocabularies; the original value is stored here for reference.
+person,gender_source_concept_id,A foreign key to the self-reported gender or sex at birth  concept for the participant that refers to the code used in the source.
+person,race_source_value,The source code for the race of the person as it appears in the source data. The person race is mapped to a standard race concept in the Standardized Vocabularies and the original value is stored here for reference.
+person,race_source_concept_id,A foreign key to the race concept that refers to the code used in the source.
+person,ethnicity_source_value,"The source code for the ethnicity of the person as it appears in the source data. The person ethnicity is mapped to a standard ethnicity concept in the Standardized Vocabularies and the original code is, stored here for reference."
+person,ethnicity_source_concept_id,A foreign key to the ethnicity concept that refers to the code used in the source.
+condition_occurrence,condition_occurrence_id,A unique identifier for each Condition Occurrence event.
+condition_occurrence,person_id,A foreign key identifier to the Person for whom the condition is recorded. The demographic details of that Person are stored in the PERSON table.
+condition_occurrence,condition_concept_id,A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Condition' domain.
+condition_occurrence,condition_start_date,The date when the instance of the Condition is recorded. 
+condition_occurrence,condition_start_datetime,The date and time when the instance of the Condition is recorded. 
+condition_occurrence,condition_end_date,The date when the instance of the Condition is considered to have ended.
+condition_occurrence,condition_end_datetime,The date and time when the instance of the Condition is considered to have ended. 
+condition_occurrence,condition_type_concept_id,"A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the source data from which the Condition was recorded, the level of standardization, and the type of occurrence. "
+condition_occurrence,stop_reason,"The reason that the Condition was no longer present, as indicated in the source data."
+condition_occurrence,provider_id,A foreign key to the Provider in the PROVIDER table who was responsible for capturing (diagnosing) the Condition.
+condition_occurrence,visit_occurrence_id,A foreign key to the unique identifier for the visit in the VISIT_OCCURRENCE table during which the Condition was determined (diagnosed).
+condition_occurrence,condition_source_value,The source code for the Condition as it appears in the source data. This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference.
+condition_occurrence,condition_source_concept_id,A foreign key to a Condition Concept that refers to the code used in the source.
+condition_occurrence,condition_status_source_value,The source code for the condition status as it appears in the source data. This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference.
+condition_occurrence,condition_status_concept_id,The source code for the condition status as it appears in the source data.
+visit_occurrence,visit_occurrence_id,A unique identifier for each Person's visit or encounter at a healthcare provider.
+visit_occurrence,person_id,A foreign key identifier to the Person for whom the visit is recorded. The demographic details of that Person are stored in the PERSON table.
+visit_occurrence,visit_concept_id,A foreign key that refers to a visit Concept identifier in the Standardized Vocabularies belonging to the 'Visit' Vocabulary.
+visit_occurrence,visit_start_date,The start date of the visit.
+visit_occurrence,visit_start_datetime,The date and time of the visit started.
+visit_occurrence,visit_end_date,The end date of the visit. If this is a one-day visit the end date should match the start date.
+visit_occurrence,visit_end_datetime, The date and time of the visit end.
+visit_occurrence,visit_type_concept_id,A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the visit record is derived.
+visit_occurrence,provider_id,A foreign key to the provider in the PROVIDER table who was associated with the visit.
+visit_occurrence,care_site_id,A foreign key to the care site in the care site table that was visited
+visit_occurrence,visit_source_value,The source code for the visit as it appears in the source data.
+visit_occurrence,visit_source_concept_id,A foreign key to a Concept that refers to the code used in the source.
+visit_occurrence,admitting_source_concept_id,A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.
+visit_occurrence,admitting_source_value,The source code for the admitting source as it appears in the source data.
+visit_occurrence,discharge_to_concept_id,A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition for a visit.
+visit_occurrence,discharge_to_source_value,The source code for the discharge disposition as it appears in the source data.
+visit_occurrence,preceding_visit_occurrence_id,A foreign key to the visit_occurrence table of the visit immediately preceding this visit.
+visit_detail,visit_detail_id,A unique identifier for each Person's unique interaction with the health care system.
+visit_detail,person_id,A foreign key identifier to the Person for whom the visit is recorded. The demographic details of that Person are stored in the PERSON table.
+visit_detail,visit_detail_concept_id,A foreign key that refers to a visit Concept identifier in the Standardized Vocabularies belonging to the 'Visit' Vocabulary.
+visit_detail,visit_detail_start_date,The start date of the encounter.
+visit_detail,visit_detail_start_datetime,The date and time of the encounter started.
+visit_detail,visit_detail_end_date,The end date of the encounter.
+visit_detail,visit_detail_end_datetime,The date and time of the encounter ended. 
+visit_detail,visit_detail_type_concept_id,A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the visit record is derived.
+visit_detail,provider_id,A foreign key to the provider in the PROVIDER table who was associated with the visit.
+visit_detail,care_site_id,A foreign key to the care site in the care site table that was visited
+visit_detail,visit_detail_source_value,The source code for the visit as it appears in the source data.
+visit_detail,visit_detail_source_concept_id,A foreign key to a Concept that refers to the code used in the source.
+visit_detail,admitting_source_value,The source code for the admitting source as it appears in the source data.
+visit_detail,admitting_source_concept_id,A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.
+visit_detail,discharge_to_source_value,The source code for the discharge disposition as it appears in the source data.
+visit_detail,discharge_to_concept_id,A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition for a visit.
+visit_detail,preceding_visit_detail_id,A foreign key to the visit_occurrence table of the visit immediately preceding this visit.
+visit_detail,visit_detail_parent_id,Use this field to find the visit detail that subsumes the given visit detail record. This is used in the case that a visit detail record needs to be nested beyond the VISIT_OCCURRENCE/VISIT_DETAIL relationship.
+visit_detail,visit_occurrence_id,A foreign key to the unique identifier for the visit in the VISIT_OCCURRENCE table during which the encounter occurred.
+drug_exposure,drug_exposure_id,A system-generated unique identifier for each Drug utilization event.
+drug_exposure,person_id,A foreign key identifier to the Person who is subjected to the Drug. The demographic details of that Person are stored in the PERSON table.
+drug_exposure,drug_concept_id,A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Drug' domain.
+drug_exposure,drug_exposure_start_date,"The start date for the current instance of Drug utilization. Valid entries include a start date of a prescription, the date a prescription was filled, or the date on which a Drug administration procedure was recorded."
+drug_exposure,drug_exposure_start_datetime,"The start date and time for the current instance of Drug utilization. Valid entries include a start datetime of a prescription, the date and time a prescription was filled, or the date and time on which a Drug administration procedure was recorded."
+drug_exposure,drug_exposure_end_date,"The end date for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and denotes the last day at which the patient was still exposed to Drug."
+drug_exposure,drug_exposure_end_datetime,"The end date and time for the current instance of Drug utilization. Depending on different sources, it could be a known or an inferred date and time and denotes the last day at which the patient was still exposed to Drug."
+drug_exposure,verbatim_end_date,The known end date of a Drug Exposure as provided by the source.
+drug_exposure,drug_type_concept_id,A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Drug Exposure recorded. It indicates how the Drug Exposure was represented in the source data.
+drug_exposure,stop_reason,The reason the Drug was stopped. 
+drug_exposure,refills,"The number of refills after the initial prescription. The initial prescription is not counted, values start with null."
+drug_exposure,quantity,The quantity of drug as recorded in the original prescription or dispensing record.
+drug_exposure,days_supply,The number of days of supply of the medication as prescribed. This reflects the intention of the provider for the length of exposure.
+drug_exposure,sig,The directions ('signetur') on the Drug prescription as recorded in the original prescription (and printed on the container) or dispensing record.
+drug_exposure,route_concept_id,A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies reflecting the route of administration and belonging to the 'Route' domain.
+drug_exposure,lot_number,An identifier assigned to a particular quantity or lot of Drug product from the manufacturer.
+drug_exposure,provider_id,A foreign key to the provider in the PROVIDER table who initiated (prescribed or administered) the Drug Exposure.
+drug_exposure,visit_occurrence_id,A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Drug Exposure was initiated.
+drug_exposure,visit_detail_id,A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Drug Exposure was initiated.
+drug_exposure,drug_source_value,"The source code for the Drug as it appears in the source data. This code is mapped to a Standard Drug concept in the Standardized Vocabularies and the original code is, stored here for reference."
+drug_exposure,drug_source_concept_id,A foreign key to a Drug Concept that refers to the code used in the source.
+drug_exposure,route_source_value,The information about the route of administration as detailed in the source.
+drug_exposure,dose_unit_source_value,The information about the dose unit as detailed in the source.
+measurement,measurement_id,A unique identifier for each Measurement.
+measurement,person_id,A foreign key identifier to the Person about whom the measurement was recorded. The demographic details of that Person are stored in the PERSON table.
+measurement,measurement_concept_id,"A foreign key to the standard measurement concept identifier in the Standardized Vocabularies. These belong to the 'Measurement' domain, but could overlap with the 'Observation' domain."
+measurement,measurement_date,The date of the Measurement.
+measurement,measurement_datetime,"The date and time of the Measurement. Some database systems don't have a datatype of time. To accommodate all temporal analyses, datatype datetime can be used (combining measurement_date and measurement_time forum discussion)"
+measurement,measurement_type_concept_id,A foreign key to the predefined Concept in the Standardized Vocabularies reflecting the provenance from where the Measurement record was recorded. 
+measurement,operator_concept_id,A foreign key identifier to the predefined Concept in the Standardized Vocabularies reflecting the mathematical operator that is applied to the value_as_number. 
+measurement,value_as_number,A Measurement result where the result is expressed as a numeric value.
+measurement,value_as_concept_id,"A foreign key to a Measurement result represented as a Concept from the Standardized Vocabularies (e.g., positive/negative, present/absent, low/high, etc.). These belong to the 'Meas Value' domain. "
+measurement,unit_concept_id,A foreign key to a Standard Concept ID of Measurement Units in the Standardized Vocabularies that belong to the 'Unit' domain.
+measurement,range_low,The lower limit of the normal range of the Measurement result. The lower range is assumed to be of the same unit of measure as the Measurement value.
+measurement,range_high,The upper limit of the normal range of the Measurement. The upper range is assumed to be of the same unit of measure as the Measurement value.
+measurement,provider_id,A foreign key to the provider in the PROVIDER table who was responsible for initiating or obtaining the measurement.
+measurement,visit_occurrence_id,A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Measurement was recorded.
+measurement,visit_detail_id,A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Measurement was taken.
+measurement,measurement_source_value,The Measurement name as it appears in the source data. This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference.
+measurement,measurement_source_concept_id,A foreign key to a Concept in the Standard Vocabularies that refers to the code used in the source.
+measurement,unit_source_value,The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is stored here for reference.
+measurement,value_source_value,The source value associated with the content of the value_as_number or value_as_concept_id as stored in the source data.
+procedure_occurrence,procedure_occurrence_id,A system-generated unique identifier for each Procedure Occurrence.
+procedure_occurrence,person_id,A foreign key identifier to the Person who is subjected to the Procedure. The demographic details of that Person are stored in the PERSON table.
+procedure_occurrence,procedure_concept_id,A foreign key that refers to a standard procedure Concept identifier in the Standardized Vocabularies. These belong to the 'Procedure' domain.
+procedure_occurrence,procedure_date,The date on which the Procedure was performed.
+procedure_occurrence,procedure_datetime,The date and time on which the Procedure was performed.
+procedure_occurrence,procedure_type_concept_id,A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of source data from which the procedure record is derived.
+procedure_occurrence,modifier_concept_id,A foreign key to a Standard Concept identifier for a modifier to the Procedure (e.g. bilateral). 
+procedure_occurrence,quantity,The quantity of procedures ordered or administered.
+procedure_occurrence,provider_id,A foreign key to the provider in the PROVIDER table who was responsible for carrying out the procedure.
+procedure_occurrence,visit_occurrence_id,A foreign key to the Visit in the VISIT_OCCURRENCE table during which the Procedure was carried out.
+procedure_occurrence,procedure_source_value,"The source code for the Procedure as it appears in the source data. This code is mapped to a standard procedure Concept in the Standardized Vocabularies and the original code is, stored here for reference. "
+procedure_occurrence,procedure_source_concept_id,A foreign key to a Procedure Concept that refers to the code used in the source.
+procedure_occurrence,qualifier_source_value,The source value for the qualifier as it appears in the source data.
+observation,observation_id,A unique identifier for each observation.
+observation,person_id,A foreign key identifier to the Person about whom the observation was recorded. The demographic details of that Person are stored in the PERSON table.
+observation,observation_concept_id,"A foreign key to the standard observation concept identifier in the Standardized Vocabularies. In cases where the recorded observation is the answer to a PPI question, this field will contain the Standard Concept ID for the corresponding question (or, if the question is non-standard, its standard LOINC/SNOMED equivalent)."
+observation,observation_date,The date of the observation.
+observation,observation_datetime,The date and time of the observation.
+observation,observation_type_concept_id,A foreign key to the predefined concept identifier in the Standardized Vocabularies reflecting the type of the observation belonging to the 'Observation' domain.
+observation,value_as_number,The observation result stored as a number. This is applicable to observations where the result is expressed as a numeric value.
+observation,value_as_string,The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text.
+observation,value_as_concept_id,"A foreign key to an observation result stored as a Concept ID. This is applicable to observations where the result can be expressed as a Standard Concept from the Standardized Vocabularies (e.g., positive/negative, present/absent, low/high, etc.). These belong to the 'Meas Value' domain. In cases where the recorded observation is the answer to a PPI question, this field will contain the standard PPI answer Concept ID or its standard LOINC/SNOMED equivalent (if the answer is non-standard). For PPI, this field is derived from value_source_concept_id."
+observation,value_source_value,The source value associated with the content of the value_as_number or value_as_concept_id as stored in the source data.
+observation,qualifier_concept_id,"A foreign key to a Standard Concept ID for a qualifier (e.g., severity of drug-drug interaction alert)"
+observation,unit_concept_id,A foreign key to a Standard Concept ID of measurement units in the Standardized Vocabularies belonging to the 'Unit' domain.
+observation,provider_id,A foreign key to the provider in the PROVIDER table who was responsible for making the observation.
+observation,visit_occurrence_id,A foreign key to the visit in the VISIT_OCCURRENCE table during which the observation was recorded.
+observation,visit_detail_id,A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Observation was recorded.
+observation,observation_source_value,"The observation code as it appears in the source data. This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is, stored here for reference. If the recorded observation is the answer to a PPI question, the code for the PPI question is stored here. "
+observation,observation_source_concept_id,"A foreign key to a Concept that refers to the code used in the source. If the recorded observation is the answer to a PPI question, the PPI concept for the question is stored here."
+observation,value_source_concept_id,"A foreign key to an Observation result represented as a Concept from the Standardized Vocabularies (e.g., positive/negative, present/absent, low/high, etc.).  For EHR data, these will be from the ""Meas Val"" domain. 
+
+If the recorded observation is the response to a PPI question, this field will contain the PPI concept for the answer."
+observation,unit_source_value,"The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference."
+observation,qualifier_source_value,The source value associated with a qualifier to characterize the observation
+observation_period,observation_period_id,A unique identifier for each observation period
+observation_period,person_id,A foreign key identifier to the person for whom the observation period is defined. The demographic details of that person are stored in the PERSON table
+observation_period,observation_period_start_date,The start date of the observation period for which data are available from the data source
+observation_period,observation_period_end_date,The end date of the observation period for which data are available from the data source
+observation_period,period_type_concept_id,"A foreign key identifier to the predefined concept in the Standardized Vocabularies reflecting the source of the observation period information, belonging to the 'Obs Period Type' vocabulary"
+device_exposure,device_exposure_id,A system-generated unique identifier for each Device Exposure.
+device_exposure,person_id,A foreign key identifier to the Person who is subjected to the Device. The demographic details of that Person are stored in the PERSON table.
+device_exposure,device_concept_id,A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Device' domain.
+device_exposure,device_exposure_start_date,The date the Device or supply was applied or used.
+device_exposure,device_exposure_start_datetime,The date and time the Device or supply was applied or used.
+device_exposure,device_exposure_end_date,The date use of the Device or supply was ceased.
+device_exposure,device_exposure_end_datetime,The date and time use of the Device or supply was ceased.
+device_exposure,device_type_concept_id,A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Device Exposure recorded. It indicates how the Device Exposure was represented in the source data and belongs to the 'Device Type' domain.
+device_exposure,unique_device_id,A UDI or equivalent identifying the instance of the Device used in the Person.
+device_exposure,quantity,The number of individual Devices used in the exposure.
+device_exposure,provider_id,A foreign key to the provider in the PROVIDER table who initiated or administered the Device.
+device_exposure,visit_occurrence_id,A foreign key to the visit in the VISIT_OCCURRENCE table during which the Device was used.
+device_exposure,visit_detail_id,A foreign key to the Visit Detail in the VISIT_DETAIL table during which the Device Exposure was initiated.
+device_exposure,device_source_value,The source code for the Device as it appears in the source data. This code is mapped to a Standard Device Concept in the Standardized Vocabularies and the original code is stored here for reference.
+device_exposure,device_source_concept_id,A foreign key to a Device Concept that refers to the code used in the source.
+death,person_id,A foreign key identifier to the deceased person. The demographic details of that person are stored in the PERSON table.
+death,death_date   ,"The date the person was deceased. If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day."
+death,death_datetime,"The date and time the person was deceased. If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day."
+death,death_type_concept_id,A foreign key referring to the predefined concept identifier in the Standardized Vocabularies reflecting how the death was represented in the source data.
+death,cause_concept_id,A foreign key referring to a standard concept identifier in the Standardized Vocabularies for conditions.
+death,cause_source_value,"The source code for the cause of death as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference."
+death,cause_source_concept_id,"A foreign key to the concept that refers to the code used in the source. Note, this variable name is abbreviated to ensure it will be allowable across database platforms."
+fact_relationship,domain_concept_id_1,"The concept representing the domain of fact one, from which the corresponding table can be inferred."
+fact_relationship,fact_id_1,The unique identifier in the table corresponding to the domain of fact one.
+fact_relationship,domain_concept_id_2,"The concept representing the domain of fact two, from which the corresponding table can be inferred."
+fact_relationship,fact_id_2,The unique identifier in the table corresponding to the domain of fact two.
+fact_relationship,relationship_concept_id,A foreign key to a Standard Concept ID of relationship in the Standardized Vocabularies belonging to the 'Relationship' domain.
+specimen,specimen_id,A unique identifier for each specimen.
+specimen,person_id,A foreign key identifier to the Person for whom the Specimen is recorded.
+specimen,specimen_concept_id,A foreign key referring to a Standard Concept identifier in the Standardized Vocabularies for the Specimen belonging to the 'Specimen' domain.
+specimen,specimen_type_concept_id,A foreign key referring to the Concept identifier in the Standardized Vocabularies reflecting the system of record from which the Specimen was represented in the source data.
+specimen,specimen_date,The date the specimen was obtained from the Person.
+specimen,specimen_datetime,The date and time on the date when the Specimen was obtained from the person.
+specimen,quantity,The amount of specimen collection from the person during the sampling procedure.
+specimen,unit_concept_id,A foreign key to a Standard Concept identifier for the Unit associated with the numeric quantity of the Specimen collection belonging to the 'Unit' domain/
+specimen,anatomic_site_concept_id,A foreign key to a Standard Concept identifier for the anatomic location of specimen collection.
+specimen,disease_status_concept_id,A foreign key to a Standard Concept identifier for the Disease Status of specimen collection.
+specimen,specimen_source_id,The Specimen identifier as it appears in the source data.
+specimen,specimen_source_value,"The Specimen value as it appears in the source data. This value is mapped to a Standard Concept in the Standardized Vocabularies and the original code is, stored here for reference."
+specimen,unit_source_value,The information about the Unit as detailed in the source.
+specimen,anatomic_site_source_value,The information about the anatomic site as detailed in the source.
+specimen,disease_status_source_value,The information about the disease status as detailed in the source.
+cdm_source,cdm_source_name,The full name of the source
+cdm_source,cdm_source_abbreviation,An abbreviation of the source name
+cdm_source,cdm_holder,The name of the organization responsible for the development of the CDM instance
+cdm_source,source_description,A description of the source data origin and purpose for collection. The description may contain a summary of the period of time that is expected to be covered by this dataset.
+cdm_source,source_documentation_reference,URL or other external reference to location of source documentation
+cdm_source,cdm_etl_reference,URL or other external reference to location of ETL specification documentation and ETL source code
+cdm_source,source_release_date,"The date for which the source data are most current, such as the last day of data capture"
+cdm_source,cdm_release_date,The date when the CDM was instantiated
+cdm_source,cdm_version,The version of CDM used
+cdm_source,vocabulary_version,The version of the vocabulary used
+attribute_definition,attribute_definition_id,A unique identifier for each Attribute.
+attribute_definition,attribute_name,A short description of the Attribute.
+attribute_definition,attribute_description,A complete description of the Attribute definition
+attribute_definition,attribute_type_concept_id,Type defining what kind of Attribute Definition the record represents and how the syntax may be executed
+attribute_definition,attribute_syntax,Syntax or code to operationalize the Attribute definition
+concept,concept_id,A unique identifier for each Concept across all domains.
+concept,concept_name,"An unambiguous, meaningful and descriptive name for the Concept."
+concept,domain_id,A foreign key to the DOMAIN table the Concept belongs to.
+concept,vocabulary_id,A foreign key to the VOCABULARY table indicating from which source the Concept has been adapted.
+concept,concept_class_id,The attribute or concept class of the Concept. 
+concept,standard_concept,"This flag determines where a Concept is a Standard Concept, i.e. is used in the data, a Classification Concept, or a non-standard Source Concept. "
+concept,concept_code,"The concept code represents the identifier of the Concept in the source vocabulary, such as SNOMED-CT concept IDs, RxNorm RXCUIs etc. "
+concept,valid_start_date,The date when the Concept was first recorded. 
+concept,valid_end_date,The date when the Concept became invalid because it was deleted or superseded (updated) by a new concept. 
+concept,invalid_reason,Reason the Concept was invalidated. 
+concept_ancestor,ancestor_concept_id,A foreign key to the concept in the concept table for the higher-level concept that forms the ancestor in the relationship.
+concept_ancestor,descendant_concept_id,A foreign key to the concept in the concept table for the lower-level concept that forms the descendant in the relationship.
+concept_ancestor,min_levels_of_separation,The minimum separation in number of levels of hierarchy between ancestor and descendant concepts. This is an attribute that is used to simplify hierarchic analysis.
+concept_ancestor,max_levels_of_separation,The maximum separation in number of levels of hierarchy between ancestor and descendant concepts. This is an attribute that is used to simplify hierarchic analysis.
+concept_class,concept_class_id,A unique key for each class
+concept_class,concept_class_name,The name describing the Concept Class.
+concept_class,concept_class_concept_id,A foreign key that refers to an identifier in the CONCEPT table for the unique Concept Class the record belongs to.
+concept_relationship,concept_id_1,"A foreign key to a Concept in the CONCEPT table associated with the relationship. Relationships are directional, and this field represents the source concept designation."
+concept_relationship,concept_id_2,"A foreign key to a Concept in the CONCEPT table associated with the relationship. Relationships are directional, and this field represents the destination concept designation."
+concept_relationship,relationship_id,A unique identifier to the type or nature of the Relationship as defined in the RELATIONSHIP table.
+concept_relationship,valid_start_date,The date when the instance of the Concept Relationship is first recorded.
+concept_relationship,valid_end_date,The date when the Concept Relationship became invalid because it was deleted or superseded (updated) by a new relationship. 
+concept_relationship,invalid_reason,Reason the relationship was invalidated. 
+concept_synonym,concept_id,A foreign key to the Concept in the CONCEPT table.
+concept_synonym,concept_synonym_name,The alternative name for the Concept.
+concept_synonym,language_concept_id,A foreign key to a Concept representing the language.
+domain,domain_id,A unique key for each domain.
+domain,domain_name,The name describing the Domain.
+domain,domain_concept_id,A foreign key that refers to an identifier in the CONCEPT table for the unique Domain Concept the Domain record belongs to.
+drug_strength,drug_concept_id,A foreign key to the Concept in the CONCEPT table representing the identifier for Branded Drug or Clinical Drug Concept.
+drug_strength,ingredient_concept_id,"A foreign key to the Concept in the CONCEPT table, representing the identifier for drug Ingredient Concept contained within the drug product."
+drug_strength,amount_value,The numeric value associated with the amount of active ingredient contained within the product.
+drug_strength,amount_unit_concept_id,A foreign key to the Concept in the CONCEPT table representing the identifier for the Unit for the absolute amount of active ingredient.
+drug_strength,numerator_value,The numeric value associated with the concentration of the active ingredient contained in the product
+drug_strength,numerator_unit_concept_id,A foreign key to the Concept in the CONCEPT table representing the identifier for the numerator Unit for the concentration of active ingredient.
+drug_strength,denominator_value,"The amount of total liquid (or other divisible product, such as ointment, gel, spray, etc.)."
+drug_strength,denominator_unit_concept_id,A foreign key to the Concept in the CONCEPT table representing the identifier for the denominator Unit for the concentration of active ingredient.
+drug_strength,box_size,"The number of units of Clinical of Branded Drug, or Quantified Clinical or Branded Drug contained in a box as dispensed to the patient"
+drug_strength,valid_start_date,The date when the Concept was first recorded. 
+drug_strength,valid_end_date,The date when the concept became invalid because it was deleted or superseded (updated) by a new Concept. 
+drug_strength,invalid_reason,Reason the concept was invalidated.
+relationship,relationship_id,The type of relationship captured by the relationship record.
+relationship,relationship_name,The text that describes the relationship type.
+relationship,is_hierarchical,Defines whether a relationship defines concepts into classes or hierarchies. 
+relationship,defines_ancestry,Defines whether a hierarchical relationship contributes to the concept_ancestor table. These are subsets of the hierarchical relationships.
+relationship,reverse_relationship_id,The identifier for the relationship used to define the reverse relationship between two concepts.
+relationship,relationship_concept_id,A foreign key that refers to an identifier in the CONCEPT table for the unique relationship concept.
+vocabulary,vocabulary_id,"A unique identifier for each Vocabulary, such as ICD9CM, SNOMED, Visit."
+vocabulary,vocabulary_name,"The name describing the vocabulary, for example ""International Classification of Diseases, Ninth Revision, Clinical Modification, Volume 1 and 2 (NCHS)"" etc."
+vocabulary,vocabulary_reference,External reference to documentation or available download of the about the vocabulary.
+vocabulary,vocabulary_version,Version of the Vocabulary as indicated in the source.
+vocabulary,vocabulary_concept_id,A foreign key that refers to a standard concept identifier in the CONCEPT table for the Vocabulary the VOCABULARY record belongs to.
