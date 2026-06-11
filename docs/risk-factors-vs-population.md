@@ -9,10 +9,6 @@ hide:
 !!! warning "Preview: under construction"
     This page is a preview. Figures and text are a work in progress and may change.
 
-<div class="rf-funding">
-<p><strong>Funding acknowledgement:</strong> This work was supported in part by the Centers for Disease Control and Prevention grant no. R01-TS000341.</p>
-</div>
-
 A plain language summary of how self-reported risk factors in the [ALS Research Collaborative (ARC)](https://www.als.net/arc/) cohort compare with what you would expect in the U.S. general population. Everything here is aggregate (counts and percentages only). No individual records, identifiers, or dates are included.
 
 This work supports Specific Aim 2 of the CDC ALS risk factor project: evaluate evidence in the ARC data repository to support or refute risk factors previously associated with ALS.
@@ -29,20 +25,22 @@ One factor sits clearly above population expectation (autoimmune disease). Milit
 
 ![ARC cohort vs U.S. population for self-reported factors](assets/risk-factors/cohort-vs-population.svg)
 
-| Factor | Cohort | U.S. population | Read |
-|---|---:|---:|---|
-| **Autoimmune disease (excl. thyroid)** | **10.7%** | **4.6%** | **Higher, about 2x. Clear signal.** |
-| Military service (ever served) | 10.5% | ~14% age and sex matched | Not elevated after adjustment (SPR 0.74). |
-| Asthma, ever | 15.2% | ~13% lifetime | Similar, perhaps slightly above. |
-| Thyroid disease, ever | 13.9% | ~12% | Similar. |
-| Smoking, ever | 33.5% | ~30% | Similar. |
-| Family history of ALS or neuromuscular disease | 10.6% | ~5 to 11% expected in ALS series | As expected for an ALS cohort. |
+| Factor | Cohort % | 95% CI | U.S. % | p (FDR q) | Read |
+|---|---:|:--:|---:|:--:|---|
+| **Autoimmune disease (excl. thyroid)** | **10.7%** | 8.2-13.8 | **4.6%** | **<0.001 (<0.001)** | **Higher, about 2x. Clear signal.** |
+| Military service (ever served) | 10.5% | 8.5-12.9 | ~14% matched | 0.004; SPR 0.74 | Not elevated after adjustment; open question (see below). |
+| Asthma, ever | 15.2% | 12.2-18.8 | ~13% lifetime | 0.165 | Similar. |
+| Thyroid disease, ever | 13.9% | 11.0-17.4 | ~12% | 0.222 | Similar. |
+| Smoking, ever | 33.5% | 30.2-36.9 | ~30% | 0.040 (0.080) | Borderline; not robust after correction. |
+| Family history of ALS or neuromuscular disease | 10.6% | 8.6-12.9 | ~5 to 11% | 0.013 (0.039) | Expected for an ALS cohort; soft benchmark. |
+
+Tests are one-sample exact binomial against the U.S. benchmark (two-sided), with 95% Wilson confidence intervals and a Benjamini-Hochberg FDR correction across the six primary rows. After correction, **only autoimmune disease is unambiguously significant**. Head and neck injury, vigorous activity, blast exposure, and family history of dementia or Parkinson's are not assigned p-values because their survey construct does not match a clean benchmark. The full numbers are in [`risk_factor_pvalues.csv`](assets/risk-factors/risk_factor_pvalues.csv).
 
 ---
 
 ## 🔴 Autoimmune disease: the clearest signal
 
-Using a composite of rheumatoid arthritis, lupus, multiple sclerosis, psoriasis, Crohn's disease, ulcerative colitis, Behcet's disease, neuromyelitis optica, and immune thrombocytopenic purpura (thyroid excluded), **10.7%** of the conditions-module responders report at least one, versus a recent large electronic health record estimate of **4.6%** for the U.S. population across 105 autoimmune diseases. The cohort figure is roughly double.
+Using a composite of rheumatoid arthritis, lupus, multiple sclerosis, psoriasis, Crohn's disease, ulcerative colitis, Behcet's disease, neuromyelitis optica, and immune thrombocytopenic purpura (thyroid excluded), **10.7%** of the conditions-module responders report at least one, versus a recent large electronic health record estimate of **4.6%** for the U.S. population across 105 autoimmune diseases. The cohort figure is roughly double (one-sample exact binomial p < 0.001; significant after Benjamini-Hochberg correction).
 
 Two points make this more notable, not less:
 
@@ -51,14 +49,16 @@ Two points make this more notable, not less:
 
 **What drives the composite** (self-report, within the conditions responders):
 
-| Condition | Cohort | U.S. population |
-|---|---:|---:|
-| Psoriasis | 5.0% | ~3% |
-| Rheumatoid arthritis | 2.2% | ~0.5 to 1% |
-| Ulcerative colitis | 2.2% | ~0.7% |
-| Crohn's disease | 1.3% | ~0.6% |
-| Multiple sclerosis | 0.2% | ~0.3% |
-| Systemic lupus erythematosus | 0.2% | ~0.1% |
+| Condition | Cohort | U.S. population | p (FDR q) |
+|---|---:|---:|:--:|
+| Psoriasis | 5.0% | ~3% | 0.019 (0.066) |
+| Rheumatoid arthritis | 2.2% | ~0.5 to 1% | 0.029 (0.067) |
+| Ulcerative colitis | 2.2% | ~0.7% | 0.002 (0.012) |
+| Crohn's disease | 1.3% | ~0.6% | 0.061 (0.107) |
+| Multiple sclerosis | 0.2% | ~0.3% | 1.00 (1.00) |
+| Systemic lupus erythematosus | 0.2% | ~0.1% | 0.37 (0.43) |
+
+Within the composite, ulcerative colitis is significant after correction (q=0.012); psoriasis and rheumatoid arthritis are nominally elevated but borderline after FDR. Per-condition numbers are in [`autoimmune_components_pvalues.csv`](assets/risk-factors/autoimmune_components_pvalues.csv).
 
 Psoriasis, rheumatoid arthritis, and inflammatory bowel disease (Crohn's plus ulcerative colitis, about 3.5% here versus about 1.3% nationally) drive the elevated composite. Lupus and MS are in line with population expectation.
 
@@ -116,6 +116,7 @@ The full, runnable code is in [`als_risk_factor_vs_population.py`](assets/risk-f
 
 - [`risk_factor_vs_population.csv`](assets/risk-factors/risk_factor_vs_population.csv)
 - [`autoimmune_components.csv`](assets/risk-factors/autoimmune_components.csv)
+- [`risk_factor_pvalues.csv`](assets/risk-factors/risk_factor_pvalues.csv) and [`autoimmune_components_pvalues.csv`](assets/risk-factors/autoimmune_components_pvalues.csv) (one-sample exact binomial vs the U.S. benchmark, 95% Wilson CIs, Benjamini-Hochberg FDR)
 
 ??? note "Population benchmarks at a glance"
     | Factor | U.S. benchmark | Source |

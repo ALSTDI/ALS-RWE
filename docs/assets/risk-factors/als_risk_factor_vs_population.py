@@ -303,3 +303,87 @@ try:
           "military service is NOT elevated after age and sex adjustment.")
 except FileNotFoundError:
     print("\n[Military standardization skipped: RRV link file not found at", RRV, "]")
+
+
+# ===========================================================================
+# 5. SIGNIFICANCE TESTS (one-sample exact binomial vs U.S. benchmark)
+# ---------------------------------------------------------------------------
+# For each construct-comparable factor with a clean fixed benchmark, test
+# H0: cohort proportion == U.S. benchmark proportion (two-sided exact
+# binomial), report a 95% Wilson CI, and apply a Benjamini-Hochberg FDR
+# correction across the primary family. Benchmarks are treated as fixed
+# (they come from very large CDC/EHR samples); this is mildly anticonservative
+# and inappropriate for "soft" benchmarks, which are excluded or flagged.
+#
+# CASE-ONLY REMINDER: a significant difference from population prevalence is
+# descriptive only. It does NOT establish that a factor is an ALS risk factor.
+# ===========================================================================
+try:
+    from scipy import stats
+    from scipy.stats import false_discovery_control
+
+    def wilson(k, n, z=1.96):
+        p = k / n; d = 1 + z * z / n
+        c = (p + z * z / (2 * n)) / d
+        h = z * ((p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5) / d
+        return round(100 * (c - h), 1), round(100 * (c + h), 1)
+
+    # construct-comparable primary factors only (clean benchmark)
+    TESTABLE = [
+        "Autoimmune disease, any (excl. thyroid)",
+        "Family history of ALS / other neuromuscular disease",
+        "Smoking, ever (>=1 cig/day for 6+ months)",
+        "Asthma, ever (physician-diagnosed)",
+        "Thyroid disease, ever",
+        "Parkinson's disease, self (write-in)",
+    ]
+    prim = []
+    for lab in TESTABLE:
+        npos, ntot = cohort[lab]
+        p0 = benchmark[lab]["pop"] / 100.0
+        bt = stats.binomtest(int(npos), int(ntot), p0, alternative="two-sided")
+        lo, hi = wilson(npos, ntot)
+        prim.append(dict(factor=lab, cohort_pct=round(100 * npos / ntot, 1),
+                         cohort_n=f"{npos}/{ntot}", ci95=f"{lo}-{hi}",
+                         population_pct=benchmark[lab]["pop"], p_value=bt.pvalue))
+    qvals = false_discovery_control([r["p_value"] for r in prim], method="bh")
+    for r, q in zip(prim, qvals):
+        r["bh_q"] = q
+
+    # military: crude vs 6.1% and age/sex standardized vs expected (~14.1%)
+    O, Ntot = int(cohort["Military service (ever member of armed forces)"][0]), \
+              int(cohort["Military service (ever member of armed forces)"][1])
+    bt_crude = stats.binomtest(O, Ntot, 0.061, alternative="two-sided")
+    E = 106.3  # expected veterans (base indirect-standardization scenario)
+    bt_std = stats.binomtest(O, Ntot, E / Ntot, alternative="two-sided")
+    spr = O / E
+    spr_lo = stats.chi2.ppf(0.025, 2 * O) / 2 / E
+    spr_hi = stats.chi2.ppf(0.975, 2 * (O + 1)) / 2 / E
+
+    pv = pd.DataFrame(prim)
+    pv.to_csv("risk_factor_pvalues.csv", index=False)
+    print("\n--- Significance tests (primary factors, BH-FDR) ---")
+    print(pv[["factor", "cohort_pct", "ci95", "population_pct", "p_value", "bh_q"]].to_string(index=False))
+    print(f"\nMilitary crude  vs 6.1%:  p = {bt_crude.pvalue:.2e}")
+    print(f"Military std    vs {100*E/Ntot:.1f}%: p = {bt_std.pvalue:.4f} | "
+          f"SPR = {spr:.2f} (95% CI {spr_lo:.2f}-{spr_hi:.2f})")
+
+    # autoimmune component tests
+    comp_p = []
+    for item, (p0, src) in component_benchmark.items():
+        sub = ever_by_subject(cond, cond_col(item))
+        k, n = int(sub.sum()), int(len(sub))
+        bt = stats.binomtest(k, n, p0 / 100.0, alternative="two-sided")
+        lo, hi = wilson(k, n)
+        comp_p.append(dict(condition=item, cohort_pct=round(100 * k / n, 1),
+                           cohort_n=f"{k}/{n}", ci95=f"{lo}-{hi}",
+                           population_pct=p0, p_value=bt.pvalue))
+    cq = false_discovery_control([r["p_value"] for r in comp_p], method="bh")
+    for r, q in zip(comp_p, cq):
+        r["bh_q"] = q
+    pd.DataFrame(comp_p).to_csv("autoimmune_components_pvalues.csv", index=False)
+    print("\n--- Autoimmune component tests (BH-FDR) ---")
+    print(pd.DataFrame(comp_p)[["condition", "cohort_pct", "ci95", "population_pct",
+                                "p_value", "bh_q"]].to_string(index=False))
+except ImportError:
+    print("\n[Significance tests skipped: scipy not installed]")
