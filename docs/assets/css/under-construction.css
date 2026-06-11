@@ -1,0 +1,22 @@
+/* "Preview: under construction" announcement bar
+   Remove this file (and its entry in mkdocs.yml extra_css) when the site is live. */
+
+.md-banner {
+  background-color: #520058;   /* ALS TDI plum */
+  color: #ffffff;
+}
+
+.md-banner a,
+.md-banner strong {
+  color: #ffffff;
+}
+
+.md-banner__inner {
+  font-size: 0.74rem;
+  text-align: center;
+  margin: 0.35rem auto;
+}
+
+.uc-banner {
+  letter-spacing: 0.2px;
+}

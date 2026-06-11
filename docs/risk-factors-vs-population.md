@@ -6,6 +6,9 @@ hide:
 
 # 🧬 ALS Risk Factors: ARC Cohort vs the U.S. Population
 
+!!! warning "Preview: under construction"
+    This page is a preview. Figures and text are a work in progress and may change.
+
 A plain language summary of how self-reported risk factors in the [ALS Research Collaborative (ARC)](https://www.als.net/arc/) cohort compare with what you would expect in the U.S. general population. Everything here is aggregate (counts and percentages only). No individual records, identifiers, or dates are included.
 
 This work supports Specific Aim 2 of the CDC ALS risk factor project: evaluate evidence in the ARC data repository to support or refute risk factors previously associated with ALS.

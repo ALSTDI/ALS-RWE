@@ -3,6 +3,7 @@ site_url: https://alstdi.github.io/ALS-RWE
 
 theme:
   name: material
+  custom_dir: overrides   # enables the "Preview: under construction" announcement bar
   logo: assets/ALSTDI-logo-stacked-color.png
   font:
     text: "EB Garamond"
@@ -90,6 +91,7 @@ extra:
 
 extra_css:
   - assets/css/custom.css
+  - assets/css/under-construction.css
 
 watch:
   - docs/assets
