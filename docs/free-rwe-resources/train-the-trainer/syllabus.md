@@ -42,8 +42,8 @@ These modules are not part of the six-week course but can be assigned for contin
 | **Persona** | **Core Modules** | **Key Tools** | **Suggested Extras** |
 |--------------|------------------|---------------|----------------------|
 | **Vocabulary / Terminology Experts** | Weeks 1–3 | Athena · Atlas Concept Sets · SQL Clients (Databricks/DBeaver) | White Rabbit / Rabbit-in-a-Hat |
-| **Statisticians / Design Analysts** | Weeks 3–6 (optional) | Atlas Pathways · HADES · SQL review of outputs | RWD Guide (bias/confounding) |
-| **Data Analysts / Engineers (SQL-first)** | Weeks 2–4 | Databricks · DBeaver · SEARCH · DatabaseConnector | Build reproducible pipelines in GitHub |
+| **Statisticians / Data Analysts** | Weeks 3–6 (optional) | Atlas Pathways · HADES · SQL review of outputs | RWD Guide (bias/confounding) |
+| **Data Engineers (SQL-first)** | Weeks 2–4 | Databricks · DBeaver · SEARCH · DatabaseConnector | Build reproducible pipelines in GitHub |
 | **Clinicians / Analysts** | Weeks 1–3 | Athena · Atlas Cohort Editor | Explore cohort outputs and characterization summaries |
 
 ---

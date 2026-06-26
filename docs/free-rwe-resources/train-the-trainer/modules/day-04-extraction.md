@@ -33,6 +33,17 @@ Regardless of tooling, extraction follows the same shape:
 4. **Validate:** independently re-count a key number (cohort size, event count) and confirm it matches the source. Reconciliation is the whole point of this day.
 5. **Document** the CDM version, vocabulary version, and date, so the extract is reproducible.
 
+!!! example "Example local pipeline: Registry Forge ALS"
+    ALS TDI's [**Registry Forge ALS**](https://alstdi.github.io/RegistryForgeALS/) is a
+    concrete example of the "local pipeline" path. It ingests raw EHR exports
+    (C-CDA XML, FHIR R4 JSON, RTF notes, PDFs/HTML, and Base64-chunked CSV),
+    maps source codes to standard concepts via Athena, and writes OMOP CDM v5.4
+    tables with vocabulary-release versioning — plus a five-tier QC framework and
+    privacy-safe (pseudonymized, k-anonymous) outputs. It ships as a single-file
+    Python script that runs locally with no server. If your site has no SEARCH or
+    ATLAS-export path, a tool like this is what produces the analytic dataset.
+    See the [RWE Resources page](../../../free-rwe-resources.md) for a fuller description.
+
 ## Your site's extraction setup (fill this in)
 Trainers: complete this table for your institution before the session, the same
 way you complete the environment checklist.

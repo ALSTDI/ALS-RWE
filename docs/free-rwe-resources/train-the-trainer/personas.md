@@ -9,8 +9,8 @@ Not everyone arrives at this program with the same background or goal. Use this 
 | Persona | Start Here | Key Tools | Skip / Skim |
 |:--|:--|:--|:--|
 | :material-translate: Vocabulary & Terminology Expert | Day 1 → Day 2 → Day 3 | Athena, Atlas Concept Sets | Day 4 SQL depth, Day 6 R |
-| :material-chart-line: Statistician / Design Analyst | Day 3 → Day 4 → Day 5 | Atlas Pathways, HADES, SQL review | Environment deep-dives |
-| :material-database-cog: Data Analyst / Engineer | Module 0 → Day 2 → Day 4 | Databricks, DBeaver, SEARCH, GitHub | Atlas GUI portions |
+| :material-chart-line: Statistician / Data Analyst | Day 3 → Day 4 → Day 5 | Atlas Pathways, HADES, SQL review | Environment deep-dives |
+| :material-database-cog: Data Engineer | Module 0 → Day 2 → Day 4 | Databricks, DBeaver, SEARCH, GitHub | Atlas GUI portions |
 | :material-stethoscope: Clinician / Research Analyst | Day 1 → Day 3 | Athena, Atlas Cohort Editor | SQL labs (participate lightly) |
 
 ---
@@ -48,7 +48,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
 
 ---
 
-## :material-chart-line: Persona 2 — Statistician / Design Analyst
+## :material-chart-line: Persona 2 — Statistician / Data Analyst
 
 **Who you are:** Epidemiologists, biostatisticians, outcomes researchers, or study designers who understand observational study design and need to operationalize it in OHDSI tools.
 
@@ -83,7 +83,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
 
 ---
 
-## :material-database-cog: Persona 3 — Data Analyst / Engineer (SQL-First)
+## :material-database-cog: Persona 3 — Data Engineer (SQL-First)
 
 **Who you are:** Data engineers, SQL developers, BI analysts, or ETL developers whose primary workflow is the command line, SQL editors, and code repositories — not GUIs.
 

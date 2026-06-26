@@ -249,6 +249,25 @@ The OMOP common data model (CDM) is a relational database made up of different t
 - PDF: https://www.ohdsi.org/wp-content/uploads/2019/09/OMOP-Common-Data-Model-Extract-Transform-Load.pdf  
 - Book: https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html
 
+---
+
+### 🏭 Registry Forge ALS — Our EHR-to-Research ETL Pipeline
+
+[**Registry Forge ALS**](https://alstdi.github.io/RegistryForgeALS/) is ALS TDI's open-source ETL pipeline for turning raw electronic health record (EHR) exports into research-ready, OMOP-mapped datasets. It was built for the **ARC Study** natural history registry and is freely available for other teams to adapt.
+
+**What it does**
+
+- **Reads many EHR formats automatically** — C-CDA XML, FHIR R4 JSON bundles, RTF clinical notes, PDFs/HTML fragments, and Base64-chunked CSV exports — using magic-byte detection so no upstream conversion is required.
+- **Maps to OMOP CDM v5.4** — source codes are mapped to standard concepts via [Athena](https://athena.ohdsi.org/) and routed into nine CDM tables, with vocabulary-release versioning for reproducibility.
+- **Links and enriches** — cross-format patient linkage, LOINC/SNOMED display-name enrichment, and code-inventory reporting that tracks vocabulary usage.
+- **Protects privacy** — pseudonymized IDs and k-anonymity in its outputs.
+- **Validates** — a five-tier QC framework for data validation.
+- **Goes beyond OMOP** — GA4GH Phenopackets v2 for rare-disease research, drug-repurposing analysis, ALS-specific note extraction to recover clinical measurements, device/equipment identification, and environmental/occupational exposure mapping via the ECTO ontology.
+
+**How it ships:** a single-file Python script that runs locally with no server, plus browser-based HTML demos for dashboards and cohort analysis.
+
+🔗 **Project site & documentation:** [alstdi.github.io/RegistryForgeALS](https://alstdi.github.io/RegistryForgeALS/)
+
 
 
 ---
