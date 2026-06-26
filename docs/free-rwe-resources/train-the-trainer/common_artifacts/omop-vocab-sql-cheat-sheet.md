@@ -1,119 +1,249 @@
-# 🧾 OMOP Vocabulary & SQL Cheat Sheet  
-### OHDSI Training Reference
+# OMOP Vocabulary & SQL Cheat Sheet
+
+> Quick-reference SQL patterns for OMOP CDM. Adjust the schema prefix (`cdm.`) to match your site. These patterns work across Postgres, SQL Server, Snowflake, Databricks, and BigQuery — only the date functions and `LIMIT`/`TOP` syntax differ by platform.
 
 ---
 
-## 🧩 Core Concepts
+## Vocabulary Tables
 
-| Term | Definition | Example / Notes |
-|------|-------------|-----------------|
-| **Concept** | The basic unit of meaning in OMOP. Each observation (condition, drug, measurement, etc.) is stored as a *concept* with a unique ID. | “Hypertension”, “Blood pressure”, “Atorvastatin 10 mg tablet” |
-| **Concept ID (`concept_id`)** | A unique integer identifier assigned by OMOP to every concept across all vocabularies. | e.g., `4152280` for *Major depressive disorder* |
-| **Concept Code (`concept_code`)** | The identifier used in the *source vocabulary* (e.g., ICD9, SNOMED, RxNorm). | e.g., ICD9 `296.3`, SNOMED `370143000` |
-| **Concept Name (`concept_name`)** | The human-readable description of a concept. | “Major depressive disorder” |
-| **Vocabulary ID (`vocabulary_id`)** | Identifies the vocabulary the concept belongs to. | e.g., `ICD9CM`, `SNOMED`, `RxNorm`, `LOINC` |
-| **Domain ID (`domain_id`)** | The high-level category of data the concept belongs to. | e.g., `Condition`, `Drug`, `Measurement`, `Observation` |
-| **Concept Class (`concept_class_id`)** | Subcategory within a vocabulary for additional granularity. | e.g., “Clinical Finding” within SNOMED |
-
----
-
-## 🧠 Standardization
-
-| Term | Definition | Example / Notes |
-|------|-------------|-----------------|
-| **Standard Concept** | Canonical concept used across OMOP datasets for analysis. Standard concepts are marked with `standard_concept = 'S'`. | SNOMED concept for *Major depressive disorder* |
-| **Non-Standard Concept** | Concept that exists in the source vocabulary but is *not* standardized. Marked with `standard_concept = NULL`. | ICD9 code `296.3` (must be mapped to SNOMED equivalent) |
-| **Standard Vocabulary** | A vocabulary designated as the reference for a given domain (e.g., SNOMED for conditions, RxNorm for drugs, LOINC for measurements). | Always use concepts from these vocabularies in analyses. |
-| **Source Vocabulary** | The original vocabulary from which data originate (ICD, CPT, etc.). | Used during ETL (Extract-Transform-Load) but mapped to standard vocabulary. |
+| Table | What it contains |
+|:--|:--|
+| `concept` | All standard and non-standard concepts: id, name, domain, vocabulary, class, code |
+| `concept_relationship` | Directed links between concepts: `Maps to`, `Is a`, `Subsumes`, `Has ancestor` |
+| `concept_ancestor` | Pre-computed transitive ancestor/descendant pairs with level-of-separation counts |
+| `concept_synonym` | Alternate names for concepts |
+| `vocabulary` | Vocabulary metadata and version |
+| `domain` | Domain definitions |
+| `concept_class` | Concept class definitions |
+| `relationship` | Relationship type definitions |
 
 ---
 
-## 🔗 Relationships & Mappings
+## 1. Concept Lookup
 
-| Term | Definition | Example / Notes |
-|------|-------------|-----------------|
-| **Concept Relationship Table (`concept_relationship`)** | Defines how two concepts relate to each other. | Links a non-standard ICD9 code to a standard SNOMED concept. |
-| **Relationship ID (`relationship_id`)** | Type of relationship between two concepts. | Common values below ↓ |
+```sql
+-- Find concepts by name (partial match)
+SELECT concept_id, concept_name, domain_id,
+       vocabulary_id, standard_concept, concept_code
+FROM cdm.concept
+WHERE LOWER(concept_name) LIKE '%amyotrophic lateral sclerosis%'
+ORDER BY standard_concept DESC NULLS LAST;
 
-### Common Relationship Types
+-- Look up a specific concept_id
+SELECT * FROM cdm.concept WHERE concept_id = 4051114;
 
-| Relationship ID | Meaning | Typical Use |
-|-----------------|----------|-------------|
-| **Maps to** | Non-standard → Standard concept mapping. | Used during ETL and normalization. |
-| **Mapped from** | Reverse of “Maps to” (Standard → Non-standard). | Reference only. |
-| **Is a** | Indicates hierarchy — the concept is a subtype of another. | “Essential hypertension” *is a* “Hypertension”. |
-| **Subsumes** | The broader concept encompasses another. | “Hypertension” *subsumes* “Essential hypertension”. |
-| **Concept replaced by** | Indicates an outdated concept replaced by a newer one. | Useful for version tracking in vocabularies. |
-| **Has synonym** | Indicates equivalent wording or alternate naming. | “HTN” *has synonym* “Hypertension”. |
-
----
-
-## 🧬 Concept Hierarchies
-
-| Term | Definition | Example / Notes |
-|------|-------------|-----------------|
-| **Concept Ancestor Table (`concept_ancestor`)** | Stores *pre-computed hierarchical relationships* (all ancestors and descendants of each concept). | Used for expanding or collapsing concept sets. |
-| **Ancestor Concept** | A broader concept higher up the hierarchy. | “Hypertension” is an ancestor of “Essential hypertension”. |
-| **Descendant Concept** | A more specific concept under a broader ancestor. | “Gestational hypertension” is a descendant of “Hypertension”. |
+-- Find all standard concepts in a domain
+SELECT concept_id, concept_name, vocabulary_id
+FROM cdm.concept
+WHERE domain_id = 'Condition'
+  AND standard_concept = 'S'
+  AND LOWER(concept_name) LIKE '%motor neuron%';
+```
 
 ---
 
-## 💾 SQL Table Overview (Key OMOP Vocabulary Tables)
+## 2. Concept Relationships
 
-| Table | Purpose |
-|--------|----------|
-| **concept** | Contains all concept records (IDs, codes, names, vocabularies, domains). |
-| **concept_relationship** | Defines pairwise relationships between concepts (e.g., “Maps to”, “Is a”). |
-| **concept_ancestor** | Pre-computes hierarchical ancestor–descendant pairs for faster querying. |
-| **concept_synonym** | Lists alternative names for concepts. |
-| **vocabulary** | Lists all vocabularies included in OMOP (e.g., SNOMED, LOINC, RxNorm). |
+```sql
+-- Find the standard concept a source code maps to
+SELECT c_source.concept_code, c_source.vocabulary_id,
+       c_target.concept_id, c_target.concept_name,
+       c_target.standard_concept
+FROM cdm.concept_relationship cr
+JOIN cdm.concept c_source ON cr.concept_id_1 = c_source.concept_id
+JOIN cdm.concept c_target ON cr.concept_id_2 = c_target.concept_id
+WHERE c_source.concept_code = 'G12.21'     -- ALS ICD-10-CM code
+  AND c_source.vocabulary_id = 'ICD10CM'
+  AND cr.relationship_id = 'Maps to';
 
----
-
-## 🧮 Common SQL Patterns
-
-| Goal | Example SQL | Notes |
-|------|--------------|-------|
-| Find concept by name | ```sql SELECT * FROM concept WHERE concept_name = 'Hypertension'; ``` | Returns all vocabularies with that name. |
-| Find standard concept by code | ```sql SELECT * FROM concept WHERE concept_code = '370143000'; ``` | Returns SNOMED entry if standard. |
-| Map non-standard to standard | ```sql SELECT * FROM concept_relationship WHERE concept_id_1 = <nonstandard_id> AND relationship_id = 'Maps to'; ``` | Use the resulting `concept_id_2` as your standard ID. |
-| Explore concept relationships | ```sql SELECT cr.relationship_id, c.concept_name FROM concept_relationship cr JOIN concept c ON cr.concept_id_2 = c.concept_id WHERE cr.concept_id_1 = <concept_id>; ``` | View all related concepts. |
-| Retrieve descendants | ```sql SELECT descendant_concept_id FROM concept_ancestor WHERE ancestor_concept_id = <concept_id>; ``` | Use for broad cohort definitions. |
-
----
-
-## 🧾 Vocabulary Best Practices
-
-- ✅ Always use **standard concepts** for analysis.  
-- 🔁 Map **non-standard** codes to their standard equivalents using “Maps to”.  
-- 🧱 Use **concept sets** to define reusable groups of concepts.  
-- 🔍 Use the **Athena browser** ([https://athena.ohdsi.org/](https://athena.ohdsi.org/)) to explore and download vocabularies.  
-- ⚙️ When building SQL queries, filter with `standard_concept = 'S'` to avoid duplicates or source-only codes.  
-- 📅 Document vocabulary versions — they evolve over time.  
+-- Find all source codes that map to a given standard concept
+SELECT c_src.concept_code, c_src.vocabulary_id, c_src.concept_name
+FROM cdm.concept_relationship cr
+JOIN cdm.concept c_src ON cr.concept_id_1 = c_src.concept_id
+WHERE cr.concept_id_2    = 4051114         -- ALS SNOMED concept
+  AND cr.relationship_id = 'Maps to'
+  AND cr.invalid_reason IS NULL;
+```
 
 ---
 
-## 🧠 Quick Reference Mnemonics
+## 3. Concept Ancestor (Hierarchy)
 
-| Tip | Remember |
-|-----|-----------|
-| 🔢 `concept_id` | Internal OMOP ID (never changes across vocab versions). |
-| 🧾 `concept_code` | Source code (e.g., ICD, SNOMED, RxNorm). |
-| 🧱 Standard Concept | The “canonical” version you analyze with. |
-| 🔗 Maps to | The bridge from non-standard → standard. |
-| 🌳 Ancestor / Descendant | Think “tree”: Ancestor is broader, Descendant is narrower. |
-| 🧭 Domain ID | Tells you what kind of concept (Condition, Drug, etc.). |
-| 🧠 `concept_relationship` | How concepts are connected. |
+```sql
+-- All descendants of a concept (for concept set coverage)
+SELECT ca.descendant_concept_id, c.concept_name,
+       ca.min_levels_of_separation
+FROM cdm.concept_ancestor ca
+JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
+WHERE ca.ancestor_concept_id = 21600381    -- Sulfonylureas
+  AND ca.min_levels_of_separation >= 1
+ORDER BY ca.min_levels_of_separation, c.concept_name;
+
+-- Direct children only (level 1)
+SELECT ca.descendant_concept_id, c.concept_name
+FROM cdm.concept_ancestor ca
+JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
+WHERE ca.ancestor_concept_id       = 1503297    -- Metformin
+  AND ca.min_levels_of_separation  = 1;
+
+-- Count descendants by level
+SELECT ca.min_levels_of_separation, COUNT(*) AS n
+FROM cdm.concept_ancestor ca
+WHERE ca.ancestor_concept_id = 4051114
+GROUP BY ca.min_levels_of_separation
+ORDER BY ca.min_levels_of_separation;
+```
 
 ---
 
-## 📚 Additional Resources
+## 4. Clinical Domain Queries
 
-- **OHDSI Book of OHDSI:** [https://ohdsi.github.io/TheBookOfOhdsi/](https://ohdsi.github.io/TheBookOfOhdsi/)  
-- **OMOP Vocabulary Reference:** [https://ohdsi.github.io/CommonDataModel/](https://ohdsi.github.io/CommonDataModel/)  
-- **Athena Vocabulary Browser:** [https://athena.ohdsi.org/](https://athena.ohdsi.org/)  
-- **OHDSI Forum Discussions:** [https://forums.ohdsi.org/](https://forums.ohdsi.org/)
+### Person / Demographics
+```sql
+SELECT COUNT(DISTINCT person_id)            AS n_persons,
+       AVG(YEAR(CURRENT_DATE) - year_of_birth) AS mean_age,
+       SUM(CASE WHEN gender_concept_id = 8507 THEN 1 ELSE 0 END) AS n_male,
+       SUM(CASE WHEN gender_concept_id = 8532 THEN 1 ELSE 0 END) AS n_female
+FROM cdm.person;
+```
+
+### Condition Occurrence
+```sql
+-- Patients with a specific condition (standard concept + descendants)
+SELECT COUNT(DISTINCT co.person_id) AS patients_with_condition
+FROM cdm.condition_occurrence co
+JOIN cdm.concept_ancestor ca ON ca.descendant_concept_id = co.condition_concept_id
+WHERE ca.ancestor_concept_id = 4051114;    -- ALS
+
+-- Condition occurrence rate by year
+SELECT YEAR(condition_start_date) AS year,
+       COUNT(DISTINCT person_id)  AS unique_patients
+FROM cdm.condition_occurrence
+WHERE condition_concept_id IN (
+    SELECT descendant_concept_id FROM cdm.concept_ancestor
+    WHERE ancestor_concept_id = 4051114
+)
+GROUP BY YEAR(condition_start_date)
+ORDER BY year;
+```
+
+### Drug Exposure
+```sql
+-- Drug exposures via ancestor (captures all formulations)
+SELECT COUNT(*)                     AS total_exposures,
+       COUNT(DISTINCT de.person_id) AS unique_patients
+FROM cdm.drug_exposure de
+JOIN cdm.concept_ancestor ca ON ca.descendant_concept_id = de.drug_concept_id
+WHERE ca.ancestor_concept_id = 1503297;   -- Metformin
+
+-- Drug era (pre-computed continuous exposure periods)
+SELECT person_id, drug_concept_id,
+       drug_era_start_date, drug_era_end_date,
+       drug_exposure_count
+FROM cdm.drug_era
+WHERE drug_concept_id IN (
+    SELECT descendant_concept_id FROM cdm.concept_ancestor
+    WHERE ancestor_concept_id = 1503297
+);
+```
+
+### Measurement
+```sql
+-- Find standard measurement concepts (e.g., HbA1c)
+SELECT m.person_id,
+       c.concept_name,
+       m.value_as_number,
+       m.unit_source_value,
+       m.measurement_date
+FROM cdm.measurement m
+JOIN cdm.concept c ON m.measurement_concept_id = c.concept_id
+WHERE c.concept_name LIKE '%Hemoglobin A1c%'
+  AND c.standard_concept = 'S'
+ORDER BY m.measurement_date;
+```
+
+### Visit Occurrence
+```sql
+-- Visit counts by type
+SELECT c.concept_name AS visit_type, COUNT(*) AS n_visits,
+       COUNT(DISTINCT vo.person_id) AS n_patients
+FROM cdm.visit_occurrence vo
+JOIN cdm.concept c ON vo.visit_concept_id = c.concept_id
+GROUP BY c.concept_name
+ORDER BY n_visits DESC;
+```
 
 ---
 
-🧩 *This cheat sheet is designed for OHDSI OMOP CDM training programs and complements hands-on SQL practice sessions.*
+## 5. Cohort Validation Patterns
+
+### Count a generated cohort
+```sql
+SELECT COUNT(DISTINCT subject_id) AS cohort_size
+FROM results.cohort
+WHERE cohort_definition_id = [your_cohort_id];
+```
+
+### Cohort attrition (simple)
+```sql
+-- Persons in cohort vs. total persons in CDM
+SELECT
+    (SELECT COUNT(DISTINCT person_id) FROM cdm.person)      AS total_cdm,
+    (SELECT COUNT(DISTINCT subject_id) FROM results.cohort
+     WHERE cohort_definition_id = [your_cohort_id])          AS cohort_size;
+```
+
+### Validate concept set coverage against a domain table
+```sql
+-- Drug exposures captured by your concept set (ancestor-based)
+SELECT COUNT(*) AS exposures_in_set,
+       COUNT(DISTINCT de.person_id) AS persons_in_set
+FROM cdm.drug_exposure de
+JOIN cdm.concept_ancestor ca ON ca.descendant_concept_id = de.drug_concept_id
+WHERE ca.ancestor_concept_id = [your_ingredient_concept_id];
+```
+
+---
+
+## 6. Data Quality Spot Checks
+
+```sql
+-- Records with unmapped concepts (concept_id = 0)
+SELECT 'condition_occurrence' AS domain, COUNT(*) AS n
+FROM cdm.condition_occurrence WHERE condition_concept_id = 0
+UNION ALL
+SELECT 'drug_exposure',                  COUNT(*)
+FROM cdm.drug_exposure      WHERE drug_concept_id = 0
+UNION ALL
+SELECT 'measurement',                    COUNT(*)
+FROM cdm.measurement        WHERE measurement_concept_id = 0;
+
+-- Persons without any observation period
+SELECT COUNT(*) AS orphaned_persons
+FROM cdm.person p
+WHERE NOT EXISTS (
+    SELECT 1 FROM cdm.observation_period op
+    WHERE op.person_id = p.person_id
+);
+
+-- Future birth years (implausible)
+SELECT year_of_birth, COUNT(*) AS n
+FROM cdm.person
+WHERE year_of_birth > YEAR(CURRENT_DATE)
+GROUP BY year_of_birth;
+```
+
+---
+
+## Platform Syntax Notes
+
+| Function | PostgreSQL | SQL Server | Spark / Databricks | BigQuery |
+|:--|:--|:--|:--|:--|
+| Date difference (days) | `AGE()` / `DATEDIFF` | `DATEDIFF(day,…)` | `DATEDIFF(…)` | `DATE_DIFF(…, DAY)` |
+| Current date | `CURRENT_DATE` | `CAST(GETDATE() AS DATE)` | `CURRENT_DATE` | `CURRENT_DATE` |
+| Row limit | `LIMIT n` | `TOP n` | `LIMIT n` | `LIMIT n` |
+| String search | `ILIKE` (case-insensitive) | `LIKE` (case-insensitive by default) | `LIKE` with `LOWER()` | `LIKE` with `LOWER()` |
+
+---
+
+> :material-arrow-left: [Day 1 Code Snippets](../exercises/code_snippets/day-01-snippets.md) · [SQL Validation Mini Lab](sql-validation-mini-lab.md) · [Back to Resources](../resources.md)

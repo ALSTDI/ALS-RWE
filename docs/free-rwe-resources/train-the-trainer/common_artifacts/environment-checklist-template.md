@@ -1,90 +1,100 @@
 # Environment Checklist Template
 
-> This template may be copied and customized by any trainer for environment readiness tracking.  
-> Clone or download this file in your own program repository and modify it to match your local setup.
+> **Trainers:** Copy this page into a shared document (Google Doc, Word, or Markdown file) and distribute to participants before Module 0. Ask participants to complete it at least 48 hours before Day 1 and send any blockers to the site support contact.
 
 ---
 
 ## Participant Information
 
-| Field | Entry |
-|--------|--------|
-| **Name** |  |
-| **Email Address** |  |
-| **Institution / Site** |  |
-| **Role** |  |
-| **Trainer / Reviewer (if applicable)** |  |
-| **Date Completed** |  |
-
-> Trainers can expand this section as needed (e.g., add local site IDs, cohort names, or training wave numbers).
+| Field | Response |
+|:--|:--|
+| Name | |
+| Institution / Site | |
+| Role | |
+| Cohort / Session | |
+| Date completed | |
+| Support contact | |
 
 ---
 
-## Environment Details & Access Points
+## Section 1 · Browser-Based Tools (No Installation Required)
 
-| Tool / System | URL or Server Name | Access Verified (Y/N) | Notes / Credentials (if applicable) |
-|----------------|-------------------|-----------------------|------------------------------------|
-| **ATLAS** | *(Insert URL)* |  | e.g., atlas.myinstitution.edu |
-| **OMOP CDM Database** | *(Insert Server / Schema Name)* |  | e.g., OMOP_CDM_TRAINING |
-| **Athena Vocabulary Browser** | https://athena.ohdsi.org |  |  |
-| **SEARCH Tool** | *(Insert URL or Access Portal)* |  |  |
-| **RStudio / Posit Workbench** | *(Insert Server URL if applicable)* |  |  |
-| **GitHub Repository** | *(Insert Repo URL or Org)* |  |  |
-| **Teams / Communication Channel** | *(Insert Teams/Slack Channel URL)* |  | e.g., #ohdsi-training-support |
-| **VPN / Network Requirements** | *(Insert VPN name if needed)* |  |  |
-| **Help Desk / IT Support Contact** | *(Insert Name & Email)* |  | e.g., jane.doe@institution.edu |
-| **CDM Administrator Contact** | *(Insert Name & Email)* |  |  |
-| **Data Access Approval Contact** | *(Insert Name & Email)* |  |  |
-| **Atlas Admin Contact** | *(Insert Name & Email)* |  |  |
-
-> Trainers should ensure all institutional approval contacts and system URLs are verified before the start of Week 1.
+| # | Tool | What to Verify | Status | Notes |
+|:--|:--|:--|:--|:--|
+| 1.1 | **Athena** | Open [athena.ohdsi.org](https://athena.ohdsi.org) and search for "Metformin" — do results appear? | ☐ Pass · ☐ Blocked | |
+| 1.2 | **ATLAS** | Log in to your site's ATLAS instance · Create and delete a throwaway concept set | ☐ Pass · ☐ Blocked | ATLAS URL: |
+| 1.3 | **Atlas — Cohort export** | Export a cohort SQL from any existing cohort definition (JSON button visible?) | ☐ Pass · ☐ Blocked | |
+| 1.4 | **GitHub** | Open [github.com/ALSTDI/ALS-RWE](https://github.com/ALSTDI/ALS-RWE) and confirm you can view files | ☐ Pass · ☐ Blocked | |
 
 ---
 
-## Optional Advanced Test
-- **Achilles or DQD:** Test on a small sample CDM if permissions allow.
+## Section 2 · Database Access (CDM)
+
+| # | Item | What to Verify | Status | Notes |
+|:--|:--|:--|:--|:--|
+| 2.1 | **Warehouse access** | Your site's warehouse (Databricks / Snowflake / Postgres / other) is reachable from your machine | ☐ Pass · ☐ Blocked | Warehouse type: |
+| 2.2 | **SQL Client** | Open your SQL client (Databricks notebook / DBeaver / other) and connect | ☐ Pass · ☐ Blocked | Client used: |
+| 2.3 | **CDM read access** | Run: `SELECT * FROM [cdm_schema].person LIMIT 5;` — does it return rows? | ☐ Pass · ☐ Blocked | CDM schema: |
+| 2.4 | **Vocabulary tables** | Run: `SELECT * FROM [cdm_schema].concept LIMIT 5;` — does it return rows? | ☐ Pass · ☐ Blocked | |
+| 2.5 | **Results schema write access** | Confirm you can write to the results/cohort schema (for ATLAS cohort generation) | ☐ Pass · ☐ Blocked | Results schema: |
 
 ---
 
-## 💻 Local Tools
-- **Git/GitHub:** Verify ability to clone, pull, and push to this repository (optional).
-- **SQL client:** Databricks, DBeaver, or similar with CDM connectivity.
-- **Text editor:** VS Code, RStudio, or preferred IDE.
+## Section 3 · Local Software
+
+| # | Tool | What to Verify | Status | Notes |
+|:--|:--|:--|:--|:--|
+| 3.1 | **Git** | Run `git --version` in a terminal — does it return a version number? | ☐ Pass · ☐ Blocked | Version: |
+| 3.2 | **GitHub auth** | `git clone [repo URL]` completes without auth errors | ☐ Pass · ☐ Blocked | |
+| 3.3 | **Text editor / IDE** | VS Code, RStudio, or preferred editor opens and displays Markdown files | ☐ Pass · ☐ Blocked | IDE used: |
 
 ---
 
-## ✅ Environment Checklist
+## Section 4 · R / HADES (Required for Day 6 Optional)
 
-| Area | Task | Verified (Y/N) | Notes |
-|------|------|----------------|-------|
-| ATLAS | Login successful and can save cohorts |  |  |
-| CDM Database | Confirmed SQL read access |  |  |
-| SEARCH | Extraction test completed |  |  |
-| HADES | R environment installed and packages load |  |  |
-| GitHub | Repo cloned and permissions confirmed |  |  |
-| SQL Client | Connected to CDM successfully |  |  |
-| Teams / Slack | Joined correct support channel |  |  |
-| VPN | Connection stable and verified |  |  |
-
-> Trainers: Copy this table into your documentation or export it as CSV for tracking participant readiness.
-
-📥 **[Download CSV Template](environment-checklist-template.csv)**  
-_Use this CSV to track participant readiness or import into Excel/Sheets._
+| # | Tool | What to Verify | Status | Notes |
+|:--|:--|:--|:--|:--|
+| 4.1 | **R version** | `R.version$version.string` returns ≥ 4.2 | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
+| 4.2 | **RStudio or Posit Workbench** | Opens and console is functional | ☐ Pass · ☐ Blocked · ☐ Not needed | |
+| 4.3 | **Java** | `system("java -version")` in RStudio returns a version (8 or 11 preferred) | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
+| 4.4 | **DatabaseConnector** | `library(DatabaseConnector)` loads without error | ☐ Pass · ☐ Blocked · ☐ Not needed | |
+| 4.5 | **HADES (core)** | `library(CohortDiagnostics)` and `library(FeatureExtraction)` load without error | ☐ Pass · ☐ Blocked · ☐ Not needed | |
+| 4.6 | **JDBC Driver** | Connection profile resolves with `createConnectionDetails(...)` | ☐ Pass · ☐ Blocked · ☐ Not needed | Driver path: |
 
 ---
 
-## Deliverables
-- Completed **Environment Checklist** uploaded or shared with instructors.  
-- Verified tool access and functional test results (ATLAS, CDM, SEARCH if applicable).
+## Section 5 · Extraction Tool (Site Specific — Day 4)
+
+| # | Item | What to Verify | Status | Notes |
+|:--|:--|:--|:--|:--|
+| 5.1 | **Extraction method** | Identify your site's extraction path: SEARCH / exported Atlas SQL / local pipeline | ☐ Confirmed | Method: |
+| 5.2 | **SEARCH access** | *(If applicable)* Log in to SEARCH and confirm a test extraction runs | ☐ Pass · ☐ Blocked · ☐ N/A | |
+| 5.3 | **Output location** | Confirm where extracts are written (path, bucket, or schema) | ☐ Confirmed | Output path: |
 
 ---
 
-## Tips for Trainers
-- Keep setup **tool-agnostic** and **site-neutral**. Replace institutional URLs and connection details in your fork.  
-- Encourage participants to complete setup **at least 48 hours before Week 1**.  
-- Maintain a shared support document or Slack/Teams channel for troubleshooting access issues.  
-- Include all **institutional contacts** and **approval workflows** in your local version for clarity.
+## Blockers (Complete Before Day 1)
+
+List any items marked **Blocked** above and the action you have taken:
+
+| # | Blocked Item | Action Taken / Notes | Resolved? |
+|:--|:--|:--|:--|
+| | | | ☐ Yes · ☐ No |
+| | | | ☐ Yes · ☐ No |
+| | | | ☐ Yes · ☐ No |
 
 ---
 
-**Next:** Proceed to [Day 1 – OMOP Common Data Model](../modules/day-01-omop-cdm.md) once all environment checks are complete.
+## Trainer Use: Readiness Summary
+
+> Fill this in after collecting completed checklists from participants.
+
+| Participant | ATLAS | CDM SQL | GitHub | R/HADES | Ready for Day 1? |
+|:--|:--|:--|:--|:--|:--|
+| | ☐ | ☐ | ☐ | ☐ | ☐ |
+| | ☐ | ☐ | ☐ | ☐ | ☐ |
+| | ☐ | ☐ | ☐ | ☐ | ☐ |
+
+---
+
+> See also: [Environment Setup Handout](environment-setup-handout.md) · [Environment Setup Module](../modules/00-environment-walkthrough.md)

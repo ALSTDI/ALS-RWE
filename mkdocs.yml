@@ -3,7 +3,6 @@ site_url: https://alstdi.github.io/ALS-RWE
 
 theme:
   name: material
-  custom_dir: overrides   # enables the "Preview: under construction" announcement bar
   logo: assets/ALSTDI-logo-stacked-color.png
   font:
     text: "EB Garamond"
@@ -11,13 +10,21 @@ theme:
     scheme: default
     primary: custom         # uses CSS variables for the purple
     accent: custom
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.header
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - toc.follow
     - search.suggest
     - search.highlight
+    - content.code.copy
+    - content.tabs.link
   # no repo_url and no content.action.view/edit to avoid top-right clutter
 
 nav:
@@ -25,42 +32,41 @@ nav:
   - New to RWE? Start Here: free-rwe-resources.md
   - ALS TDI OMOP Data Set: als-tdi-omop-data-set.md
   - STARDUSTT Approach: stardustt-approach.md
-  - Risk Factors vs Population: risk-factors-vs-population.md
-  - RWE Resources:
-      - Overview: free-rwe-resources.md
-      - Train-the-Trainer (OHDSI/OMOP):
-          - Overview: free-rwe-resources/train-the-trainer/index.md
-          - Syllabus: free-rwe-resources/train-the-trainer/syllabus.md
-          - Personas & Learning Paths: free-rwe-resources/train-the-trainer/personas.md
-          - Modules:
-              - Module 00 · Environment Setup: free-rwe-resources/train-the-trainer/modules/00-environment-walkthrough.md
-              - Day 1 · OMOP Common Data Model: free-rwe-resources/train-the-trainer/modules/day-01-omop-cdm.md
-              - Day 2 · Vocabulary & Data Quality: free-rwe-resources/train-the-trainer/modules/day-02-vocab-dqd.md
-              - Day 3 · Cohort Definition: free-rwe-resources/train-the-trainer/modules/day-03-cohorts.md
-              - Day 4 · Data Extraction (site specific): free-rwe-resources/train-the-trainer/modules/day-04-extraction.md
-          - Exercises:
-              - Day 1 · Athena & CDM: free-rwe-resources/train-the-trainer/exercises/day-01-athena-cdm.md
-              - Day 2 · Atlas: free-rwe-resources/train-the-trainer/exercises/day-02-vocab-dqd.md
-              - Day 3 · Cohorts in ATLAS: free-rwe-resources/train-the-trainer/exercises/day-03-cohorts.md
-              - Day 4 · Data Extraction: free-rwe-resources/train-the-trainer/exercises/day-04-extraction.md
-              - Day 5 · Treatment Pathways (Optional): free-rwe-resources/train-the-trainer/exercises/day-05-pathways-optional.md
-              - Day 6 · HADES (Optional): free-rwe-resources/train-the-trainer/exercises/day-06-hades-optional.md
-              - Day 1 · Code Snippets: free-rwe-resources/train-the-trainer/exercises/code_snippets/day-01-snippets.md
-          - Common Artifacts:
-              - Environment Setup Handout: free-rwe-resources/train-the-trainer/common_artifacts/environment-setup-handout.md
-              - OMOP Vocabulary & SQL Cheat Sheet: free-rwe-resources/train-the-trainer/common_artifacts/omop-vocab-sql-cheat-sheet.md
-              - SQL Validation Mini Lab: free-rwe-resources/train-the-trainer/common_artifacts/sql-validation-mini-lab.md
-              - Environment Checklist Template: free-rwe-resources/train-the-trainer/common_artifacts/environment-checklist-template.md
-          - Community:
-              - Weekly Community Meeting: free-rwe-resources/train-the-trainer/community/weekly-meeting.md
-              - Office Hours: free-rwe-resources/train-the-trainer/community/office-hours.md
-              - FAQ: free-rwe-resources/train-the-trainer/community/faq.md
-          - Resources: free-rwe-resources/train-the-trainer/resources.md
-          - Acknowledgements: free-rwe-resources/train-the-trainer/acknowledgements.md
+  - Train-the-Trainer (OHDSI/OMOP):
+      - Overview: free-rwe-resources/train-the-trainer/index.md
+      - Syllabus: free-rwe-resources/train-the-trainer/syllabus.md
+      - Personas & Learning Paths: free-rwe-resources/train-the-trainer/personas.md
+      - Modules:
+          - "Module 0 · Environment Setup": free-rwe-resources/train-the-trainer/modules/00-environment-walkthrough.md
+          - "Day 1 · OMOP Common Data Model": free-rwe-resources/train-the-trainer/modules/day-01-omop-cdm.md
+          - "Day 2 · Vocabulary & Data Quality": free-rwe-resources/train-the-trainer/modules/day-02-vocab-dqd.md
+          - "Day 3 · Cohort Definition": free-rwe-resources/train-the-trainer/modules/day-03-cohorts.md
+          - "Day 4 · Data Extraction": free-rwe-resources/train-the-trainer/modules/day-04-extraction.md
+          - "Day 5 · Treatment Pathways (Optional)": free-rwe-resources/train-the-trainer/modules/day-05-pathways.md
+          - "Day 6 · HADES (Optional)": free-rwe-resources/train-the-trainer/modules/day-06-hades.md
+      - Exercises:
+          - "Day 1 · Athena & CDM Vocabulary": free-rwe-resources/train-the-trainer/exercises/day-01-athena-cdm.md
+          - "Day 1 · SQL Code Snippets": free-rwe-resources/train-the-trainer/exercises/code_snippets/day-01-snippets.md
+          - "Day 2 · Concept Sets in Atlas": free-rwe-resources/train-the-trainer/exercises/day-02-vocab-dqd.md
+          - "Day 3 · Cohorts in ATLAS": free-rwe-resources/train-the-trainer/exercises/day-03-cohorts.md
+          - "Day 4 · Data Extraction": free-rwe-resources/train-the-trainer/exercises/day-04-extraction.md
+          - "Day 5 · Treatment Pathways (Optional)": free-rwe-resources/train-the-trainer/exercises/day-05-pathways-optional.md
+          - "Day 6 · HADES (Optional)": free-rwe-resources/train-the-trainer/exercises/day-06-hades-optional.md
+      - Common Artifacts:
+          - "Environment Setup Handout": free-rwe-resources/train-the-trainer/common_artifacts/environment-setup-handout.md
+          - "OMOP Vocabulary & SQL Cheat Sheet": free-rwe-resources/train-the-trainer/common_artifacts/omop-vocab-sql-cheat-sheet.md
+          - "SQL Validation Mini Lab": free-rwe-resources/train-the-trainer/common_artifacts/sql-validation-mini-lab.md
+          - "Environment Checklist Template": free-rwe-resources/train-the-trainer/common_artifacts/environment-checklist-template.md
+      - Community:
+          - "Weekly Community Meeting": free-rwe-resources/train-the-trainer/community/weekly-meeting.md
+          - "Office Hours": free-rwe-resources/train-the-trainer/community/office-hours.md
+          - "FAQ": free-rwe-resources/train-the-trainer/community/faq.md
+      - Downloads & Resources: free-rwe-resources/train-the-trainer/resources.md
+      - Acknowledgements: free-rwe-resources/train-the-trainer/acknowledgements.md
   - Select Publications: select-publications.md
   - GA4GH Connect 2026: ga4gh.md
 
-  
+
 markdown_extensions:
   - meta
   - admonition
@@ -77,8 +83,12 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -91,7 +101,6 @@ extra:
 
 extra_css:
   - assets/css/custom.css
-  - assets/css/under-construction.css
 
 watch:
   - docs/assets

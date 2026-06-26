@@ -112,4 +112,6 @@ WHERE cr.concept_id_1 = <standard_concept_id>;
 
 ---
 
-🧩 *Day 1 lays the foundation for querying and interpreting standardized OMOP data. Day 2 will focus on building cohorts and extracting standardized data for analysis.*
+:material-arrow-left: [Module 0 · Environment Setup](00-environment-walkthrough.md) &emsp; :material-arrow-right: [Day 2 · Vocabulary & Data Quality](day-02-vocab-dqd.md)
+
+*Day 1 lays the foundation for querying and interpreting standardized OMOP data. Day 2 will focus on concept sets, data quality, and SQL validation.*

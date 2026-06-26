@@ -1,232 +1,259 @@
-# Day 1 — OMOP / OHDSI Code Snippets
+# Day 1 · SQL Code Snippets
 
-These SQL examples accompany **Day 1 – OMOP Common Data Model**.  Learners can use them within Databricks, DBeaver, or any SQL client connected to an OMOP‑formatted database.
+> Ready-to-run queries for exploring the OMOP CDM and standardized vocabularies. Adjust schema prefixes (`cdm.`) to match your site's configuration.
 
 ---
 
-## **Atrial Fibrillation — Concept Exploration**
+## 1. Explore the `concept` table
 
-### Finding the Right Concept #1
-
+### Find a concept by name
 ```sql
-SELECT * FROM concept WHERE concept_id = 313217;
+SELECT concept_id,
+       concept_name,
+       domain_id,
+       vocabulary_id,
+       concept_class_id,
+       standard_concept,
+       concept_code
+FROM cdm.concept
+WHERE LOWER(concept_name) LIKE '%type 2 diabetes%'
+ORDER BY standard_concept DESC, concept_name;
 ```
+> `standard_concept = 'S'` → standard concept; `NULL` → non-standard (source) concept.
 
-### Finding the Right Concept #2
+---
 
+### Find a concept by exact concept_id
 ```sql
-SELECT * FROM concept WHERE concept_name = 'Atrial fibrillation';
-```
-
-### Finding the Right Concept #3
-
-```sql
-SELECT * FROM concept WHERE concept_code = '427.31';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 44821957;
-SELECT * FROM concept WHERE concept_id = 313217;
-```
-
-### Mapping = Translating
-
-```sql
-SELECT * FROM concept WHERE concept_code = '427.31';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 44821957 AND relationship_id = 'Maps to';
-SELECT * FROM concept WHERE concept_id = 313217;
-```
-
-### Exercise – Find Standard Concept ID from Source Concept
-
-```sql
-SELECT * FROM concept WHERE concept_code = '427.31';
-SELECT * FROM concept_relationship WHERE concept_id_1 = [source_concept_id] AND relationship_id = 'Maps to';
-SELECT * FROM concept WHERE concept_id = [mapped_concept_id];
-```
-
-### Concept Relationships
-
-```sql
-SELECT * FROM concept_relationship WHERE concept_id_1 = 313217;
-```
-
-### Exploring Relationships #2
-
-```sql
-SELECT cr.relationship_id, c.*
-FROM concept_relationship cr
-JOIN concept c ON cr.concept_id_2 = c.concept_id
-WHERE cr.concept_id_1 = 313217;
-```
-
-### Ancestry Relationships
-
-```sql
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.descendant_concept_id = 313217
-  AND ca.ancestor_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
-```
-
-### Exploring Descendants
-
-```sql
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.ancestor_concept_id = 44784217
-  AND ca.descendant_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
-```
-
-### Upper GI Bleeding Example
-
-```sql
-SELECT * FROM concept WHERE concept_name = 'Upper gastrointestinal bleeding';
-SELECT * FROM concept
-  WHERE LOWER(concept_name) LIKE '%upper gastrointestinal%'
-    AND domain_id = 'Condition'
-    AND standard_concept = 'S';
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.descendant_concept_id = 4332645
-  AND ca.ancestor_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
-```
-
-### Warfarin Examples
-
-```sql
-SELECT * FROM concept WHERE LOWER(concept_name) = 'warfarin';
-
-SELECT person_id, MIN(drug_exposure_start_date) AS index_date
-FROM drug_exposure
-WHERE drug_concept_id = [Warfarin_ingredient_ID]
-GROUP BY person_id
-HAVING MIN(drug_exposure_start_date) - observation_period_start_date > INTERVAL '180 days';
-
-SELECT p.person_id,
-       p.year_of_birth,
-       de.drug_exposure_start_date,
-       (EXTRACT(YEAR FROM de.drug_exposure_start_date) - p.year_of_birth) AS age
-FROM drug_exposure de
-JOIN person p ON de.person_id = p.person_id
-WHERE de.drug_concept_id = [Warfarin_ingredient_ID]
-  AND (EXTRACT(YEAR FROM de.drug_exposure_start_date) - p.year_of_birth) >= 65;
-
-SELECT de.person_id,
-       de.drug_exposure_start_date,
-       co.condition_start_date
-FROM drug_exposure de
-JOIN condition_occurrence co ON de.person_id = co.person_id
-WHERE de.drug_concept_id = [Warfarin_ingredient_ID]
-  AND co.condition_concept_id = [Atrial_Fibrillation_ID]
-  AND co.condition_start_date < de.drug_exposure_start_date;
+SELECT *
+FROM cdm.concept
+WHERE concept_id = 201826;   -- Type 2 diabetes mellitus (SNOMED)
 ```
 
 ---
 
-## **Diabetes Mellitus**
-
-### Finding the Right Concept #1
-
+### List all vocabularies in your CDM
 ```sql
-SELECT * FROM concept WHERE concept_id = 201820;
-```
-
-### Finding the Right Concept #2
-
-```sql
-SELECT * FROM concept WHERE concept_name = 'Diabetes mellitus';
-```
-
-### Finding the Right Concept #3
-
-```sql
-SELECT * FROM concept WHERE concept_code = '73211009';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 201820;
-SELECT * FROM concept WHERE concept_id = 201820;
-```
-
-### Mapping = Translating
-
-```sql
-SELECT * FROM concept WHERE concept_code = '73211009';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 201820 AND relationship_id = 'Maps to';
-SELECT * FROM concept WHERE concept_id = 201820;
-```
-
-### Concept Relationships
-
-```sql
-SELECT * FROM concept_relationship WHERE concept_id_1 = 201820;
-```
-
-### Exploring Relationships #2
-
-```sql
-SELECT cr.relationship_id, c.*
-FROM concept_relationship cr
-JOIN concept c ON cr.concept_id_2 = c.concept_id
-WHERE cr.concept_id_1 = 201820;
-```
-
-### Ancestry Relationships
-
-```sql
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.descendant_concept_id = 201820
-  AND ca.ancestor_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
-```
-
-### Exploring Descendants
-
-```sql
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.ancestor_concept_id = 201820
-  AND ca.descendant_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
+SELECT vocabulary_id,
+       vocabulary_name,
+       vocabulary_reference,
+       vocabulary_version
+FROM cdm.vocabulary
+ORDER BY vocabulary_id;
 ```
 
 ---
 
-## **Motor Neuron Disease**
-
-### Finding the Right Concept #1
-
+### Count concepts by domain and standard flag
 ```sql
-SELECT * FROM concept WHERE concept_id = 374631;
+SELECT domain_id,
+       standard_concept,
+       COUNT(*) AS concept_count
+FROM cdm.concept
+GROUP BY domain_id, standard_concept
+ORDER BY domain_id, standard_concept;
 ```
 
-### Finding the Right Concept #2
+---
 
+## 2. Explore the `concept_relationship` table
+
+### Find how a non-standard code maps to a standard concept
 ```sql
-SELECT * FROM concept WHERE concept_name = 'Motor neuron disease';
+-- Replace 45548499 with any non-standard concept_id (e.g., an ICD-10-CM code)
+SELECT cr.concept_id_1,
+       c1.concept_name  AS source_concept,
+       c1.vocabulary_id AS source_vocab,
+       cr.relationship_id,
+       cr.concept_id_2,
+       c2.concept_name  AS target_concept,
+       c2.standard_concept
+FROM cdm.concept_relationship cr
+JOIN cdm.concept c1 ON cr.concept_id_1 = c1.concept_id
+JOIN cdm.concept c2 ON cr.concept_id_2 = c2.concept_id
+WHERE cr.concept_id_1 = 45548499
+  AND cr.relationship_id = 'Maps to'
+  AND cr.invalid_reason IS NULL;
 ```
 
-### Finding the Right Concept #3
+---
 
+### See all relationships for a standard concept
 ```sql
-SELECT * FROM concept WHERE concept_code = '37340000';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 374631;
-SELECT * FROM concept WHERE concept_id = 374631;
+SELECT cr.relationship_id,
+       c2.concept_id,
+       c2.concept_name,
+       c2.vocabulary_id,
+       c2.domain_id
+FROM cdm.concept_relationship cr
+JOIN cdm.concept c2 ON cr.concept_id_2 = c2.concept_id
+WHERE cr.concept_id_1 = 201826   -- Type 2 diabetes mellitus
+  AND cr.invalid_reason IS NULL
+ORDER BY cr.relationship_id;
+```
+> Common `relationship_id` values: `'Maps to'`, `'Is a'`, `'Subsumes'`, `'Has ancestor'`, `'Maps to value'`.
+
+---
+
+### Find all ICD-10-CM codes that map to a given SNOMED concept
+```sql
+SELECT c_source.concept_id,
+       c_source.concept_code,
+       c_source.concept_name,
+       c_source.vocabulary_id
+FROM cdm.concept_relationship cr
+JOIN cdm.concept c_source ON cr.concept_id_1 = c_source.concept_id
+WHERE cr.concept_id_2    = 201826          -- target SNOMED concept
+  AND cr.relationship_id = 'Maps to'
+  AND c_source.vocabulary_id IN ('ICD10CM', 'ICD9CM')
+  AND cr.invalid_reason IS NULL;
 ```
 
-### Mapping = Translating
+---
 
+## 3. Explore the `concept_ancestor` table
+
+### Find all descendants of a concept (for concept set building)
 ```sql
-SELECT * FROM concept WHERE concept_code = '37340000';
-SELECT * FROM concept_relationship WHERE concept_id_1 = 374631 AND relationship_id = 'Maps to';
-SELECT * FROM concept WHERE concept_id = 374631;
+SELECT ca.descendant_concept_id,
+       c.concept_name,
+       c.vocabulary_id,
+       c.standard_concept,
+       ca.min_levels_of_separation,
+       ca.max_levels_of_separation
+FROM cdm.concept_ancestor ca
+JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
+WHERE ca.ancestor_concept_id = 21600381   -- Sulfonylureas (SNOMED ingredient class)
+ORDER BY ca.min_levels_of_separation, c.concept_name;
 ```
 
-### Exploring Descendants
+---
 
+### Find all ancestors of a concept (traverse upward)
 ```sql
-SELECT max_levels_of_separation, c.*
-FROM concept_ancestor ca, concept c
-WHERE ca.ancestor_concept_id = 374631
-  AND ca.descendant_concept_id = c.concept_id
-ORDER BY max_levels_of_separation;
+SELECT ca.ancestor_concept_id,
+       c.concept_name,
+       c.vocabulary_id,
+       ca.min_levels_of_separation
+FROM cdm.concept_ancestor ca
+JOIN cdm.concept c ON ca.ancestor_concept_id = c.concept_id
+WHERE ca.descendant_concept_id = 1503297   -- Metformin
+  AND ca.min_levels_of_separation > 0
+ORDER BY ca.min_levels_of_separation;
 ```
+
+---
+
+## 4. Explore clinical domain tables
+
+### Count patients in the `person` table
+```sql
+SELECT COUNT(DISTINCT person_id) AS total_persons
+FROM cdm.person;
+```
+
+---
+
+### Demographics summary
+```sql
+SELECT year_of_birth,
+       gender_concept_id,
+       g.concept_name   AS gender,
+       race_concept_id,
+       r.concept_name   AS race,
+       COUNT(*)         AS n
+FROM cdm.person p
+LEFT JOIN cdm.concept g ON p.gender_concept_id = g.concept_id
+LEFT JOIN cdm.concept r ON p.race_concept_id   = r.concept_id
+GROUP BY year_of_birth, gender_concept_id, g.concept_name, race_concept_id, r.concept_name
+ORDER BY year_of_birth DESC;
+```
+
+---
+
+### Count condition occurrences by standard concept
+```sql
+SELECT co.condition_concept_id,
+       c.concept_name,
+       COUNT(*) AS occurrence_count,
+       COUNT(DISTINCT co.person_id) AS person_count
+FROM cdm.condition_occurrence co
+JOIN cdm.concept c ON co.condition_concept_id = c.concept_id
+WHERE c.standard_concept = 'S'
+GROUP BY co.condition_concept_id, c.concept_name
+ORDER BY person_count DESC
+LIMIT 25;
+```
+
+---
+
+### Find drug exposures for a drug (using ancestor join)
+```sql
+-- Count metformin exposures (includes all descendants via concept_ancestor)
+SELECT COUNT(*)                       AS total_exposures,
+       COUNT(DISTINCT de.person_id)   AS unique_patients
+FROM cdm.drug_exposure de
+JOIN cdm.concept_ancestor ca
+     ON ca.descendant_concept_id = de.drug_concept_id
+WHERE ca.ancestor_concept_id = 1503297;   -- Metformin ingredient
+```
+
+---
+
+### Observation period summary
+```sql
+SELECT
+    COUNT(DISTINCT person_id)           AS persons_with_obs,
+    ROUND(AVG(
+        DATEDIFF(observation_period_end_date, observation_period_start_date)
+    ))                                  AS avg_obs_days,
+    MIN(observation_period_start_date)  AS earliest_start,
+    MAX(observation_period_end_date)    AS latest_end
+FROM cdm.observation_period;
+```
+
+---
+
+## 5. Quick data quality spot checks
+
+### Find records with concept_id = 0 (unmapped / non-standard)
+```sql
+-- Condition occurrences with no standard concept
+SELECT COUNT(*) AS unmapped_conditions
+FROM cdm.condition_occurrence
+WHERE condition_concept_id = 0;
+
+-- Drug exposures with no standard concept
+SELECT COUNT(*) AS unmapped_drugs
+FROM cdm.drug_exposure
+WHERE drug_concept_id = 0;
+```
+
+---
+
+### Check for implausible birth years
+```sql
+SELECT year_of_birth, COUNT(*) AS n
+FROM cdm.person
+WHERE year_of_birth < 1900 OR year_of_birth > YEAR(CURRENT_DATE)
+GROUP BY year_of_birth
+ORDER BY year_of_birth;
+```
+
+---
+
+### Check observation period coverage
+```sql
+-- Persons with no observation period (should be 0)
+SELECT COUNT(*) AS persons_without_obs
+FROM cdm.person p
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM cdm.observation_period op
+    WHERE op.person_id = p.person_id
+);
+```
+
+---
+
+> :material-arrow-left: [Back to Day 1 module](../../modules/day-01-omop-cdm.md) · [Back to Day 1 exercise](../day-01-athena-cdm.md) · [OMOP SQL Cheat Sheet](../../common_artifacts/omop-vocab-sql-cheat-sheet.md)
