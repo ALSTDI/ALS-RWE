@@ -85,6 +85,16 @@ A downloadable Markdown version is available here:
 
 ---
 
+## Slides & Kit Materials
+
+| File | Description |
+|:--|:--|
+| [Instructor Deck](../training/day-00-environment/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
+| [Participant Handout](../training/day-00-environment/kit/Participant-Handout.pptx) | Abbreviated handout for participants |
+| [Kahoot Quiz](../training/day-00-environment/kit/Kahoot-Quiz.csv) | 7-question environment setup quiz |
+
+---
+
 ## Deliverables
 
 - Completed **Environment Checklist** uploaded or shared with instructors.

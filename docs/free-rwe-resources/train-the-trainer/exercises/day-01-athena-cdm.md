@@ -1,8 +1,13 @@
 # 🧭 Day 1 · Athena Vocabulary Exploration & Quiz
 
-!!! tip "Sample notebook"
-    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
-    or [download it]( ../notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb).
+!!! info "Primary tool: Athena (no account needed)"
+    This exercise runs entirely in [Athena](https://athena.ohdsi.org/) — no CDM credentials required.
+    For SQL practice, use your site's CDM connection and the [Day 1 Code Snippets](code_snippets/day-01-snippets.md).
+
+!!! note "No CDM access? Colab fallback"
+    If you don't yet have a CDM connection, a synthetic-data companion notebook is available:
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
+    or [download it](../notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb).
 
 
 > **Purpose:** Learn to explore OMOP standardized vocabularies in [Athena](https://athena.ohdsi.org/)  
@@ -212,7 +217,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 ---
 
 > 🧩 Use the [Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md) and  
-> [Day 1 Slides](../training/day1-omop-cdm/Day1.pptx) to review these concepts.  
+> [Day 1 Slides](../training/day-01-omop-cdm/kit/Instructor-Deck-with-Notes.pptx) to review these concepts.  
 > For deeper exploration, repeat the [Athena Vocabulary Exercise](day-01-athena-cdm.md) with a different condition.
 
 ---

@@ -1,8 +1,13 @@
 # Exercises · Day 2 — Concept Sets in Atlas and SQL Validation
 
-!!! tip "Sample notebook"
-    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb)
-    or [download it]( ../notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb).
+!!! info "Primary tool: Atlas"
+    These exercises use **Atlas** to build concept sets and **your site's CDM** for SQL validation.
+    Open Atlas and confirm you can create a new concept set before starting.
+
+!!! note "No CDM access? Colab fallback"
+    If you don't yet have a CDM connection, a synthetic-data companion notebook is available:
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb)
+    or [download it](../notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb).
 
 
 !!! abstract "What you will do"

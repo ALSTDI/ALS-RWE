@@ -55,7 +55,14 @@ Atlas is the graphical interface for this work. You search Athena vocabularies, 
 ---
 
 ## Slides and materials
-The full Day 2 lecture deck, the participant workbook, and the instructor answer key are kept with the course kit. See the [Day 2 exercise](../exercises/day-02-vocab-dqd.md) for the hands-on lab.
+
+| File | Description |
+|:--|:--|
+| [Instructor Deck](../training/day-02-vocab-dqd/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
+| [Participant Workbook](../training/day-02-vocab-dqd/kit/Participant-Workbook.pptx) | Workbook with fill-in exercises |
+| [Kahoot Quiz](../training/day-02-vocab-dqd/kit/Kahoot-Quiz.csv) | 10-question concept sets and DQD quiz |
+
+See the [Day 2 exercise](../exercises/day-02-vocab-dqd.md) for the hands-on lab.
 
 ## Further reading
 - The Book of OHDSI, Chapter 4 (Common Data Model) and the data quality material: https://ohdsi.github.io/TheBookOfOhdsi/

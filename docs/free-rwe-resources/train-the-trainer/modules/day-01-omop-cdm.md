@@ -34,7 +34,13 @@ By the end of this session, you should be able to:
 ---
 
 ## 🧠 Slides & Materials
-- 📑 **Lecture slides:** [Download Day 1 Slides (PPTX)](../training/day1-omop-cdm/Day1.pptx)
+
+| File | Description |
+|:--|:--|
+| [Instructor Deck](../training/day-01-omop-cdm/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
+| [Participant Workbook](../training/day-01-omop-cdm/kit/Participant-Workbook.pptx) | Workbook with fill-in exercises |
+| [Kahoot Quiz](../training/day-01-omop-cdm/kit/Kahoot-Quiz.csv) | 10-question OMOP CDM quiz |
+
 - 🧩 **SQL Examples:** [Day 1 · Code Snippets](../exercises/code_snippets/day-01-snippets.md)  
 - 📘 **Cheat Sheet:** [OMOP Vocabulary and SQL Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
 
@@ -43,7 +49,7 @@ By the end of this session, you should be able to:
 ## 🧭 Hands-on Activities
 - The full in-class exercise lives here: **[Day 1 · Exercises](../exercises/day-01-athena-cdm.md)**.
 - Need queries? See **[Day 1 · Code Snippets](../exercises/code_snippets/day-01-snippets.md)**.
-- Slides: **[PPTX](../training/day1-omop-cdm/Day1.pptx)**.
+- Slides: **[Instructor Deck](../training/day-01-omop-cdm/kit/Instructor-Deck-with-Notes.pptx)** · **[Participant Workbook](../training/day-01-omop-cdm/kit/Participant-Workbook.pptx)**.
 
 ---
 
@@ -89,7 +95,7 @@ WHERE cr.concept_id_1 = <standard_concept_id>;
     The Day 1 self-check quiz and practice tasks are included in  
     **[Day 1 · Exercises](../exercises/day-01-athena-cdm.md)**.  
     Use the **[Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md)** and  
-    **[Day 1 Slides](../training/day1-omop-cdm/Day1.pptx)** for reference.
+    **[Day 1 Instructor Deck](../training/day-01-omop-cdm/kit/Instructor-Deck-with-Notes.pptx)** for reference.
  
 > See the slides and cheat sheet for full practice queries.
 

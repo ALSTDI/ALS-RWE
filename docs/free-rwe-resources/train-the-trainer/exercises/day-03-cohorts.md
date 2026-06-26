@@ -1,8 +1,13 @@
 # Exercises · Day 3 — Cohorts in ATLAS
 
-!!! tip "Sample notebook"
-    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day3-Cohort-Building.ipynb)
-    or [download it]( ../notebooks/Day3-Cohort-Building.ipynb).
+!!! info "Primary tool: Atlas"
+    These exercises use **Atlas** for cohort building and generation. Open Atlas and confirm you can
+    create a new cohort definition and generate it against a CDM before starting.
+
+!!! note "No CDM access? Colab fallback"
+    If you don't yet have a CDM connection, a synthetic-data companion notebook is available:
+    [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day3-Cohort-Building.ipynb)
+    or [download it](../notebooks/Day3-Cohort-Building.ipynb).
 
 
 !!! abstract "What you will do"
