@@ -77,7 +77,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
 
 === "Recommended Extras"
 
-    - **Book of OHDSI Ch. 12–14:** Estimation, Prediction, and HADES — your primary reference.
+    - **Book of OHDSI Ch. 12–13:** Population-Level Estimation and Patient-Level Prediction — your primary reference. (HADES R package docs: [ohdsi.github.io/Hades](https://ohdsi.github.io/Hades/))
     - **OHDSI Community Calls:** Great for hearing real-world study design trade-offs.
     - **Day 6 HADES kit** from [Resources](resources.md): includes patient-level prediction notebook and interpretation guide.
 

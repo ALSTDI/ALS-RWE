@@ -82,5 +82,5 @@ fixed slide deck because the steps are local; build a short site-specific deck
 from the [ALS TDI template](../resources.md) if you need one for your group.
 
 ## Further reading
-- The Book of OHDSI, Chapter 3 (ETL): https://ohdsi.github.io/TheBookOfOhdsi/
+- The Book of OHDSI, Chapter 6 (Extract Transform Load): https://ohdsi.github.io/TheBookOfOhdsi/ExtractTransformLoad.html
 - The [OMOP Vocabulary and SQL Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md) for query patterns.

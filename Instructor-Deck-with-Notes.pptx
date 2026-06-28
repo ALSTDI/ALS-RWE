@@ -99,7 +99,7 @@ A left-to-right flow diagram where each vertical band is a treatment step and ea
 
 ## Further Reading
 
-- Book of OHDSI, Chapter 12 (Estimation): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
+- Book of OHDSI, Chapter 11 (Characterization): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/Characterization.html)
 - ATLAS Treatment Pathways documentation: [OHDSI Software Tools](https://ohdsi.org/software-tools/)
 - **Hripcsak G et al.** *Characterizing treatment pathways at scale using the OHDSI network.* PNAS 2016. [doi:10.1073/pnas.1510502113](https://doi.org/10.1073/pnas.1510502113)
 
