@@ -1,187 +1,69 @@
-# Module 00 · Environment Setup and Access
+# Exercises · Day 4 — Data Extraction (Adapt to Your Site)
 
-!!! info "White-Label Program"
-    This module is designed for **Train-the-Trainer programs** built around the OHDSI ecosystem.  
-    It intentionally avoids site-specific branding so it can be **cloned and customized** by any institution or trainer team.  
-    Replace placeholders and add links for your local environment as needed.
+!!! info "This lab is a template"
+    Because extraction differs by institution, this lab is written as a fill-in
+    framework rather than fixed steps. Replace the bracketed parts with your
+    site's tools. See the [Day 4 module](../modules/day-04-extraction.md) for the
+    general workflow and the site setup table.
 
 !!! warning "Setup and extraction are site specific"
-    There is no single correct environment. Institutions differ in their data warehouse, SQL client, and extraction tooling. These materials use Databricks and DBeaver as examples, but not everyone uses Databricks. Your site may use Snowflake, Postgres, BigQuery, SQL Server, Posit Workbench, or another stack. The OMOP CDM and OHDSI tools are the same everywhere; only the connection details change. See the [Environment Setup Handout](../common_artifacts/environment-setup-handout.md) for the participant quick guide.
-
-
----
-
-## Overview
-This module ensures all participants have **functional access** to the systems, tools, and data sources required before the start of Week 1.  
-Each participant should complete the environment checklist and verify all access points work correctly.
+    These steps assume you have a generated cohort from Day 3 and read access to
+    your CDM. The method (SEARCH, ATLAS-exported SQL, or a local pipeline) and
+    the client (Databricks, DBeaver, Snowflake, Postgres, BigQuery, SQL Server,
+    other) are whatever your site uses. Not everyone uses Databricks.
 
 ---
 
-## Objectives
-By the end of this module, participants will be able to:
-1. Access all required OHDSI tools and environments (ATLAS, CDM database, SEARCH).
-2. Verify permissions for data connections and tool execution.
-3. Install and test required local software (R, RStudio, Git, SQL client).
-4. Document readiness using the provided **Environment Checklist Template**.
+## Step 1: Pick a cohort
+Use the new-user metformin cohort generated in Day 3 (or any small generated
+cohort you have access to). Record its `cohort_definition_id`.
+
+## Step 2: Extract using your site's method
+Choose the path that matches your site:
+
+- **SEARCH:** run a cohort-based extraction and save the output to your working location.
+- **Exported SQL:** export the cohort and feature SQL from ATLAS and run it in your client.
+- **Local pipeline:** request or trigger the extract through your site's process.
+
+Pull, at minimum, the cohort's drug exposures and condition occurrences within a
+defined window around cohort entry.
+
+## Step 3: Validate the count
+Independently re-count the cohort size and compare it to what ATLAS reported when
+the cohort was generated:
+
+```sql
+-- Adjust schema and client to your site
+SELECT COUNT(DISTINCT subject_id) AS persons
+FROM results.cohort
+WHERE cohort_definition_id = :your_cohort_id;
+```
+
+Write down both numbers. If they match, your extraction path is trustworthy. If
+not, work through the reconciliation checklist below.
+
+## Step 4: Reconcile (if numbers disagree)
+- Same CDM and vocabulary version in both places?
+- Did a join silently drop unmapped records (concept_id 0)?
+- Was a time window applied in one query but not the other?
+- Did you extract from the same results schema the cohort was generated into?
 
 ---
 
-## Systems & Tools Setup
+## Homework
+- Document your site's extraction path in two or three sentences so a new team
+  member could reproduce it.
+- Extract one additional domain (for example measurements) and validate a count.
 
-### 🧭 ATLAS
-- Confirm **login credentials** and ability to create/edit cohorts.
-- Test saving and exporting a cohort definition (JSON).
-- Verify cohort characterization jobs can run successfully.
+## Instructor notes
+<details>
+<summary>Show facilitation notes</summary>
 
-### 🗃 OMOP CDM Access
-- Confirm **read access** to a sandbox or training CDM database (synthetic or de-identified).
-- Ensure network permissions and ODBC/connection strings are functional.
-- Optional: Test a basic `SELECT * FROM PERSON LIMIT 5;` query via SQL client.
-
-### 🔍 SEARCH Tool
-*(If applicable for your site)*  
-- Confirm access to SEARCH.
-- Run a simple cohort-based extraction to ensure permissions are active.
-- Save export outputs to your working directory.
-
-### 📊 HADES Environment (Optional for Advanced Tracks)
-- Verify R (≥ 4.2) and RStudio (or Posit Workbench) installation.
-- Confirm ability to install and load OHDSI packages:
-  ```r
-  install.packages("remotes")
-  remotes::install_github("ohdsi/Hades")
-  library(Hades)
-  ```
-- Optional: Test Achilles or DQD on a small sample CDM if permissions allow.
-
-### 💻 Local Tools
-- **Git/GitHub:** ability to clone, pull, and push to this repository.  
-- **SQL client:** Databricks, DBeaver, or similar with CDM connectivity.  
-- **Text editor:** VS Code, RStudio, or preferred IDE.
-
----
-
-## ✅ Environment Checklist Template
-Trainers may clone and adapt this checklist for local use.  
-A downloadable Markdown version is available here:  
-➡️ [Download environment-checklist-template.md](../common_artifacts/environment-checklist-template.md)
-
-| Area | Task | Verified (Y/N) | Notes |
-|------|------|----------------|-------|
-| ATLAS | Login successful and can save cohorts |  |  |
-| CDM Database | Confirmed SQL read access |  |  |
-| SEARCH | Extraction test completed |  |  |
-| HADES | R environment installed and packages load |  |  |
-| GitHub | Repo cloned and permissions confirmed |  |  |
-| SQL Client | Connected to CDM successfully |  |  |
-
-> Trainers: copy this table to your local documentation or export it as CSV for tracking participant readiness.
-
----
-
-## Deliverables
-- Completed **Environment Checklist** uploaded or shared with instructors.
-- Verified tool access and functional test results (ATLAS, CDM, SEARCH if applicable).
-
----
-
-## Tips for Trainers
-- Keep setup **tool-agnostic** and **site-neutral**. Replace institutional URLs and connection details in your fork.  
-- Encourage participants to complete setup **at least 48 hours before Week 1**.  
-- Maintain a shared support document or Slack channel for troubleshooting access issues.
-
----
-
-**Next:** Proceed to [Module 01 – Introduction to OHDSI](# Module 00 · Environment Setup and Access
-
-!!! info "White-Label Program"
-    This module is designed for **Train-the-Trainer programs** built around the OHDSI ecosystem.  
-    It intentionally avoids site-specific branding so it can be **cloned and customized** by any institution or trainer team.  
-    Replace placeholders and add links for your local environment as needed.
-
----
-
-## Overview
-This module ensures all participants have **functional access** to the systems, tools, and data sources required before the start of Week 1.  
-Each participant should complete the environment checklist and verify all access points work correctly.
-
----
-
-## Objectives
-By the end of this module, participants will be able to:
-1. Access all required OHDSI tools and environments (ATLAS, CDM database, SEARCH).
-2. Verify permissions for data connections and tool execution.
-3. Install and test required local software (R, RStudio, Git, SQL client).
-4. Document readiness using the provided **Environment Checklist Template**.
-
----
-
-## Systems & Tools Setup
-
-### 🧭 ATLAS
-- Confirm **login credentials** and ability to create/edit cohorts.
-- Test saving and exporting a cohort definition (JSON).
-- Verify cohort characterization jobs can run successfully.
-
-### 🗃 OMOP CDM Access
-- Confirm **read access** to a sandbox or training CDM database (synthetic or de-identified).
-- Ensure network permissions and ODBC/connection strings are functional.
-- Optional: Test a basic `SELECT * FROM PERSON LIMIT 5;` query via SQL client.
-
-### 🔍 SEARCH Tool
-*(If applicable for your site)*  
-- Confirm access to SEARCH.
-- Run a simple cohort-based extraction to ensure permissions are active.
-- Save export outputs to your working directory.
-
-### 📊 HADES Environment (Optional for Advanced Tracks)
-- Verify R (≥ 4.2) and RStudio (or Posit Workbench) installation.
-- Confirm ability to install and load OHDSI packages:
-  ```r
-  install.packages("remotes")
-  remotes::install_github("ohdsi/Hades")
-  library(Hades)
-  ```
-- Optional: Test Achilles or DQD on a small sample CDM if permissions allow.
-
-### 💻 Local Tools
-- **Git/GitHub:** ability to clone, pull, and push to this repository.  
-- **SQL client:** Databricks, DBeaver, or similar with CDM connectivity.  
-- **Text editor:** VS Code, RStudio, or preferred IDE.
-
----
-
-## ✅ Environment Checklist Template
-Trainers may clone and adapt this checklist for local use.  
-A downloadable Markdown version is available here:  
-➡️ [Download environment-checklist-template.md](../common_artifacts/environment-checklist-template.md)
-
-| Area | Task | Verified (Y/N) | Notes |
-|------|------|----------------|-------|
-| ATLAS | Login successful and can save cohorts |  |  |
-| CDM Database | Confirmed SQL read access |  |  |
-| SEARCH | Extraction test completed |  |  |
-| HADES | R environment installed and packages load |  |  |
-| GitHub | Repo cloned and permissions confirmed |  |  |
-| SQL Client | Connected to CDM successfully |  |  |
-
-> Trainers: copy this table to your local documentation or export it as CSV for tracking participant readiness.
-
----
-
-## Deliverables
-- Completed **Environment Checklist** uploaded or shared with instructors.
-- Verified tool access and functional test results (ATLAS, CDM, SEARCH if applicable).
-
----
-
-## Tips for Trainers
-- Keep setup **tool-agnostic** and **site-neutral**. Replace institutional URLs and connection details in your fork.  
-- Encourage participants to complete setup **at least 48 hours before Week 1**.  
-- Maintain a shared support document or Slack channel for troubleshooting access issues.
-
----
-
-**Next:** Proceed to [Module 01 – Introduction to OHDSI](day-01-omop-cdm.md) once all environment checks are complete.
-
-
+- Before the session, fill in the site setup table in the Day 4 module so the
+  group is working from your real tools, not generic examples.
+- The learning objective is reconciliation, not a specific tool. Have each
+  participant state their warehouse and client out loud so the group sees how
+  much the environment varies while the logic stays the same.
+- If participants are on different stacks, pair them so they compare how the
+  same cohort extracts differently in each.
+</details>

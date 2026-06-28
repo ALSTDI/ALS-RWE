@@ -1,60 +1,161 @@
-# Exercises · Day 2 — Concept Sets in Atlas and SQL Validation
+# Resources 
 
-!!! abstract "What you will do"
-    1. Build a concept set in Atlas using descendants.
-    2. Inspect the "mapped" view to confirm coverage.
-    3. Validate the concept set against the CDM with SQL.
-    4. Read one Data Quality Dashboard result and decide whether it matters.
-
-!!! warning "Setup and extraction are site specific"
-    Every institution's environment is different. These steps use Databricks and DBeaver as the SQL client because that is what the reference site uses, but your site may use something else (for example Snowflake, Postgres, BigQuery, SQL Server, or Posit Workbench). The OMOP CDM and the SQL logic are the same everywhere. Only the connection details and the extraction tooling change. Substitute your local client, connection string, and data access steps wherever Databricks is mentioned.
+> A comprehensive library for trainers, analysts, and learners in the **OHDSI Train-the-Trainer** program.
 
 ---
 
-## Step 1: Build a concept set (warm-up)
-1. Open Atlas and go to **Concept Sets**, then **New Concept Set**.
-2. Search Athena for the ingredient **sulfonylureas**.
-3. Add it to the set, then turn on **Include Descendants** so all products and doses are captured.
-4. Save the set with a clear name, for example `TtT Day2 Sulfonylureas`.
+## 🌍 Core OHDSI Resources
 
-## Step 2: Inspect standard and mapped
-1. Open the **Included Concepts** tab and confirm every concept is standard.
-2. Open the **Mapped** view. These are the source codes that map into your standard concepts. Skim them and ask: does this look like complete coverage for your site, or are obvious codes missing?
+> Key official sites and references maintained by the global OHDSI community.
 
-## Step 3: Validate against the CDM with SQL
-Export the concept set expression SQL from Atlas, then run the count yourself in your SQL client. A simple validation query (adjust schema and client to your site):
-
-```sql
--- How many drug exposures fall in the sulfonylurea concept set?
-SELECT COUNT(*) AS exposures,
-       COUNT(DISTINCT de.person_id) AS persons
-FROM cdm.drug_exposure de
-JOIN cdm.concept_ancestor ca
-     ON ca.descendant_concept_id = de.drug_concept_id
-WHERE ca.ancestor_concept_id = :sulfonylurea_ingredient_concept_id;
-```
-
-Compare the count to what Atlas reports. If they differ, the usual culprits are a non-standard concept in the set, a missing "include descendants" toggle, or a schema or vocabulary version mismatch.
-
-!!! tip "Runnable practice without a CDM"
-    If you do not yet have a CDM connection, the Day 1 sample notebook builds a tiny synthetic CDM in the notebook itself, so you can practice the same `concept_ancestor` join logic with no credentials.
-
-## Step 4: Read one data quality result
-1. Open a Data Quality Dashboard result for your training CDM (or a sample DQD report).
-2. Find one **failed** check and note its category (conformance, completeness, or plausibility) and its threshold.
-3. Decide, in one sentence, whether that failure would affect a diabetes drug study. This judgment, not the pass/fail count, is the point.
+- **[Join the Journey](https://www.ohdsi.org/join-the-journey/)** – overview of OHDSI’s mission and collaboration model  
+- **[Athena Vocabulary Browser](https://athena.ohdsi.org/search-terms/start)** – explore OMOP vocabularies and concepts  
+- **[OMOP Common Data Model](https://ohdsi.github.io/CommonDataModel/index.html)** – full documentation and specifications  
+- **[OMOP CDM FAQ](https://ohdsi.github.io/CommonDataModel/faq.html)** – answers to common questions  
+- **[The Book of OHDSI](https://ohdsi.github.io/TheBookOfOhdsi/)** – foundational text on OHDSI methods and tools  
+- **[Atlas Demo Environment](https://atlas-demo.ohdsi.org/)** – interactive OHDSI Atlas demo instance  
+- **[OHDSI Software Tools](https://ohdsi.org/software-tools/)** – overview of Atlas, Achilles, DataQualityDashboard, and more  
+- **[MIMIC-IV Demo Data (OMOP CDM)](https://physionet.org/content/mimic-iv-demo-omop/0.9/1_omop_data_csv/)** – example dataset mapped to OMOP CDM  
 
 ---
 
-## Homework
-- Build concept sets for two more drug classes of your choice and validate each with the SQL pattern above.
-- Write two sentences on one data quality failure: what it is, and whether it threatens an analysis you care about.
+## 🧠 Learning & Training
 
-## Instructor notes
-<details>
-<summary>Show facilitation notes</summary>
+> Educational materials, tutorials, and recorded sessions to deepen OMOP/OHDSI knowledge.
 
-- Have a volunteer share their screen for the sulfonylurea build so the group sees the descendant toggle in action.
-- Expect the "mapped" view to surprise people. It is the fastest way to teach why non-standard concepts cause silent data loss.
-- The SQL validation step is where the site-specific reality lands. Ask each participant to name their own client and warehouse out loud so the group sees the variety.
-</details>
+### [Introduction to OMOP: Your Frequently Asked Questions Answered](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18)
+> **Taught by:** *Danielle Boyce (ALS TDI)* and *Pavel Goriacko (Montefiore)*  
+> Hosted on the **Tufts CTSI iLEARN** platform.
+
+**Overview**
+- A practical, accessible introduction to the **OMOP Common Data Model**, vocabulary concepts, and the OHDSI ecosystem.  
+- Designed to address common questions from analysts, clinicians, and data engineers new to OMOP.  
+- Ideal for onboarding new OHDSI collaborators and supplementing the **Week 1 curriculum**.
+
+**Enroll:** [Click here to join the course →](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18)
+
+---
+### [EHDEN Academy — All Courses](https://academy.ehden.eu/course/index.php?categoryid=all)
+> **EHDEN Academy** offers free, self-paced training from the European Health Data & Evidence Network on topics essential to the OMOP and OHDSI communities.
+
+**Highlights**
+- 🧱 *OMOP Common Data Model & Standardized Vocabularies*  
+- ⚙️ *ETL Design, Data Quality, and Governance*  
+- 📊 *Observational Health Data Science, RWE, and OHDSI Tooling*  
+
+**Use in this program**
+- Great supplemental material for **Weeks 1–2** (CDM & Vocabularies)  
+- Deep dives for **ETL and Data Quality** sessions later in the curriculum  
+
+**Access:** [academy.ehden.eu → All Courses](https://academy.ehden.eu/course/index.php?categoryid=all)
+
+---
+
+### [ELIXIR-EXCELERATE Train-the-Trainer Repository)](https://github.com/TrainTheTrainer/ELIXIR-EXCELERATE-TtT)
+
+> A foundational **Train-the-Trainer** resource developed as part of the **ELIXIR / EXCELERATE** project.  
+> This GitHub repository includes slides, materials, and guidance on training frameworks and community building across data networks.
+
+**Highlights**
+- 📘 Training program structure and facilitator guidance  
+- 🧩 Teaching methods and train-the-trainer resources from the original initiative  
+- 🌍 Served as an early model for open-network skill-building programs like the OHDSI Train-the-Trainer series
+
+**Access:** [github.com/TrainTheTrainer/ELIXIR-EXCELERATE-TtT →](https://github.com/TrainTheTrainer/ELIXIR-EXCELERATE-TtT)
+
+
+---
+
+### [OHDSI YouTube Channel](https://www.youtube.com/@OHDSI)
+> The official **OHDSI YouTube Channel** hosts tutorials, community calls, symposium sessions, and lightning talks.
+
+**Highlights**
+- 🎥 Weekly community calls and global symposium presentations  
+- 📚 Deep dives into the OMOP CDM, Atlas, HADES, and data quality tools  
+- 🌍 Great for visual learners and staying up to date with OHDSI developments  
+
+**Access:** [youtube.com/@OHDSI →](https://www.youtube.com/@OHDSI)
+
+---
+
+## 🧰 Technical & GitHub Resources
+
+> Tools, repositories, and documentation for developers and data engineers.
+
+- **[OHDSI on GitHub](https://github.com/OHDSI)** – official OHDSI codebase, pipelines, and utilities  
+- **[Common Data Model Specs](https://github.com/OHDSI/CommonDataModel)** – CDM structure and SQL DDLs  
+- **[White Rabbit / Rabbit in a Hat](https://github.com/OHDSI/WhiteRabbit)** – tools for data profiling and ETL design  
+- **[Usagi](https://github.com/OHDSI/Usagi)** – vocabulary mapping and concept alignment  
+- **[Data Quality Dashboard (DQD)](https://github.com/OHDSI/DataQualityDashboard)** – automated data quality assessment for OMOP CDM  
+- **[HADES R Packages](https://ohdsi.github.io/Hades/)** – collection of OHDSI R libraries for analytics  
+- **[GitHub Learning Guide](https://docs.github.com/en/get-started/quickstart/hello-world)** – learn GitHub basics for version control and collaboration  
+
+---
+
+## 🧬 Oncology-Specific Resources
+
+### Key Publications
+- **Belenkaya R, Gurley MJ, Golozar A, Dymshyts D, Miller RT, Williams AE, Ratwani S, Siapos A, Korsik V, Warner J, Campbell WS, Rivera D, Banokina T, Modina E, Bethusamy S, Stewart HM, Patel M, Chen R, Falconer T, Park RW, You SC, Jeon H, Shin SJ, Reich C.** (2021). *Extending the OMOP Common Data Model and Standardized Vocabularies to Support Observational Cancer Research.* *JCO Clin Cancer Inform.* 5:12–20. doi:[10.1200/CCI.20.00079](https://doi.org/10.1200/CCI.20.00079). PMID: [33411620](https://pubmed.ncbi.nlm.nih.gov/33411620/); PMCID: [PMC8140810](https://pmc.ncbi.nlm.nih.gov/articles/PMC8140810/)
+
+- **Wang L, Wen A, Fu S, Ruan X, Huang M, Li R, Lu Q, Lyu H, Williams AE, Liu H.** (2025). *A Scoping Review of OMOP CDM Adoption for Cancer Research Using Real-World Data.* *NPJ Digit Med.* 8(1):189. doi:[10.1038/s41746-025-01581-7](https://doi.org/10.1038/s41746-025-01581-7). PMID: [40189628](https://pubmed.ncbi.nlm.nih.gov/40189628/); PMCID: [PMC11973147](https://pmc.ncbi.nlm.nih.gov/articles/PMC11973147/)
+
+### Oncology Workgroup & Repositories
+- **OHDSI Oncology Working Group Repository** → [https://github.com/OHDSI/OncologyWG](https://github.com/OHDSI/OncologyWG)  
+  Includes educational resources, sample ETLs, and documentation for oncology-specific extensions.  
+  - [Bladder Cancer Study](https://github.com/OHDSI/OncologyWG/wiki/Bladder-Cancer-Study)  
+  - [Oncology Tutorial](https://github.com/OHDSI/OncologyWG/wiki/Oncology-Tutorial)
+  - [Scaling OHDSI Open-Source Projects – Poster & Abstract (2021 Global Symposium)](https://www.ohdsi.org/2021-global-symposium-showcase-19/#:~:text=Abstract%20%20%2093)
+
+### Talks & Tutorials
+- **Rimma Belenkaya** – *OMOP Cancer Model: Making the OMOP Common Data Model Fit for Cancer Research* (OHDSI 2020 Lightning Talk)  
+  [Watch on YouTube](https://youtu.be/IvVtNtuE-xc?si=-gNMj4sCm_LabQLM)
+
+- **Asieh Golozar** – *Ensuring Data Fitness for Oncology Research* (OHDSI Community Call, March 25, 2025)  
+  [Recording](https://www.youtube.com/watch?v=9-wB6e8Op7k) | [Slides (PDF)](https://www.ohdsi.org/wp-content/uploads/2025/03/Ensuring-Data-Fitness-for-Oncology-Research-25Mar25.pdf)
+
+- **Asieh Golozar** – *Detailed Cancer-Specific Analytics in the Remote OHDSI Network Settings* (OHDSI 2020 Lightning Talk)  
+  [Watch on YouTube](https://www.youtube.com/watch?v=D3Gbym0dJkw)
+
+- **Asieh Golozar** – *Large-Scale Observational Cancer Research Informatics Grand Rounds* (JHU BIDS, 10/13/22)  
+  [Recording](https://www.youtube.com/watch?v=9-wB6e8Op7k)
+
+---
+
+> Trainers: Customize this page with site-specific references, URLs, and internal data access resources as needed. Include institutional VPNs, intranet documentation, or Teams/Slack channels for communication.
+
+
+---
+
+## 📥 Train-the-Trainer downloads
+
+All materials below are ALS TDI branded and live in this repository so they
+travel together. Please keep the template with these materials rather than
+sharing it on its own.
+
+### Slide template
+- [ALS TDI presentation template (PPTX)](templates/ALS-TDI-Template.pptx), use it as the starting point for any new deck.
+
+### Sample notebooks (Colab ready, synthetic data, no credentials)
+- Day 1, OMOP CDM and vocabularies: [download](notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
+- Day 2, concept sets and data quality: [download](notebooks/Day2-Concept-Sets-and-Data-Quality.ipynb)
+- Day 3, cohort building: [download](notebooks/Day3-Cohort-Building.ipynb)
+- Day 5, treatment pathways: [download](notebooks/Day5-Treatment-Pathways.ipynb)
+- Day 6, patient-level prediction: [download](notebooks/Day6-Patient-Level-Prediction.ipynb)
+
+### Day 3, cohort definitions
+- [Cohort Definitions tutorial (DOCX)](training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx)
+
+### Day 5, treatment pathways kit
+- [Instructor deck with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
+- [Participant workbook](training/day-05-treatment-pathways/kit/Participant-Workbook.pptx)
+- [Kahoot quiz (CSV)](training/day-05-treatment-pathways/kit/Kahoot-Quiz.csv)
+- The full kit (handouts, answer keys, scripts, interpretation guides) is in `training/day-05-treatment-pathways/kit/`.
+
+### Day 6, advanced analytics with HADES kit
+- [Instructor deck](training/day-06-hades/kit/Instructor-Deck.pptx)
+- [Participant workbook](training/day-06-hades/kit/Participant-Workbook.pptx)
+- [Kahoot quiz (CSV)](training/day-06-hades/kit/Kahoot-Quiz.csv)
+- The full kit is in `training/day-06-hades/kit/`.
+
+> The large lecture decks (Day 1 to Day 6 full slide sets) are hosted separately
+> in Google Drive because of their size, and linked from there.

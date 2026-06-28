@@ -1,0 +1,8 @@
+Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit,Correct
+Which OHDSI tool is a public vocabulary browser with no login required?,ATLAS,Athena,Achilles,HADES,20,2
+True or False: All participants in this program use the same SQL client and data warehouse.,True,False,Only for Day 4,Depends on your role,20,2
+Which table should you query first to test your CDM connection?,concept,observation,person,drug_exposure,15,3
+What minimum R version is required for HADES?,R 3.6,R 4.0,R 4.2,R 4.4,20,3
+The Day 4 data extraction module is intentionally site-specific because:,OMOP SQL varies by CDM version,Extraction tools and warehouses differ by institution,Day 4 content is not standardized yet,SQL clients use different dialects,25,2
+Which Java versions does DatabaseConnector support? (as of 2024),Java 6 and 7,Java 8 and 11,Java 14 and 15,Java 17 and 21,20,2
+Why should you complete environment setup at least 48 hours before Day 1?,To read all the required chapters,So IT tickets and access requests have time to resolve,The checklist takes two days to complete,ATLAS accounts take 48 hours to activate,20,2

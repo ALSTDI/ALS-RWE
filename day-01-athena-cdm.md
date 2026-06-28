@@ -1,46 +1,141 @@
-# Day 3 · Cohort Definition and Characterization
+# 🧪 SQL Validation Mini Lab (Weeks 2–4)
 
-!!! abstract "Objectives"
-    By the end of Day 3 you will be able to:
+This mini lab guides you through **validating Atlas outputs in your SQL client** (Databricks or DBeaver).  
+You’ll export SQL from Atlas, run it yourself, and compare results — reinforcing transparency and reproducibility.
 
-    1. Define an OHDSI cohort and explain how it differs from a simple code list.
-    2. Identify the four parts of a cohort definition: entry event, concept sets, inclusion criteria, and exit.
-    3. Apply temporal logic to inclusion rules.
-    4. Build and generate a cohort in ATLAS.
-    5. Characterize a generated cohort and read the output.
-
-## What a cohort is
-In OHDSI, a cohort is a set of persons who satisfy one or more criteria for a period of time. This is an important distinction: a cohort is not just a list of people with a diagnosis code. It is a rule set that says who qualifies, under what conditions, and for how long. The same definition, run on any OMOP CDM, should produce a comparable cohort, which is what makes studies reproducible across sites.
-
-## The four parts of a cohort definition
-Every cohort definition answers four questions:
-
-1. **Cohort entry event (initial event):** what event qualifies a person to enter, for example the first exposure to metformin? This is built on a concept set.
-2. **Concept set:** the reusable set of standard concepts that the entry event and rules reference. (This is the Day 2 building block.)
-3. **Inclusion criteria:** additional conditions applied to the entry events, for example "at least 365 days of prior observation" or "no prior insulin." In OHDSI there is no separate exclusion list; an exclusion is written as an inclusion rule that must be false.
-4. **Cohort exit:** when and how a person stops being in the cohort, for example at the end of continuous drug exposure or end of observation.
-
-## Temporal logic
-Inclusion rules are usually time-relative. "No prior insulin" really means "no insulin exposure in some window before the entry event." Getting the window right (for example 365 days before, anytime prior, or during a fixed period) is where most cohort logic errors live, so it deserves explicit attention.
-
-## Building a cohort in ATLAS
-ATLAS is the graphical interface for cohort building. The typical flow:
-
-1. Start a new cohort definition.
-2. Define the entry event using a concept set (for example new use of metformin).
-3. Add inclusion criteria, each as its own named rule with its temporal window.
-4. Define the exit.
-5. Save, generate against a CDM, and review the counts and attrition at each inclusion step.
-
-The attrition report is the teaching moment: it shows how many people each rule removed, which immediately reveals a rule that is too strict or too loose.
-
-## Characterization
-Once a cohort is generated, characterization summarizes who is in it: demographics, conditions, drugs, and procedures before and after entry. It is the first sanity check that your definition captured the population you intended.
+> Use this lab in **Week 2 (Concept Sets)**, **Week 3 (Cohorts)**, and **Week 4 (SEARCH/Extraction)**.  
+> Keep your screenshots and notes; you’ll discuss them at the beginning of the following session.
 
 ---
 
-## Tutorial and materials
-A written tutorial, "Cohort Definitions in OHDSI: Basics and Atlas," walks through a full metformin new-user example and is kept with the course kit. The hands-on lab is on the [Day 3 exercise](../exercises/day-03-cohorts.md) page.
+## 🎯 Objectives
+- Bridge **Atlas** actions to **OMOP SQL** you can read and run.
+- Confirm concept set and cohort logic by **replicating counts** in Databricks/DBeaver.
+- Capture **evidence of reproducibility** (exports, SQL, counts, timestamps).
 
-## Further reading
-- The Book of OHDSI, Chapter 10 (Defining Cohorts): https://ohdsi.github.io/TheBookOfOhdsi/
+## ✅ Prerequisites
+- Read access to your **OMOP training database**.
+- Atlas account with access to the training environment.
+- A configured SQL client (**Databricks** or **DBeaver**).  
+- The reference: **[OMOP SQL Examples](../common_artifacts/omop-vocab-sql-cheat-sheet.md)**.
+
+---
+
+## 🗂️ Lab Artifacts (what you’ll submit)
+- **Atlas export(s)** (JSON/SQL) for your concept set and/or cohort.
+- **SQL script** you ran in Databricks/DBeaver (with comments).
+- **Result summary**: row counts, sample IDs, and any differences observed.
+- **Screenshots**: Atlas page(s) + SQL client output(s).
+
+> Tip: save all artifacts in your repo under a dated folder, e.g. `labs/week2_sql_validation/`.
+
+---
+
+## Week 2 — Validate Concept Sets in SQL
+
+### 1) Export Concept Set from Atlas
+1. In Atlas, open your **Concept Set**.
+2. Click **Export** → **SQL** (and/or **JSON**).
+3. Save as `conceptset_<name>_v1.sql` in your repo.
+
+> **Screenshot Placeholder**: Atlas Concept Set Export
+
+### 2) Run in Your SQL Client
+1. Open **Databricks** (SQL Warehouse) or **DBeaver**.
+2. Paste the exported SQL OR recreate logic with `concept` + `concept_ancestor` (see examples).
+3. **Run** and record: `N` concepts returned, any non-standard concepts, domain distribution.
+
+```sql
+-- Quick check for standard flags in your concept set list
+SELECT c.concept_id, c.concept_name, c.domain_id, c.vocabulary_id, c.standard_concept
+FROM omop.concept c
+WHERE c.concept_id IN ( /* paste IDs from Atlas export */ );
+```
+
+### 3) Compare & Interpret
+- Do counts in SQL match the number of concepts expected from Atlas?
+- Any **non-standard** concepts? If yes, how did they appear?
+- Save results and a brief note to `labs/week2_sql_validation/notes.md`.
+
+---
+
+## Week 3 — Validate Cohort SQL in Your Client
+
+### 1) Export Cohort SQL from Atlas
+1. Open your **Cohort Definition**.
+2. Click **Export** → **SQL** (choose dialect closest to your DB).
+3. Save as `cohort_<name>_v1.sql`.
+
+> **Screenshot Placeholder**: Atlas Cohort Export
+
+### 2) Identify Key Tables and Joins
+- Scan the SQL and **comment** where the entry events and inclusion rules are applied.
+- Find the primary domain table(s): `condition_occurrence`, `drug_exposure`, etc.
+
+```sql
+-- Example: simple condition-based entry events
+SELECT person_id, condition_concept_id, condition_start_date
+FROM omop.condition_occurrence
+WHERE condition_concept_id IN ( /* concept set IDs */ );
+```
+
+### 3) Run & Compare Counts
+- Execute cohort SQL (or a reduced version) in your SQL client.
+- Compare **row counts** (and distinct person counts) with Atlas results.
+- Note any differences and hypotheses (date windows, null handling, observation periods).
+
+> Save an annotated version of your SQL with comments explaining each step.
+
+---
+
+## Week 4 — Validate SEARCH / Extraction Output
+
+### 1) Build & Export an Extraction Spec
+- In SEARCH (or Atlas if applicable), configure a cohort-aligned extraction.
+- Export or obtain the **SQL / spec** used to pull rows.
+
+### 2) Re-run Manually in SQL Client
+- Paste the extraction SQL into Databricks/DBeaver and run.
+- Capture **patient counts**, **date windows**, **visit types**, and sample rows.
+
+```sql
+-- Manual count reproduction for extraction
+SELECT COUNT(DISTINCT person_id) AS patient_count
+FROM omop.condition_occurrence
+WHERE condition_concept_id IN ( /* concept set IDs */ )
+  AND condition_start_date >= DATE '2018-01-01';
+```
+
+### 3) Compare & Document
+- Do your manual counts match tool outputs?
+- If not, list potential causes (filters, join cardinality, missing links).
+- Save screenshots + a short summary to `labs/week4_sql_validation/summary.md`.
+
+---
+
+## 🔍 Troubleshooting Checklist
+- **Schema:** Are you querying the correct schema (`omop.` vs site-specific)?
+- **Dialect:** Did you export SQL in a dialect close to your DB (Postgres/SQL Server/SparkSQL)?
+- **Filters:** Check date windows, `observation_period`, and null handling.
+- **Joins:** Verify keys (`person_id`, `visit_occurrence_id`, `condition_concept_id`).
+
+---
+
+## 📦 Submission Checklist
+- [ ] Atlas export(s) (SQL/JSON) saved
+- [ ] SQL scripts (with comments) saved
+- [ ] Counts & differences documented
+- [ ] 2–3 screenshots included
+- [ ] Folder committed to repo: `labs/week2_sql_validation/`, `labs/week3_sql_validation/`, `labs/week4_sql_validation/`
+
+---
+
+## 📚 References
+- [OMOP SQL Examples](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
+- [Book of OHDSI – Data Quality Concepts](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html)
+- [Book of OHDSI – Standardized Vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html)
+- [Book of OHDSI – Common Data Model](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html)
+
+---
+
+*This lab strengthens the habit of validating GUI-driven logic in a familiar SQL environment — a core skill for OMOP analysts and trainers.*

@@ -1,0 +1,11 @@
+Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit,Correct
+What does OHDSI stand for?,Open Health Data Sciences Initiative,Observational Health Data Sciences and Informatics,Organized Health Data Sharing Infrastructure,Online Health Data Standards Institute,20,2
+Which OMOP vocabulary is standard for the Condition domain?,ICD-10-CM,RxNorm,SNOMED CT,LOINC,20,3
+"In the concept table, what does standard_concept = 'S' mean?",The concept is a synonym,The concept can be used for analysis across OMOP databases,The concept is source-specific,The concept is a standard lab code,20,2
+Which relationship links a non-standard ICD code to its standard SNOMED concept?,Is a,Subsumes,Maps to,Has ancestor,20,3
+A data engineer builds a concept set using ICD-10-CM codes. What will happen?,The cohort will be larger than expected,The concept set will silently return 0 records in OMOP,Atlas will automatically convert them to SNOMED,ICD codes work fine for Condition domain,25,2
+Which table pre-computes ALL ancestor-descendant pairs for hierarchy traversal?,concept_relationship,concept_hierarchy,concept_ancestor,concept_synonym,20,3
+What does concept_id = 0 in condition_occurrence mean?,The record was deleted,The concept is standard,The source code was not mapped to a standard concept,The condition has no ICD code,20,3
+"Which OMOP table stores all lab results, vital signs, and quantitative findings?",observation,measurement,condition_occurrence,procedure_occurrence,15,2
+Why does OMOP store the source ICD code alongside the standard SNOMED concept?,In case SNOMED is not available,For auditability — analysts can trace back to the original code,Atlas requires ICD codes for cohort building,SNOMED is not yet complete for all conditions,25,2
+Which is the correct tool to look up concept relationships and hierarchies?,ATLAS,HADES,Achilles,Athena,15,4
