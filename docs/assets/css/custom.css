@@ -1,0 +1,97 @@
+/* --- Brand colors (Pantone 254 C) --- */
+:root{
+  --md-primary-fg-color: #904199;
+  --md-primary-fg-color--light: #b872c0;
+  --md-primary-fg-color--dark: #6d2f77;
+  --md-accent-fg-color: #904199;
+
+  --md-typeset-font-size: 1.02rem;
+  --md-typeset-line-height: 1.65;
+}
+
+/* --- Always show header logo in white tile --- */
+.md-header__button.md-logo {
+  display: inline-flex !important;
+  align-items: center;
+  margin: 0 0.5rem 0 0;
+}
+
+.md-header__button.md-logo img {
+  display: block !important;
+  height: 64px !important;          /* adjust size to taste */
+  width: auto !important;
+  background: #fff;                 /* solid white background */
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+
+/* Keep logo consistent in mobile drawer */
+.md-nav__title .md-logo img {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  height: 56px;
+  width: auto;
+}
+
+/* Table zebra striping */
+.md-typeset table:not([class]) tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Search box */
+.ga4gh-search-input {
+  width: 100%;
+  max-width: 700px;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Table wrapper */
+.ga4gh-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styling */
+#ga4gh-dict-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#ga4gh-dict-table th,
+#ga4gh-dict-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Sticky header */
+#ga4gh-dict-table th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+/* Loading message */
+.ga4gh-loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Help text */
+.ga4gh-help-text {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
