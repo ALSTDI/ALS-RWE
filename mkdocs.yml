@@ -36,6 +36,16 @@ nav:
       - Overview: free-rwe-resources/train-the-trainer/index.md
       - Syllabus: free-rwe-resources/train-the-trainer/syllabus.md
       - Personas & Learning Paths: free-rwe-resources/train-the-trainer/personas.md
+      - "⭐ Feasibility First (MCH exemplar)":
+          - Overview: free-rwe-resources/train-the-trainer/feasibility-first/index.md
+          - "1 · Sharpen the Question": free-rwe-resources/train-the-trainer/feasibility-first/01-sharpen-the-question.md
+          - "2 · Find Your Data Steward": free-rwe-resources/train-the-trainer/feasibility-first/02-find-your-data-steward.md
+          - "3 · Vocabulary & CDM Primer": free-rwe-resources/train-the-trainer/feasibility-first/03-vocab-and-cdm-primer.md
+          - "4 · ATLAS Feasibility Walkthrough": free-rwe-resources/train-the-trainer/feasibility-first/04-atlas-feasibility-walkthrough.md
+          - "5 · Network Feasibility": free-rwe-resources/train-the-trainer/feasibility-first/05-network-feasibility.md
+          - "6 · Feasibility Checklist": free-rwe-resources/train-the-trainer/feasibility-first/06-feasibility-checklist.md
+          - "Facilitator Notes": free-rwe-resources/train-the-trainer/feasibility-first/07-facilitator-notes.md
+          - "Appendix · Checks to Tools": free-rwe-resources/train-the-trainer/feasibility-first/08-checks-to-tools.md
       - Modules:
           - "Module 0 · Environment Setup": free-rwe-resources/train-the-trainer/modules/00-environment-walkthrough.md
           - "Day 1 · OMOP Common Data Model": free-rwe-resources/train-the-trainer/modules/day-01-omop-cdm.md
