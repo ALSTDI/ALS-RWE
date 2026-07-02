@@ -132,6 +132,12 @@ All materials below are ALS TDI branded and live in this repository so they
 travel together. Please keep the template with these materials rather than
 sharing it on its own.
 
+### ⭐ Feasibility First (MCH exemplar)
+- [Instructor deck with notes (PPTX)](training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx), the full 30-minute deck with speaker script.
+- [Importable ATLAS cohort (JSON)](training/feasibility-first/kit/Demo-Cohort-Diabetes-Childbearing-Age.json), import into atlas-demo and save for the live demo.
+- [Kahoot quiz (CSV)](training/feasibility-first/kit/Kahoot-Quiz.csv), 10 questions on the feasibility workflow.
+- [Kit README](training/feasibility-first/kit/README.md), setup steps and the concept IDs used. Module pages start at [Feasibility First](feasibility-first/index.md).
+
 ### Slide template
 - [ALS TDI presentation template (PPTX)](templates/ALS-TDI-Template.pptx), use it as the starting point for any new deck.
 

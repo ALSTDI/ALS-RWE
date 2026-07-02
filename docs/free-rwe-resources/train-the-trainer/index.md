@@ -2,6 +2,13 @@
 
 **A hands-on, multi-session curriculum for analysts, researchers, and trainers** building expertise in the OHDSI ecosystem — from data model fundamentals to advanced analytics.
 
+!!! tip "⭐ New here? Start with **Feasibility First** — is my question even answerable?"
+
+    A 30-minute exemplar that takes the position of a researcher with a real question but no idea who to contact, what to ask, or whether the data can answer it. It walks from zero to a go/no-go decision on the public ATLAS demo, and it comes with a slide deck, an importable ATLAS cohort, a data-steward worksheet, and a checks-to-tools appendix.
+
+    [Start Feasibility First :material-arrow-right:](feasibility-first/index.md){ .md-button .md-button--primary }
+    [Go straight to the go/no-go checklist :material-checkbox-multiple-marked:](feasibility-first/06-feasibility-checklist.md){ .md-button }
+
 [Start with Environment Setup :material-arrow-right:](modules/00-environment-walkthrough.md){ .md-button .md-button--primary }
 [Jump to Syllabus :material-book-open-variant:](syllabus.md){ .md-button }
 [Find Your Learning Path :material-map-marker-path:](personas.md){ .md-button }
@@ -56,6 +63,7 @@ The program is organized in a deliberate sequence. Each session builds on the pr
 
 | Session | Focus | Module | Exercise |
 |:--|:--|:--|:--|
+| :material-star: **Feasibility First** — Is my question answerable? | 30-min exemplar: from a raw question to a go/no-go decision | [Module](feasibility-first/index.md) | [Walkthrough](feasibility-first/04-atlas-feasibility-walkthrough.md) · [Checklist](feasibility-first/06-feasibility-checklist.md) |
 | :material-wrench: **Module 0** — Environment Setup | Verify access to all tools and data | [Module](modules/00-environment-walkthrough.md) | [Handout](common_artifacts/environment-setup-handout.md) |
 | :material-database: **Day 1** — OMOP Common Data Model | CDM structure, tables, Athena vocabularies | [Module](modules/day-01-omop-cdm.md) | [Exercise](exercises/day-01-athena-cdm.md) · [SQL Snippets](exercises/code_snippets/day-01-snippets.md) |
 | :material-tag-multiple: **Day 2** — Vocabulary & Data Quality | Concept sets in Atlas, DQD, SQL validation | [Module](modules/day-02-vocab-dqd.md) | [Exercise](exercises/day-02-vocab-dqd.md) |
