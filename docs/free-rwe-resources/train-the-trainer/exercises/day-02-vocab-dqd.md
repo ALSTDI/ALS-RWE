@@ -51,8 +51,20 @@ Compare the count to what Atlas reports. If they differ, the usual culprits are 
 
 ## Step 4: Read one data quality result
 1. Open a Data Quality Dashboard result for your training CDM (or a sample DQD report).
-2. Find one **failed** check and note its category (conformance, completeness, or plausibility) and its threshold.
+2. Find one **failed** check and note (a) its Kahn **category** — conformance, completeness, or plausibility; (b) its **subcategory** if shown (e.g. value/relational/computational conformance, or uniqueness/atemporal/temporal plausibility); (c) its **context** — verification or validation; and (d) its **threshold**.
 3. Decide, in one sentence, whether that failure would affect a diabetes drug study. This judgment, not the pass/fail count, is the point.
+
+!!! note "The Kahn framework at a glance"
+    Use this to place any check you find. Every DQD check is one **category** assessed in one **context**.
+
+    | Category | Subcategories | Example check | Context it's usually run in |
+    | --- | --- | --- | --- |
+    | Conformance | value · relational · computational | `drug_concept_id` exists in `concept` with `domain_id = 'Drug'` | Verification (internal rules) |
+    | Completeness | *(none — presence only)* | Fraction of `condition_occurrence` rows with `concept_id = 0` | Verification (internal rules) |
+    | Plausibility | uniqueness · atemporal · temporal | No birth dates in the future; no drug era before birth | Verification (internal rules) |
+    | Plausibility | uniqueness · atemporal · temporal | Diabetes prevalence matches published national estimates | Validation (external benchmark) |
+
+    **Verification** checks the data against the system's own rules and specifications; **validation** checks it against an external, trusted benchmark. Most DQD checks are verification; validation needs an outside source of truth.
 
 ---
 

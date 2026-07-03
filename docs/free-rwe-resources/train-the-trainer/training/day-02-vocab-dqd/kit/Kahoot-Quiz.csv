@@ -9,3 +9,6 @@ Which ATLAS tab lets you confirm your concept set uses only standard concepts?,M
 "After building a concept set in Atlas, the best way to verify it is to:",Review the JSON export,Count descendants in Athena,Run the equivalent SQL in your SQL client and compare counts,Ask a colleague to review it,20,3
 concept_id = 0 in condition_occurrence most likely means:,The patient has no conditions,The condition is standard,The source code was not mapped to a standard concept during ETL,The record is excluded from all analyses,20,3
 Which Kahn category asks: 'Is the foreign key drug_concept_id a valid concept in the Drug domain?',Plausibility,Completeness,Conformance,Validity,20,3
+"The Kahn framework assesses each category in one of two CONTEXTS. Which pair is correct?",Internal and external,Verification and validation,Passing and failing,Standard and non-standard,20,2
+"Checking that our diabetes prevalence matches published national rates is an example of which context?",Verification,Validation,Conformance,Completeness,20,2
+Which Kahn category (and subtype) is the check: no drug era starts before the birth date?,Completeness,Conformance (relational),Plausibility (temporal),Validation,20,3
