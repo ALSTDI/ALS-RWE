@@ -8,7 +8,7 @@ hide:
 __Under construction__
 { .uc-title }
 
-This page is an active work in progress. The story map and town hall recording are still in development, publication lists are placeholders, and content and figures may change without notice. Please do not cite or circulate this page yet.
+This page is an active work in progress. The story map and Town Hall recording are still in development, publication lists are placeholders, and content and figures may change without notice. Please do not cite or circulate this page yet.
 </div>
 
 # Mapping the Geography of ALS
