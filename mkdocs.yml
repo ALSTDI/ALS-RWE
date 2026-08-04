@@ -76,9 +76,9 @@ nav:
   - ALS TDI OMOP Data Set:
       - Overview: als-tdi-omop-data-set.md
       - Accessing ARC Data & Data Dictionary: ga4gh.md
-  - Mapping:
-      - Mapping the Geography of ALS: mapping.md
-      - ALS Risk Factors vs the U.S. Population: risk-factors-vs-population.md
+  - Mapping/GIS:
+      - "Mapping the Geography of ALS 🚧": mapping.md
+      - "ALS Risk Factors vs the U.S. Population 🚧": risk-factors-vs-population.md
   - Select Publications: select-publications.md
 
 

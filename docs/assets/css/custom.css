@@ -244,3 +244,63 @@
 
 .collab-card > :first-child { margin-top: 0; }
 .collab-card > :last-child { margin-bottom: 0; }
+
+/* --- Prominent "under construction" banner --- */
+.uc-hero {
+  position: relative;
+  background: #fff8e6;
+  border: 2px solid #e0a800;
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem 1.2rem 2.2rem;
+  margin: 0 0 2rem;
+  overflow: hidden;
+}
+
+/* Hazard stripes down both edges, pure CSS so nothing loads from a CDN */
+.uc-hero::before,
+.uc-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #e0a800,
+    #e0a800 9px,
+    #2b2b2b 9px,
+    #2b2b2b 18px
+  );
+}
+
+.uc-hero::before { left: 0; }
+.uc-hero::after { right: 0; }
+
+/* Styled as a heading but marked up as a paragraph, so the page keeps a
+   single h1 and the banner stays out of the table of contents. */
+.md-typeset .uc-hero .uc-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7a4f00;
+}
+
+.md-typeset .uc-hero .uc-title::before {
+  content: "\26A0";           /* warning sign, present in every system font */
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.md-typeset .uc-hero p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a3c1c;
+}
+
+.md-typeset .uc-hero .uc-title strong {
+  font-weight: 800;
+  color: inherit;
+}

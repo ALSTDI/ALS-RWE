@@ -1,15 +1,19 @@
 ---
-title: Mapping
+title: Mapping/GIS
 hide:
   - title
 ---
 
+<div class="uc-hero" markdown>
+__Under construction__
+{ .uc-title }
+
+This page is an active work in progress. The story map and town hall recording are still in development, publication lists are placeholders, and content and figures may change without notice. Please do not cite or circulate this page yet.
+</div>
+
 # Mapping the Geography of ALS
 
 A growing collection of ALS TDI tools, data, and reading on where people with ALS live, what they are exposed to, and how place shapes disease risk and outcomes. These resources are assembled to support researchers, clinicians, and the ALS community.
-
-!!! warning "Preview: under construction"
-    The story map and town hall recording are in development. Placeholders below will be replaced as each becomes available.
 
 ---
 

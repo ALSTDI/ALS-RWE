@@ -86,7 +86,7 @@ So once age and sex are accounted for, military service is **not elevated** in t
 
 ## Geography: who the cohort is, and how they reach care
 
-Place-based context complements the risk factor work and feeds Aim 3. These maps are produced through the GeoALS and ALS TDI collaboration. The broader ALS TDI geospatial program, including the story map, environmental health data tools, and collaboration contacts, lives on the [Mapping](mapping.md) tab.
+Place-based context complements the risk factor work and feeds Aim 3. These maps are produced through the GeoALS and ALS TDI collaboration. The broader ALS TDI geospatial program, including the story map, environmental health data tools, and collaboration contacts, lives on the [Mapping/GIS](mapping.md) tab.
 
 **Neighborhood tapestry of ARC participants.** Tapestry segments classify U.S. neighborhoods by shared demographic and socioeconomic profile (for example "Boomburbs" or "Metro Renters"). Mapping the cohort this way characterizes who is enrolling.
 

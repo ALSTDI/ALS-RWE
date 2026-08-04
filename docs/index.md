@@ -16,7 +16,7 @@ This site brings together resources, methods, and publications to support the us
 - Learning about methods such as the **STARDUSTT approach** for structuring analyses.  
 - Accessing tools and resources developed by the **OHDSI** community.  
 - Exploring selected publications and ongoing projects led by our collaborators.
-- **Mapping** the geography of ALS: environmental health data, place-based context for the ARC cohort, and our work with GeoALS.
+- **Mapping/GIS**: the geography of ALS, environmental health data, place-based context for the ARC cohort, and our work with GeoALS.
 
 ---
 This project is an initiative of the **[ALS Therapy Development Institute](http://www.als.net).**  We invite clinicians, researchers, and data scientists to use these materials as a foundation for further studies and to join the effort of advancing data-driven ALS research.  
