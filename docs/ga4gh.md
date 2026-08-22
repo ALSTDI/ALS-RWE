@@ -16,11 +16,27 @@ Academic and nonprofit researchers can access **ARC Data Commons** resources **a
 ALS Therapy Development Institute (ALS TDI). (2023). ALS Research Collaborative (ARC) [Data set]. Amyotrophic Lateral Sclerosis Therapy Development Institute. https://doi.org/10.71944/C3NA-9124
 
 ---
-## Preprint
+## Preprints
 
 For additional background on the ALS TDI ARC Natural History Study ARC data resource, see our preprint:
 
 [**Boyce et al. — The ALS Research Collaborative: A Long Running Multimodal ALS Natural History Resource**](https://www.researchsquare.com/article/rs-8272744/v1)
+
+For the pipeline that produces the EHR component of the OMOP release, see:
+
+[**Boyce et al. — Registry Forge: an open-source pipeline for transforming patient-mediated electronic health record exports into research-ready OMOP data**](https://doi.org/10.1101/2026.06.02.26354637) (medRxiv 2026.06.02.26354637), with documentation at [alstdi.github.io/RegistryForgeALS](https://alstdi.github.io/RegistryForgeALS/).
+
+---
+
+## OMOP release documentation
+
+The ARC data set mapped to OMOP CDM v5.4 is documented separately:
+
+- [**ALS TDI OMOP Data Set**](als-tdi-omop-data-set.md), release notes, domain mappings, custom concepts and use guidance.
+- [**2026 Data Refresh**](omop-2026-refresh.md), what changed, which vocabulary edition was used, and known limitations.
+
+!!! warning "Vocabulary requirement"
+    The OMOP release requires the Athena vocabulary release of **27 February 2026 or later**. Against an earlier release the ALS gene-variant concepts and several medical-history concepts do not resolve. The six ARC custom concepts are local by design and appear in no Athena release, so they must be loaded separately.
 
 ---
 

@@ -9,6 +9,12 @@ This is an assortment of scientific articles authored or co-authored by our team
 - [Danielle Boyce – Google Scholar](https://scholar.google.com/citations?hl=en&user=GNWikhkAAAAJ)  
 - [Fernando Vieira – Google Scholar](https://scholar.google.com/citations?user=c6s1O5IAAAAJ&hl=en)  
 ---
+- **Registry Forge: an open-source pipeline for transforming patient-mediated electronic health record exports into research-ready OMOP data**  
+  Boyce D, et al. *medRxiv*. 2026. doi:[10.1101/2026.06.02.26354637](https://doi.org/10.1101/2026.06.02.26354637). [Project site](https://alstdi.github.io/RegistryForgeALS/)
+
+- **The ALS Research Collaborative: A Long Running Multimodal ALS Natural History Resource**  
+  Boyce D, et al. *Research Square*. 2026. [Preprint](https://www.researchsquare.com/article/rs-8272744/v1)
+
 - **The Global Neurodegeneration Proteomics Consortium: biomarker and drug target discovery for common neurodegenerative diseases and aging**  
   Imam F, Saloner R, Vogel JW, Krish V, Abdel-Azim G, Ali M, An L, Anastasi F, Bennett D, Pichet Binette A, Boxer AL, Bringmann M, Burns JM, Cruchaga C, Dage JL, Farinas A, Ferrucci L, Finney CA, Frasier M, Hansson O, Hohman TJ, Johnson ECB, Kivimaki M, Korologou-Linden R, Ruiz Laza A, Levey AI, Liepelt-Scarfone I, Lu L, Mattsson-Carlgren N, Middleton LT, Nho K, Oh HS, Petersen RC, Reiman EM, Robinson O, Rothstein JD, Saykin AJ, Shvetcov A, Slawson C, Smets B, Suárez-Calvet M, Tijms BM, Timmers M, Vieira F, Vilor-Tejedor N, Visser PJ, Walker KA, Winchester LM, Wyss-Coray T, Yang C, Bose N, Lovestone S; Global Neurodegeneration Proteomics Consortium (GNPC). *Nature Medicine*. 2025 Jul 15. doi:[10.1038/s41591-025-03834-0](https://doi.org/10.1038/s41591-025-03834-0). [PMID: 40665048](https://pubmed.ncbi.nlm.nih.gov/40665048/)
 
