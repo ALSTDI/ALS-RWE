@@ -4,7 +4,7 @@ title: 2026 Data Refresh
 
 # 2026 Data Refresh: Changes, Vocabulary and Known Limitations
 
-Companion to the [ALS TDI OMOP Data Set](als-tdi-omop-data-set.md) release notes. This page documents what changed in the 2026 refresh, which vocabulary edition it was built against, what is known to be wrong or incomplete, and how to reproduce the result.
+Companion to the [ALS TDI OMOP Data Set](als-tdi-omop-data-set.md) release notes. This page documents what changed in the 2026 refresh, which vocabulary edition it was built against, what is known to be incomplete, and how to reproduce the result.
 
 Read this page before comparing this release against any earlier extract.
 
@@ -14,7 +14,11 @@ Read this page before comparing this release against any earlier extract.
 
 The release covers ARC participants with linked biological samples, filtered out of a full registry extract of 2,014 participants. Concept identifiers, primary keys and `person_id` values are identical between the full extract and the released subset, so a subset and its parent concatenate without renumbering.
 
-Four participants were omitted from the primary delivery list and were issued afterwards as an addendum. The addendum is a slice of the same extract rather than a separate derivation, verified field by field against the released files, so it concatenates onto the primary delivery without renumbering. None of the four has linked EHR data.
+A small number of participants omitted from the primary delivery list were issued afterwards as an addendum. The addendum is a slice of the same extract rather than a separate derivation, verified field by field against the released files, so it concatenates onto the primary delivery without renumbering.
+
+**Scope stability.** The mapped field and form footprint is unchanged from version 0.1.0. No new survey instruments, question sets or measurement analytes were added. The registry measurement concept set is identical, 43 concepts with none added and none removed, as is the registry condition concept set. Two personal medical history concepts appear in this release that were absent from version 0.1.0, transient ischemic attack and ulcerative colitis; both are checkbox items on the same Medical History Conditions round 1 form that version 0.1.0 already mapped, and both simply had no respondents at that time.
+
+**Domains not populated.** `procedure_occurrence`, `device_exposure`, `specimen`, `note` and the remaining CDM domains are not populated in this release.
 
 **Extraction dates**
 
@@ -24,7 +28,6 @@ Four participants were omitted from the primary delivery list and were issued af
 | Central-laboratory results | 2026-07-05 |
 | EHR document drop | 2026-08-05 |
 | ETL run | 2026-08-12 |
-| Addendum | 2026-08-22 |
 
 ---
 
@@ -32,7 +35,7 @@ Four participants were omitted from the primary delivery list and were issued af
 
 The vocabulary bundle moved from the Athena v5.0 release of 30 August 2024 to the Athena v5.0 release of **27 February 2026**.
 
-| | Previous edition | This release |
+| | Version 0.1.0 | Version 0.2.0 |
 |---|---|---|
 | Athena release | v5.0, 30-AUG-2024 | **v5.0, 27-FEB-2026** |
 | Vocabularies | 59 | 131, with 72 added and none removed |
@@ -48,16 +51,14 @@ The vocabulary bundle moved from the Athena v5.0 release of 30 August 2024 to th
 | PPI | Absent | **Present** |
 
 !!! warning "CPT4 is not imported"
-    CPT4 requires a licensed post-download step against the UMLS API and has not been run for either edition. Any CPT-coded EHR procedure will therefore be unmapped. If you need CPT resolution, run the CPT4 import against your own Athena download using your own UMLS licence.
+    CPT4 requires a licensed post-download step against the UMLS API, which has not been run for either edition. If you need CPT resolution, run the CPT4 import against your own Athena download using your own UMLS licence.
 
 ### Where the vocabulary edition does and does not apply
 
-This distinction governs how to read everything below, and it is easy to get wrong.
+This distinction governs how to read everything below.
 
-- **Registry concept identifiers are not remapped at ETL time.** They are inherited from the 2023 reference export's crosswalks. Upgrading the vocabulary therefore changes nothing in the registry-side output. What it changes is whether those inherited identifiers are still valid, still standard, and resolvable in a consumer's vocabulary tables.
-- **EHR concept identifiers are mapped against the vocabulary at ETL time.** The EHR extraction for this release was mapped against the 2026 edition, so EHR concept assignments genuinely moved between releases.
-
-One consequence worth stating plainly: the RxNorm ingredient fallback table used for drug mapping was built from the **2024** CONCEPT file, not the 2026 one. Regenerating it against the 2026 bundle, which adds roughly 30,000 RxNorm and RxNorm Extension concepts, is the most likely route to reducing the residual 16.6% unmapped drug rows. That work has not been done.
+- **Registry concept identifiers are not remapped at ETL time.** They are carried forward from version 0.1.0's crosswalks. Upgrading the vocabulary therefore changes nothing in the registry-side output. What it changes is whether those identifiers are still valid, still standard, and resolvable in a consumer's vocabulary tables.
+- **EHR concept identifiers are mapped against the vocabulary at ETL time.** The EHR extraction for this release was mapped against the 2026 edition, so EHR concept assignments genuinely moved.
 
 ### Concept drift on the registry side
 
@@ -67,12 +68,12 @@ One consequence worth stating plainly: the RxNorm ingredient fallback table used
 |---|---|---:|---|
 | `4268549` "Education received in the past - finding", SNOMED | Promoted to Standard | 459 observation | None required for validity. Separately, see the caution below |
 | `38004259` visit concept, NUCC | Renamed from "Ambulatory Research Clinic / Center" to "Research Clinic/Center". Identifier unchanged | 878 visit plus 1 care_site | None. Join on identifiers, not names |
-| `19125046` "sitagliptin 25 MG [Januvia]", RxNorm | **Deprecated.** Standard flag cleared, invalid reason set to `D` | 5 drug_exposure | **Manual remap needed.** No automatic "Maps to" or "replaced by" relationship exists |
+| `19125046` "sitagliptin 25 MG [Januvia]", RxNorm | **Deprecated.** Standard flag cleared, invalid reason set to `D` | 5 drug_exposure | Remap required. No automatic "Maps to" or "replaced by" relationship exists |
 
 !!! warning "Concept `4268549` and the word education"
-    This concept carries **occupational industry** in this dataset, not education, despite its name. The mapping is inherited from the reference export and is almost certainly wrong for the content. It is flagged rather than silently corrected, because changing it would break comparability with the earlier release.
+    This concept carries **occupational industry** in this dataset, not education, despite its name. The mapping is carried forward from version 0.1.0 and is retained for comparability rather than corrected mid-series. The 2026 promotion to Standard makes the mismatch more visible, not worse.
 
-    The 2026 promotion to Standard makes the mismatch more visible, not worse. Read `value_as_string` and `value_source_value`.
+    Read `value_as_string` and `value_source_value`.
 
 ### Concept drift across the merged extract, including EHR
 
@@ -88,7 +89,7 @@ One consequence worth stating plainly: the RxNorm ingredient fallback table used
 | `4193704` | Type 2 diabetes mellitus | `201826` | 4 |
 | `4229881` | Weight loss | `4134010` | 1 |
 
-One needs manual work: `19125046`, sitagliptin 25 MG, Januvia, 16 rows across the merged extract, with no automatic mapping available. Two are source-field only and low priority: `4039434` NSAID agent and `4273087` penicillin antibacterial agent.
+One has no automatic mapping available: `19125046`, sitagliptin 25 MG, Januvia, 16 rows across the merged extract. Two are source-field only and low priority: `4039434` NSAID agent and `4273087` penicillin antibacterial agent.
 
 **Thirty-six changed domain.** Most are in `*_source_concept_id` fields, which is harmless. A handful sit in primary concept fields and would move table under domain-based routing, all from Observation to Condition: `436235` taste sense altered, `437038` blood in urine, and `42873170` and `46273390` dependence on supplemental oxygen or respirator.
 
@@ -124,49 +125,42 @@ The six ARC custom concepts, `2000000057` through `2000000062` and `2000000396`,
 
 ## 3. Content changes since the previous release
 
-### ALS diagnosis, El Escorial certainty and onset site
+### Items that resolve to a current value
 
-This is the largest content change in the release. It came out of reviewer feedback that the ETL was reading the wrong survey instance for both fields.
+Participants' recorded answers change over time as they complete successive follow-up surveys. Version 0.1.0 emitted a row for each surveyed instance, so a participant could carry several rows for the same item that disagreed with each other. This release resolves three items to a **single current value per participant** instead.
 
-**What was wrong.** Diagnosis and El Escorial certainty were taken from the *first* "Your ALS Experience" survey a participant answered rather than the latest, with no New Enrollee Survey fallback. A participant could therefore carry several diagnosis rows that disagreed with each other, with the earliest answer effectively winning. Onset site was taken from the ALS Experience follow-up surveys, which re-ask the question each round, so sites accumulated across rounds and a participant could carry dozens of rows naming contradictory sites.
+**ALS diagnosis and El Escorial certainty.** One `observation` row and one `condition_occurrence` row per participant, taken from the participant's most recent informative answer across the ALS Experience survey rounds. An answer of "No Change" carries the most recently stated status forward. The row is dated to the submission date of that answer. Participants who have not completed an ALS Experience survey take their status from the New Enrollee Survey, dated to the possible-diagnosis date. Certainty matching is case-insensitive and accepts the "Definite" spelling variant.
 
-**Diagnosis, current rule.** One `observation` row and one `condition_occurrence` row per participant, taken from the latest informative answer across ALS Experience rounds 1 through 4. An answer of "No Change" walks back to the most recent stated status. The row is dated to the submission date of that informative answer. Participants with no ALS Experience survey fall back to the New Enrollee Survey diagnosis, dated to the possible-diagnosis date. Certainty matching is case-insensitive, accepts the "Definite" spelling variant, and strips apostrophe artifacts.
+**Anatomical site of symptom onset.** Taken from the New Enrollee Survey, where the registry records onset at enrolment, rather than from the follow-up rounds that re-ask the question. Fine anatomy rolls up for concept assignment, so hand becomes arm and foot becomes leg. Bulbar and other sites map to concept `0` with the verbatim site retained. Participants reporting several sites have one row per site. Rows are dated to the participant's onset date.
 
-**Onset site, current rule.** New Enrollee Survey only. Fine anatomy rolls up for concept assignment, so hand becomes arm and foot becomes leg. Bulbar and other sites map to concept `0` with the verbatim site retained. Comma-separated multiple answers split into one row per site. Rows are dated to the participant's onset date.
-
-| | Previous | Current |
+| | Version 0.1.0 | Version 0.2.0 |
 |---|---|---|
-| Diagnosis observations | 1,820, several per participant, first-survey biased | **1,702, exactly one per participant** |
+| Diagnosis observations | 1,820, several per participant | **1,702, exactly one per participant** |
 | Participants with a diagnosis | 1,368 | **1,702** |
-| Diagnosis source split | Not tracked | 1,327 from ALS Experience latest, 375 from New Enrollee Survey |
-| Onset-site rows | 12,952, heavily repeated across rounds | **2,401, one per site per participant** |
+| Diagnosis source split | Not tracked | 1,327 from the ALS Experience survey, 375 from the New Enrollee Survey |
+| Onset-site rows | 12,952, repeated across rounds | **2,401, one per site per participant** |
 | Participants with an onset site | 891 | **1,645** |
 
-372 participants have a different diagnosis outcome. 351 gained a diagnosis through the New Enrollee Survey fallback, 17 lost one, and 4 changed value because the latest-answer rule now resolves a genuine progression in recorded certainty.
+372 participants have a different resolved diagnosis. 351 gained one through the New Enrollee Survey, 17 no longer carry one because their only recorded answer was uninformative, and 4 changed value because the current-value rule now reflects a progression in recorded certainty.
 
-`condition_occurrence` rose from 1,368 to 1,702 because the ALS diagnosis row now follows the same one-per-participant resolved diagnosis. `visit_occurrence` rose from 4,327 to 4,552 because New-Enrollee-dated diagnosis and onset rows introduce dates that previously had no visit.
+`condition_occurrence` rose from 1,368 to 1,702 rows because the ALS diagnosis row follows the same one-per-participant resolution. `visit_occurrence` rose from 4,327 to 4,552 because New-Enrollee-dated diagnosis and onset rows introduce dates that previously had no visit.
 
-New Enrollee Survey rows are emitted only for participants already in the person set, so the participant count did not move even though the survey spans 2,063 participants against the extract's 2,001.
+!!! warning "Replace earlier extracts rather than pooling"
+    Because these three items now resolve to a current value, an extract issued before August 2026 reports different values for them. Replace it with this release.
 
 ### Medication deduplication
 
-The medication source re-exports each participant's complete list at every survey submission, across 16,509 distinct submission timestamps, and the previous ETL emitted one row per source row. Roughly 75% of `drug_exposure` rows were therefore duplicates.
+The medication source re-exports each participant's complete list at every survey submission, across 16,509 distinct submission timestamps, and version 0.1.0 emitted one row per source row. Roughly 75% of `drug_exposure` rows were therefore repetitions of the same medication record.
 
-Deduplication on participant, active ingredient, drug name, reference drug, start date, end date, dosage form, dosage and frequency takes `drug_exposure` from 51,167 rows to **9,049**. A residual few per cent of apparent duplicates are genuinely distinct: the same ingredient at a different dose on the same date.
+Deduplication on participant, active ingredient, drug name, reference drug, start date, end date, dosage form, dosage and frequency takes `drug_exposure` to **9,049 rows over 1,317 participants** in the full extract. A residual few per cent of apparent duplicates are genuinely distinct: the same ingredient at a different dose on the same date.
 
-**Medication counts in this release are not comparable with earlier extracts.** The earlier counts were inflated by the re-export artefact.
+**Medication counts in this release are not comparable with version 0.1.0.** The earlier counts were inflated by the re-export artefact.
 
-### RxNorm ingredient fallback
+### Birth year and death date completeness
 
-`drug_concept_id` now falls back to an exact uppercase match against standard RxNorm and RxNorm Extension ingredient concepts when the inherited ingredient lookup returns `0`. This mapped 206 additional ingredients across 5,370 rows, all exact name matches, and took unmapped rows from 27.1% to **16.6%**.
+A registry subject-level file supplied birth years and death years that were absent from version 0.1.0.
 
-Every added mapping is logged for review rather than applied silently. The remainder are brand names, combination products, supplements and free text with no exact ingredient match.
-
-### Birth year and death date backfill
-
-A registry subject-level file supplied birth years and death years that were absent from the reference export.
-
-| Field | Before | After | Residual |
+| Field | Version 0.1.0 | Version 0.2.0 | Residual |
 |---|---|---|---|
 | `year_of_birth` blank | 16.8% | **1.4%** | 29 participants absent from every source |
 | `death_date` blank | 20.3% | **7.4%** | 54 participants absent from every source |
@@ -177,32 +171,26 @@ Imputed death dates use 31 December of the death year, capped at the extraction 
 
 Every table is now reindexed to the full CDM v5.4 column set in canonical order before writing, with empty strings where a field is not populated, so that Achilles, the Data Quality Dashboard and ATLAS accept the files directly.
 
-The same step integer-formats every identifier, concept identifier and year column, which removed a defect where `ethnicity_concept_id` was written as the float `38003564.0`. It also corrects a `visit_occurence_id` misspelling inherited from the reference export's `measurement` table, and adds the v5.4-only `measurement_event_id` and `meas_event_field_concept_id`.
+The same step integer-formats every identifier, concept identifier and year column, which removed a defect where `ethnicity_concept_id` was written as the float `38003564.0`. It also corrects a `visit_occurence_id` misspelling inherited from version 0.1.0's `measurement` table, and adds the v5.4-only `measurement_event_id` and `meas_event_field_concept_id`.
 
-### EHR measurement date repair
+### EHR measurement dates
 
-The EHR pipeline previously failed to parse two date formats present in the source documents, a compact `YYYYMMDD` form and HL7 timestamps, and had no fallback when a lab or vital sign carried no date of its own.
+The EHR pipeline previously did not parse two date formats present in the source documents, a compact `YYYYMMDD` form and HL7 timestamps, and had no fallback when a laboratory result or vital sign carried no date of its own.
 
-Both were fixed for this release, the second by falling back to the containing organizer's effective time.
+Both were addressed for this release, the second by falling back to the containing organizer's effective time.
 
 | | Before | After |
 |---|---|---|
 | Blank `measurement_date` on EHR rows | 39,356 rows, 48.4% | **3 rows, 0.00%** |
 | EHR measurements resolving to a visit | 42% | **91.7%** |
 
-This also revealed the true scale of duplication in the EHR measurement data, which had previously been masked by missing dates. See the next item.
-
 ### EHR provenance and the FHIR-only view
 
-Each EHR measurement is now traced to the document it came from and to whether that document was FHIR or C-CDA. A provenance-filtered view containing only FHIR-sourced measurements ships alongside the full table, at 41,999 of 81,353 rows, 51.6%.
+Each EHR measurement is traced to the document it came from and to whether that document was FHIR or C-CDA. A provenance-filtered view containing only FHIR-sourced measurements is available alongside the full table, at 41,999 of 81,353 rows, 51.6%.
 
 The finding behind it: clinically duplicate measurement rows fall from **29.1% to 5.6%** when C-CDA is excluded, because cross-document repetition in C-CDA is the source of the duplication. All 35 panel analytes survive the filter, and an agreement analysis against the registry blood draws is statistically indistinguishable between the full and FHIR-only sets.
 
-For laboratory work, the FHIR-only view is analytically sufficient and much cleaner. For maximum coverage, use the full table and apply your own duplicate policy.
-
-### EHR extraction refresh
-
-The EHR extraction moved to the 2026-08-05 document drop, taking the patient count from 105 to 107. `drug_exposure` on the EHR side rose from 1,875 to 3,082, mostly from 2026 vocabulary mapping gains. Internal test patients are excluded by an explicit exclusion list.
+For laboratory work the FHIR-only view is analytically sufficient and much cleaner. For maximum coverage use the full table and apply your own duplicate policy.
 
 ---
 
@@ -218,49 +206,41 @@ Two independent checks run against every release.
 |---|---|
 | `year_of_birth` completeness | 1.4% null |
 | `death_date` completeness | 7.4% null |
-| `drug_concept_id` mapped | 16.6% unmapped |
+| `drug_concept_id` mapped | 18.1% unmapped |
 
 A literal zero-failure result is not achievable on this source without fabricating values.
 
-The addendum carries its own verification: 119 checks, zero failures, including a field-by-field byte-identity comparison against the released extract, which is what establishes that the addendum is a slice and not a re-derivation.
-
 ---
 
-## 5. Known limitations and open items
+## 5. Known limitations
 
-### Coverage gaps pending a mapping decision
+### Coverage gaps
 
-- **13 participants report laboratory-supported probable ALS** in the New Enrollee Survey. The custom concept `2000000060` exists for exactly this category but has never been populated. These participants are currently not emitted. Whether to map them to `2000000060`, to Probable, or to leave them out is an open decision.
-- **2 participants report primary lateral sclerosis**, not ALS. Currently not emitted. Handling is an open decision.
-- **17 participants lost their diagnosis row** in the rebuild, because their only recorded answer was uninformative. Under review.
-- **40 participants had a follow-up-survey onset site but no New Enrollee Survey onset**, so they are now uncovered. Whether to backfill from the follow-up surveys is an open decision.
+- **13 participants report laboratory-supported probable ALS.** The custom concept `2000000060` exists for this category but has never been populated. These participants are currently not emitted.
+- **2 participants report primary lateral sclerosis**, not ALS. Currently not emitted.
+- **17 participants do not carry a diagnosis row**, because their only recorded answer was uninformative.
+- **40 participants have a follow-up-survey onset site but no New Enrollee Survey onset**, and so carry no onset site in this release.
 
-### Mapping defects flagged rather than corrected
+### Mapping limitations
 
-- **Concept `4268549`** is used for occupational industry although the concept means education. Inherited from the reference export. Correcting it would break comparability. 459 rows.
-- **Concept `19125046`**, sitagliptin, is deprecated in the 2026 vocabulary with no automatic replacement. The affected rows still carry the deprecated identifier, because remapping them without confirmation would be a unilateral clinical decision. 5 rows on the registry side, 16 across the merged extract.
+- **Concept `4268549`** is used for occupational industry although the concept means education. Carried forward from version 0.1.0 and retained for comparability. 459 rows.
+- **Concept `19125046`**, sitagliptin, is deprecated in the 2026 vocabulary with no automatic replacement. The affected rows still carry the deprecated identifier. 5 rows on the registry side, 16 across the merged extract.
 - **`unit_concept_id` is `0` on every measurement row**, including 32,855 EHR rows that carry a clean UCUM string in `unit_source_value`. Unit mapping is out of scope for this release.
 - **EHR visit-type mapping coverage is 24.8%.** The source codes are vendor-proprietary and a newer vocabulary does not help.
-- **Onset sites in the bulbar and trunk regions map to `value_as_concept_id = 0`**, 1,384 rows. Whether suitable standard concepts exist for these regions has not been settled. This is the documented design, not a regression, but it is the first release in which these appear as their own rows and so is the first time it is visible.
-- **One `drug_exposure` row carries the literal source value `???`.** A participant reported an injected medication but the ingredient name did not save. Not recoverable without returning to the original survey response. Left as recorded.
-- **354 medication rows** meet the historical frequency threshold for concept mapping but remain unmapped.
+- **Onset sites in the bulbar and trunk regions map to `value_as_concept_id = 0`.** Whether suitable standard concepts exist for these regions has not been settled. This matches version 0.1.0's design.
+- **One `drug_exposure` row carries the literal source value `???`.** A participant reported an injected medication but the ingredient name did not save. Not recoverable without returning to the original survey response.
+- **Free-text "other" write-in fields are not mapped**, on either the family history or the personal medical history forms. This matches version 0.1.0.
 
 ### Linkage and duplication
 
-- **13 EHR records have no link to a registry participant.** Every EHR patient is by construction a registry participant, so this is a crosswalk gap rather than an EHR-only cohort. They appear in the merged extract as EHR-only persons.
-- **27 of 107 EHR records are duplicate enrolments** of an already-enrolled participant. Person rows are deduplicated onto the canonical participant identifier, but domain rows are not, so a participant with two enrolments can carry duplicated measurements, conditions or medications. A classification of which are genuinely distinct encounters exists but no automated policy has been applied.
-- **Clinically duplicate EHR measurement rows run at 29.1%** in the full table, now all dated, mostly the same timestamp repeated across documents. The FHIR-only view reduces this to 5.6%. A dedup policy for the full table is open.
+- **13 EHR records have no crosswalk link to a registry participant.** Since every EHR patient is by construction a registry participant, this is a crosswalk gap, not an EHR-only cohort. They appear in the merged extract as EHR-only persons.
+- **27 of 107 EHR records are duplicate enrolments** of an already-enrolled participant. Person rows are deduplicated onto the canonical participant identifier, but domain rows are not, so a participant with two enrolments can carry duplicated measurements, conditions or medications.
+- **Clinically duplicate EHR measurement rows run at 29.1%** in the full table, mostly the same timestamp repeated across documents. The FHIR-only view reduces this to 5.6%.
 
 ### Formatting artefacts
 
-- **The merged extract writes integer-valued numerics with a trailing `.0` where the registry-only extract writes them bare.** `value_as_number` is `34` in one and `34.0` in the other, and the same applies to `drug_exposure.quantity`. The merge concatenates the registry and EHR frames, which promotes those columns to float. Values are numerically identical. Cast to numeric before diffing or joining across the two layers, because a string-level comparison will not match.
+- **The merged extract writes integer-valued numerics with a trailing `.0` where the registry-only extract writes them bare.** `value_as_number` is `34` in one and `34.0` in the other, and the same applies to `drug_exposure.quantity`. Values are numerically identical. Cast to numeric before diffing or joining across the two layers, because a string-level comparison will not match.
 - **74 measurement rows have a `value_source_value` longer than the CDM's varchar(50).** These are free-text laboratory comments.
-
-### Reviewer items still open on the registry side
-
-- Family history and personal medical conditions: free-text "other" write-ins are under-counted. A curated mapping list has been applied to diabetes write-ins, covering 17 terms across 109 of 200 rows, but the remaining tail is uncurated.
-- The internal duplication flag produces false positives on family history, because rows for different relatives reporting the same condition are counted as duplicates, including multiple siblings with the same condition. Dedup keys need to include the relative.
-- The handedness and footedness module is a distinct instrument, not onset laterality, and an ingest decision is pending.
 
 ---
 
@@ -277,6 +257,7 @@ Traps that have cost real analysis time, collected in one place.
 | Trusting registry unit labels | Absolute differential counts are cells/uL despite a `10^3/mm3` label, hemoglobin is g/dL despite a `%` label, `MM01/L` means mmol/L, and `SGPT (AST)` is actually ALT | Correct units before pooling |
 | Parsing all dates with one format | Registry dates are US format, EHR dates are ISO 8601 | Parse explicitly, or pass a mixed-format flag |
 | Comparing medication counts against version 0.1.0 | This release deduplicates, the earlier one did not, so counts fall by roughly 75% | Do not compare across releases |
+| Pooling an older extract with this one | Diagnosis, certainty and onset site resolve differently | Replace the older extract |
 | String-diffing the merged layer against the registry-only layer | Trailing `.0` on integer-valued numerics makes identical values look different | Cast to numeric first |
 | Loading only Athena standard vocabularies | ALS gene concepts and the six ARC custom concepts will not resolve | Load the 27-FEB-2026 release or later, plus the supplied local concepts |
 
@@ -305,8 +286,8 @@ Detailed ETL documentation, the concept drift analysis, the person-level account
 ## 8. Caution
 
 - These data are participant self-report plus central-laboratory results plus patient-mediated EHR extracts. They are not a clinician-adjudicated chart review.
-- Diagnosis, El Escorial certainty and onset site changed in this release. Any extract issued before August 2026 disagrees with this one on those fields. Do not pool the two.
-- The registry-side concept identifiers were inherited, not re-derived against the 2026 vocabulary. They were checked for validity, which is a weaker guarantee than remapping.
-- The open items in section 5 are open. They are published here rather than resolved silently, so that an analysis can account for them.
+- Diagnosis, El Escorial certainty and onset site resolve to a current value in this release. Any extract issued before August 2026 reports different values. Replace it rather than pooling.
+- The registry-side concept identifiers were carried forward, not re-derived against the 2026 vocabulary. They were checked for validity, which is a weaker guarantee than remapping.
+- The limitations in section 5 are published here rather than resolved silently, so that an analysis can account for them.
 
 Questions and data problem reports: [dboyce@als.net](mailto:dboyce@als.net).

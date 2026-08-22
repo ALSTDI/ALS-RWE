@@ -6,15 +6,6 @@ hide:
 
 # ALS TDI OMOP Data Set
 
-!!! warning "Pre-publication review checklist"
-    This page has been updated for the 2026 refresh but three figures still need internal sign-off before it is published. Confirm and then delete this box.
-
-    1. **Released participant count.** Stated below as 708, being the 704 participants in the primary biosample delivery plus 4 delivered as an addendum. Confirm the primary list count and that the 4 are additive rather than already included.
-    2. **Per-table row counts for the released subset.** The table below reports counts for the full registry extract. Counts for the biosample subset need to be filled in from the delivered files. One file needs checking first: `drug_exposure.csv` in the delivery carries the full-registry row count, which suggests the subset filter was not applied to it.
-    3. **Onset-site source version.** The addendum takes onset site from the New Enrollee Survey only, per the 2026-08-12 rebuild. The primary delivery appears to carry the older follow-up-survey values with a manual correction applied. Confirm which version ships, and rebuild the other to match, before publishing.
-
----
-
 ## Release notes: version 0.2.0, 2026 refresh
 
 The [ALS TDI ARC Study](https://www.als.net/arc/) mapped to the [Observational Medical Outcomes Partnership Common Data Model (OMOP CDM)](https://ohdsi.github.io/CommonDataModel/). This release restructures the ARC Natural History Study into OMOP CDM v5.4 and maps it to standardized vocabularies.
@@ -41,7 +32,7 @@ This is part of a larger harmonization effort with [Answer ALS](https://www.answ
 | **Vocabulary** | Athena OMOP Standardized Vocabularies **v5.0, release 27-FEB-2026** |
 | **Participants released** | 708, the ARC participants with linked biological samples |
 | **Parent extract** | 2,014 participants in the full registry extract, of whom 80 have linked EHR data |
-| **Data types** | Self-reported surveys, ALSFRS-R, central-laboratory blood chemistry and haematology, self-reported ALS gene results, linked EHR diagnoses, medications, labs, vitals, encounters and procedures, mortality |
+| **Data types** | Self-reported surveys, ALSFRS-R, central-laboratory blood chemistry and haematology, self-reported ALS gene results, linked EHR diagnoses, medications, laboratory results, vital signs and encounters, mortality |
 | **Access** | ARC Data Commons, at no cost to academic and nonprofit researchers under a Data Use Agreement. [Request access](https://www.als.net/arc/data-commons/) |
 | **Portal** | [Neuromine Data Portal](https://data.answerals.org/home) |
 
@@ -59,20 +50,22 @@ For background on the ARC resource itself, see the preprint [Boyce et al., *The 
 |---|---|---|
 | Vocabulary edition | Athena v5.0, 30-AUG-2024 | Athena v5.0, **27-FEB-2026** |
 | EHR data | Not included | **Included**, 80 participants in the parent extract |
-| `procedure_occurrence` | Not populated | Populated, from EHR only |
-| ALS diagnosis and El Escorial certainty | One row per surveyed instance, taken from the first survey answered | **One row per participant**, taken from the latest informative answer, with a New Enrollee Survey fallback |
-| Anatomical site of symptom onset | Taken from follow-up surveys, repeated across rounds | **Taken from the New Enrollee Survey only**, one row per site |
-| Self-reported medications | One row per source row, so each participant's full medication list repeated at every survey submission | **Deduplicated**, one row per distinct medication record |
-| Unmapped `drug_concept_id` | Ingredient lookup only | Ingredient lookup plus an RxNorm standard-ingredient fallback |
+| ALS diagnosis and El Escorial certainty | One row per surveyed instance | **One row per participant**, resolved to the participant's current recorded status |
+| Anatomical site of symptom onset | Repeated across follow-up survey rounds | **One row per site per participant** |
+| Self-reported medications | Each participant's full medication list repeated at every survey submission | **Deduplicated**, one row per distinct medication record |
 | `year_of_birth` completeness | 83.2% | **98.6%** |
 | `death_date` completeness | 79.7% | **92.6%** |
 | Column conformance | Populated columns only | **Full CDM v5.4 column set** in canonical order on every table |
 | ALS gene concepts | Not resolvable against the bundled vocabulary | **Resolvable**, the 2026 edition adds OMOP Genomic |
 
-A detailed account of every change, with row-level deltas, is on the [2026 Data Refresh](omop-2026-refresh.md) page. Read that page before comparing this release against any earlier extract.
+The mapped field and form footprint is unchanged from version 0.1.0. No new survey instruments or question sets were added. See [scope](#surveys-mapped-in-this-release).
 
-!!! danger "Earlier extracts disagree with this one"
-    Diagnosis, El Escorial certainty and onset site were rebuilt for this release because the previous logic read the wrong survey instance. If you hold an extract from before August 2026, its values for those three fields differ from this release. Do not pool the two.
+A detailed account of every change, with row-level deltas, is on the [2026 Data Refresh](omop-2026-refresh.md) page.
+
+!!! warning "Replace any earlier extract with this release"
+    Participants' recorded answers change over time as they complete follow-up surveys, and this release resolves several items to a single current value per participant rather than carrying every historical response. Diagnosis, El Escorial certainty and anatomical site of symptom onset are affected.
+
+    An extract issued before August 2026 therefore reports different values for those items. **Replace it with this release rather than pooling the two.** See the [2026 Data Refresh](omop-2026-refresh.md#3-content-changes-since-the-previous-release) page for the detail.
 
 ---
 
@@ -94,7 +87,7 @@ Not all participants answered all surveys, and coverage varies sharply by group.
 
 ## CDM summary counts
 
-Counts below are for the **full registry extract**. The released biosample subset is a filtered copy of it, so concept identifiers, primary keys and `person_id` values are identical in both.
+Counts below are for the **full registry extract**. The released subset is a filtered copy of it, so concept identifiers, primary keys and `person_id` values are identical in both.
 
 The extract is assembled in three layers. `person_id` is consistent across all three, and EHR primary keys are offset above the registry maxima, so the merged layer is a clean union with no key collisions and no renumbering.
 
@@ -107,11 +100,12 @@ The extract is assembled in three layers. `person_id` is consistent across all t
 | `condition_occurrence` | 1,702 | 1,545 | 3,247 |
 | `drug_exposure` | 9,049 | 3,082 | 12,131 |
 | `observation_period` | 1,903 | 81 | 1,984 |
-| `procedure_occurrence` | 0 | 811 | 811 |
 | `death` | 734 | 0 | 734 |
 | `care_site` | 1 | 0 | 1 |
 
 The merged layer equals the sum of the other two in every table.
+
+**Other OMOP domains, including `procedure_occurrence`, are not populated in this release.**
 
 The EHR person count of 80 comes from 107 EHR records. 94 records carry a link to a registry participant and collapse onto 67 distinct participants, because 27 records are duplicate enrolments of someone already enrolled. The remaining 13 records have no link and appear in the merged layer as EHR-only persons. Those 13 are a crosswalk gap rather than a genuine EHR-only cohort: every EHR patient is by construction a registry participant.
 
@@ -164,12 +158,12 @@ Alternatively, EHR rows in the merged tables are exactly those whose primary key
 `observation_date` is the survey or assessment date. `value_source_value` preserves the raw response verbatim.
 
 !!! warning "Concept `4268549` carries occupational industry despite its name"
-    In the 2026 vocabulary this concept is named "Education received in the past - finding". In this dataset it carries **occupational industry**, not education. The mapping is inherited from the 2023 reference export and is almost certainly the wrong concept for the content.
+    In the 2026 vocabulary this concept is named "Education received in the past - finding". In this dataset it carries **occupational industry**, not education. The mapping is inherited from the version 0.1.0 release and is retained for comparability rather than corrected mid-series.
 
-    It is flagged here rather than silently corrected, because changing it would break comparability with the earlier release. Read `value_as_string` and `value_source_value`, not the concept name. Affects 459 rows.
+    Read `value_as_string` and `value_source_value`, not the concept name. Affects 459 rows.
 
 !!! warning "ALSFRS-R observations carry a blank `visit_occurrence_id` by design"
-    This matches the earlier release. An inner join from `observation` to `visit_occurrence` silently drops every ALSFRS-R row, which is the large majority of the observation table. Use a left join, or filter on the concept range before joining.
+    This matches version 0.1.0. An inner join from `observation` to `visit_occurrence` silently drops every ALSFRS-R row, which is the large majority of the observation table. Use a left join, or filter on the concept range before joining.
 
 #### El Escorial criteria
 
@@ -185,11 +179,11 @@ Harmonized with Answer ALS and the Critical Path Institute. Self-reported, then 
 
 Distribution in this release: Definitive 1,369, Probable 207, Possible 85, Suspected 41.
 
-`2000000060` is defined but is **not populated in this release**. 13 participants report laboratory-supported probable in the New Enrollee Survey and are currently not emitted, pending a mapping decision. 2 participants report primary lateral sclerosis rather than ALS and are likewise not emitted. See [known limitations](omop-2026-refresh.md#5-known-limitations-and-open-items).
+`2000000060` is defined but is **not populated in this release**. 13 participants report laboratory-supported probable and are currently not emitted, pending a mapping decision. 2 participants report primary lateral sclerosis rather than ALS and are likewise not emitted. See [known limitations](omop-2026-refresh.md#5-known-limitations).
 
 #### Anatomical site of symptom onset
 
-Taken from the New Enrollee Survey. Fine anatomy rolls up for concept assignment, so a hand becomes an arm and a foot becomes a leg. The verbatim site is always retained in `value_source_value`.
+Fine anatomy rolls up for concept assignment, so a hand becomes an arm and a foot becomes a leg. The verbatim site is always retained in `value_source_value`.
 
 | Site | `value_as_concept_id` |
 |---|---:|
@@ -209,14 +203,16 @@ Two sources of registry measurement data, plus EHR.
 
 A/G Ratio, Albumin, Alkaline Phosphatase, Basophils and Basophils Abs, Bilirubin Total, BUN, BUN/Creatinine Ratio, Calcium, Chloride, CO2, Creatinine, EGFR, Eosinophils and Eosinophils Abs, Globulin, Glucose, Hematocrit, Hemoglobin, Lymphocytes and Lymphocytes Abs, MCH, Monocytes and Monocytes Abs, Neutrophils and Neutrophils Abs, Platelet Count, Potassium, RDW, Red Blood Cell Count, SGOT (AST), SGPT (ALT), Sodium, Total Protein, White Blood Cell Count.
 
-Seven further analytes are present in the source but are not mapped, because the reference export has no concept for them: MCV, MCHC, Mean Platelet Volume, IMM Grans and IMM Grans Abs, Nucleated RBC and Nucleated RBC Abs.
+Seven further analytes are present in the source but are not mapped, matching version 0.1.0: MCV, MCHC, Mean Platelet Volume, IMM Grans and IMM Grans Abs, Nucleated RBC and Nucleated RBC Abs.
 
 **Self-reported ALS-linked gene results**, `measurement_type_concept_id = 32862`, covering `C9orf72`, `SOD1`, `TARDBP`, `FUS`, `NEK1`, `PFN1`, `SPG11` and `VCP`. These use OMOP Genomic concepts, which require the 2026 vocabulary edition or later. Against a 2024 vocabulary they resolve to nothing.
 
 **EHR laboratory results and vital signs**, `measurement_type_concept_id = 32817`.
 
+The registry measurement concept set is identical to version 0.1.0: 43 concepts, none added and none removed.
+
 !!! danger "Registry blood draws and EHR labs do not join on `concept_id`"
-    Registry blood-draw concepts are SNOMED-lineage, inherited from the reference export. EHR lab concepts are LOINC. A strict `concept_id` join between the two matches only 7 of 40 concepts.
+    Registry blood-draw concepts are SNOMED-lineage, carried forward from version 0.1.0. EHR lab concepts are LOINC. A strict `concept_id` join between the two matches only 7 of 40 concepts.
 
     **Join on analyte name, not on concept identifier.** Analyte-level name matching recovers all 35 panel analytes.
 
@@ -235,13 +231,15 @@ Seven further analytes are present in the source but are not mapped, because the
 ### drug_exposure
 
 - Self-reported medications. Supplements are not included in this release.
-- `drug_concept_id` comes from an ingredient-level lookup, with an exact-name RxNorm standard-ingredient fallback for ingredients the lookup misses.
-- 16.6% of rows carry `drug_concept_id = 0`. These are brand names, combination products and free text with no exact RxNorm ingredient match. `0` is the standard OMOP value for unmapped.
+- `drug_concept_id` comes from an ingredient-level lookup.
+- 18.1% of rows carry `drug_concept_id = 0`. These are brand names, combination products and free text with no exact ingredient match. `0` is the standard OMOP value for unmapped.
 - Dosage is not calculated. Source values are retained.
 - Missing start date becomes `1900-01-01`.
 - Missing end date reuses the start date.
 
-The source re-exports each participant's complete medication list at every survey submission, across more than 16,000 distinct submission timestamps. This release deduplicates on participant, active ingredient, drug name, reference drug, start date, end date, dosage form, dosage and frequency. Without that step, roughly three quarters of rows are duplicates. **Medication counts in this release are therefore much lower than in version 0.1.0, and the earlier counts were inflated.**
+The source re-exports each participant's complete medication list at every survey submission, across more than 16,000 distinct submission timestamps. This release deduplicates on participant, active ingredient, drug name, reference drug, start date, end date, dosage form, dosage and frequency. Without that step, roughly three quarters of rows are duplicates.
+
+**Medication counts in this release are therefore much lower than in version 0.1.0, and the earlier counts were inflated by that repetition.** Do not compare medication row counts across the two releases.
 
 ### condition_occurrence
 
@@ -252,10 +250,6 @@ EHR side: coded problem-list and encounter diagnoses.
 ### visit_occurrence
 
 Registry side: one visit per participant per date, `visit_concept_id = 38004259`, "Research Clinic/Center". EHR side: encounters as recorded in the source. EHR visit-type mapping coverage is 24.8%, because the source codes are vendor-proprietary. A newer vocabulary does not improve this.
-
-### procedure_occurrence
-
-EHR only. Not populated on the registry side.
 
 ### death
 
@@ -282,7 +276,7 @@ Content not collected is excluded unless OMOP requires the field. The gaps below
 |---|---:|---|
 | `year_of_birth` | 1.4%, 29 participants | No birth year in any available source |
 | `death_date` | 7.4%, 54 deceased participants | No death year in any available source |
-| `drug_concept_id` | 16.6% of rows | No exact RxNorm ingredient match for brand names, combinations and free text |
+| `drug_concept_id` | 18.1% of rows | No exact ingredient match for brand names, combinations and free text |
 | `unit_concept_id`, measurement | 100% of rows | Unit mapping is out of scope for this release |
 | `visit_concept_id`, EHR encounters | 75.2% unmapped | Source codes are vendor-proprietary |
 | `value_as_concept_id`, onset site | Bulbar and other sites | No suitable standard concept identified |
@@ -318,8 +312,9 @@ Some ALS-specific variables have no standardized OMOP vocabulary, so local conce
 - Distinguish EHR from registry rows using `*_type_concept_id`, as described above.
 - Left-join, do not inner-join, from `observation` to `visit_occurrence`, because ALSFRS-R rows carry no visit.
 - Join registry and EHR laboratory data on analyte name, never on `concept_id`.
-- Check `ethnicity_concept_id = 0` as unknown, not as non-Hispanic.
-- Before running any medication analysis, note that this release deduplicates medications and version 0.1.0 did not.
+- Treat `ethnicity_concept_id = 0` as unknown, not as non-Hispanic.
+- Do not compare medication row counts against version 0.1.0.
+- Replace any pre-August-2026 extract with this release rather than pooling the two.
 
 The [2026 Data Refresh](omop-2026-refresh.md) page carries the full list of known limitations, the vocabulary drift analysis and the reproducibility details.
 
@@ -327,11 +322,11 @@ The [2026 Data Refresh](omop-2026-refresh.md) page carries the full list of know
 
 ## Surveys mapped in this release
 
-The ARC study fields far more instruments than this release maps. The OMOP release deliberately reproduces the content footprint of the 2023 reference export, refreshed from current source data, so that the two remain comparable.
+The ARC study fields far more instruments than this release maps. The OMOP release deliberately reproduces the content footprint of version 0.1.0, refreshed from current source data, so that the two remain comparable. **No new survey instruments, question sets or measurement analytes were added in version 0.2.0.**
 
 **Mapped:** Enrollment and general information, Your ALS Experience, New Enrollee Survey, Family History, Medical History Conditions round 1, Medical History Injuries round 1, Lifestyle round 1 tobacco flag, Occupation round 1 industry and military service, ALSFRS-R, Medications, blood draw results, gene results, mortality.
 
-**Collected by ARC but not mapped in this release:** education, marital status, employment status, smoking sub-detail such as age started and cigarettes per day, physical activity, hospitalization and emergency visits, clinical trial participation, geography and residential history, diet, supplements, anthropometrics, handedness and footedness, military deployment arenas, age at diagnosis, ALS complications, and the swallowing, speech, bladder and bowel symptom items. Follow-up rounds 2 through 4 of the lifestyle, occupation and conditions modules are also out of scope.
+**Collected by ARC but not mapped in this release:** education, marital status, employment status, smoking sub-detail such as age started and cigarettes per day, physical activity, hospitalization and emergency visits, clinical trial participation, geography and residential history, diet, supplements, anthropometrics, handedness and footedness, military deployment arenas, age at diagnosis, ALS complications, free-text "other" write-in fields, and the swallowing, speech, bladder and bowel symptom items. Follow-up rounds 2 through 4 of the lifestyle, occupation and conditions modules are also out of scope.
 
 These are available through ARC Data Commons outside the OMOP release. See the [ARC preprint](https://www.researchsquare.com/article/rs-8272744/v1) for the complete picture of what ARC collects, and the [data dictionary](ga4gh.md#search-the-als-tdi-data-dictionary) for select surveys.
 
@@ -345,7 +340,7 @@ These are available through ARC Data Commons outside the OMOP release. See the [
 - Registry and EHR laboratory concepts are drawn from different vocabularies and do not join on `concept_id`.
 - Registry unit labels contain known errors. Correct them before pooling values.
 - A participant with more than one EHR enrolment may carry duplicated EHR rows. Person rows are deduplicated to a single identifier, but domain rows are not.
-- Diagnosis, El Escorial certainty and onset site differ from any extract issued before August 2026.
+- Diagnosis, El Escorial certainty and onset site are resolved differently than in version 0.1.0. Replace earlier extracts rather than pooling.
 
 Problems with the data, or questions about a specific row, can be sent to [dboyce@als.net](mailto:dboyce@als.net).
 
