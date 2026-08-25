@@ -132,12 +132,12 @@ Alternatively, EHR rows in the merged tables are exactly those whose primary key
 - Sequential `person_id`. The `CASE_`, `CONTROL_` and `ASYMP_` prefixes are retained on `person_source_value`.
 - Unknown, multiple or unselected race, ethnicity or sex maps to `concept_id = 0`.
 
-!!! warning "`ethnicity_concept_id` follows a dataset-specific convention that is not OMOP standard"
+!!! note "Reading `ethnicity_concept_id` in this data set"
     A participant who selects Hispanic or Latino in the race question receives `38003563`. Everyone else receives `0`.
 
-    The OMOP concept for "Not Hispanic or Latino", `38003564`, is deliberately never used. The reason is that this instrument asks a single combined race question, so a participant who did not select Hispanic or Latino has not asserted that they are not Hispanic. Coding them as `38003564` would fabricate a negative answer.
+    The OMOP concept for "Not Hispanic or Latino", `38003564`, is deliberately not used, because this instrument asks a single combined race question. A participant who did not select Hispanic or Latino has not asserted that they are not Hispanic, so coding them as `38003564` would record a negative answer they did not give.
 
-    If you are running a network study that expects standard ethnicity coding, treat `0` in this dataset as unknown, not as non-Hispanic.
+    Treat `0` here as unknown, not as non-Hispanic, in any network study that expects standard ethnicity coding.
 
 ### observation
 
@@ -157,10 +157,8 @@ Alternatively, EHR rows in the merged tables are exactly those whose primary key
 
 `observation_date` is the survey or assessment date. `value_source_value` preserves the raw response verbatim.
 
-!!! warning "Concept `4268549` carries occupational industry despite its name"
-    In the 2026 vocabulary this concept is named "Education received in the past - finding". In this dataset it carries **occupational industry**, not education. The mapping is inherited from the version 0.1.0 release and is retained for comparability rather than corrected mid-series.
-
-    Read `value_as_string` and `value_source_value`, not the concept name. Affects 459 rows.
+!!! note "Concept `4268549` carries occupational industry"
+    In this release, concept `4268549` holds occupational industry. Read `value_as_string` and `value_source_value` for the industry value rather than the concept name. Affects 459 rows.
 
 !!! warning "ALSFRS-R observations carry a blank `visit_occurrence_id` by design"
     This matches version 0.1.0. An inner join from `observation` to `visit_occurrence` silently drops every ALSFRS-R row, which is the large majority of the observation table. Use a left join, or filter on the concept range before joining.
@@ -179,7 +177,7 @@ Harmonized with Answer ALS and the Critical Path Institute. Self-reported, then 
 
 Distribution in this release: Definitive 1,369, Probable 207, Possible 85, Suspected 41.
 
-`2000000060` is defined but is **not populated in this release**. 13 participants report laboratory-supported probable and are currently not emitted, pending a mapping decision. 2 participants report primary lateral sclerosis rather than ALS and are likewise not emitted. See [known limitations](omop-2026-refresh.md#5-known-limitations).
+`2000000060`, laboratory-supported probable, is defined in the vocabulary and has no rows in this release.
 
 #### Anatomical site of symptom onset
 
@@ -211,20 +209,18 @@ Seven further analytes are present in the source but are not mapped, matching ve
 
 The registry measurement concept set is identical to version 0.1.0: 43 concepts, none added and none removed.
 
-!!! danger "Registry blood draws and EHR labs do not join on `concept_id`"
-    Registry blood-draw concepts are SNOMED-lineage, carried forward from version 0.1.0. EHR lab concepts are LOINC. A strict `concept_id` join between the two matches only 7 of 40 concepts.
+!!! note "Join registry blood draws and EHR labs on analyte name"
+    Registry blood-draw concepts are SNOMED-lineage and EHR lab concepts are LOINC, so a `concept_id` join between the two matches only 7 of 40 concepts. **Join on analyte name instead.** Analyte-level name matching recovers all 35 panel analytes.
 
-    **Join on analyte name, not on concept identifier.** Analyte-level name matching recovers all 35 panel analytes.
+!!! note "Harmonize registry unit labels before pooling"
+    Registry unit labels are carried verbatim from the source instrument. Convert them to standard units before pooling values with any other source.
 
-!!! danger "Registry unit labels have known quirks"
-    These are carried verbatim from the source instrument and are wrong as written. Correct them before pooling values with any other source.
-
-    | Source label | Actual meaning |
+    | Source label | Standard interpretation |
     |---|---|
     | `10^3/mm3` on absolute differential counts | Values are cells/uL, so divide by 1,000 to compare against K/uL |
-    | `%` on Hemoglobin | Actual unit is g/dL |
-    | `MM01/L` | Means mmol/L. The `0` is a typo for the letter O. Affects Chloride, CO2, Potassium and Sodium |
-    | `SGPT (AST)` | The analyte is actually ALT, not AST |
+    | `%` on Hemoglobin | Unit is g/dL |
+    | `MM01/L` | Denotes mmol/L. Affects Chloride, CO2, Potassium and Sodium |
+    | `SGPT (AST)` | The analyte is ALT |
 
 `unit_concept_id` is `0` throughout, including on rows that carry a clean unit string in `unit_source_value`. Unit mapping is out of scope for this release. Harmonize units yourself before pooling values.
 
@@ -316,7 +312,7 @@ Some ALS-specific variables have no standardized OMOP vocabulary, so local conce
 - Do not compare medication row counts against version 0.1.0.
 - Replace any pre-August-2026 extract with this release rather than pooling the two.
 
-The [2026 Data Refresh](omop-2026-refresh.md) page carries the full list of known limitations, the vocabulary drift analysis and the reproducibility details.
+The [2026 Data Refresh](omop-2026-refresh.md) page carries the vocabulary edition detail, the concept drift analysis and the reproducibility notes.
 
 ---
 
@@ -335,10 +331,10 @@ These are available through ARC Data Commons outside the OMOP release. See the [
 ## Caution
 
 - These data are **participant self-report plus central-laboratory results plus patient-mediated EHR extracts.** They are not a clinician-adjudicated chart review. `condition_occurrence` on the registry side carries the participant's own account of their ALS diagnosis status, not an adjudicated diagnosis.
-- `ethnicity_concept_id` does not follow the OMOP standard convention. See the note above before using it in a network study.
-- Concept `4268549` carries occupational industry despite being named for education.
-- Registry and EHR laboratory concepts are drawn from different vocabularies and do not join on `concept_id`.
-- Registry unit labels contain known errors. Correct them before pooling values.
+- Treat `ethnicity_concept_id = 0` as unknown, not as non-Hispanic. See the note above before using it in a network study.
+- Concept `4268549` carries occupational industry. Read `value_as_string`, not the concept name.
+- Registry and EHR laboratory concepts are drawn from different vocabularies, so join them on analyte name rather than `concept_id`.
+- Convert registry unit labels to standard units before pooling values.
 - A participant with more than one EHR enrolment may carry duplicated EHR rows. Person rows are deduplicated to a single identifier, but domain rows are not.
 - Diagnosis, El Escorial certainty and onset site are resolved differently than in version 0.1.0. Replace earlier extracts rather than pooling.
 

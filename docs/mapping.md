@@ -138,10 +138,7 @@ See also the full [Select Publications](select-publications.md) list.
 
 ## Publicly available environmental health data
 
-A field guide to existing environmental health mapping tools, drawn from Besse and Rojas-Rueda's 2025 review in *Science of the Total Environment*, which catalogued 25 publicly available tools nationwide: 6 national and 19 state.
-
-!!! danger "Several federal tools were removed in 2025"
-    EJScreen, the Climate and Economic Justice Screening Tool (CEJST), and the Equitable Transportation Community Explorer were taken off federal websites in early 2025. Links below point to independent reconstructions maintained by the Public Environmental Data Partners coalition and to archived data. Confirm provenance and version before citing any of these in published work.
+A field guide to environmental health mapping tools that are publicly available on government and other authoritative websites, drawn from Besse and Rojas-Rueda's 2025 review in *Science of the Total Environment*. It covers national tools alongside state tools built by health and environmental agencies.
 
 <div class="eht-controls">
   <input
@@ -204,10 +201,7 @@ The link opens an email with these prompts already filled in:
 
 ## Sources
 
-Tool status and links were verified in August 2026 against the following:
+Tool links were verified in August 2026 against the following:
 
 - Besse, H. and Rojas-Rueda, D. (2025), *Science of the Total Environment*: <https://doi.org/10.1016/j.scitotenv.2025.178449>
-- Environmental Data and Governance Initiative, EPA removes EJScreen: <https://envirodatagov.org/epa-removes-ejscreen-from-its-website/>
-- Harvard Environmental and Energy Law Program, CEJST removed: <https://eelp.law.harvard.edu/tracker/ceqs-climate-economic-justice-screening-tool-removed/>
-- Public Environmental Data Partners, Data and Screening Tools: <https://screening-tools.com/>
-- Individual agency pages for each state tool, linked in the table above
+- Individual agency pages for each tool, linked in the table above

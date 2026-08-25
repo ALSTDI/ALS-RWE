@@ -70,10 +70,8 @@ This distinction governs how to read everything below.
 | `38004259` visit concept, NUCC | Renamed from "Ambulatory Research Clinic / Center" to "Research Clinic/Center". Identifier unchanged | 878 visit plus 1 care_site | None. Join on identifiers, not names |
 | `19125046` "sitagliptin 25 MG [Januvia]", RxNorm | **Deprecated.** Standard flag cleared, invalid reason set to `D` | 5 drug_exposure | Remap required. No automatic "Maps to" or "replaced by" relationship exists |
 
-!!! warning "Concept `4268549` and the word education"
-    This concept carries **occupational industry** in this dataset, not education, despite its name. The mapping is carried forward from version 0.1.0 and is retained for comparability rather than corrected mid-series. The 2026 promotion to Standard makes the mismatch more visible, not worse.
-
-    Read `value_as_string` and `value_source_value`.
+!!! note "Concept `4268549` carries occupational industry"
+    In this data set, concept `4268549` holds occupational industry. Read `value_as_string` and `value_source_value` for the industry value rather than the concept name.
 
 ### Concept drift across the merged extract, including EHR
 
@@ -110,16 +108,12 @@ One has no automatic mapping available: `19125046`, sitagliptin 25 MG, Januvia, 
 | `SPG11` | `35950925` |
 | `VCP` | `35958302` |
 
-The self-reported ALS gene measurement rows are joinable to concept names, domains and hierarchy for the first time. The PPI personal medical history topics and three drug concepts also now resolve. One concept, `1304562`, on a single `drug_exposure` row, resolves in neither edition.
+The self-reported ALS gene measurement rows are joinable to concept names, domains and hierarchy for the first time. The PPI personal medical history topics and three drug concepts also now resolve.
 
-!!! danger "This is a hard requirement on consumers"
-    The gene-variant and PPI concepts need the **27 February 2026 vocabulary release or later** loaded. Against a 2024 vocabulary they resolve to nothing, and the ALS genetics content of this release becomes invisible.
+!!! note "Load the 27 February 2026 vocabulary or later"
+    The gene-variant and PPI concepts resolve against the **27 February 2026 Athena vocabulary release or later**. Load that edition, or a newer one, to work with the ALS genetics content of this release.
 
-### Backward-compatibility hazard
-
-Cohort logic pinned to older concept identifiers will silently under-match rather than error. The clearest case is `4272032`, "PSA measurement", which will not match rows now mapped to more specific abnormal-finding concepts. Saved cohort definitions or concept sets referencing `19125046` or any of the eight deprecated identifiers above need updating.
-
-The six ARC custom concepts, `2000000057` through `2000000062` and `2000000396`, are local by design and appear in no Athena edition. That is intentional and is not a gap, but it does mean they must be loaded separately.
+The six ARC custom concepts, `2000000057` through `2000000062` and `2000000396`, are local by design and appear in no Athena edition. Load them separately alongside the standard vocabulary tables.
 
 ---
 
@@ -216,19 +210,14 @@ A literal zero-failure result is not achievable on this source without fabricati
 
 ### Coverage gaps
 
-- **13 participants report laboratory-supported probable ALS.** The custom concept `2000000060` exists for this category but has never been populated. These participants are currently not emitted.
-- **2 participants report primary lateral sclerosis**, not ALS. Currently not emitted.
 - **17 participants do not carry a diagnosis row**, because their only recorded answer was uninformative.
-- **40 participants have a follow-up-survey onset site but no New Enrollee Survey onset**, and so carry no onset site in this release.
+- **40 participants have a follow-up-survey onset site but no New Enrollee Survey onset**, and so carry no onset site in this release, which takes onset from the New Enrollee Survey.
 
-### Mapping limitations
+### Mapping and scope
 
-- **Concept `4268549`** is used for occupational industry although the concept means education. Carried forward from version 0.1.0 and retained for comparability. 459 rows.
-- **Concept `19125046`**, sitagliptin, is deprecated in the 2026 vocabulary with no automatic replacement. The affected rows still carry the deprecated identifier. 5 rows on the registry side, 16 across the merged extract.
-- **`unit_concept_id` is `0` on every measurement row**, including 32,855 EHR rows that carry a clean UCUM string in `unit_source_value`. Unit mapping is out of scope for this release.
-- **EHR visit-type mapping coverage is 24.8%.** The source codes are vendor-proprietary and a newer vocabulary does not help.
-- **Onset sites in the bulbar and trunk regions map to `value_as_concept_id = 0`.** Whether suitable standard concepts exist for these regions has not been settled. This matches version 0.1.0's design.
-- **One `drug_exposure` row carries the literal source value `???`.** A participant reported an injected medication but the ingredient name did not save. Not recoverable without returning to the original survey response.
+- **`unit_concept_id` is `0` on every measurement row**, including EHR rows that carry a clean UCUM string in `unit_source_value`. Unit mapping is out of scope for this release. Read `unit_source_value` and harmonize units before pooling.
+- **EHR visit-type mapping coverage is 24.8%.** The source codes are vendor-proprietary.
+- **Onset sites in the bulbar and trunk regions map to `value_as_concept_id = 0`**, with the verbatim site retained in `value_source_value`. This matches version 0.1.0's design.
 - **Free-text "other" write-in fields are not mapped**, on either the family history or the personal medical history forms. This matches version 0.1.0.
 
 ### Linkage and duplication
@@ -246,22 +235,22 @@ A literal zero-failure result is not achievable on this source without fabricati
 
 ## 6. Working with this data
 
-Traps that have cost real analysis time, collected in one place.
+Practical guidance for common tasks, collected in one place.
 
-| Trap | What happens | What to do |
+| Situation | What to know | What to do |
 |---|---|---|
 | Joining registry blood draws to EHR labs on `concept_id` | Only 7 of 40 concepts match, so most of the data silently disappears | Join on analyte name |
 | Inner-joining `observation` to `visit_occurrence` | Every ALSFRS-R row drops, and that is most of the table | Left join, or filter concepts first |
-| Treating `ethnicity_concept_id = 0` as non-Hispanic | Wrong for this dataset by design | Treat `0` as unknown |
-| Reading concept `4268549` by its name | You will think it is education. It is occupational industry | Read `value_as_string` |
-| Trusting registry unit labels | Absolute differential counts are cells/uL despite a `10^3/mm3` label, hemoglobin is g/dL despite a `%` label, `MM01/L` means mmol/L, and `SGPT (AST)` is actually ALT | Correct units before pooling |
+| Treating `ethnicity_concept_id = 0` as non-Hispanic | In this data set `0` means unknown, by design | Treat `0` as unknown |
+| Reading concept `4268549` by its name | The concept name reads as education; the field holds occupational industry | Read `value_as_string` |
+| Registry unit labels | Absolute differential counts are cells/uL under a `10^3/mm3` label, hemoglobin is g/dL under a `%` label, `MM01/L` denotes mmol/L, and the analyte labeled `SGPT (AST)` is ALT | Convert to standard units before pooling |
 | Parsing all dates with one format | Registry dates are US format, EHR dates are ISO 8601 | Parse explicitly, or pass a mixed-format flag |
 | Comparing medication counts against version 0.1.0 | This release deduplicates, the earlier one did not, so counts fall by roughly 75% | Do not compare across releases |
 | Pooling an older extract with this one | Diagnosis, certainty and onset site resolve differently | Replace the older extract |
 | String-diffing the merged layer against the registry-only layer | Trailing `.0` on integer-valued numerics makes identical values look different | Cast to numeric first |
 | Loading only Athena standard vocabularies | ALS gene concepts and the six ARC custom concepts will not resolve | Load the 27-FEB-2026 release or later, plus the supplied local concepts |
 
-If you go back to the raw ARC survey exports rather than using the OMOP output, two source-level artefacts will bite:
+If you go back to the raw ARC survey exports rather than using the OMOP output, account for two source-level artefacts:
 
 - Yes/no columns sometimes carry an HTML checkmark element instead of the string "Yes". A parser that tests for "Yes" will undercount these columns to zero. The ETL normalizes this across 25 columns in 12 files.
 - Free text mixes plain, backslash-escaped and curly apostrophes, so one term can split into up to three apparently distinct values. Normalize apostrophes in any string handling.
@@ -287,7 +276,5 @@ Detailed ETL documentation, the concept drift analysis, the person-level account
 
 - These data are participant self-report plus central-laboratory results plus patient-mediated EHR extracts. They are not a clinician-adjudicated chart review.
 - Diagnosis, El Escorial certainty and onset site resolve to a current value in this release. Any extract issued before August 2026 reports different values. Replace it rather than pooling.
-- The registry-side concept identifiers were carried forward, not re-derived against the 2026 vocabulary. They were checked for validity, which is a weaker guarantee than remapping.
-- The limitations in section 5 are published here rather than resolved silently, so that an analysis can account for them.
 
 Questions and data problem reports: [dboyce@als.net](mailto:dboyce@als.net).
