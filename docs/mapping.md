@@ -25,17 +25,17 @@ A growing collection of ALS TDI tools, data, and reading on where people with AL
 
     ---
 
-    An interactive narrative walking through ALS geographic patterns and environmental context. Currently in development.
+    An interactive narrative walking through ALS geographic patterns and environmental context. Currently in development, with example slides shown below.
 
-    [:octicons-arrow-right-24: Preview below](#als-geospatial-story-map)
+    [:octicons-arrow-right-24: See example slides](#als-geospatial-story-map)
 
 -   __Town Hall Recording__
 
     ---
 
-    Recording of the ALS TDI community town hall on geospatial research and ALS, embedded here once the event has taken place.
+    A recording of the ALS TDI community town hall on geospatial research and ALS. We will link to the recording here once the event has taken place.
 
-    [:octicons-arrow-right-24: Watch below](#town-hall-recording)
+    [:octicons-arrow-right-24: See details](#town-hall-recording)
 
 -   __GeoALS__
 
@@ -59,41 +59,46 @@ A growing collection of ALS TDI tools, data, and reading on where people with AL
 
 ## ALS Geospatial Story Map
 
-A preview of the story map will live here as it comes together.
+The interactive story map is still in development. In the meantime, the slides below are drawn from a draft ALS TDI deck, *Mapping the ARC Study*, and preview the kind of geographic narrative the story map will tell: how space, time, and environmental data come together to describe potential ALS risk factors.
 
-<div class="map-placeholder" markdown>
-Preview image or live map will appear here once the story map is ready.
-</div>
+!!! note "Example slides, not final figures"
+    These slides are draft examples included for illustration only. The maps, counts, and captions may change, and the live story map will replace this preview when it is ready. Please do not cite or circulate these figures.
 
-<!--
-  When the story map is ready, replace the div above with ONE of these.
+<figure markdown>
+  ![Choropleth map of where ARC participants live today, contiguous U.S. and Alaska](assets/geospatial/story-map-space-today.jpg)
+  <figcaption><strong>Space.</strong> Where ARC participants live today, by county of current residence.</figcaption>
+</figure>
 
-  Option A, static preview image:
-  ![Preview of the ALS Geospatial Story Map](assets/geospatial/story-map-preview.jpg)
+<figure markdown>
+  ![Choropleth map of every county ever reported as an ARC participant residence](assets/geospatial/story-map-time-ever-lived.jpg)
+  <figcaption><strong>Time.</strong> Everywhere ARC participants have ever lived, adding lifetime residential history to the picture.</figcaption>
+</figure>
 
-  Option B, live embed:
-  <div class="video-embed">
-    <iframe src="ARCGIS_STORYMAP_EMBED_URL" title="ALS Geospatial Story Map" allowfullscreen></iframe>
-  </div>
--->
+<figure markdown>
+  ![Screenshot of the EPA EnviroAtlas interactive mapping tool](assets/geospatial/story-map-epa-enviroatlas.jpg)
+  <figcaption><strong>Environment, national.</strong> EPA EnviroAtlas provides nationwide environmental data layers, a baseline available for every participant.</figcaption>
+</figure>
+
+<figure markdown>
+  ![Screenshot of the CalEnviroScreen 5.0 results map for California](assets/geospatial/story-map-calenviroscreen.jpg)
+  <figcaption><strong>Environment, state example.</strong> CalEnviroScreen scores California census tracts for cumulative pollution burden, including pesticide application data.</figcaption>
+</figure>
+
+<figure markdown>
+  ![Screenshot of the Colorado EnviroScreen percentile score map](assets/geospatial/story-map-colorado-enviroscreen.jpg)
+  <figcaption><strong>Environment, state example.</strong> Colorado EnviroScreen scores census block groups and adds oil, gas, and mining activity among its indicators.</figcaption>
+</figure>
 
 ---
 
 ## Town hall recording
 
-The recording of the ALS TDI community town hall on geospatial research and ALS will be embedded here, playable directly on this page, once the event has taken place.
+ALS TDI hosts community town halls, and a session on geospatial research and ALS will be shared here once that event has taken place. Rather than embedding the recording, which may not be available to embed, this page links out to it directly.
 
-<div class="map-placeholder" markdown>
-Recording will appear here after the event.
-</div>
+[:octicons-link-external-24: ALS Town Hall | ALS Therapy Development Institute](https://www.als.net/als-town-hall/){ .md-button .md-button--primary }
 
-<!--
-  When the recording is ready, replace the div above with:
-
-  <div class="video-embed">
-    <iframe src="RECORDING_EMBED_URL" title="ALS TDI Geospatial Research Town Hall" allowfullscreen></iframe>
-  </div>
--->
+!!! note "Placeholder link"
+    This points to the general ALS TDI Town Hall page. It will be replaced with a direct link to the geospatial research town hall recording once that event has taken place.
 
 ---
 
