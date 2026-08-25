@@ -131,21 +131,23 @@ See also the full [Select Publications](select-publications.md) list.
 
 <!-- Add outside articles and explainers on environmental health, geospatial methods, and ALS epidemiology here. -->
 
-- Besse, H. and Rojas-Rueda, D. (2025). Environmental justice mapping tools in the United States: A review of national and state tools. *Science of the Total Environment, 962*, 178449. <https://doi.org/10.1016/j.scitotenv.2025.178449>
 - *[Article title]* - Source, Year
 
 ---
 
-## Publicly available environmental health data
+## Environmental data hubs and mapping tools
 
-A field guide to environmental health mapping tools that are publicly available on government and other authoritative websites, drawn from Besse and Rojas-Rueda's 2025 review in *Science of the Total Environment*. It covers national tools alongside state tools built by health and environmental agencies.
+A starting list of publicly available environmental data hubs and mapping tools from state environmental and health agencies, alongside national environmental data platforms. Every entry points to data hosted on a government or other authoritative website.
+
+!!! note "Under construction, more states coming soon"
+    This is a pared-down starting list. We are building it out toward the GIS data hubs of the state environmental protection offices, and more states will be added soon.
 
 <div class="eht-controls">
   <input
     type="text"
     id="eht-search"
     class="ga4gh-search-input"
-    placeholder="Search by tool, agency, state, or geographic unit"
+    placeholder="Search by data hub, tool, agency, or state"
   />
   <div class="eht-scale-filter">
     <button class="eht-scale-btn active" data-scale="all">All</button>
@@ -159,20 +161,17 @@ A field guide to environmental health mapping tools that are publicly available 
   <table id="eht-table" class="md-typeset__table">
     <thead>
       <tr>
-        <th>Tool</th>
+        <th>Data hub or tool</th>
         <th>Coverage</th>
-        <th>Indicators</th>
-        <th>Geographic unit</th>
-        <th>Updated</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td colspan="5" class="eht-loading">Loading tools...</td></tr>
+      <tr><td colspan="2" class="eht-loading">Loading list...</td></tr>
     </tbody>
   </table>
 </div>
 
-Source data are in [`env-health-tools.csv`](assets/env-health-tools.csv). States not listed did not have a publicly available environmental health mapping tool meeting the review's criteria as of January 2024.
+Source data are in [`env-health-tools.csv`](assets/env-health-tools.csv). More state data hubs will be added as this list is built out.
 
 ---
 
@@ -201,7 +200,4 @@ The link opens an email with these prompts already filled in:
 
 ## Sources
 
-Tool links were verified in August 2026 against the following:
-
-- Besse, H. and Rojas-Rueda, D. (2025), *Science of the Total Environment*: <https://doi.org/10.1016/j.scitotenv.2025.178449>
-- Individual agency pages for each tool, linked in the table above
+Links were verified in August 2026 against the individual agency pages for each entry listed above.

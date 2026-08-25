@@ -1,10 +1,9 @@
 /*
-  Environmental health mapping tools table (Mapping tab).
+  Environmental data hubs and mapping tools table (Mapping tab).
 
   Reads assets/env-health-tools.csv and renders a filterable table.
-  Mirrors the pattern used by ga4gh-datadictionary.js so the two
-  behave the same way. Safe to load on every page: it exits quietly
-  when its markup is absent.
+  Columns expected: Scale, State, Tool/Data Hub, Organization, URL, Notes.
+  Safe to load on every page: it exits quietly when its markup is absent.
 */
 /* Resolve the CSV relative to this script's own URL, so the page works
    both at the site root (mkdocs serve) and in a subdirectory such as
@@ -24,11 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!input || !tableBody) return;
 
-  const COLSPAN = 5;
+  const COLSPAN = 2;
   let data = [];
   let activeScale = "all";
 
-  setMessage("Loading tools...");
+  setMessage("Loading list...");
 
   fetch(EHT_CSV_URL)
     .then((response) => {
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const headers = rows[0].map((h) => h.replace(/^﻿/, "").trim());
+      const headers = rows[0].map((h) => h.replace(/^\uFEFF/, "").trim());
       data = rows.slice(1).map((row) => {
         const obj = {};
         headers.forEach((h, i) => {
@@ -64,30 +63,30 @@ document.addEventListener("DOMContentLoaded", function () {
       render();
     })
     .catch((error) => {
-      setMessage("Could not load the tool list.");
-      console.error("Environmental health tools load error:", error);
+      setMessage("Could not load the list.");
+      console.error("Environmental data hubs load error:", error);
     });
 
   function render() {
     const q = input.value.toLowerCase().trim();
 
     const filtered = data.filter((row) => {
-      if (activeScale !== "all" && row["Scale"].toLowerCase() !== activeScale) {
+      if (activeScale !== "all" && (row["Scale"] || "").toLowerCase() !== activeScale) {
         return false;
       }
       if (!q) return true;
-      return ["Tool", "Organization", "State", "Scale", "Geographic Unit", "Notes"].some(
+      return ["Tool/Data Hub", "Organization", "State", "Scale", "Notes"].some(
         (key) => String(row[key] || "").toLowerCase().includes(q)
       );
     });
 
     if (countEl) {
       countEl.textContent =
-        filtered.length + (filtered.length === 1 ? " tool" : " tools");
+        filtered.length + (filtered.length === 1 ? " source" : " sources");
     }
 
     if (!filtered.length) {
-      setMessage("No tools match that search.");
+      setMessage("No entries match that search.");
       return;
     }
 
@@ -96,21 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function renderRow(row) {
     const place = row["State"] || "National";
-    const name = escapeHtml(row["Tool"]);
-    const link = row["URL"]
-      ? '<a href="' + escapeHtml(row["URL"]) + '" target="_blank" rel="noopener">' + name + "</a>"
+    const name = escapeHtml(row["Tool/Data Hub"]);
+    const url = row["URL"] || "";
+    const isLink = /^https?:\/\//i.test(url);
+    const link = isLink
+      ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + name + "</a>"
       : name;
-
-    const status = row["Status"] || "";
-    const statusClass =
-      status.toLowerCase() === "live"
-        ? "eht-live"
-        : status.toLowerCase() === "removed"
-        ? "eht-removed"
-        : "eht-uncertain";
-    const statusTag = status
-      ? '<span class="eht-status ' + statusClass + '">' + escapeHtml(status) + "</span>"
-      : "";
 
     const note = row["Notes"]
       ? '<div class="eht-note">' + escapeHtml(row["Notes"]) + "</div>"
@@ -118,12 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return (
       "<tr>" +
-      "<td><strong>" + link + "</strong> " + statusTag +
+      "<td><strong>" + link + "</strong>" +
       '<div class="eht-org">' + escapeHtml(row["Organization"]) + "</div>" + note + "</td>" +
       "<td>" + escapeHtml(place) + "</td>" +
-      "<td>" + escapeHtml(row["Indicators"]) + "</td>" +
-      "<td>" + escapeHtml(row["Geographic Unit"]) + "</td>" +
-      "<td>" + escapeHtml(row["Last Updated"]) + "</td>" +
       "</tr>"
     );
   }

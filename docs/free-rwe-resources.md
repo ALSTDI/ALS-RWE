@@ -27,7 +27,7 @@ These curated, freely accessible resources provide foundational knowledge, pract
   The ALS Geospatial Hub brings together authoritative data from federal agencies, research institutions, and non-profit organizations, organizing it by geography.
   [Access the Hub](https://als-geospatial-hub-nonprofit.hub.arcgis.com/)
 
-  For the full ALS TDI geospatial program, including an indexed field guide to 25 environmental health mapping tools, see the [Mapping/GIS](mapping.md) tab.
+  For the full ALS TDI geospatial program, including a list of environmental data hubs and mapping tools, see the [Mapping/GIS](mapping.md) tab.
 
 
 ## Additional Resources to Support the STARDUSTT Framework
