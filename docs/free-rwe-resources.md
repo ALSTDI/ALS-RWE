@@ -261,7 +261,7 @@ The OMOP common data model (CDM) is a relational database made up of different t
 
 **Preprint:** Boyce D, et al. *Registry Forge: an open-source pipeline for transforming patient-mediated electronic health record exports into research-ready OMOP data.* medRxiv 2026.06.02.26354637. doi:[10.1101/2026.06.02.26354637](https://doi.org/10.1101/2026.06.02.26354637)
 
-**Registry Forge in production:** the EHR component of the [ALS TDI OMOP data set](als-tdi-omop-data-set.md) is built with this pipeline. See the [2026 Data Refresh](omop-2026-refresh.md) page for what that looks like on real data, including the measurement-date repair, the C-CDA duplication finding, and the vocabulary drift analysis.
+**Registry Forge in production:** the EHR component of the [ALS TDI OMOP data set](als-tdi-omop-data-set.md) is built with this pipeline.
 
 
 ---

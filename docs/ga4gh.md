@@ -33,7 +33,6 @@ For the pipeline that produces the EHR component of the OMOP release, see:
 The ARC data set mapped to OMOP CDM v5.4 is documented separately:
 
 - [**ALS TDI OMOP Data Set**](als-tdi-omop-data-set.md), release notes, domain mappings, custom concepts and use guidance.
-- [**2026 Data Refresh**](omop-2026-refresh.md), what changed, which vocabulary edition was used, and known limitations.
 
 !!! warning "Vocabulary requirement"
     The OMOP release requires the Athena vocabulary release of **27 February 2026 or later**. Against an earlier release the ALS gene-variant concepts and several medical-history concepts do not resolve. The six ARC custom concepts are local by design and appear in no Athena release, so they must be loaded separately.

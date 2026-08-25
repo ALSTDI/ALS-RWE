@@ -60,12 +60,12 @@ For background on the ARC resource itself, see the preprint [Boyce et al., *The 
 
 The mapped field and form footprint is unchanged from version 0.1.0. No new survey instruments or question sets were added. See [scope](#surveys-mapped-in-this-release).
 
-A detailed account of every change, with row-level deltas, is on the [2026 Data Refresh](omop-2026-refresh.md) page.
+Detailed change documentation, including row-level deltas, is available to data recipients on request.
 
 !!! warning "Replace any earlier extract with this release"
     Participants' recorded answers change over time as they complete follow-up surveys, and this release resolves several items to a single current value per participant rather than carrying every historical response. Diagnosis, El Escorial certainty and anatomical site of symptom onset are affected.
 
-    An extract issued before August 2026 therefore reports different values for those items. **Replace it with this release rather than pooling the two.** See the [2026 Data Refresh](omop-2026-refresh.md#3-content-changes-since-the-previous-release) page for the detail.
+    An extract issued before August 2026 therefore reports different values for those items. **Replace it with this release rather than pooling the two.**
 
 ---
 
@@ -152,13 +152,9 @@ Alternatively, EHR rows in the merged tables are exactly those whose primary key
 | Personal medical history | Per-condition standard concepts | One row per reported condition |
 | History of head or neck injury | `1340204` | Screening question only |
 | Lifestyle, tobacco use | `3012697` | Flag only |
-| Occupation and industry | `4268549` | `value_as_string` carries the industry. See the caution below |
 | Military service | `37162399` | Flag |
 
 `observation_date` is the survey or assessment date. `value_source_value` preserves the raw response verbatim.
-
-!!! note "Concept `4268549` carries occupational industry"
-    In this release, concept `4268549` holds occupational industry. Read `value_as_string` and `value_source_value` for the industry value rather than the concept name. Affects 459 rows.
 
 !!! warning "ALSFRS-R observations carry a blank `visit_occurrence_id` by design"
     This matches version 0.1.0. An inner join from `observation` to `visit_occurrence` silently drops every ALSFRS-R row, which is the large majority of the observation table. Use a left join, or filter on the concept range before joining.
@@ -312,7 +308,7 @@ Some ALS-specific variables have no standardized OMOP vocabulary, so local conce
 - Do not compare medication row counts against version 0.1.0.
 - Replace any pre-August-2026 extract with this release rather than pooling the two.
 
-The [2026 Data Refresh](omop-2026-refresh.md) page carries the vocabulary edition detail, the concept drift analysis and the reproducibility notes.
+Detailed ETL documentation, the vocabulary edition and concept drift analysis, the person-level accounting of which participants are included, and the data quality results are available to data recipients on request.
 
 ---
 
@@ -320,7 +316,7 @@ The [2026 Data Refresh](omop-2026-refresh.md) page carries the vocabulary editio
 
 The ARC study fields far more instruments than this release maps. The OMOP release deliberately reproduces the content footprint of version 0.1.0, refreshed from current source data, so that the two remain comparable. **No new survey instruments, question sets or measurement analytes were added in version 0.2.0.**
 
-**Mapped:** Enrollment and general information, Your ALS Experience, New Enrollee Survey, Family History, Medical History Conditions round 1, Medical History Injuries round 1, Lifestyle round 1 tobacco flag, Occupation round 1 industry and military service, ALSFRS-R, Medications, blood draw results, gene results, mortality.
+**Mapped:** Enrollment and general information, Your ALS Experience, New Enrollee Survey, Family History, Medical History Conditions round 1, Medical History Injuries round 1, Lifestyle round 1 tobacco flag, Occupation round 1 military service, ALSFRS-R, Medications, blood draw results, gene results, mortality.
 
 **Collected by ARC but not mapped in this release:** education, marital status, employment status, smoking sub-detail such as age started and cigarettes per day, physical activity, hospitalization and emergency visits, clinical trial participation, geography and residential history, diet, supplements, anthropometrics, handedness and footedness, military deployment arenas, age at diagnosis, ALS complications, free-text "other" write-in fields, and the swallowing, speech, bladder and bowel symptom items. Follow-up rounds 2 through 4 of the lifestyle, occupation and conditions modules are also out of scope.
 
@@ -332,7 +328,6 @@ These are available through ARC Data Commons outside the OMOP release. See the [
 
 - These data are **participant self-report plus central-laboratory results plus patient-mediated EHR extracts.** They are not a clinician-adjudicated chart review. `condition_occurrence` on the registry side carries the participant's own account of their ALS diagnosis status, not an adjudicated diagnosis.
 - Treat `ethnicity_concept_id = 0` as unknown, not as non-Hispanic. See the note above before using it in a network study.
-- Concept `4268549` carries occupational industry. Read `value_as_string`, not the concept name.
 - Registry and EHR laboratory concepts are drawn from different vocabularies, so join them on analyte name rather than `concept_id`.
 - Convert registry unit labels to standard units before pooling values.
 - A participant with more than one EHR enrolment may carry duplicated EHR rows. Person rows are deduplicated to a single identifier, but domain rows are not.
