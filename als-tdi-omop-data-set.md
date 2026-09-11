@@ -107,7 +107,7 @@ The merged layer equals the sum of the other two in every table.
 
 **Other OMOP domains, including `procedure_occurrence`, are not populated in this release.**
 
-The EHR person count of 80 comes from 107 EHR records. 94 records carry a link to a registry participant and collapse onto 67 distinct participants, because 27 records are duplicate enrolments of someone already enrolled. The remaining 13 records have no link and appear in the merged layer as EHR-only persons. Those 13 are a crosswalk gap rather than a genuine EHR-only cohort: every EHR patient is by construction a registry participant.
+The EHR person count of 80 comes from 107 EHR records. 94 records carry a link to a registry participant and collapse onto 67 distinct participants, because 27 records are duplicate enrollments of someone already enrolled. The remaining 13 records have no link and appear in the merged layer as EHR-only persons. Those 13 are a crosswalk gap rather than a genuine EHR-only cohort: every EHR patient is by construction a registry participant.
 
 ### Telling EHR rows from registry rows
 
