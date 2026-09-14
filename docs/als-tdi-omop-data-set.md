@@ -156,7 +156,7 @@ One row per deceased participant. `death_date` is set to 31 December of the year
 
 - Dates may be shifted for de-identification, following Hripcsak et al., JAMIA 2016.
 - Where a date is missing, the survey date is used if available, otherwise an approximate date, otherwise the placeholder 1900-01-01.
-- `observation_period` spans each participant's earliest to latest recorded event date, deliberately including retrospective self-reported dates such as symptom onset; see the [2026 Data Refresh](omop-2026-refresh.md) page before using it for person-time.
+- `observation_period` spans each participant's earliest to latest recorded event date, deliberately including retrospective self-reported dates such as symptom onset. Death dates are year-imputed and excluded from the calculation, so a period may end before a recorded death date. See the [2026 Data Refresh](omop-2026-refresh.md) page before using it for person-time.
 - Registry dates are written in US format; EHR dates are ISO 8601. Parse the two explicitly if you combine them.
 
 ## Custom concepts

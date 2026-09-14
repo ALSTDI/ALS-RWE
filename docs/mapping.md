@@ -75,8 +75,10 @@ The interactive story map is still in development. In the meantime, the slides b
 </figure>
 
 <figure markdown>
-  ![Screenshot of the EPA EnviroAtlas interactive mapping tool](assets/geospatial/story-map-epa-enviroatlas.jpg)
-  <figcaption><strong>Environment, national.</strong> EPA EnviroAtlas provides nationwide environmental data layers, a baseline available for every participant.</figcaption>
+<div class="map-placeholder" markdown>
+Screenshot pending. A capture of the live GeoALS tool will appear here.
+</div>
+  <figcaption><strong>Environment, national.</strong> GeoALS's <em>ALS/MND Mortality with Environmental Toxins and Military Installations</em> tool maps ALS/MND mortality alongside military installations and place-based environmental toxin data nationwide, a partner resource for screening residential exposure history. <a href="https://experience.arcgis.com/experience/d190038833ec4b8d8fb706cbb339fa02" target="_blank" rel="noopener">See the interactive map &#8599;</a></figcaption>
 </figure>
 
 <figure markdown>
@@ -135,19 +137,16 @@ See also the full [Select Publications](select-publications.md) list.
 
 ---
 
-## Environmental data hubs and mapping tools
+## Publicly available environmental health data
 
-A starting list of publicly available environmental data hubs and mapping tools from state environmental and health agencies, alongside national environmental data platforms. Every entry points to data hosted on a government or other authoritative website.
-
-!!! note "Under construction, more states coming soon"
-    This is a pared-down starting list. We are building it out toward the GIS data hubs of the state environmental protection offices, and more states will be added soon.
+A field guide to publicly available environmental data: national screening tools and data platforms, plus each state's own environmental data or GIS portal. State entries point to each agency's data/GIS hub rather than to environmental justice screening tools specifically, since our users are often more interested in the underlying environmental quality data than in an aggregated screening index.
 
 <div class="eht-controls">
   <input
     type="text"
     id="eht-search"
     class="ga4gh-search-input"
-    placeholder="Search by data hub, tool, agency, or state"
+    placeholder="Search by tool, agency, or state"
   />
   <div class="eht-scale-filter">
     <button class="eht-scale-btn active" data-scale="all">All</button>
@@ -170,8 +169,6 @@ A starting list of publicly available environmental data hubs and mapping tools 
     </tbody>
   </table>
 </div>
-
-Source data are in [`env-health-tools.csv`](assets/env-health-tools.csv). More state data hubs will be added as this list is built out.
 
 ---
 
@@ -200,4 +197,7 @@ The link opens an email with these prompts already filled in:
 
 ## Sources
 
-Links were verified in August 2026 against the individual agency pages for each entry listed above.
+Tool links were verified in August 2026 against the following:
+
+- Besse, H. and Rojas-Rueda, D. (2025), *Science of the Total Environment*: <https://doi.org/10.1016/j.scitotenv.2025.178449>
+- Individual agency pages for each tool, linked in the table above
