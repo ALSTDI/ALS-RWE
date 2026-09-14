@@ -1,0 +1,9 @@
+Question,Answer 1,Answer 2,Answer 3,Answer 4,Correct Answer
+What does Treatment Pathway Analysis primarily show?,Causal effects of treatments,Real-world sequences of treatments over time,Comparative effectiveness of drugs,Safety signals,2
+"In a diabetes pathway analysis, which therapy is typically dominant first-line?",Insulin,Sulfonylureas,Metformin,GLP-1 receptor agonists,3
+What does arrow width represent in ATLAS pathway visualizations?,Duration of treatment,Strength of evidence,Number or proportion of patients,Clinical effectiveness,3
+Grey segments in a pathway visualization usually indicate:,Patients stopped all treatment permanently,No further observed treatment within follow-up,Data errors,Treatment failure,2
+Which setting most directly affects whether therapies are interpreted as add-on vs switching?,Observation window,Combination window,Minimum cell count,Max path length,2
+Why should exact percentages in pathway results be interpreted cautiously?,They are randomly generated,They vary by database and design choices,ATLAS rounds numbers,They only apply to claims data,2
+Treatment Pathway Analysis should NOT be used to:,Understand treatment sequencing,Explore utilization patterns,Generate hypotheses,Make causal effectiveness conclusions,4
+Which factor often explains higher insulin use in a pathway analysis?,Better drug adherence,Longer follow-up or older populations,Errors in ATLAS,Use of ingredient-level concepts,2

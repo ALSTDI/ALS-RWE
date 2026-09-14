@@ -1,0 +1,12 @@
+Scale,State,Tool/Data Hub,Organization,URL,Notes
+National,,ALS/MND Mortality with Environmental Toxins and Military Installations,GeoALS,https://experience.arcgis.com/experience/d190038833ec4b8d8fb706cbb339fa02,"Excludes Alaska, Hawaii, and the territories. Last published February 2025."
+National,,EnviroAtlas,U.S. Environmental Protection Agency,https://www.epa.gov/enviroatlas,"Ecosystem-services and environmental data platform, not a demographic/vulnerability screening index like the rows above. Actively updated; a new Interactive Map is expected to replace the legacy one by the end of 2026. Also featured as the national environmental baseline slide in the story map above."
+State,California,CalEnviroScreen,CA Office of Environmental Health Hazard Assessment,https://oehha.ca.gov/calenviroscreen,Now at version 5.0.
+State,Colorado,Colorado EnviroScreen,CO Dept. of Public Health and Environment,https://cdphe.colorado.gov/enviroscreen,EnviroScreen 2.0 launched January 2025; version 3.0 expected 2027.
+State,Connecticut,Connecticut Environmental Conditions Online,University of Connecticut,https://maps.cteco.uconn.edu/,Hosted by UConn CIRCA in partnership with CT DEEP.
+State,Maryland,MD iMAP,MD Dept. of the Environment,https://imap.maryland.gov/,Formerly the Maryland EJ Screening Tool; now version 3.
+State,Massachusetts,MassMapper,MassGIS (MA Executive Office of Energy and Environmental Affairs),https://maps.massgis.digital.mass.gov/MassMapper/MassMapper.html,Statewide GIS viewer; load the Environmental Justice Populations (2020) layer from the layer list. Replaces the standalone EJ Viewer landing page.
+State,New Mexico,Open EnviroMap,NM Environment Department,https://gis.web.env.nm.gov/oem/,
+State,North Carolina,Community Mapping System,NC Dept. of Environmental Quality,https://www.deq.nc.gov/outreach-education/community-engagement/deq-north-carolina-community-mapping-system,
+State,Pennsylvania,PennEnviroScreen,PA Dept. of Environmental Protection,https://www.pa.gov/agencies/dep/public-participation/office-of-environmental-justice/pennenviroscreen,Tool itself at gis.dep.pa.gov/PennEnviroScreen.
+State,Utah,Utah Healthy Places Index,UT Dept. of Health and Human Services,https://dhhs.utah.gov/utahhpi/,Interactive map at map.utah.healthyplacesindex.org.

@@ -1,0 +1,7 @@
+factor,cohort_pct,cohort_n,ci95,population_pct,p_value,bh_q
+"Autoimmune disease, any (excl. thyroid)",10.7,49/460,8.2-13.8,4.6,7.581067607300121e-08,4.5486405643800723e-07
+Family history of ALS / other neuromuscular disease,10.6,80/758,8.6-12.9,8.0,0.013010723845740379,0.03903217153722113
+"Smoking, ever (>=1 cig/day for 6+ months)",33.5,255/762,30.2-36.9,30.0,0.03976723742185595,0.0795344748437119
+"Asthma, ever (physician-diagnosed)",15.2,70/460,12.2-18.8,13.0,0.16517363371568683,0.24776045057353024
+"Thyroid disease, ever",13.9,64/460,11.0-17.4,12.0,0.22201153863982634,0.2664138463677916
+"Parkinson's disease, self (write-in)",0.2,1/460,0.0-1.2,0.5,0.7342633157439555,0.7342633157439555

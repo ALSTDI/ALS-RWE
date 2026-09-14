@@ -1,0 +1,9 @@
+Question,Answer 1,Answer 2,Answer 3,Answer 4,Correct Answer
+What is the primary purpose of HADES?,Data visualization only,Standardized analytics and modeling,Database management,ETL processing,2
+"In OHDSI, what is the relationship between ATLAS and HADES?",They are interchangeable,"ATLAS runs models, HADES designs studies","ATLAS designs studies, HADES runs analytics",They are unrelated,3
+Prediction modeling primarily aims to:,Estimate treatment effects,Identify causal relationships,Estimate patient risk,Replace clinical judgment,3
+Which HADES package is used for prediction modeling?,CohortMethod,SelfControlledCaseSeries,PatientLevelPrediction,FeatureExtraction,3
+An AUC close to 0.5 indicates:,Excellent model performance,Poor or no discrimination,Perfect calibration,Overfitting,2
+Why is calibration important in prediction models?,It increases runtime,It ensures predicted risks match observed risks,It improves database performance,It replaces validation,2
+Why do model results vary across OMOP databases?,Random chance only,Different populations and data capture,Errors in HADES,Different R versions,2
+Prediction models should NOT be used to:,Risk stratification,Hypothesis generation,Estimate causal treatment effects,Population surveillance,3

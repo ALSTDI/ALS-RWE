@@ -1,0 +1,8 @@
+condition,cohort_pct,cohort_n,population_pct,source
+Rheumatoid arthritis,2.2,10/460,1.0,~0.5-1% clinical (CDC/NHANES)
+Systemic lupus erythematosus,0.2,1/460,0.1,~0.1% (CDC/Lupus Foundation)
+Multiple sclerosis,0.2,1/460,0.3,~0.3% (Nat'l MS Society)
+Psoriasis,5.0,23/460,3.0,~3% of adults (CDC/AAD)
+Crohn's disease,1.3,6/460,0.6,Crohn ~0.6% (CDC IBD; IBD combined ~1.3%)
+Ulcerative colitis,2.2,10/460,0.7,UC ~0.7% (CDC IBD; IBD combined ~1.3%)
+Thyroid disease,13.9,64/460,12.0,~12% any thyroid disease
