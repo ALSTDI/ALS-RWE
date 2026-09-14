@@ -75,6 +75,7 @@ nav:
         - Acknowledgements: free-rwe-resources/train-the-trainer/acknowledgements.md
   - ALS TDI OMOP Data Set:
       - Overview: als-tdi-omop-data-set.md
+      - 2026 Data Refresh: omop-2026-refresh.md
       - Accessing ARC Data & Data Dictionary: ga4gh.md
   - Mapping/GIS:
       - "Mapping the Geography of ALS 🚧": mapping.md
