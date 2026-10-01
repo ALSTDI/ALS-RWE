@@ -128,6 +128,8 @@
 
 ## Train-the-Trainer downloads
 
+The full list of decks for every session, including Module 0 and Days 1 to 3, is on the [Slide Decks and Kits](slides.md) page.
+
 All materials below live in this repository so they travel together. The slide decks use plain black-and-white slides on standard PowerPoint layouts, so you can apply your own theme or branding from the Design tab.
 
 ### Feasibility First
@@ -167,5 +169,3 @@ All materials below live in this repository so they travel together. The slide d
 - [Instructor deck with notes](training/day-06-hades/kit/Part-1-Instructor-Deck-with-Notes.pptx)
 - [Slide-by-slide script](training/day-06-hades/kit/Part-1-Slide-Script.md)
 
-> The large lecture decks (Day 1 to Day 6 full slide sets) are hosted separately
-> in Google Drive because of their size, and linked from there.

@@ -11,6 +11,7 @@
 
 [Start with Environment Setup :material-arrow-right:](modules/00-environment-walkthrough.md){ .md-button .md-button--primary }
 [Jump to Syllabus :material-book-open-variant:](syllabus.md){ .md-button }
+[Slide Decks :material-presentation:](slides.md){ .md-button }
 [Find Your Learning Path :material-map-marker-path:](personas.md){ .md-button }
 
 !!! info "One ALS example runs through every session"
