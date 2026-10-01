@@ -1,0 +1,306 @@
+/* --- Brand colors (Pantone 254 C) --- */
+:root{
+  --md-primary-fg-color: #904199;
+  --md-primary-fg-color--light: #b872c0;
+  --md-primary-fg-color--dark: #6d2f77;
+  --md-accent-fg-color: #904199;
+
+  --md-typeset-font-size: 1.02rem;
+  --md-typeset-line-height: 1.65;
+}
+
+/* --- Always show header logo in white tile --- */
+.md-header__button.md-logo {
+  display: inline-flex !important;
+  align-items: center;
+  margin: 0 0.5rem 0 0;
+}
+
+.md-header__button.md-logo img {
+  display: block !important;
+  height: 64px !important;          /* adjust size to taste */
+  width: auto !important;
+  background: #fff;                 /* solid white background */
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+
+/* Keep logo consistent in mobile drawer */
+.md-nav__title .md-logo img {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  height: 56px;
+  width: auto;
+}
+
+/* Table zebra striping */
+.md-typeset table:not([class]) tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Search box */
+.ga4gh-search-input {
+  width: 100%;
+  max-width: 700px;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Table wrapper */
+.ga4gh-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styling */
+#ga4gh-dict-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#ga4gh-dict-table th,
+#ga4gh-dict-table td {
+  padding: 0.6rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Sticky header */
+#ga4gh-dict-table th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+/* Loading message */
+.ga4gh-loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* Help text */
+.ga4gh-help-text {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* =========================================================
+   Mapping tab: environmental health tools table,
+   placeholders, and the collaboration card.
+   ========================================================= */
+
+.eht-controls {
+  margin: 1rem 0 0.5rem;
+}
+
+.eht-scale-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.eht-scale-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--md-primary-fg-color);
+  background: transparent;
+  color: var(--md-primary-fg-color);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.eht-scale-btn:hover {
+  background: rgba(144, 65, 153, 0.08);
+}
+
+.eht-scale-btn.active {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+.eht-count {
+  font-size: 0.85rem;
+  color: #666;
+  margin-left: auto;
+}
+
+#eht-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  table-layout: fixed;
+}
+
+#eht-table th:nth-child(1), #eht-table td:nth-child(1) { width: 40%; }
+#eht-table th:nth-child(2), #eht-table td:nth-child(2) { width: 13%; }
+#eht-table th:nth-child(3), #eht-table td:nth-child(3) { width: 11%; }
+#eht-table th:nth-child(4), #eht-table td:nth-child(4) { width: 19%; }
+#eht-table th:nth-child(5), #eht-table td:nth-child(5) { width: 17%; }
+
+#eht-table th,
+#eht-table td {
+  padding: 0.6rem 0.4rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+#eht-table th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.eht-org {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.eht-note {
+  color: #666;
+  font-size: 0.78rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+  max-width: 100%;
+}
+
+.eht-status {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.5rem;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.eht-status.eht-live { background: #e3f3e6; color: #1e6b32; }
+.eht-status.eht-removed { background: #fbe3e3; color: #8c1c1c; }
+.eht-status.eht-uncertain { background: #fdf1dc; color: #8a5a10; }
+
+.eht-loading {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* --- Story map / video placeholders --- */
+.map-placeholder {
+  background: #f7f1f8;
+  border: 1px dashed var(--md-primary-fg-color--light);
+  border-radius: 8px;
+  max-width: 760px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #7a6a7e;
+  font-style: italic;
+}
+
+.video-embed {
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --- Collaborate with us card --- */
+.collab-card {
+  border: 1px solid #e6d5ea;
+  border-left: 4px solid var(--md-primary-fg-color);
+  border-radius: 6px;
+  background: #fbf7fc;
+  padding: 1.2rem 1.4rem;
+  max-width: 760px;
+}
+
+.collab-card > :first-child { margin-top: 0; }
+.collab-card > :last-child { margin-bottom: 0; }
+
+/* --- Prominent "under construction" banner --- */
+.uc-hero {
+  position: relative;
+  background: #fff8e6;
+  border: 2px solid #e0a800;
+  border-radius: 8px;
+  padding: 1.2rem 1.6rem 1.2rem 2.2rem;
+  margin: 0 0 2rem;
+  overflow: hidden;
+}
+
+/* Hazard stripes down both edges, pure CSS so nothing loads from a CDN */
+.uc-hero::before,
+.uc-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    #e0a800,
+    #e0a800 9px,
+    #2b2b2b 9px,
+    #2b2b2b 18px
+  );
+}
+
+.uc-hero::before { left: 0; }
+.uc-hero::after { right: 0; }
+
+/* Styled as a heading but marked up as a paragraph, so the page keeps a
+   single h1 and the banner stays out of the table of contents. */
+.md-typeset .uc-hero .uc-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7a4f00;
+}
+
+.md-typeset .uc-hero .uc-title::before {
+  content: "\26A0";           /* warning sign, present in every system font */
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.md-typeset .uc-hero p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a3c1c;
+}
+
+.md-typeset .uc-hero .uc-title strong {
+  font-weight: 800;
+  color: inherit;
+}

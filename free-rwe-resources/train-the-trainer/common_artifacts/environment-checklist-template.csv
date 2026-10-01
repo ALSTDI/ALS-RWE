@@ -1,0 +1,8 @@
+Area,Task,Verified (Y/N),Notes
+ATLAS,Login successful and can save cohorts,,
+CDM Database,Confirmed SQL read access,,
+HADES,R environment installed and packages load,,
+GitHub,Repo cloned and permissions confirmed,,
+SQL Client,Connected to CDM successfully,,
+Teams / Slack,Joined correct support channel,,
+VPN,Connection stable and verified,,

@@ -1,0 +1,11 @@
+Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit,Correct
+What does OHDSI stand for?,Open Health Data Sciences Initiative,Observational Health Data Sciences and Informatics,Organized Health Data Sharing Infrastructure,Online Health Data Standards Institute,20,2
+Which vocabulary supplies most standard concepts in the Condition domain?,ICD-10-CM,RxNorm,SNOMED CT,LOINC,20,3
+"In the concept table, what does standard_concept = 'S' mean?",The concept is a synonym,The concept is a standard concept used to record and analyze events,The concept is source-specific,The concept is a standard lab code,20,2
+Which relationship links a non-standard ICD code to its standard concept?,Is a,Subsumes,Maps to,Mapped from,20,3
+A concept set holds only ICD-10-CM codes. In a standard condition criterion it will:,Return a larger cohort than expected,Match no records in standard concept fields,Be converted to SNOMED by ATLAS,Work the same as SNOMED concepts,25,2
+Which table pre-computes ALL ancestor-descendant pairs for hierarchy traversal?,concept_relationship,concept_hierarchy,concept_ancestor,concept_synonym,20,3
+What does concept_id = 0 in condition_occurrence mean?,The record was deleted,The concept is standard,The source code was not mapped to a standard concept,The condition has no ICD code,20,3
+"Which OMOP table stores lab results, vital signs, and other quantitative findings?",observation,measurement,condition_occurrence,procedure_occurrence,15,2
+Why does OMOP keep the source code alongside the standard concept?,In case SNOMED is not available,For auditability: analysts can trace back to the original code,ATLAS requires ICD codes for cohort building,SNOMED is not yet complete for all conditions,25,2
+An ATC drug class (for example N07XX, other nervous system drugs) has which standard_concept value?,S (standard),C (classification),NULL (non-standard),0 (unmapped),20,2

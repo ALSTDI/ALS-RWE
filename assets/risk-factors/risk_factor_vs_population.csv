@@ -1,0 +1,14 @@
+risk_factor,cohort_pct,cohort_n,population_pct,ratio_cohort_to_pop,direction,population_range,source
+"Smoking, ever (>=1 cig/day for 6+ months)",33.5,255/762,30.0,1.1,similar to population,~30% (current ~12% + former ~18-20%),"CDC NHIS / Health, United States (current cigarette smoking 11.6%, 2022)"
+"Vigorous leisure-time physical activity, ever",79.3,604/762,,,not directly comparable,"no direct analog; CDC current adherence ~46% aerobic, ~24% both","CDC NCHS, Physical Activity Among Adults, NHIS 2020/2022"
+Military service (ever member of armed forces),10.5,79/755,6.1,1.7,HIGHER than population,6.1% of all adults; but ~42% of men 75+ (age/sex dependent),U.S. Census Bureau ACS 2023 / Pew Research 2023
+"Head/neck injury, any (lifetime, self-report)",62.0,467/753,18.2,3.4,HIGHER than population,12-18% (TBI with LOC); up to ~30-40% broadest 'any TBI',"Seifi et al., Neuroepidemiology 2024 (18.2%); CDC self-report review 19-29%"
+Blast / explosion exposure,3.1,23/753,,,not directly comparable,rare in civilians; concentrated in military/occupational,No national civilian benchmark; predominantly service-related
+Family history of ALS / other neuromuscular disease,10.6,80/758,8.0,1.3,similar to population,expected familial-ALS proportion in case series ~5-11%; general-pop ALS lifetime risk ~0.3% (1 in 300),"Ryan et al., Neurology Genetics 2023 (fALS 5-11%); Al-Chalabi, Nature 2017 (1/300)"
+Family history of Alzheimer's / other dementia,27.7,210/758,,,not directly comparable,no standard family-history benchmark; dementia common in aging relatives,Not cleanly benchmarkable (see notes)
+Family history of Parkinson's disease (write-in),3.8,29/758,,,not directly comparable,soft benchmark; ~3-5% of adults have a relative with PD,Derived from PD prevalence (~1% at 60); no standard family-history figure
+"Asthma, ever (physician-diagnosed)",15.2,70/460,13.0,1.2,similar to population,~13% lifetime ('ever told'); current asthma ~7.7%,"CDC Asthma Data, BRFSS/NHIS 2021-2022"
+"Autoimmune disease, any (excl. thyroid)",10.7,49/460,4.6,2.3,HIGHER than population,4.6% any of 105 autoimmune dx (EHR); older estimate 7.6-9.4%,"Conrad/Fairweather et al., JCI 2025 (4.6%); NASEM 2022 (7.6-9.4%)"
+"Autoimmune disease, any (incl. thyroid)",23.7,109/460,,,not directly comparable,"thyroid disease alone ~12%, so composite not comparable to 4.6%",See thyroid row
+"Thyroid disease, ever",13.9,64/460,12.0,1.2,similar to population,"~12% (any thyroid disease, lifetime)",General clinical estimate; thyroid was a top-5 autoimmune dx in JCI 2025
+"Parkinson's disease, self (write-in)",0.2,1/460,0.5,0.4,lower than population,"~0.3-0.5% of adults; ~1% at age 60, ~4% by 80",Parkinson's Foundation / Marras et al. 2018; CDC
