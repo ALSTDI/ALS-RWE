@@ -7,9 +7,9 @@ We now test the running question against real data using the public ATLAS demo. 
 ## What you are working with
 
 - **Tool:** the public ATLAS demo at **[https://atlas-demo.ohdsi.org](https://atlas-demo.ohdsi.org)** (Chrome is the supported browser).
-- **Data:** a synthetic dataset called **SynPUF**, built from CMS Medicare claims. Read that twice. Medicare is a program for people who are mostly 65 and older, and it is synthetic, and it is for demonstration, not research.
+- **Data:** a synthetic data set called **SynPUF**, built from CMS Medicare claims. Medicare covers people who are mostly 65 and older, along with some younger people who qualify through disability. The data are synthetic and meant for demonstration, not research.
 
-That data choice is deliberate here, and it is the lesson. SynPUF is full of diabetes and has essentially no pregnancies, because its population is old. So the demo lets you watch a feasibility check succeed on the concept level and fail on the population level, which is precisely the failure mode you most need to catch early against your own instance.
+That data choice is deliberate here, and it is the lesson. SynPUF has abundant diabetes records and very few pregnancy records, because of who Medicare covers. So the demo lets you watch a feasibility check succeed on the concept level and fail on the population level, which is precisely the failure mode you most need to catch early against your own instance.
 
 !!! tip "Pre-built definition — import once, screen-share instead of typing live"
     The instructor kit includes a ready-to-import cohort, `Demo-Cohort-Diabetes-Childbearing-Age.json`. It is built to collapse cleanly on SynPUF using only concepts that are guaranteed present, so you never type concept sets live in front of the room.
@@ -31,7 +31,7 @@ You are checking three things from the [primer](03-vocab-and-cdm-primer.md):
 - Click it. The record-count and person-count columns show it is abundant in this source. Diabetes is everywhere in a Medicare population.
 - Note the hierarchy tab: this concept has many descendants you will want to include.
 
-Say out loud what just happened: the concept exists, it is standard, and it is present in large numbers. Two of your three feasibility checks pass for diabetes.
+Name what just happened for the group: the concept exists, it is standard, and it is present in large numbers. Two of your three feasibility checks pass for diabetes.
 
 Now search `preeclampsia`. The concept exists in the vocabulary (it is a valid SNOMED Condition), but look at the record and person counts in this source. They are negligible. First hint of trouble, and it is a population problem, not a vocabulary problem.
 
@@ -44,7 +44,7 @@ Go to **Concept Sets → New Concept Set**. Build and name a few:
 - **Metformin** and **Insulin:** add the ingredient-level RxNorm concept, include descendants.
 - **Pregnancy or delivery:** add obstetric and delivery concepts you can find.
 
-For each, use the **Included Concepts** tab to see how many concepts your rules resolve to, and the source-code tab to sanity-check what you are capturing. This is where you feel the difference between a concept that exists and a concept set that is defined well.
+For each, use the **Included Concepts** tab to see how many concepts your rules resolve to, and the **Included Source Codes** tab to check what you are capturing. This is where you feel the difference between a concept that exists and a concept set that is defined well.
 
 ## Step 3 — Define the cohort
 
@@ -59,14 +59,14 @@ Go to **Cohort Definitions**. If you imported the pre-built definition, open it 
 Open the **Generation** tab and generate against the SynPUF source. Then watch what the counts do as the definition builds up, using the **attrition report**:
 
 - Diabetes alone: large.
-- Add the childbearing-age requirement: the count falls off a cliff.
+- Add the childbearing-age requirement: the count falls sharply. Run the saved cohort before class and note the dated counts, since SynPUF includes some beneficiaries under 65 and the count after this rule is small and may not be zero.
 - (At a real instance, requiring pregestational diabetes before a pregnancy does the same thing for the same reason.)
 
-Stop here and name it. Every concept in your definition exists in the vocabulary. The cohort is nearly empty. Nothing is broken. The data source simply does not contain the population your question needs. **This is what infeasibility looks like, and you found it in about eight minutes instead of eight months.**
+Pause here and name the result. Every concept in your definition exists in the vocabulary. The cohort is nearly empty. Nothing is broken. The data source simply does not contain the population your question needs. **This is what infeasibility looks like, and you found it in about eight minutes instead of eight months.**
 
 ## Step 5 — Diagnose why, so the lesson generalizes
 
-Use characterization to prove the cause rather than guess it. View the age distribution of anyone the definition captured. It is overwhelmingly elderly, because the source is Medicare. Childbearing-age people are barely present, so pregnancies cannot be.
+Use characterization to prove the cause rather than guess it. View the age distribution of anyone the definition captured. Most people are 65 or older, because the source is Medicare. Few people of childbearing age are present, so pregnancies are rare.
 
 The transferable habit: when a cohort comes back empty, ask whether the concepts are missing or the population is missing. They lead to completely different next moves. Missing concepts might mean a mapping problem you can fix. A missing population means this source can never answer the question, and you take it elsewhere.
 
@@ -75,7 +75,7 @@ The transferable habit: when a cohort comes back empty, ask whether the concepts
 The public ATLAS demo cannot run your study, but it can hand you the definition to run where the data live. Two paths:
 
 - **Export the cohort definition** (JSON) and import it into your institution's ATLAS, where it runs against real obstetric data.
-- ATLAS can **generate the R code** for a full study from a definition built on the public instance, which then runs in any environment with a CDM, no local ATLAS required. The Book of OHDSI documents this as an explicit design goal of the public instance.
+- Use the exported JSON and SQL with the **HADES R packages** (for example CohortGenerator), which run the definition in any environment with a CDM, with no local ATLAS required. The Book of OHDSI (chapter 8) describes designing an analysis in a public ATLAS and running the exported code where the data are.
 
 So the demo is not a dead end even though its data cannot answer the question. It is where you design and validate the logic for free, then point that logic at data that can.
 

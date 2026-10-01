@@ -21,7 +21,7 @@ Each participant should complete the environment checklist and verify all access
 
 By the end of this module, participants will be able to:
 
-1. Access all required OHDSI tools and environments (ATLAS, CDM database, SEARCH).
+1. Access all required tools and environments (ATLAS and the CDM database).
 2. Verify permissions for data connections and tool execution.
 3. Install and test required local software (R, RStudio, Git, SQL client).
 4. Document readiness using the provided **Environment Checklist Template**.
@@ -38,17 +38,11 @@ By the end of this module, participants will be able to:
 ### :material-database: OMOP CDM Access
 - Confirm **read access** to a sandbox or training CDM database (synthetic or de-identified).
 - Ensure network permissions and ODBC/connection strings are functional.
-- Optional: Test a basic `SELECT * FROM PERSON LIMIT 5;` query via SQL client.
-
-### :material-magnify: SEARCH Tool
-*(If applicable for your site)*
-
-- Confirm access to SEARCH.
-- Run a simple cohort-based extraction to ensure permissions are active.
-- Save export outputs to your working directory.
+- Optional: Test a basic `SELECT * FROM PERSON LIMIT 5;` query via SQL client (`SELECT TOP 5 *` on SQL Server).
 
 ### :material-chart-bar: HADES Environment (Optional — Day 6 Track)
-- Verify R (≥ 4.2) and RStudio (or Posit Workbench) installation.
+- Verify R, RStudio (or Posit Workbench), Java, and (on Windows) RTools. The [HADES R setup guide](https://ohdsi.github.io/Hades/rSetup.html) names the R version the packages are tested against (R 4.4.1 when the guide was read on 1 October 2026).
+- Set a GitHub personal access token before installing, as the setup guide describes; installing every HADES package anonymously runs into the GitHub download cap.
 - Confirm ability to install and load OHDSI packages:
 
 ```r
@@ -76,7 +70,6 @@ A downloadable Markdown version is available here:
 |:--|:--|:--|:--|
 | ATLAS | Login successful and can save cohorts | | |
 | CDM Database | Confirmed SQL read access | | |
-| SEARCH | Extraction test completed | | |
 | HADES | R environment installed and packages load | | |
 | GitHub | Repo cloned and permissions confirmed | | |
 | SQL Client | Connected to CDM successfully | | |
@@ -91,14 +84,14 @@ A downloadable Markdown version is available here:
 |:--|:--|
 | [Instructor Deck](../training/day-00-environment/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
 | [Participant Handout](../training/day-00-environment/kit/Participant-Handout.pptx) | Abbreviated handout for participants |
-| [Kahoot Quiz](../training/day-00-environment/kit/Kahoot-Quiz.csv) | 7-question environment setup quiz |
+| [Kahoot Quiz](../training/day-00-environment/kit/Kahoot-Quiz.csv) | Environment setup quiz |
 
 ---
 
 ## Deliverables
 
 - Completed **Environment Checklist** uploaded or shared with instructors.
-- Verified tool access and functional test results (ATLAS, CDM, SEARCH if applicable).
+- Verified tool access and functional test results (ATLAS and the CDM).
 
 ---
 

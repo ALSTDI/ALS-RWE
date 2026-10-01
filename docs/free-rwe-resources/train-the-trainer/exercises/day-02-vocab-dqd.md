@@ -12,9 +12,9 @@
 
 !!! abstract "What you will do"
     1. Build a concept set in Atlas using descendants.
-    2. Inspect the "mapped" view to confirm coverage.
+    2. Inspect the Included Source Codes tab to confirm coverage.
     3. Validate the concept set against the CDM with SQL.
-    4. Read one Data Quality Dashboard result and decide whether it matters.
+    4. Read one Data Quality Dashboard result and decide whether it affects your study.
 
 !!! warning "Setup and extraction are site specific"
     Every institution's environment is different. These steps use Databricks and DBeaver as the SQL client because that is what the reference site uses, but your site may use something else (for example Snowflake, Postgres, BigQuery, SQL Server, or Posit Workbench). The OMOP CDM and the SQL logic are the same everywhere. Only the connection details and the extraction tooling change. Substitute your local client, connection string, and data access steps wherever Databricks is mentioned.
@@ -23,16 +23,16 @@
 
 ## Step 1: Build a concept set (warm-up)
 1. Open Atlas and go to **Concept Sets**, then **New Concept Set**.
-2. Search Athena for the ingredient **sulfonylureas**.
-3. Add it to the set, then turn on **Include Descendants** so all products and doses are captured.
+2. Search for **sulfonylureas** and choose the ATC class concept (code A10BB). It is a Classification concept, not an ingredient.
+3. Add it to the set, then turn on **Descendants** so the ingredients and the products below them are captured.
 4. Save the set with a clear name, for example `TtT Day2 Sulfonylureas`.
 
-## Step 2: Inspect standard and mapped
-1. Open the **Included Concepts** tab and confirm every concept is standard.
-2. Open the **Mapped** view. These are the source codes that map into your standard concepts. Skim them and ask: does this look like complete coverage for your site, or are obvious codes missing?
+## Step 2: Inspect Included Concepts and Included Source Codes
+1. Open the **Included Concepts** tab. The class itself shows Classification, and its drug descendants show Standard. Nothing should show Non-Standard.
+2. Open the **Included Source Codes** tab. These are the source codes that map to the concepts in your set. Skim them and ask: does this look like complete coverage for your site, or are obvious codes missing?
 
 ## Step 3: Validate against the CDM with SQL
-Export the concept set expression SQL from Atlas, then run the count yourself in your SQL client. A simple validation query (adjust schema and client to your site):
+Copy the concept ID of the class from ATLAS, then run the count yourself in your SQL client. A simple query (adjust schema and client to your site):
 
 ```sql
 -- How many drug exposures fall in the sulfonylurea concept set?
@@ -41,30 +41,29 @@ SELECT COUNT(*) AS exposures,
 FROM cdm.drug_exposure de
 JOIN cdm.concept_ancestor ca
      ON ca.descendant_concept_id = de.drug_concept_id
-WHERE ca.ancestor_concept_id = :sulfonylurea_ingredient_concept_id;
+WHERE ca.ancestor_concept_id = :sulfonylurea_class_concept_id;
 ```
 
-Compare the count to what Atlas reports. If they differ, the usual culprits are a non-standard concept in the set, a missing "include descendants" toggle, or a schema or vocabulary version mismatch.
+Compare the count with the record counts ATLAS shows for the concept (the RC and DRC columns). Those counts come from the last Achilles run, so small differences are expected when the CDM has been refreshed since then. Larger differences usually trace to a different schema, a different vocabulary version, or a set that does not include descendants.
 
 !!! tip "Runnable practice without a CDM"
     If you do not yet have a CDM connection, the Day 1 sample notebook builds a tiny synthetic CDM in the notebook itself, so you can practice the same `concept_ancestor` join logic with no credentials.
 
 ## Step 4: Read one data quality result
 1. Open a Data Quality Dashboard result for your training CDM (or a sample DQD report).
-2. Find one **failed** check and note (a) its Kahn **category** — conformance, completeness, or plausibility; (b) its **subcategory** if shown (e.g. value/relational/computational conformance, or uniqueness/atemporal/temporal plausibility); (c) its **context** — verification or validation; and (d) its **threshold**.
-3. Decide, in one sentence, whether that failure would affect a diabetes drug study. This judgment, not the pass/fail count, is the point.
+2. Find one **failed** check and note (a) its Kahn **category** (conformance, completeness, or plausibility); (b) its **subcategory** if one is shown; (c) its **context** (verification or validation); and (d) its **threshold**.
+3. Decide, in one sentence, whether that failure would affect a diabetes drug study. The judgment is the goal of this step, more than the pass and fail counts.
 
-!!! note "The Kahn framework at a glance"
-    Use this to place any check you find. Every DQD check is one **category** assessed in one **context**.
+!!! note "Kahn labels in a DQD report"
+    Use this to place any check you find. DQD gives every check type a category, a subcategory where one applies, and a context.
 
-    | Category | Subcategories | Example check | Context it's usually run in |
-    | --- | --- | --- | --- |
-    | Conformance | value · relational · computational | `drug_concept_id` exists in `concept` with `domain_id = 'Drug'` | Verification (internal rules) |
-    | Completeness | *(none — presence only)* | Fraction of `condition_occurrence` rows with `concept_id = 0` | Verification (internal rules) |
-    | Plausibility | uniqueness · atemporal · temporal | No birth dates in the future; no drug era before birth | Verification (internal rules) |
-    | Plausibility | uniqueness · atemporal · temporal | Diabetes prevalence matches published national estimates | Validation (external benchmark) |
+    | Category | Subcategories | DQD check types with that label (examples) |
+    | --- | --- | --- |
+    | Conformance | value · relational · computational | `fkDomain` (value), `isForeignKey` (relational), `fkClass` (computational) |
+    | Completeness | none | `standardConceptRecordCompleteness` (rows with `concept_id = 0`), `measureValueCompleteness` |
+    | Plausibility | uniqueness · atemporal · temporal | `plausibleValueHigh` (atemporal), `plausibleAfterBirth` (temporal); none for uniqueness |
 
-    **Verification** checks the data against the system's own rules and specifications; **validation** checks it against an external, trusted benchmark. Most DQD checks are verification; validation needs an outside source of truth.
+    **Verification** compares the data with expectations that come from the system itself; **validation** compares the data with an external benchmark. Most DQD check types are labeled verification. The validation label is used for `isRequired`, `measurePersonCompleteness`, and the plausibleGender checks. DQD does not compare your rates with published estimates; that kind of validation is separate work. Labels read from the [DQD check type definitions](https://ohdsi.github.io/DataQualityDashboard/articles/CheckTypeDescriptions.html), version 2.6.3, on 1 October 2026.
 
 ---
 
@@ -77,6 +76,6 @@ Compare the count to what Atlas reports. If they differ, the usual culprits are 
 <summary>Show facilitation notes</summary>
 
 - Have a volunteer share their screen for the sulfonylurea build so the group sees the descendant toggle in action.
-- Expect the "mapped" view to surprise people. It is the fastest way to teach why non-standard concepts cause silent data loss.
-- The SQL validation step is where the site-specific reality lands. Ask each participant to name their own client and warehouse out loud so the group sees the variety.
+- Expect the Included Source Codes tab to surprise people. It is a quick way to show how source codes reach standard concepts and where coverage is missing.
+- The SQL step is where site differences show. Ask each participant to name their own client and warehouse so the group sees the variety.
 </details>

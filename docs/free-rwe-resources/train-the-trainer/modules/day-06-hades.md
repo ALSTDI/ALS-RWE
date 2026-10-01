@@ -1,4 +1,7 @@
-# :material-code-braces: Day 6 · Advanced Analytics with HADES (Optional)
+# :material-code-braces: Day 6, Part 1 · HADES: Cohort Diagnostics and Feature Extraction (Optional)
+
+!!! info "Day 6 is taught as separate sessions"
+    Part 1 (this page) covers the HADES environment, CohortDiagnostics, and FeatureExtraction. [Part 2](day-06-prediction.md) covers patient-level prediction. Each part is its own half-day session, and Part 2 reuses the connection and the cohort table set up here.
 
 !!! abstract "Objectives"
     By the end of Day 6 you will be able to:
@@ -7,8 +10,7 @@
     2. Set up a HADES environment with DatabaseConnector and a connection profile.
     3. Run CohortDiagnostics on a generated cohort and read the output.
     4. Run FeatureExtraction to build a baseline characterization table.
-    5. Identify where to find CohortMethod and PatientLevelPrediction and what each does.
-    6. Interpret key diagnostics (propensity score distribution, calibration plot) at a conceptual level.
+    5. Name the packages used for estimation (CohortMethod) and prediction (PatientLevelPrediction) and say where Part 2 continues.
 
 ---
 
@@ -24,10 +26,10 @@ The key packages and their roles:
 | **CohortGenerator** | Creates cohort tables from cohort definition JSON exported from ATLAS |
 | **CohortDiagnostics** | Audits cohort quality: concept set coverage, incidence rates, time series, and visit context |
 | **FeatureExtraction** | Builds covariate tables (demographics, conditions, drugs, measurements) from a cohort |
-| **CohortMethod** | Population-level comparative effectiveness (new-user active-comparator design) |
+| **CohortMethod** | Population-level effect estimation with the new-user cohort design |
 | **SelfControlledCaseSeries** | Population-level safety estimation using within-person exposure variation |
 | **PatientLevelPrediction** | Machine learning-based patient-level prediction models |
-| **EvidenceSynthesis** | Combines estimates across data partners in a network meta-analysis |
+| **EvidenceSynthesis** | Combines estimates from several databases (meta-analysis across data partners) |
 | **Achilles** | CDM characterization and data quality summary (Ares viewer) |
 | **DataQualityDashboard** | The DQD covered in Day 2 — also part of HADES |
 
@@ -43,6 +45,8 @@ The complete package list and documentation live at [ohdsi.github.io/Hades](http
 
 ### 1. Install HADES packages
 
+First follow the [HADES R setup guide](https://ohdsi.github.io/Hades/rSetup.html): install the R version it names (R 4.4.1 when the guide was read on 1 October 2026), RTools on Windows, and Java, and set a GitHub personal access token. Without the token, installing every HADES package runs into the GitHub download cap.
+
 ```r
 install.packages("remotes")
 remotes::install_github("OHDSI/Hades")
@@ -51,9 +55,8 @@ remotes::install_github("OHDSI/Hades")
 Or install individual packages:
 
 ```r
-remotes::install_github("OHDSI/DatabaseConnector")
+install.packages(c("DatabaseConnector", "FeatureExtraction", "CohortGenerator"))  # on CRAN
 remotes::install_github("OHDSI/CohortDiagnostics")
-remotes::install_github("OHDSI/FeatureExtraction")
 ```
 
 ### 2. Create a connection profile
@@ -81,7 +84,7 @@ disconnect(conn)
 ```r
 cdmDatabaseSchema    <- "[cdm_schema]"       # where the CDM lives
 cohortDatabaseSchema <- "[results_schema]"   # where cohort tables are written
-cohortTable          <- "cohort"             # table name for cohorts
+cohortTable          <- "ttt_day6_cohort"    # a dedicated table for this lab, not the ATLAS cohort table
 ```
 
 ---
@@ -90,57 +93,78 @@ cohortTable          <- "cohort"             # table name for cohorts
 
 | Time | Topic |
 |:--|:--|
-| 09:00 – 09:30 | HADES overview: packages, roles, and how they chain together |
-| 09:30 – 10:15 | Environment setup: DatabaseConnector, schemas, driver installation |
-| 10:15 – 10:30 | Break |
-| 10:30 – 11:30 | Hands-on: CohortDiagnostics on a training cohort |
-| 11:30 – 12:00 | Hands-on: FeatureExtraction — building a covariate table |
-| 12:00 – 13:00 | Lunch |
-| 13:00 – 14:00 | Demo: CohortMethod or PatientLevelPrediction (choose one based on group interest) |
-| 14:00 – 14:45 | Interpreting diagnostics: propensity score overlap, calibration, model performance |
-| 14:45 – 15:15 | Recap, next steps, and how to contribute to the OHDSI network |
+| 9:30 – 9:50 | HADES overview: the packages and how they fit together |
+| 9:50 – 10:30 | Environment setup: DatabaseConnector, schemas, driver installation |
+| 10:30 – 10:45 | Break |
+| 10:45 – 11:45 | Hands-on: CohortGenerator and CohortDiagnostics on a training cohort |
+| 11:45 – 12:30 | Hands-on: FeatureExtraction, building a baseline table |
+| 12:30 – 1:00 | Reading the output together; recap and preview of Part 2 |
 
 ---
 
 ## CohortDiagnostics: Auditing a Cohort
 
-CohortDiagnostics is the first step after you build a cohort — it tells you whether the cohort actually captures what you intended.
+CohortDiagnostics is a common next step after you build a cohort. It helps you judge whether the cohort captures what you intended. The cohorts have to be generated first, which the block below does with CohortGenerator.
 
 ```r
+library(CohortGenerator)
 library(CohortDiagnostics)
 
+# Use a dedicated cohort table for this lab. Do not point CohortGenerator at the
+# cohort table ATLAS writes to, because createCohortTables() can replace a table.
+cohortTable     <- "ttt_day6_cohort"
+cohortTableNames <- getCohortTableNames(cohortTable = cohortTable)
+
 cohortDefinitionSet <- getCohortDefinitionSet(
-  settingsFileName   = "cohorts/CohortsToCreate.csv",
-  jsonFolder         = "cohorts/",
-  sqlFolder          = "cohorts/"
+  settingsFileName = "cohorts/CohortsToCreate.csv",
+  jsonFolder       = "cohorts/",
+  sqlFolder        = "cohorts/"
+)
+
+# Generate the cohorts into the dedicated table
+createCohortTables(
+  connectionDetails    = connectionDetails,
+  cohortDatabaseSchema = cohortDatabaseSchema,
+  cohortTableNames     = cohortTableNames
+)
+generateCohortSet(
+  connectionDetails    = connectionDetails,
+  cdmDatabaseSchema    = cdmDatabaseSchema,
+  cohortDatabaseSchema = cohortDatabaseSchema,
+  cohortTableNames     = cohortTableNames,
+  cohortDefinitionSet  = cohortDefinitionSet
 )
 
 executeDiagnostics(
-  cohortDefinitionSet     = cohortDefinitionSet,
-  exportFolder            = "diagnostics_output/",
-  databaseId              = "[your site ID]",
-  connectionDetails       = connectionDetails,
-  cdmDatabaseSchema       = cdmDatabaseSchema,
-  cohortDatabaseSchema    = cohortDatabaseSchema,
-  cohortTable             = cohortTable,
-  runInclusionStatistics  = TRUE,
+  cohortDefinitionSet       = cohortDefinitionSet,
+  exportFolder              = "diagnostics_output",
+  databaseId                = "[your site ID]",
+  connectionDetails         = connectionDetails,
+  cdmDatabaseSchema         = cdmDatabaseSchema,
+  cohortDatabaseSchema      = cohortDatabaseSchema,
+  cohortTableNames          = cohortTableNames,
+  runInclusionStatistics    = TRUE,
   runIncludedSourceConcepts = TRUE,
-  runOrphanConcepts       = TRUE,
-  runTimeSeries           = TRUE,
-  runVisitContext         = TRUE,
-  runBreakdownIndexEvents = TRUE,
-  runIncidenceRate        = TRUE,
-  minCellCount            = 5
+  runOrphanConcepts         = TRUE,
+  runTimeSeries             = TRUE,
+  runVisitContext           = TRUE,
+  runBreakdownIndexEvents   = TRUE,
+  runIncidenceRate          = TRUE,
+  minCellCount              = 5
 )
 
-# Launch the Shiny viewer
-launchDiagnosticsExplorer("diagnostics_output/")
+# Merge the results and open the viewer
+createMergedResultsFile("diagnostics_output", sqliteDbPath = "diagnostics.sqlite")
+launchDiagnosticsExplorer(sqliteDbPath = "diagnostics.sqlite")
 ```
+
+!!! note "Check the function names against your installed version"
+    This block follows the CohortGenerator and CohortDiagnostics 3.x interface. It was not run against a database or re-checked against the package documentation when these pages were corrected on 1 October 2026, and the viewer functions have changed between releases. Before the session, compare it with the [CohortDiagnostics documentation](https://ohdsi.github.io/CohortDiagnostics/) for the version you have installed.
 
 **Key diagnostics to review:**
 
 - **Included source concepts:** which source codes actually appear in your CDM for this cohort's concept sets. Gaps here mean your concept set may be missing coverage.
-- **Orphan concepts:** standard concepts that are close descendants of your concept set but not included. A large orphan list often means your concept set is too narrow.
+- **Orphan concepts:** concepts that are not in your concept set, appear in the data, and look related to the concepts you chose (found by matching concept names and relationships). A long list is a prompt to review whether the concept set is too narrow.
 - **Incidence rate time series:** spikes or gaps in when people enter the cohort — often signal coding changes, site-level data issues, or event-driven data collection.
 - **Visit context:** proportion of index events in inpatient vs. outpatient vs. ED. Useful for assessing whether your entry event means what you intended clinically.
 
@@ -159,13 +183,14 @@ covariateData <- getDbCovariateData(
   cohortDatabaseSchema     = cohortDatabaseSchema,
   cohortTable              = cohortTable,
   cohortIds                = c([your_cohort_id]),
-  covariateSettings        = covariateSettings
+  covariateSettings        = covariateSettings,
+  aggregated               = TRUE     # one summary row per covariate
 )
 
 summary(covariateData)
 ```
 
-The result is a sparse covariate matrix. Common uses:
+With `aggregated = TRUE` the result is a summary per covariate (count and mean). Without it, the result has one row per person and covariate. Common uses:
 
 - **Baseline characterization:** describe the cohort at index (demographics, conditions, drugs, lab values).
 - **Propensity score model input:** feed into CohortMethod as predictors.
@@ -175,36 +200,33 @@ The result is a sparse covariate matrix. Common uses:
 
 ## Slides & Materials
 
-- :material-presentation: **Instructor deck:** [Download PPTX](../training/day-06-hades/kit/Instructor-Deck.pptx)
-- :material-notebook: **Participant workbook:** [Download PPTX](../training/day-06-hades/kit/Participant-Workbook.pptx)
-- :material-help-circle: **Kahoot quiz (CSV):** [Download](../training/day-06-hades/kit/Kahoot-Quiz.csv)
-- :material-file-document: **Participant handout:** [Download PPTX](../training/day-06-hades/kit/Participant-Handout.pptx)
-- :material-key: **Instructor answer key:** [Download PPTX](../training/day-06-hades/kit/Instructor-Answer-Key.pptx)
-- :material-presentation-play: **Live demo script:** [Download PPTX](../training/day-06-hades/kit/Live-Demo-Script.pptx)
-- :material-chart-bar: **Prediction interpretation guide:** [Download PPTX](../training/day-06-hades/kit/Prediction-Interpretation-Guide.pptx)
-- :material-database-settings: **Databricks setup guide:** [Download PPTX](../training/day-06-hades/kit/Databricks-Setup-Placeholder-Guide.pptx)
-- :material-flask: **Colab notebook (Patient-Level Prediction):** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day6-Patient-Level-Prediction.ipynb)
+- :material-presentation: **Instructor deck with notes (headline-only slides):** [Download PPTX](../training/day-06-hades/kit/Part-1-Instructor-Deck-with-Notes.pptx)
+- :material-script-text: **Slide-by-slide script:** [Open](../training/day-06-hades/kit/Part-1-Slide-Script.md)
+- The code and the lab are on this page and the [Part 1 exercise](../exercises/day-06-hades-optional.md).
+
+- :material-database-settings: **Databricks setup guide (placeholder template, used in both parts):** [Download PPTX](../training/day-06-hades/kit/Databricks-Setup-Placeholder-Guide.pptx)
+
+The prediction slide kit, quiz, and notebook belong to [Part 2](day-06-prediction.md).
 
 ---
 
 ## Instructor Notes
 
-- **JAVA and JDBC drivers are the most common setup blocker.** Budget 30–45 minutes for troubleshooting before the session. The Databricks setup guide in the kit has driver-specific instructions.
-- **Choose one advanced demo.** CohortMethod (population-level estimation) and PatientLevelPrediction (patient-level ML) both take an hour to do properly. Pick the one more relevant to your group and leave the other for self-study.
-- **CohortDiagnostics is the highest-ROI exercise.** Even participants who will never run CohortMethod will benefit from running diagnostics on their own cohorts. Prioritize this if time is short.
-- **Use the Colab notebook for the prediction portion.** It uses synthetic data and requires no CDM connection, which keeps the group moving even if database setup is incomplete.
+- **Java and JDBC drivers are frequent setup blockers.** Plan time for troubleshooting before the session. The Databricks setup guide in the kit is a placeholder template: it lists what to ask your site for and has no driver-specific instructions.
+- **Prioritize CohortDiagnostics if time is short.** Participants who will never run an estimation or prediction study can still use diagnostics on their own cohorts.
+- **Keep the cohort table.** Part 2 reads the target and outcome cohorts from the dedicated cohort table created here, so ask participants not to drop it.
+- **CohortMethod is left for self-study.** Point participants who need population-level estimation to Chapter 12 of the Book of OHDSI.
 
 ---
 
 ## Further Reading
 
 - [HADES Package Documentation](https://ohdsi.github.io/Hades/)
-- Book of OHDSI, Chapter 13 (Prediction): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
-- Book of OHDSI, Chapter 12 (Estimation): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
+- Book of OHDSI, Chapter 8 (OHDSI Analytics Tools) and Chapter 11 (Characterization, section 11.8 on cohort characterization in R): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
+- Book of OHDSI, Chapter 12 (Population-Level Estimation): [ohdsi.github.io/TheBookOfOhdsi](https://ohdsi.github.io/TheBookOfOhdsi/)
 - [CohortDiagnostics vignette](https://ohdsi.github.io/CohortDiagnostics/)
 - [FeatureExtraction vignette](https://ohdsi.github.io/FeatureExtraction/)
-- [PatientLevelPrediction vignette](https://ohdsi.github.io/PatientLevelPrediction/)
 
 ---
 
-:material-arrow-left: [Day 5 · Treatment Pathways (Optional)](day-05-pathways.md)
+:material-arrow-left: [Day 5 · Treatment Pathways (Optional)](day-05-pathways.md) &emsp; :material-arrow-right: [Day 6, Part 2 · Patient-Level Prediction (Optional)](day-06-prediction.md)

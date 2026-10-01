@@ -19,7 +19,7 @@ FROM cdm.concept
 WHERE LOWER(concept_name) LIKE '%type 2 diabetes%'
 ORDER BY standard_concept DESC, concept_name;
 ```
-> `standard_concept = 'S'` → standard concept; `NULL` → non-standard (source) concept.
+> `standard_concept = 'S'` → standard concept; `'C'` → classification concept (for example an ATC drug class); `NULL` → non-standard (source) concept.
 
 ---
 
@@ -27,7 +27,7 @@ ORDER BY standard_concept DESC, concept_name;
 ```sql
 SELECT *
 FROM cdm.concept
-WHERE concept_id = 201826;   -- Type 2 diabetes mellitus (SNOMED)
+WHERE concept_id = 201826;   -- Type 2 diabetes mellitus (SNOMED code 44054006)
 ```
 
 ---
@@ -60,7 +60,7 @@ ORDER BY domain_id, standard_concept;
 
 ### Find how a non-standard code maps to a standard concept
 ```sql
--- Replace 45548499 with any non-standard concept_id (e.g., an ICD-10-CM code)
+-- Uses the ICD-10-CM code E11.9; change the code and vocabulary to trace any source code
 SELECT cr.concept_id_1,
        c1.concept_name  AS source_concept,
        c1.vocabulary_id AS source_vocab,
@@ -71,7 +71,8 @@ SELECT cr.concept_id_1,
 FROM cdm.concept_relationship cr
 JOIN cdm.concept c1 ON cr.concept_id_1 = c1.concept_id
 JOIN cdm.concept c2 ON cr.concept_id_2 = c2.concept_id
-WHERE cr.concept_id_1 = 45548499
+WHERE c1.vocabulary_id = 'ICD10CM'
+  AND c1.concept_code = 'E11.9'
   AND cr.relationship_id = 'Maps to'
   AND cr.invalid_reason IS NULL;
 ```
@@ -91,7 +92,7 @@ WHERE cr.concept_id_1 = 201826   -- Type 2 diabetes mellitus
   AND cr.invalid_reason IS NULL
 ORDER BY cr.relationship_id;
 ```
-> Common `relationship_id` values: `'Maps to'`, `'Is a'`, `'Subsumes'`, `'Has ancestor'`, `'Maps to value'`.
+> Common `relationship_id` values: `'Maps to'`, `'Mapped from'`, `'Is a'`, `'Subsumes'`, `'Maps to value'`. Ancestors and descendants are not relationship values; they are stored in the `concept_ancestor` table.
 
 ---
 
@@ -123,7 +124,7 @@ SELECT ca.descendant_concept_id,
        ca.max_levels_of_separation
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
-WHERE ca.ancestor_concept_id = 21600381   -- Sulfonylureas (SNOMED ingredient class)
+WHERE ca.ancestor_concept_id = :sulfonylurea_class_concept_id   -- ATC class A10BB; look it up with: SELECT concept_id FROM cdm.concept WHERE vocabulary_id = 'ATC' AND concept_code = 'A10BB'
 ORDER BY ca.min_levels_of_separation, c.concept_name;
 ```
 
@@ -205,7 +206,7 @@ WHERE ca.ancestor_concept_id = 1503297;   -- Metformin ingredient
 SELECT
     COUNT(DISTINCT person_id)           AS persons_with_obs,
     ROUND(AVG(
-        DATEDIFF(observation_period_end_date, observation_period_start_date)
+        DATEDIFF(observation_period_end_date, observation_period_start_date)   -- Databricks / Spark argument order; see the platform notes in the cheat sheet
     ))                                  AS avg_obs_days,
     MIN(observation_period_start_date)  AS earliest_start,
     MAX(observation_period_end_date)    AS latest_end
@@ -216,7 +217,7 @@ FROM cdm.observation_period;
 
 ## 5. Quick data quality spot checks
 
-### Find records with concept_id = 0 (unmapped / non-standard)
+### Find records with concept_id = 0 (unmapped)
 ```sql
 -- Condition occurrences with no standard concept
 SELECT COUNT(*) AS unmapped_conditions

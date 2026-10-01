@@ -19,7 +19,7 @@
 
 <div class="grid cards" markdown>
 
--   :material-school:{ .lg .middle } **6 Core Sessions + 2 Optional**
+-   :material-school:{ .lg .middle } **Core Sessions and Optional Sessions**
 
     ---
 
@@ -31,7 +31,7 @@
 
     ---
 
-    Every session includes guided SQL exercises, Atlas walkthroughs, and Colab-ready Python notebooks with synthetic data.
+    Sessions include guided SQL exercises and Atlas walkthroughs, and Days 1, 2, 3, 5, and 6 have Colab-ready Python notebooks with synthetic data.
 
     [:material-arrow-right: Browse exercises](exercises/day-01-athena-cdm.md)
 
@@ -47,7 +47,7 @@
 
     ---
 
-    Slide kits, Jupyter notebooks, SQL cheat sheets, environment templates, and ALS TDI branded PowerPoint decks.
+    Slide kits, Jupyter notebooks, SQL cheat sheets, environment templates, and plain PowerPoint decks you can restyle.
 
     [:material-arrow-right: Downloads & Resources](resources.md)
 
@@ -75,7 +75,8 @@ The program is organized in a deliberate sequence. Each session builds on the pr
 | Session | Focus | Module | Exercise |
 |:--|:--|:--|:--|
 | :material-chart-sankey: **Day 5** — Treatment Pathways | Sequence-of-care analysis in ATLAS | [Module](modules/day-05-pathways.md) | [Exercise](exercises/day-05-pathways-optional.md) |
-| :material-code-braces: **Day 6** — HADES | R-based analytics: characterization, estimation, prediction | [Module](modules/day-06-hades.md) | [Exercise](exercises/day-06-hades-optional.md) |
+| :material-code-braces: **Day 6, Part 1** — HADES: Cohort Diagnostics and Feature Extraction | R environment, cohort diagnostics, baseline covariates | [Module](modules/day-06-hades.md) | [Exercise](exercises/day-06-hades-optional.md) |
+| :material-chart-bell-curve: **Day 6, Part 2** — HADES: Patient-Level Prediction | Prediction problem, model training, discrimination and calibration | [Module](modules/day-06-prediction.md) | [Exercise](exercises/day-06-prediction-optional.md) |
 
 ---
 
@@ -86,12 +87,12 @@ The program is organized in a deliberate sequence. Each session builds on the pr
     1. **Complete Module 0** before anything else — verify your tool access at least 48 hours before Day 1.
     2. **Follow the core track in order.** Each day's module has an agenda, objectives, slides, and a matching exercise.
     3. **Use the Common Artifacts** for cheat sheets, SQL templates, and the environment checklist.
-    4. **Notebooks are always available.** Each exercise page has a Colab badge — run it with synthetic data even without CDM access.
+    4. **Notebooks cover Days 1, 2, 3, 5, and 6.** Those exercise pages have a Colab badge, so you can run them with synthetic data even without CDM access. Day 4 has no notebook because extraction is site specific.
 
 !!! tip "For Trainers"
 
     1. **Fork this repository** and fill in site-specific details (warehouse, SQL client, ATLAS URL) in the Day 4 module and Environment pages.
-    2. **Use the branded templates** from the [Downloads & Resources](resources.md) page for any new decks.
+    2. **Use the plain template** from the [Downloads & Resources](resources.md) page for any new decks, and apply your own theme if you want one.
     3. **Instructor notes** are embedded (collapsed) in each exercise page — expand them before your session.
     4. **Host community meetings** using the [Community](community/weekly-meeting.md) pages as a template.
 
@@ -99,7 +100,7 @@ The program is organized in a deliberate sequence. Each session builds on the pr
 
 ## Sample Schedule
 
-This schedule reflects one delivery of the program. Sessions run approximately 3.5 hours each.
+This schedule reflects one delivery of the program. Each session is a half day (about 3.5 hours). Day 6 is now taught as separate sessions, Part 1 and Part 2, each a half day.
 
 | Session | Suggested Date | Focus |
 |:--|:--|:--|

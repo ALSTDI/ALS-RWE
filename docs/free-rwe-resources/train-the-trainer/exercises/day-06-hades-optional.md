@@ -1,17 +1,12 @@
-# Exercises · Day 6 (Optional) — HADES
-
-!!! tip "Sample notebook"
-    Run the companion notebook in Colab (synthetic data, no credentials needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day6-Patient-Level-Prediction.ipynb)
-    or [download it](../notebooks/Day6-Patient-Level-Prediction.ipynb).
+# Exercises · Day 6, Part 1 (Optional): HADES Cohort Diagnostics and Feature Extraction
 
 !!! abstract "What you will do"
     1. Set up a DatabaseConnector connection to your training CDM.
     2. Run CohortDiagnostics on a cohort from Day 3 and read three key diagnostic outputs.
     3. Run FeatureExtraction to build a baseline characterization table.
-    4. (Optional) Run a minimal PatientLevelPrediction or CohortMethod workflow and interpret one output.
 
 !!! warning "Setup and extraction are site specific"
-    HADES requires R (≥ 4.2), RStudio or Posit Workbench, Java, JDBC drivers, and database credentials. Connection details are entirely local to your site. The module page has the connection setup template; use the Colab notebook as a fallback if CDM access is not yet functional.
+    HADES requires R (the [setup guide](https://ohdsi.github.io/Hades/rSetup.html) targets R 4.4.1 as of 1 October 2026), RStudio or Posit Workbench, Java, a GitHub personal access token for installation, JDBC drivers, and database credentials. Connection details are entirely local to your site. The module page has the connection setup template. Patient-level prediction is a separate session with its own exercise: [Day 6, Part 2](day-06-prediction-optional.md).
 
 ---
 
@@ -31,14 +26,16 @@ library(DatabaseConnector)
 library(CohortDiagnostics)
 library(FeatureExtraction)
 
+library(CohortGenerator)
+
 # If any library() call fails, install the missing package:
+# install.packages("<PackageName>")  for packages on CRAN, or
 # remotes::install_github("OHDSI/<PackageName>")
 ```
 
 If `library(DatabaseConnector)` fails, install it:
 ```r
-install.packages("remotes")
-remotes::install_github("OHDSI/DatabaseConnector")
+install.packages("DatabaseConnector")
 ```
 
 Fill in the [Environment Checklist Template](../common_artifacts/environment-checklist-template.md) with your R/Java/HADES status before proceeding.
@@ -54,15 +51,16 @@ Export your Day 3 metformin cohort from ATLAS:
 2. Click **Export** → download the JSON and the SQL (choose your dialect).
 3. Save to a local project folder, e.g., `cohorts/` with a `CohortsToCreate.csv` index file.
 
-The `CohortsToCreate.csv` format:
+Save the JSON as `cohorts/MetforminNewUsers.json` and the SQL as `cohorts/MetforminNewUsers.sql`, so the file names match the cohort name. The `CohortsToCreate.csv` format:
 ```
-cohortId,cohortName,fileName
-1,MetforminNewUsers,MetforminNewUsers.json
+cohortId,cohortName
+1,MetforminNewUsers
 ```
 
 ### Step B2: Run diagnostics
 
 ```r
+library(CohortGenerator)
 library(CohortDiagnostics)
 
 # Fill in your connection details (from the module page setup template)
@@ -77,7 +75,11 @@ connectionDetails <- createConnectionDetails(
 
 cdmDatabaseSchema    <- "[cdm_schema]"
 cohortDatabaseSchema <- "[results_schema]"
-cohortTable          <- "cohort"
+
+# Use a dedicated cohort table for this lab. Do not point CohortGenerator at the
+# cohort table ATLAS writes to, because createCohortTables() can replace a table.
+cohortTable     <- "ttt_day6_cohort"
+cohortTableNames <- getCohortTableNames(cohortTable = cohortTable)
 
 cohortDefinitionSet <- getCohortDefinitionSet(
   settingsFileName = "cohorts/CohortsToCreate.csv",
@@ -85,24 +87,45 @@ cohortDefinitionSet <- getCohortDefinitionSet(
   sqlFolder        = "cohorts/"
 )
 
+# Generate the cohorts into the dedicated table
+createCohortTables(
+  connectionDetails    = connectionDetails,
+  cohortDatabaseSchema = cohortDatabaseSchema,
+  cohortTableNames     = cohortTableNames
+)
+generateCohortSet(
+  connectionDetails    = connectionDetails,
+  cdmDatabaseSchema    = cdmDatabaseSchema,
+  cohortDatabaseSchema = cohortDatabaseSchema,
+  cohortTableNames     = cohortTableNames,
+  cohortDefinitionSet  = cohortDefinitionSet
+)
+
 executeDiagnostics(
   cohortDefinitionSet       = cohortDefinitionSet,
-  exportFolder              = "diagnostics_output/",
-  databaseId                = "[your_site_id]",
+  exportFolder              = "diagnostics_output",
+  databaseId                = "[your site ID]",
   connectionDetails         = connectionDetails,
   cdmDatabaseSchema         = cdmDatabaseSchema,
   cohortDatabaseSchema      = cohortDatabaseSchema,
-  cohortTable               = cohortTable,
+  cohortTableNames          = cohortTableNames,
+  runInclusionStatistics    = TRUE,
   runIncludedSourceConcepts = TRUE,
   runOrphanConcepts         = TRUE,
   runTimeSeries             = TRUE,
+  runVisitContext           = TRUE,
   runBreakdownIndexEvents   = TRUE,
   runIncidenceRate          = TRUE,
   minCellCount              = 5
 )
 
-launchDiagnosticsExplorer("diagnostics_output/")
+# Merge the results and open the viewer
+createMergedResultsFile("diagnostics_output", sqliteDbPath = "diagnostics.sqlite")
+launchDiagnosticsExplorer(sqliteDbPath = "diagnostics.sqlite")
 ```
+
+!!! note "Check the function names against your installed version"
+    This block follows the CohortGenerator and CohortDiagnostics 3.x interface. It was not run against a database or re-checked against the package documentation when these pages were corrected on 1 October 2026, and the viewer functions have changed between releases. Before the session, compare it with the [CohortDiagnostics documentation](https://ohdsi.github.io/CohortDiagnostics/) for the version you have installed.
 
 ### Step B3: Read the diagnostics output
 
@@ -113,7 +136,7 @@ In the Shiny viewer, navigate to each section and answer these questions:
 - Are there codes you expected to see that are missing?
 
 **Orphan Concepts:**
-- Are there standard concepts close to your concept set that are not included?
+- Are there concepts in the data that look related to your concept set and are not included?
 - Does the list suggest your concept set is too narrow?
 
 **Incidence Rate Time Series:**
@@ -144,7 +167,8 @@ covariateData <- getDbCovariateData(
   cohortDatabaseSchema  = cohortDatabaseSchema,
   cohortTable           = cohortTable,
   cohortIds             = c(1),   # your metformin cohort ID
-  covariateSettings     = covariateSettings
+  covariateSettings     = covariateSettings,
+  aggregated            = TRUE    # one summary row per covariate
 )
 
 summary(covariateData)
@@ -153,40 +177,27 @@ summary(covariateData)
 ### Step C2: Summarize and inspect
 
 ```r
-# Top 20 most prevalent conditions in the cohort (prior 365 days)
-tidyCovariates <- tidyCovariateData(covariateData, normalize = FALSE)
-head(tidyCovariates$covariates[order(-tidyCovariates$covariates$meanValue), ], 20)
+# The 20 covariates with the highest mean value in the cohort
+library(dplyr)
+covariateData$covariates %>%
+  inner_join(covariateData$covariateRef, by = "covariateId") %>%
+  arrange(desc(averageValue)) %>%
+  select(covariateName, averageValue) %>%
+  head(20) %>%
+  collect()
 ```
 
 **Questions to answer:**
-1. What are the three most prevalent prior conditions? Are they clinically expected for new metformin users?
+1. Which prior conditions are most prevalent? Are they what you expected for new metformin users at your site?
 2. What is the mean age and sex distribution of the cohort?
 3. Do any covariate values surprise you?
-
----
-
-## Part D: Optional — PatientLevelPrediction (Colab Notebook Path)
-
-If CDM access is not yet fully functional, or if you want to see the full prediction workflow end-to-end without site-specific setup, use the [Colab notebook](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day6-Patient-Level-Prediction.ipynb).
-
-The notebook demonstrates:
-1. Building a synthetic target cohort and outcome cohort.
-2. Creating a covariate table with FeatureExtraction (simulated).
-3. Training a LASSO logistic regression model.
-4. Evaluating performance: AUC-ROC, calibration, precision-recall.
-5. Interpreting variable importance.
-
-**After completing the notebook, answer:**
-- What AUC-ROC did the model achieve? What does that mean in practice?
-- Name one covariate with high importance. Why might it predict the outcome?
-- What would you need to change to adapt this model for your own research question?
 
 ---
 
 ## Homework
 
 - Read one CohortDiagnostics output section that surprised you and write two sentences explaining what it means for your analysis.
-- Identify one question from your research area that is better suited to **population-level estimation** (CohortMethod) vs. **patient-level prediction** (PatientLevelPrediction), and explain the distinction.
+- Add an outcome cohort to your `cohorts/` folder and `CohortsToCreate.csv` (cohortId 2), and generate it into the same cohort table. Part 2 uses it as the outcome to predict.
 - Optional: install and run Achilles on your training CDM and browse the Ares viewer output.
 
 ---
@@ -196,14 +207,13 @@ The notebook demonstrates:
 <details>
 <summary>Show facilitation notes</summary>
 
-- **Java is the most common blocker.** Before the session, confirm each participant has Java 8 or 11 installed and that `system("java -version")` returns a clean result from within RStudio. The Databricks setup guide in the kit has platform-specific instructions.
-- **CohortDiagnostics first.** Even if the group never runs CohortMethod or PatientLevelPrediction, running CohortDiagnostics on a cohort they built in Day 3 is high-value. The "Included Source Concepts" and "Orphan Concepts" tabs directly reinforce Day 2 vocabulary lessons.
-- **Colab as the reliable fallback.** The Day 6 notebook runs entirely in the browser with no credentials and covers the full PLP workflow. If CDM setup is still incomplete for part of the group, route them to the notebook so no one sits idle.
-- **Let the group choose Part D.** CohortMethod (comparative effectiveness) and PatientLevelPrediction (ML prediction) appeal to different personas — ask the group which they want to demo, then spend 45 minutes on that one. Leave the other for self-study with the module page as reference.
-- **Interpret diagnostics clinically.** Pair a clinician or research analyst with a data analyst for the CohortDiagnostics review — the clinical person will spot patterns the data person won't, and vice versa.
+- **Java is a frequent blocker.** Before the session, confirm that `system("java -version")` returns a version from within RStudio for each participant, and follow the Java step in the HADES R setup guide if it does not. The Databricks setup guide in the kit is a placeholder template without platform-specific instructions.
+- **CohortDiagnostics first.** Even if the group never runs CohortMethod or PatientLevelPrediction, running CohortDiagnostics on a cohort they built in Day 3 is useful. The "Included Source Concepts" and "Orphan Concepts" tabs directly reinforce Day 2 vocabulary lessons.
+- **Keep the cohort table.** Part 2 reads the target and outcome cohorts from the cohort table created in Part B, so ask participants not to drop it.
+- **Pair different backgrounds.** Pair a clinician or research analyst with a data analyst for the CohortDiagnostics review, since each tends to notice different patterns.
 
 </details>
 
 ---
 
-[:material-arrow-left: Back to module: Day 6 · HADES](../modules/day-06-hades.md)
+[:material-arrow-left: Back to module: Day 6, Part 1](../modules/day-06-hades.md) &emsp; [:material-arrow-right: Day 6, Part 2 exercise](day-06-prediction-optional.md)

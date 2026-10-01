@@ -1,14 +1,11 @@
 Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit,Correct
-"Which Kahn framework category checks whether values are believable (e.g., no future birth dates)?",Conformance,Completeness,Plausibility,Validity,20,3
-"In DQD, what is a 'threshold'?",The minimum number of patients required,The acceptable failure rate for a given check,The maximum number of concepts in a set,The DQD pass rate required before analysis,20,2
-Your concept set for ALS returns 0 results. The MOST LIKELY cause is:,No ALS patients in the CDM,The CDM has not been loaded,The concept set contains non-standard (ICD) concepts,Athena is down,25,3
-"In ATLAS, the 'Mapped' tab shows:",Which standard concepts are in your set,The SQL Atlas will generate,"The source codes (ICD, NDC) that map INTO your standard concepts",Descendants of your concept set,25,3
-Why should you almost always toggle 'Include Descendants' ON for drug ingredients?,To capture combination drugs only,"To capture all formulations, doses, and brand names below the ingredient",To include non-standard source codes,Descendants are required for DQD to pass,25,2
-A passing DQD report means:,The data are perfect for any analysis,All checks pass at the configured threshold — but fitness for your specific question is still your responsibility,No patients have unmapped codes,The CDM is ready to submit to the OHDSI network,25,2
-Which ATLAS tab lets you confirm your concept set uses only standard concepts?,Mapped,Included Concepts,Export,Details,20,2
-"After building a concept set in Atlas, the best way to verify it is to:",Review the JSON export,Count descendants in Athena,Run the equivalent SQL in your SQL client and compare counts,Ask a colleague to review it,20,3
-concept_id = 0 in condition_occurrence most likely means:,The patient has no conditions,The condition is standard,The source code was not mapped to a standard concept during ETL,The record is excluded from all analyses,20,3
-Which Kahn category asks: 'Is the foreign key drug_concept_id a valid concept in the Drug domain?',Plausibility,Completeness,Conformance,Validity,20,3
-"The Kahn framework assesses each category in one of two CONTEXTS. Which pair is correct?",Internal and external,Verification and validation,Passing and failing,Standard and non-standard,20,2
-"Checking that our diabetes prevalence matches published national rates is an example of which context?",Verification,Validation,Conformance,Completeness,20,2
-Which Kahn category (and subtype) is the check: no drug era starts before the birth date?,Completeness,Conformance (relational),Plausibility (temporal),Validation,20,3
+"In the Kahn framework, which category asks whether values are believable (e.g., no future birth dates)?",Conformance,Completeness,Plausibility,Validity,20,3
+"In DQD, what is a 'threshold'?",The minimum number of patients required,The percent of failing rows accepted for a given check,The maximum number of concepts in a set,The DQD pass rate required before analysis,20,2
+Which Kahn category does DQD assign to the percent of rows with concept_id = 0?,Conformance,Completeness,Plausibility,Validation,20,2
+"In the Kahn framework, comparing your prevalence with a published estimate is which context?",Verification,Validation,Conformance,Completeness,20,2
+Which of these does DQD NOT do?,Check that foreign keys exist,Count rows with concept_id = 0,Compare your disease rates with published estimates,Check that events do not precede birth,25,3
+"In an ATLAS concept set, the Included Source Codes tab shows:",The standard concepts in your set,The SQL ATLAS will generate,The source codes that map to the concepts in your set,The descendants of your concepts,25,3
+Why turn on Descendants for a drug ingredient?,To capture combination drugs only,To capture the clinical and branded drugs below the ingredient,To include non-standard source codes,Descendants are required for DQD to pass,25,2
+A passing DQD report means:,The data are perfect for any analysis,Checks met their thresholds; you still judge fitness for your question,No patients have unmapped codes,The CDM is ready to submit to the OHDSI network,25,2
+"The record counts ATLAS shows next to a concept (RC, DRC) come from:",A live query of the CDM,The last Achilles run,Athena,The DQD report,20,2
+Your concept set for ALS matches 0 records. A likely cause to check first is:,No ALS patients in the CDM,The CDM has not been loaded,The set contains only non-standard (ICD) concepts,Athena is down,25,3

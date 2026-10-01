@@ -22,7 +22,7 @@
 
 The daily curriculum (Days 1–6) teaches you to build. This module teaches you to check first. Feasibility assessment is cheap; running a study on the wrong data is expensive. The whole point is to move the moment you discover a question cannot be answered from month six to minute five.
 
-The public ATLAS demo makes that vivid. It runs on synthetic Medicare data (SynPUF), so diabetes concepts are abundant but pregnancies are absent. Watching a healthy cohort count collapse the instant you add a childbearing-age requirement is the lesson. That same collapse, caught early against your real instance, is a saved year.
+The public ATLAS demo makes that vivid. It runs on synthetic Medicare data (SynPUF), so diabetes records are abundant and pregnancy records are rare. The lesson is watching a large cohort count collapse when you add a childbearing-age requirement. That same collapse, caught early against your real instance, is a saved year.
 
 ## The running example
 
@@ -60,5 +60,5 @@ This module is a fast, self-contained on-ramp. When you are ready to go deeper o
 |:--|:--|
 | [Instructor Deck with Notes](../training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx) | Full 30-minute deck with the presenter script in the speaker notes |
 | [Importable ATLAS cohort (JSON)](../training/feasibility-first/kit/Demo-Cohort-Diabetes-Childbearing-Age.json) | Ready-to-import demo cohort; import into atlas-demo and save |
-| [Kahoot Quiz (CSV)](../training/feasibility-first/kit/Kahoot-Quiz.csv) | 10-question quiz on the feasibility workflow |
+| [Kahoot Quiz (CSV)](../training/feasibility-first/kit/Kahoot-Quiz.csv) | Quiz on the feasibility workflow |
 | [Kit README](../training/feasibility-first/kit/README.md) | Setup steps, concept IDs, and the full-clinical-cohort notes |

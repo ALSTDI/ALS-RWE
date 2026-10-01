@@ -6,7 +6,7 @@ You have fellows spanning computer science and data analytics through clinical m
 
 ## Timing and where to spend it
 
-The clock in the module is a target, not a cage. If you have to compress, protect the ATLAS walkthrough and the go/no-go decision; those are the parts they cannot get from reading. If you have extra time, expand the steward-questions discussion, since that is where the room's institutional knowledge surfaces.
+The clock in the module is a target, not a cage. If you have to compress, protect the ATLAS walkthrough and the go/no-go decision; those are the parts they cannot get from reading. If you have extra time, expand the steward-questions discussion, since that is where the room's institutional knowledge comes out.
 
 ## Running the live demo safely
 
@@ -19,7 +19,7 @@ The public ATLAS demo is reliable most of the time and occasionally is not. Prot
 
 ## The one beat that must land
 
-The whole module turns on Step 4 of the walkthrough: the cohort count collapsing when the childbearing-age requirement is added, even though every concept exists. Slow down there. Ask the room why the cohort is empty before you tell them. Let a clinical fellow and a technical fellow each guess. The point they should reach on their own is that concept existence and population presence are different things. If they leave with one idea, that is the one.
+The whole module turns on Step 4 of the walkthrough: the cohort count collapsing when the childbearing-age requirement is added, even though every concept exists. Slow down there. Ask the room why the cohort collapsed before you tell them. Let a clinical fellow and a technical fellow each guess. The point they should reach on their own is that concept existence and population presence are different things. If they leave with one idea, that is the one.
 
 ## Adapting the exemplar
 
@@ -28,7 +28,7 @@ Fellows will want to run their own questions. Encourage it, and steer them towar
 ## Common questions and honest answers
 
 - **"Can I just query the whole network for counts?"** No. Results travel, records do not. Feasibility across the network is a community process (forums, published characterizations, prior studies), not a single query.
-- **"The demo has no pregnancies, so how is it useful?"** That absence is the teaching tool. It shows infeasibility cleanly and safely. The transferable skill is telling a concept problem from a population problem.
+- **"The demo has almost no pregnancies, so how is it useful?"** That gap is the teaching tool. It shows infeasibility cleanly and safely. The transferable skill is telling a concept problem from a population problem.
 - **"Do I need to learn R, HADES, and Strategus to start?"** Not for feasibility. You need ATLAS for definitions and the vocabulary basics for interpretation.
 - **"How much of this needs IRB?"** Institution-specific, which is why it is a steward question and a checklist row. Do not assert a general rule; have them confirm locally.
 

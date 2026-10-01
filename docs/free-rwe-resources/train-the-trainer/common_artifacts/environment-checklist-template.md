@@ -23,7 +23,7 @@
 |:--|:--|:--|:--|:--|
 | 1.1 | **Athena** | Open [athena.ohdsi.org](https://athena.ohdsi.org) and search for "Metformin" — do results appear? | ☐ Pass · ☐ Blocked | |
 | 1.2 | **ATLAS** | Log in to your site's ATLAS instance · Create and delete a throwaway concept set | ☐ Pass · ☐ Blocked | ATLAS URL: |
-| 1.3 | **Atlas — Cohort export** | Export a cohort SQL from any existing cohort definition (JSON button visible?) | ☐ Pass · ☐ Blocked | |
+| 1.3 | **Atlas: cohort export** | Open any existing cohort definition and confirm the Export tab shows both JSON and SQL | ☐ Pass · ☐ Blocked | |
 | 1.4 | **GitHub** | Open [github.com/ALSTDI/ALS-RWE](https://github.com/ALSTDI/ALS-RWE) and confirm you can view files | ☐ Pass · ☐ Blocked | |
 
 ---
@@ -54,22 +54,22 @@
 
 | # | Tool | What to Verify | Status | Notes |
 |:--|:--|:--|:--|:--|
-| 4.1 | **R version** | `R.version$version.string` returns ≥ 4.2 | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
+| 4.1 | **R version** | `R.version$version.string` returns the version named in the HADES setup guide (R 4.4.1 as of 1 October 2026) | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
 | 4.2 | **RStudio or Posit Workbench** | Opens and console is functional | ☐ Pass · ☐ Blocked · ☐ Not needed | |
-| 4.3 | **Java** | `system("java -version")` in RStudio returns a version (8 or 11 preferred) | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
+| 4.3 | **Java** | `system("java -version")` in RStudio returns a version | ☐ Pass · ☐ Blocked · ☐ Not needed | Version: |
 | 4.4 | **DatabaseConnector** | `library(DatabaseConnector)` loads without error | ☐ Pass · ☐ Blocked · ☐ Not needed | |
 | 4.5 | **HADES (core)** | `library(CohortDiagnostics)` and `library(FeatureExtraction)` load without error | ☐ Pass · ☐ Blocked · ☐ Not needed | |
 | 4.6 | **JDBC Driver** | Connection profile resolves with `createConnectionDetails(...)` | ☐ Pass · ☐ Blocked · ☐ Not needed | Driver path: |
+| 4.7 | **GitHub token** | A GitHub personal access token is set in `.Renviron`, as the HADES setup guide describes | ☐ Pass · ☐ Blocked · ☐ Not needed | |
 
 ---
 
-## Section 5 · Extraction Tool (Site Specific — Day 4)
+## Section 5 · Extraction Method (Site Specific, Day 4)
 
 | # | Item | What to Verify | Status | Notes |
 |:--|:--|:--|:--|:--|
-| 5.1 | **Extraction method** | Identify your site's extraction path: SEARCH / exported Atlas SQL / local pipeline | ☐ Confirmed | Method: |
-| 5.2 | **SEARCH access** | *(If applicable)* Log in to SEARCH and confirm a test extraction runs | ☐ Pass · ☐ Blocked · ☐ N/A | |
-| 5.3 | **Output location** | Confirm where extracts are written (path, bucket, or schema) | ☐ Confirmed | Output path: |
+| 5.1 | **Extraction method** | Identify your site's extraction path: exported Atlas SQL / local pipeline | ☐ Confirmed | Method: |
+| 5.2 | **Output location** | Confirm where extracts are written (path, bucket, or schema) | ☐ Confirmed | Output path: |
 
 ---
 

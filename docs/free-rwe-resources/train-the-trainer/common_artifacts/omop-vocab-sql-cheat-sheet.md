@@ -8,8 +8,8 @@
 
 | Table | What it contains |
 |:--|:--|
-| `concept` | All standard and non-standard concepts: id, name, domain, vocabulary, class, code |
-| `concept_relationship` | Directed links between concepts: `Maps to`, `Is a`, `Subsumes`, `Has ancestor` |
+| `concept` | All concepts (standard, classification, and non-standard): id, name, domain, vocabulary, class, code |
+| `concept_relationship` | Directed links between concepts, for example `Maps to`, `Mapped from`, `Is a`, `Subsumes` |
 | `concept_ancestor` | Pre-computed transitive ancestor/descendant pairs with level-of-separation counts |
 | `concept_synonym` | Alternate names for concepts |
 | `vocabulary` | Vocabulary metadata and version |
@@ -30,7 +30,7 @@ WHERE LOWER(concept_name) LIKE '%amyotrophic lateral sclerosis%'
 ORDER BY standard_concept DESC NULLS LAST;
 
 -- Look up a specific concept_id
-SELECT * FROM cdm.concept WHERE concept_id = 4051114;
+SELECT * FROM cdm.concept WHERE concept_id = 373182;
 
 -- Find all standard concepts in a domain
 SELECT concept_id, concept_name, vocabulary_id
@@ -60,7 +60,7 @@ WHERE c_source.concept_code = 'G12.21'     -- ALS ICD-10-CM code
 SELECT c_src.concept_code, c_src.vocabulary_id, c_src.concept_name
 FROM cdm.concept_relationship cr
 JOIN cdm.concept c_src ON cr.concept_id_1 = c_src.concept_id
-WHERE cr.concept_id_2    = 4051114         -- ALS SNOMED concept
+WHERE cr.concept_id_2    = 373182         -- ALS SNOMED concept
   AND cr.relationship_id = 'Maps to'
   AND cr.invalid_reason IS NULL;
 ```
@@ -70,12 +70,18 @@ WHERE cr.concept_id_2    = 4051114         -- ALS SNOMED concept
 ## 3. Concept Ancestor (Hierarchy)
 
 ```sql
+-- Look up a drug class first: the ATC class for sulfonylureas has code A10BB
+-- and is a classification concept (standard_concept = 'C')
+SELECT concept_id, concept_name, standard_concept
+FROM cdm.concept
+WHERE vocabulary_id = 'ATC' AND concept_code = 'A10BB';
+
 -- All descendants of a concept (for concept set coverage)
 SELECT ca.descendant_concept_id, c.concept_name,
        ca.min_levels_of_separation
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
-WHERE ca.ancestor_concept_id = 21600381    -- Sulfonylureas
+WHERE ca.ancestor_concept_id = :sulfonylurea_class_concept_id    -- the concept_id returned above
   AND ca.min_levels_of_separation >= 1
 ORDER BY ca.min_levels_of_separation, c.concept_name;
 
@@ -89,7 +95,7 @@ WHERE ca.ancestor_concept_id       = 1503297    -- Metformin
 -- Count descendants by level
 SELECT ca.min_levels_of_separation, COUNT(*) AS n
 FROM cdm.concept_ancestor ca
-WHERE ca.ancestor_concept_id = 4051114
+WHERE ca.ancestor_concept_id = 373182
 GROUP BY ca.min_levels_of_separation
 ORDER BY ca.min_levels_of_separation;
 ```
@@ -113,7 +119,7 @@ FROM cdm.person;
 SELECT COUNT(DISTINCT co.person_id) AS patients_with_condition
 FROM cdm.condition_occurrence co
 JOIN cdm.concept_ancestor ca ON ca.descendant_concept_id = co.condition_concept_id
-WHERE ca.ancestor_concept_id = 4051114;    -- ALS
+WHERE ca.ancestor_concept_id = 373182;    -- ALS
 
 -- Condition occurrence rate by year
 SELECT YEAR(condition_start_date) AS year,
@@ -121,7 +127,7 @@ SELECT YEAR(condition_start_date) AS year,
 FROM cdm.condition_occurrence
 WHERE condition_concept_id IN (
     SELECT descendant_concept_id FROM cdm.concept_ancestor
-    WHERE ancestor_concept_id = 4051114
+    WHERE ancestor_concept_id = 373182
 )
 GROUP BY YEAR(condition_start_date)
 ORDER BY year;
@@ -184,9 +190,9 @@ FROM results.cohort
 WHERE cohort_definition_id = [your_cohort_id];
 ```
 
-### Cohort attrition (simple)
+### Cohort size against the whole CDM
 ```sql
--- Persons in cohort vs. total persons in CDM
+-- Persons in cohort vs. total persons in CDM (this is not the attrition report; ATLAS reports attrition per inclusion rule)
 SELECT
     (SELECT COUNT(DISTINCT person_id) FROM cdm.person)      AS total_cdm,
     (SELECT COUNT(DISTINCT subject_id) FROM results.cohort
@@ -239,10 +245,10 @@ GROUP BY year_of_birth;
 
 | Function | PostgreSQL | SQL Server | Spark / Databricks | BigQuery |
 |:--|:--|:--|:--|:--|
-| Date difference (days) | `AGE()` / `DATEDIFF` | `DATEDIFF(day,…)` | `DATEDIFF(…)` | `DATE_DIFF(…, DAY)` |
+| Date difference (days) | `end_date - start_date` | `DATEDIFF(day, start, end)` | `DATEDIFF(end, start)` | `DATE_DIFF(end, start, DAY)` |
 | Current date | `CURRENT_DATE` | `CAST(GETDATE() AS DATE)` | `CURRENT_DATE` | `CURRENT_DATE` |
 | Row limit | `LIMIT n` | `TOP n` | `LIMIT n` | `LIMIT n` |
-| String search | `ILIKE` (case-insensitive) | `LIKE` (case-insensitive by default) | `LIKE` with `LOWER()` | `LIKE` with `LOWER()` |
+| String search | `ILIKE` (case-insensitive) | `LIKE` (case sensitivity depends on the collation) | `LIKE` with `LOWER()` | `LIKE` with `LOWER()` |
 
 ---
 

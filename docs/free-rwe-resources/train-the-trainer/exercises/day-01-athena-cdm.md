@@ -28,7 +28,7 @@ By the end of this exercise, participants will be able to:
 
 - Navigate **Athena** and locate clinical concepts across vocabularies.  
 - Distinguish between **standard** and **non-standard** concepts.  
-- Interpret concept **relationships** (“Maps to,” “Is a,” “Has ancestor,” etc.).  
+- Interpret concept **relationships** (“Maps to,” “Mapped from,” “Is a,” “Subsumes”) and the hierarchy view.  
 - Recognize the structure and purpose of **OMOP vocabularies** and **domains**.  
 - Understand how vocabulary choice impacts analytic consistency and data quality.
 
@@ -40,8 +40,9 @@ By the end of this exercise, participants will be able to:
 1. Open [Athena](https://athena.ohdsi.org/).  
 2. Search for **“Type 2 Diabetes Mellitus.”**  
 3. Identify:
-   - The **standard concept** (`Standard Concept = S`)  
-   - A related **non-standard concept** (`Standard Concept = NULL`)  
+   - The **standard concept** (the Concept column shows Standard)  
+   - A related **non-standard concept** (the Concept column shows Non-standard)  
+   - What the third filter value, **Classification**, is used for  
    - The **domain**, **vocabulary**, and **concept class**
 
 ![Athena search results placeholder](../assets/day1/athena-search.png)
@@ -60,7 +61,7 @@ By the end of this exercise, participants will be able to:
 ![Athena concept details placeholder](../assets/day1/concept-details.png)
 
 **Trainer Prompts**
-- How do “Is a” and “Has ancestor” define hierarchy?  
+- How do “Is a” and “Subsumes” define hierarchy, and what does the `concept_ancestor` table add?  
 - Why might “Maps to” differ from “Is a”?  
 - When reviewing descendants, how do you decide what’s “too specific”?
 
@@ -88,7 +89,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 - Review the **vocabulary version** and note updates.
 
 **Trainer Prompts**
-- How frequently are vocabularies updated in Athena?  
+- How often are the vocabularies released, and how would you find the version loaded at your site?  
 - What are the risks of using outdated vocabularies?  
 - How can version metadata be stored for reproducibility?
 
@@ -121,8 +122,8 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 **Example Discussion**
 
-- *Standard concept:* `Type 2 diabetes mellitus` (SNOMED 201826)  
-- *Non-standard concept:* `E11.9 – Type 2 diabetes mellitus without complications` (ICD10CM) → maps to 201826  
+- *Standard concept:* `Type 2 diabetes mellitus` (concept_id 201826, SNOMED code 44054006)  
+- *Non-standard concept:* `E11.9 – Type 2 diabetes mellitus without complications` (ICD10CM) → maps to concept_id 201826  
 - OMOP standardizes to SNOMED so EHR diagnoses share a common meaning.  
 - ICD codes map to SNOMED via “Maps to” relationships in Athena.
 
@@ -150,7 +151,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 ??? question "Q2. Which table contains information about how one concept maps to another?"
     **Answer:**  
-    `concept_relationship` — this table defines links such as “Maps to,” “Is a,” “Subsumes,” etc.  
+    `concept_relationship`, which holds links such as “Maps to,” “Is a,” and “Subsumes.”  
     It connects source (non-standard) concepts to standard ones used for analytics.
 
 ---
@@ -188,7 +189,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 ??? question "Q7. If you search for *Type 2 Diabetes Mellitus* in Athena, which vocabulary is typically standard for the Condition domain?"
     **Answer:**  
-    **SNOMED CT** — SNOMED serves as the standard vocabulary for clinical conditions in OMOP.
+    **SNOMED CT**, which supplies most of the standard concepts for conditions in OMOP.
 
 ---
 
@@ -196,8 +197,8 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 ??? question "Q8. Which pair of relationship IDs defines the hierarchy between general and specific concepts?"
     **Answer:**  
-    “Is a” and “Has ancestor.”  
-    These describe parent–child relationships, defining how concepts nest under broader categories.
+    “Is a” and “Subsumes.”  
+    These are the parent and child directions of the same link. The `concept_ancestor` table stores every ancestor and descendant pair computed from them; “Has ancestor” is not a relationship ID.
 
 ---
 
@@ -239,8 +240,8 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Prompt | Answer / Talking Points |
     |:--|:--|
-    | What distinguishes “standard” vs “non-standard” in OMOP? | Standard concepts (`standard_concept = 'S'`) are unified reference terms used for analysis; non-standard (`NULL`) are source codes that require mapping. |
-    | Which vocabularies are most common for *Condition* domains? | **SNOMED CT** is the primary standard vocabulary for conditions. Source vocabularies include **ICD-9-CM** and **ICD-10-CM**. |
+    | What distinguishes “standard” vs “non-standard” in OMOP? | Standard concepts (`standard_concept = 'S'`) are the concepts stored in the clinical tables and used for analysis; non-standard (`NULL`) are source codes that require mapping. Classification concepts (`'C'`), such as ATC drug classes, group standard concepts and are not stored in the clinical tables. |
+    | Which vocabularies are most common for *Condition* domains? | **SNOMED CT** supplies most standard condition concepts. Source vocabularies include **ICD-9-CM** and **ICD-10-CM**. |
     | Why are “mapping” relationships essential for standardization? | “Maps to” relationships connect local or source-specific codes to a shared standard concept, ensuring consistent meaning and comparable analytics across sites. |
 
     ---
@@ -249,9 +250,9 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Prompt | Answer / Talking Points |
     |:--|:--|
-    | How do “Is a” and “Has ancestor” define hierarchy? | “Is a” indicates a direct parent–child relationship (e.g., *Type 2 Diabetes* **is a** *Diabetes*). “Has ancestor” generalizes for all higher-level links. |
-    | Why might “Maps to” differ from “Is a”? | “Maps to” connects **different vocabularies** (crosswalk), while “Is a” expresses hierarchy **within** a single vocabulary. |
-    | When reviewing descendants, how do you decide what’s “too specific”? | Concepts that narrow the condition beyond your study purpose (e.g., “Hypertension complicating pregnancy” for a general hypertension study). Exclude when clinically irrelevant. |
+    | How do “Is a” and “Subsumes” define hierarchy, and what does `concept_ancestor` add? | “Is a” points from a child to its direct parent (e.g., *Type 2 Diabetes* **is a** *Diabetes*), and “Subsumes” is the same link read from parent to child. The `concept_ancestor` table stores every ancestor and descendant pair at any distance, which is what “include descendants” uses. |
+    | Why might “Maps to” differ from “Is a”? | “Maps to” connects a source concept to the standard concept that represents it (a standard concept maps to itself), while “Is a” expresses hierarchy between a narrower and a broader concept. |
+    | When reviewing descendants, how do you decide what’s “too specific”? | Look for concepts that narrow the condition beyond your study purpose (e.g., “Hypertension complicating pregnancy” for a general hypertension study), and decide with the study team whether to exclude them. |
 
     ---
 
@@ -261,9 +262,9 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Question | Suggested Answer / Talking Points |
     |:--|:--|
-    | What happens if two ICD codes map to the same SNOMED concept? | They represent clinically equivalent conditions. Mapping merges them into one concept, preventing double-counting. |
-    | How does that improve cross-institution consistency? | Different coding systems converge on one shared concept ID, ensuring identical interpretation and patient counts. |
-    | What does “Maps to value” mean? | Used for **Measurement/Observation** domains — connects a source *value* concept (e.g., “positive,” “abnormal”) to its standardized result meaning. |
+    | What happens if two ICD codes map to the same SNOMED concept? | Both are recorded with the same standard concept. The codes may be equivalent, or the standard concept may be broader than one of them, in which case detail from the source code is lost unless you look at the source concept. |
+    | How does that improve cross-institution consistency? | Different coding systems converge on one shared concept ID, so the same query can be run at each site. Counts still depend on each site's data and mapping choices. |
+    | What does “Maps to value” mean? | Some source concepts combine a question and an answer. “Maps to” gives the standard concept for the variable, and “Maps to value” gives the standard concept that goes in `value_as_concept_id` (used in the Measurement and Observation domains). |
 
     ---
 
@@ -271,7 +272,7 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Prompt | Answer / Talking Points |
     |:--|:--|
-    | How frequently are vocabularies updated in Athena? | Monthly or bi-monthly; SNOMED and RxNorm update frequently. Always note the **vocabulary_version** when downloading. |
+    | How often are the vocabularies released? | Major releases of the OHDSI Standardized Vocabularies come twice a year, in February and August, and each site loads them on its own schedule. Note the **vocabulary_version** in the `vocabulary` table. |
     | What are the risks of using outdated vocabularies? | Mappings may be deprecated or missing; new terms could be excluded, leading to data quality issues or incorrect cohorts. |
     | How can version metadata be stored for reproducibility? | Document versions in ETL logs, study protocol, or CDM metadata (`vocabulary` table fields). |
 
@@ -281,19 +282,19 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Question | Suggested Answer / Talking Points |
     |:--|:--|
-    | How does using standardized vocabularies improve analytic reproducibility? | Ensures all sites interpret and aggregate data identically, supporting consistent multi-site results. |
+    | How does using standardized vocabularies improve analytic reproducibility? | The same concept IDs and the same query can be used at every site, which supports comparable multi-site results. |
     | What mapping errors could affect cohort counts? | Missing or incorrect “Maps to” links can misclassify or exclude patients. |
-    | Why can’t non-standard codes be used directly? | They don’t have consistent meaning across vocabularies; analytic tools require standard concepts. |
+    | Why can’t non-standard codes be used directly? | The standard concept fields in the clinical tables hold standard concepts, so a query on source concepts in those fields finds nothing. Source concepts are kept in the source concept fields. |
     | How does vocabulary hierarchy influence inclusion/exclusion? | The ancestor/descendant range affects cohort breadth — too high = over-inclusive, too low = overly narrow. |
-    | Multi-domain example (*HbA1c*) — Why does domain assignment matter? | “HbA1c as Measurement” indicates a lab test; as Observation, it might represent a note. Correct domain ensures proper table joins and analysis. |
+    | Multi-domain example (*HbA1c*): what does domain assignment change? | The domain of the standard concept decides which table the record goes into. HbA1c results belong to the Measurement domain, so you look for them in `measurement`. |
 
     ---
 
     ## Key Takeaways
 
-    - **SNOMED CT** is the standard for clinical conditions in OMOP.  
-    - **Mapping relationships** (“Maps to,” “Maps to value”) form the backbone of standardization.  
-    - **Hierarchy** (“Is a,” “Has ancestor”) controls the precision of concept sets.  
+    - **SNOMED CT** supplies most standard concepts for clinical conditions in OMOP.  
+    - **Mapping relationships** (“Maps to,” “Maps to value”) connect source codes to standard concepts.  
+    - **Hierarchy** (“Is a,” “Subsumes,” and the `concept_ancestor` table) controls the breadth of concept sets.  
     - **Version tracking** is essential for reproducibility across time and data partners.  
 
     ---

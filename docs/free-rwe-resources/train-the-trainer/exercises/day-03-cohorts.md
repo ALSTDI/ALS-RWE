@@ -27,17 +27,17 @@
 3. Restrict to the **first** exposure per person so this is a new-user design.
 
 ## Step 2: Add an inclusion rule with a window
-1. Add a new inclusion criterion: **at least 365 days of continuous observation before the entry event.** This makes "new use" meaningful.
+1. Require **at least 365 days of continuous observation before the entry event**, so that "new use" can be checked against a year of history. ATLAS offers this setting in the entry event section, which is how the written tutorial does it. If you add it as an inclusion rule instead (an observation period criterion), it becomes its own row in the attrition report.
 2. Optionally add a second rule: **no sulfonylurea exposure in the 365 days before entry.** Note that this exclusion is written as an inclusion rule that must be satisfied (count of prior sulfonylurea exposures equals zero).
 
 ## Step 3: Generate and read attrition
 1. Define the exit (for example, end of continuous metformin exposure).
 2. Save and **generate** against your training CDM.
-3. Open the **attrition** report. Note how many people each inclusion rule removed. A rule that removes almost everyone, or no one, is usually a window or logic error.
+3. Open the **attrition** report. Note how many people each inclusion rule removed. A rule that removes almost everyone, or no one, is a prompt to recheck the window and the logic.
 
 ## Step 4: Export and validate the SQL
-1. Export the cohort definition SQL from ATLAS.
-2. Run it (or a simplified count) in your own SQL client and confirm the person count matches what ATLAS generated.
+1. Export the cohort definition SQL from ATLAS (Export tab, SQL, your dialect). The exported SQL has parameters such as the CDM schema, the target cohort table, and the cohort ID that you fill in before running it.
+2. Run it, or run the simple count below against the cohort table ATLAS generated into, and confirm the person count matches what ATLAS reported.
 
 ```sql
 -- Sanity count of generated cohort (adjust schema/client to your site)

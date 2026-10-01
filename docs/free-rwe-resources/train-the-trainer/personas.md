@@ -9,8 +9,8 @@ Not everyone arrives at this program with the same background or goal. Use this 
 | Persona | Start Here | Key Tools | Skip / Skim |
 |:--|:--|:--|:--|
 | :material-translate: Vocabulary & Terminology Expert | Day 1 → Day 2 → Day 3 | Athena, Atlas Concept Sets | Day 4 SQL depth, Day 6 R |
-| :material-chart-line: Statistician / Data Analyst | Day 3 → Day 4 → Day 5 | Atlas Pathways, HADES, SQL review | Environment deep-dives |
-| :material-database-cog: Data Engineer | Module 0 → Day 2 → Day 4 | Databricks, DBeaver, SEARCH, GitHub | Atlas GUI portions |
+| :material-chart-line: Statistician / Data Analyst | Day 3 → Day 4 → Day 5 | ATLAS Cohort Pathways, HADES, SQL review | Environment deep-dives |
+| :material-database-cog: Data Engineer | Module 0 → Day 2 → Day 4 | Databricks, DBeaver, GitHub | Atlas GUI portions |
 | :material-stethoscope: Clinician / Research Analyst | Day 1 → Day 3 | Athena, Atlas Cohort Editor | SQL labs (participate lightly) |
 
 ---
@@ -27,7 +27,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
 
     1. **Module 0 — Environment Setup** · Verify Athena access and Atlas login.
     2. **Day 1 — OMOP CDM** · Focus on vocabulary tables (`concept`, `concept_relationship`, `concept_ancestor`). The table overview matters less than the vocabulary deep-dive.
-    3. **Day 2 — Vocabulary & Data Quality** · This is your primary session. Spend extra time on the Standard/Mapped toggle and the DQD concept-set vs. data-quality distinction.
+    3. **Day 2 — Vocabulary & Data Quality** · This is your primary session. Spend extra time on the Included Concepts and Included Source Codes tabs, and on telling a concept set problem from a data quality problem.
     4. **Day 3 — Cohort Definition** · Understand how concept sets plug into cohort entry events and inclusion rules. You don't need to build pipelines, but you need to validate what analysts build.
     5. **Day 4 — Data Extraction** · Participate lightly; focus on how extraction counts reflect your concept set choices.
 
@@ -64,20 +64,20 @@ Not everyone arrives at this program with the same background or goal. Use this 
     4. **Day 3 — Cohort Definition** · This is your primary session — build the new-user cohort with careful temporal logic.
     5. **Day 4 — Data Extraction** · Understand what the extracted dataset looks like and how to validate counts.
     6. **Day 5 (Optional) — Treatment Pathways** · Directly applicable to treatment utilization and sequencing research questions.
-    7. **Day 6 (Optional) — HADES** · Essential if you will run characterization, estimation, or prediction pipelines.
+    7. **Day 6 (Optional) — HADES** · Taught as separate sessions: Part 1 covers cohort diagnostics and feature extraction, and Part 2 covers patient-level prediction.
 
 === "Key Tools"
 
     | Tool | Why it matters for you |
     |:--|:--|
     | Atlas Cohort Editor | Operationalize inclusion/exclusion criteria with temporal logic |
-    | Atlas Pathways | Treatment sequence visualization |
+    | ATLAS Cohort Pathways | Treatment sequence visualization |
     | HADES (R) | CohortMethod, PatientLevelPrediction, FeatureExtraction |
     | [RWD Guide](https://rwd.guide) | Bias, confounding, and study design for observational data |
 
 === "Recommended Extras"
 
-    - **Book of OHDSI Ch. 12–14:** Estimation, Prediction, and HADES — your primary reference.
+    - **Book of OHDSI Ch. 12 and 13** (Population-Level Estimation, Patient-Level Prediction) and **Ch. 8** (OHDSI Analytics Tools, which covers the HADES packages).
     - **OHDSI Community Calls:** Great for hearing real-world study design trade-offs.
     - **Day 6 HADES kit** from [Resources](resources.md): includes patient-level prediction notebook and interpretation guide.
 
@@ -98,7 +98,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
     3. **Day 2 — Vocabulary & Data Quality** · Focus on the SQL validation steps. The Atlas GUI is secondary; the SQL behind it is what matters.
     4. **Day 3 — Cohort Definition** · Export cohort SQL from Atlas and run it yourself. The [SQL Validation Mini Lab](common_artifacts/sql-validation-mini-lab.md) is key.
     5. **Day 4 — Data Extraction** · Your primary session — work through every step in your actual SQL client.
-    6. **Day 6 (Optional) — HADES** · Run HADES R packages via DatabaseConnector; relevant if you support statistical workflows.
+    6. **Day 6, Part 1 (Optional) — HADES** · Run HADES R packages via DatabaseConnector; relevant if you support statistical workflows.
 
 === "Key Tools"
 
@@ -106,7 +106,6 @@ Not everyone arrives at this program with the same background or goal. Use this 
     |:--|:--|
     | Databricks / DBeaver / SQL Client | Primary workspace — run and validate every Atlas export |
     | GitHub | Version-control cohort definitions, SQL scripts, and notebooks |
-    | SEARCH Tool | Site-specific extraction pipeline |
     | [OMOP SQL Cheat Sheet](common_artifacts/omop-vocab-sql-cheat-sheet.md) | Quick reference for every CDM query pattern |
     | [SQL Validation Mini Lab](common_artifacts/sql-validation-mini-lab.md) | Step-by-step export → validate → reconcile workflow |
 
@@ -131,7 +130,7 @@ Not everyone arrives at this program with the same background or goal. Use this 
 
     1. **Module 0 — Environment Setup** · Focus on ATLAS login and Athena access. SQL client setup is optional.
     2. **Day 1 — OMOP CDM** · Focus on conceptual understanding: how EHR data maps to OMOP domains. The SQL exercises are optional for you.
-    3. **Day 2 — Vocabulary & Data Quality** · Use Athena to explore concepts relevant to your clinical area. Focus on the Standard/Mapped distinction and what bad concept sets look like clinically.
+    3. **Day 2 — Vocabulary & Data Quality** · Use Athena to explore concepts relevant to your clinical area. Focus on standard versus non-standard concepts and on what an incomplete concept set leaves out.
     4. **Day 3 — Cohort Definition** · Your most important session. Review cohort logic for clinical accuracy — are the criteria capturing the right patients? Review characterization outputs.
     5. **Day 4 — Data Extraction** · Attend for context; extraction validation is primarily for the data team.
 

@@ -9,10 +9,9 @@
     is meant to be customized per site.
 
 !!! warning "Setup and extraction are site specific"
-    There is no single correct extraction method. Some sites use the OHDSI
-    SEARCH tool, some export SQL from ATLAS and run it in a client (Databricks,
+    There is no single correct extraction method. Some sites export SQL from ATLAS and run it in a client (Databricks,
     DBeaver, Snowflake, Postgres, BigQuery, SQL Server), and some have a local
-    pipeline that hands back a prepared dataset. The OMOP CDM and the logic are
+    pipeline that returns a prepared data set. The OMOP CDM and the logic are
     the same everywhere. Only the tooling and the access steps change. Replace
     the placeholders below with your site's actual tools and contacts.
 
@@ -21,7 +20,7 @@ By the end of Day 4 you will be able to:
 
 1. Describe what "extraction" means in an OHDSI workflow: turning a defined cohort into an analytic dataset.
 2. Identify the extraction path used at your site.
-3. Re-run an extraction and validate the result against ATLAS or SEARCH.
+3. Re-run an extraction and validate the result against ATLAS.
 4. Recognize the common reasons a count does not reconcile.
 
 ## The general workflow (true everywhere)
@@ -29,8 +28,8 @@ Regardless of tooling, extraction follows the same shape:
 
 1. **Start from a defined, generated cohort** (the Day 3 output). Extraction is meaningless without a cohort definition behind it.
 2. **Decide what to pull:** which domains and time windows (conditions, drugs, measurements, observation periods relative to cohort entry).
-3. **Run the extraction** using your site's method (SEARCH, exported SQL, or local pipeline).
-4. **Validate:** independently re-count a key number (cohort size, event count) and confirm it matches the source. Reconciliation is the whole point of this day.
+3. **Run the extraction** using your site's method (exported SQL or a local pipeline).
+4. **Validate:** independently re-count a key number (cohort size, event count) and confirm it matches the source. Reconciliation is the main skill this day teaches.
 5. **Document** the CDM version, vocabulary version, and date, so the extract is reproducible.
 
 !!! example "Example local pipeline: Registry Forge ALS"
@@ -40,7 +39,7 @@ Regardless of tooling, extraction follows the same shape:
     maps source codes to standard concepts via Athena, and writes OMOP CDM v5.4
     tables with vocabulary-release versioning — plus a five-tier QC framework and
     privacy-safe (pseudonymized, k-anonymous) outputs. It ships as a single-file
-    Python script that runs locally with no server. If your site has no SEARCH or
+    Python script that runs locally with no server. If your site has no
     ATLAS-export path, a tool like this is what produces the analytic dataset.
     See the [RWE Resources page](../../../free-rwe-resources.md) for a fuller description.
 
@@ -52,7 +51,7 @@ way you complete the environment checklist.
 |---|---|
 | Primary warehouse (Databricks, Snowflake, Postgres, BigQuery, SQL Server, other) | *(insert)* |
 | SQL client or interface | *(insert)* |
-| Extraction method (SEARCH, ATLAS-exported SQL, local pipeline, other) | *(insert)* |
+| Extraction method (ATLAS-exported SQL, local pipeline, other) | *(insert)* |
 | Where extracts are written (path, bucket, schema) | *(insert)* |
 | Access or approval needed before extracting | *(insert)* |
 | CDM and vocabulary version in use | *(insert)* |
@@ -79,8 +78,8 @@ records (concept_id 0), or a time window applied in one place but not the other.
 The hands-on lab is on the [Day 4 exercise](../exercises/day-04-extraction.md)
 page and is written as a template for you to adapt to your site. Day 4 has no
 fixed slide deck because the steps are local; build a short site-specific deck
-from the [ALS TDI template](../resources.md) if you need one for your group.
+from the [plain template](../resources.md) if you need one for your group.
 
 ## Further reading
-- The Book of OHDSI, Chapter 3 (ETL): https://ohdsi.github.io/TheBookOfOhdsi/
+- The Book of OHDSI, Chapter 9 (SQL and R), which covers querying the CDM: https://ohdsi.github.io/TheBookOfOhdsi/SqlAndR.html
 - The [OMOP Vocabulary and SQL Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md) for query patterns.

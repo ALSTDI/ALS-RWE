@@ -6,7 +6,7 @@ The OHDSI/OMOP Train-the-Trainer program at ALS TDI is built on the work of many
 
 ## Program Development
 
-**Danielle Boyce, MPH** — ALS Therapy Development Institute  
+**Danielle Boyce, MPH, DPA** — ALS Therapy Development Institute  
 *Program lead, curriculum design, site materials, and ongoing coordination.*  
 Danielle developed this training series to build OMOP/OHDSI capacity among ALS researchers and data partners working with the ALS TDI real-world evidence infrastructure. She is also a co-author of the [Guide to Real-World Data for Clinical Research](https://rwd.guide/) and co-instructor of the [Introduction to OMOP course](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18) on Tufts CTSI iLEARN.
 

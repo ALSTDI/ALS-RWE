@@ -6,13 +6,13 @@ Materials for the "Is My Question Feasible?" exemplar module.
 
 | File | What it is |
 |:--|:--|
-| `Feasibility-Instructor-Deck-with-Notes.pptx` | The ~30-minute slide deck. Full presenter script is in the speaker notes on every slide. ALS TDI purple house palette. |
+| `Feasibility-Instructor-Deck-with-Notes.pptx` | The ~30-minute slide deck. Full presenter script is in the speaker notes on every slide. Plain black-and-white slides on standard layouts. |
 | `Demo-Cohort-Diabetes-Childbearing-Age.json` | A ready-to-import ATLAS cohort definition for the live demo. Import it into the public ATLAS demo and save it so you screen-share a saved definition instead of typing live. |
-| `Kahoot-Quiz.csv` | A 10-question Kahoot quiz on the feasibility workflow. Import via Kahoot's "Add question → Import from spreadsheet". |
+| `Kahoot-Quiz.csv` | A Kahoot quiz on the feasibility workflow. Kahoot's spreadsheet import uses its own template, so paste these columns into that template before importing. |
 
 ## Pre-building the ATLAS demo (do this once, before class)
 
-The importable cohort is built to demonstrate the collapse cleanly on the public demo's synthetic Medicare data (SynPUF), using only concepts that are guaranteed present. It does **not** depend on obstetric concepts, which SynPUF lacks. The collapse trigger is a demographic rule: female, age 15–44 at the first diabetes record. On a 65+ Medicare population that rule empties the cohort, which is exactly the population-problem lesson.
+The importable cohort is built to demonstrate the collapse cleanly on the public demo's synthetic Medicare data (SynPUF), using only concepts that are guaranteed present. It does **not** depend on obstetric concepts, which are rare in SynPUF. The collapse trigger is a demographic rule: female, age 15–44 at the first diabetes record. On a mostly 65+ Medicare population that rule removes nearly everyone, which is the population-problem lesson. SynPUF includes some beneficiaries under 65 who qualify through disability, so the count after the rule is small and may not be zero; run it before class and note the dated counts.
 
 1. Open [https://atlas-demo.ohdsi.org](https://atlas-demo.ohdsi.org) in Chrome.
 2. Go to **Cohort Definitions → New Cohort**.
@@ -24,12 +24,12 @@ The importable cohort is built to demonstrate the collapse cleanly on the public
 What you should see, and narrate live:
 
 - Diabetes alone (the entry event): a large count.
-- After the female-childbearing-age inclusion rule: the attrition report drops the count to near zero.
+- After the female-childbearing-age inclusion rule: the attrition report shows a small fraction remaining.
 - The optional metformin rule is there to show how an exposure arm attaches; it is not needed for the collapse.
 
 The **attrition report** in the Generation tab is the visual you want on screen at the moment of collapse. It shows exactly how many people each rule removed.
 
-## Concept IDs used (all verified standard concepts)
+## Concept IDs used (confirm in Athena for your vocabulary version)
 
 | Concept | concept_id | Vocabulary | Domain |
 |:--|:--|:--|:--|

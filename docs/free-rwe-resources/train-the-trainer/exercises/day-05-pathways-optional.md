@@ -6,8 +6,8 @@
 
 !!! abstract "What you will do"
     1. Define a target cohort (the population to trace) and at least three event cohorts (the treatments to track).
-    2. Configure a treatment pathway analysis in ATLAS, including collapse gap and combination settings.
-    3. Generate the analysis and interpret the Sunburst and Sankey visualizations.
+    2. Configure a Cohort Pathways analysis in ATLAS, including the combination window.
+    3. Generate the analysis and interpret the sunburst plot and its tabular view.
     4. Adjust one parameter and compare the results.
 
 !!! warning "Setup and extraction are site specific"
@@ -19,8 +19,8 @@
 
 This exercise uses **type 2 diabetes treatment sequences** as the clinical example, because:
 
-- Multiple first-line treatments exist (metformin, sulfonylureas, DPP-4 inhibitors, GLP-1 agonists, insulin)
-- Switching and add-on patterns are clinically meaningful
+- Several drug classes are used (metformin, sulfonylureas, DPP-4 inhibitors, GLP-1 agonists, insulin)
+- Switching and add-on patterns can be seen in the sequences
 - The Day 2 and Day 3 exercises already built the underlying concept sets and cohorts
 
 Adapt to your own disease area by substituting your target condition and relevant drug classes.
@@ -37,26 +37,26 @@ You need one **target cohort** and at least three **event cohorts** already crea
 
 **Event cohorts (create or reuse from Day 2–3):**
 - Metformin (ingredient, include descendants)
-- Sulfonylureas (ingredient class, include descendants)
-- DPP-4 inhibitors (e.g., sitagliptin — ingredient class)
-- GLP-1 receptor agonists (e.g., semaglutide, liraglutide — ingredient class)
-- Insulin (ingredient class)
+- Sulfonylureas (drug class, include descendants)
+- DPP-4 inhibitors (drug class, for example sitagliptin)
+- GLP-1 receptor agonists (drug class, for example semaglutide and liraglutide)
+- Insulins (drug class)
 
-If you already have some of these concept sets from Day 2, build cohorts from them now (entry = first exposure, exit = end of observation).
+If you already have some of these concept sets from Day 2, build cohorts from them now. Set the entry to the first exposure and the exit to the end of continuous drug exposure with a persistence window (for example 30 days), because the exit rule is where the allowed gap between fills is set.
 
 ---
 
 ## Step 2: Configure the pathway analysis
 
-1. In ATLAS, navigate to **Pathways** → **New Pathway Analysis**.
+1. In ATLAS, choose **Cohort Pathways** in the left menu, then **New**.
 2. Set the **name**: `TtT Day5 T2D Pathways`.
 3. Add the **target cohort** you identified in Step 1.
 4. Add each **event cohort** and give it a short label (e.g., "Metformin," "Sulfonylurea").
 5. Configure analysis settings:
-    - **Combination window:** 30 days (allow treatments active within 30 days of each other to count as a combination).
-    - **Minimum cell count:** 5 (suppresses tiny cells for privacy).
-    - **Max path length:** 5 (traces up to 5 treatment steps per person).
-    - **Allowed gap days:** 30 (exposures separated by ≤30 days are considered the same episode).
+    - **Combination window** (labeled Collapse Days in some ATLAS versions): 30 days (events that start within 30 days of each other are shown as a combination).
+    - **Minimum cell count:** 5 (paths with fewer people are not shown).
+    - **Maximum path length:** 5 (traces up to 5 steps per person).
+    - **Allow repeats:** off for the first run.
 6. Save and **Generate** against your training CDM.
 
 !!! tip "Expected wait time"
@@ -64,39 +64,33 @@ If you already have some of these concept sets from Day 2, build cohorts from th
 
 ---
 
-## Step 3: Interpret the Sunburst diagram
+## Step 3: Interpret the sunburst plot
 
-Once generation completes, open the **Results** tab.
+Once generation completes, open the **Executions** tab and choose **View reports** for that run.
 
 **Reading the Sunburst:**
 
 - The **center circle** = your entire target cohort.
-- **Ring 1 (innermost):** the first treatment each person received. The arc width is proportional to the count. The label shows the treatment name and the percentage of the cohort.
-- **Ring 2:** the second treatment, branching from each first-line treatment arc.
-- **"End" arcs:** patients with no further observable treatment in the data.
+- **Ring 1 (innermost):** the first event cohort each person entered. The size of the arc is proportional to the count, and clicking an arc shows the path with its count and percentage.
+- **Ring 2:** the second step, branching from each first-step arc.
+- **Grey:** the end of a pathway, meaning no further event cohort was observed during follow-up.
 
 **Questions to answer:**
-1. What is the most common first-line treatment? Does it match your clinical expectation?
+1. What is the most common first step? Is it what you expected to see?
 2. After the most common first-line, what is the most common switch? Is it a switch or an add-on?
 3. What fraction of the cohort has only one observable treatment step?
 4. Hover over any arc — record the count and percentage.
 
 ---
 
-## Step 4: Interpret the Sankey / flow diagram
+## Step 4: Read the tabular view
 
-Switch to the **Sankey** view.
-
-**Reading the Sankey:**
-- Left columns = treatment steps (1, 2, 3…).
-- Each ribbon = a group of patients following the same sequence.
-- Ribbon width = patient count.
-- "End" at any step = no further treatment observed.
+Click **Tabular** to see the same results as a table.
 
 **Questions to answer:**
-1. Is there a dominant pathway that a large proportion of patients follow?
-2. Where does the most divergence happen — at step 1→2 or 2→3?
-3. Identify one pathway that surprises you clinically. What might explain it?
+1. Which full sequence is followed by the most people, and by what percent of the target cohort?
+2. Where do the sequences diverge most, at the first to second step or the second to third?
+3. Identify one sequence that you did not expect. What might explain it, including data capture?
 
 ---
 
@@ -104,11 +98,11 @@ Switch to the **Sankey** view.
 
 Return to the pathway configuration and change one setting:
 
-- **Option A:** Change the allowed gap days from 30 to 90. Regenerate and compare — does the first-line dominant treatment change? Do combinations appear more or less frequently?
-- **Option B:** Add or remove one event cohort. Does the distribution of "Other" category change?
+- **Option A:** Change the combination window (for example from 30 days to 1 day). Regenerate and compare: do combinations appear more or less often?
+- **Option B:** Add or remove one event cohort. How do the sequences change?
 - **Option C:** Restrict the target cohort to new users only (if not already done). Does the sequence pattern change?
 
-Write one sentence per change explaining what changed and why it matters for interpretation.
+Write one sentence per change explaining what changed and how it affects interpretation.
 
 ---
 
@@ -126,10 +120,10 @@ Write one sentence per change explaining what changed and why it matters for int
 <summary>Show facilitation notes</summary>
 
 - **Reuse Day 3 cohorts.** The metformin new-user cohort is an ideal target cohort; participants only need to add the additional event cohorts (sulfonylurea, DPP-4, etc.) before running the analysis.
-- **Collapse gap sensitivity is the most teachable moment.** Have the group run the analysis once at 30 days and once at 90 days and compare. The change in combination therapy rates is usually dramatic and immediately intuitive.
-- **Clinical vs. data interpretation.** Invite participants with clinical backgrounds to comment on whether the observed sequences match clinical guidelines or patient experience. The gap is the interesting finding.
+- **Show sensitivity to settings.** Have the group run the analysis with two combination windows, or with event cohorts built on two persistence windows, and compare the results.
+- **Interpretation.** Invite participants to comment on whether the observed sequences match what they expected, and to offer reasons for any difference, including data capture.
 - **Colab notebook as fallback.** If ATLAS or CDM access fails for part of the group, the Colab notebook demonstrates the same concept set→pathway→visualization logic on synthetic data.
-- **Minimum cell count.** Remind participants that small cells are suppressed for privacy — this is not a data quality problem, it is a feature.
+- **Minimum cell count.** Remind participants that small cells are suppressed for privacy, which is a design choice and not a data quality problem.
 
 </details>
 

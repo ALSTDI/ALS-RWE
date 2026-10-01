@@ -21,15 +21,16 @@ By the end of this session, you should be able to:
 
 | Time | Topic |
 |:--|:--|
-| 09:00 – 09:30 | Welcome & Overview of OMOP CDM |
-| 09:30 – 10:30 | Core Tables & Relationships |
-| 10:30 – 11:00 | Break |
-| 11:00 – 12:00 | Exploring the OMOP Vocabulary |
-| 12:00 – 13:00 | Lunch |
-| 13:00 – 14:00 | Hands-on: Querying Concepts with SQL |
-| 14:00 – 14:45 | Demo: Using Athena |
-| 14:45 – 15:15 | Recap & Discussion |
-| 15:15 – 15:30 | Homework & Next Steps |
+| 9:30 – 9:45 | Welcome and OHDSI / OMOP overview |
+| 9:45 – 10:25 | CDM architecture: clinical tables |
+| 10:25 – 10:40 | Break |
+| 10:40 – 11:10 | Vocabulary tables and standardization |
+| 11:10 – 11:35 | Live demo: Athena vocabulary browser |
+| 11:35 – 12:25 | SQL lab: explore CDM and vocabulary tables |
+| 12:25 – 12:45 | Discussion: standard vs non-standard concepts |
+| 12:45 – 1:00 | Recap, homework, Day 2 preview |
+
+Each session is a half day. The times follow the sample schedule on the program overview page; shift them to suit your group.
 
 ---
 
@@ -39,7 +40,7 @@ By the end of this session, you should be able to:
 |:--|:--|
 | [Instructor Deck](../training/day-01-omop-cdm/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
 | [Participant Workbook](../training/day-01-omop-cdm/kit/Participant-Workbook.pptx) | Workbook with fill-in exercises |
-| [Kahoot Quiz](../training/day-01-omop-cdm/kit/Kahoot-Quiz.csv) | 10-question OMOP CDM quiz |
+| [Kahoot Quiz](../training/day-01-omop-cdm/kit/Kahoot-Quiz.csv) | OMOP CDM quiz |
 
 - **SQL Examples:** [Day 1 · Code Snippets](../exercises/code_snippets/day-01-snippets.md)  
 - **Cheat Sheet:** [OMOP Vocabulary and SQL Cheat Sheet](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
@@ -53,7 +54,7 @@ By the end of this session, you should be able to:
 
 ---
 
-### 2. Query the `concept` Table
+### 1. Query the `concept` Table
 ```sql
 SELECT concept_id,
        concept_name,
@@ -62,11 +63,11 @@ SELECT concept_id,
 FROM concept
 WHERE concept_name LIKE 'Major depressive disorder%';
 ```
-Identify which are standard (`'S'`) vs non-standard (`NULL`).
+Identify which are standard (`'S'`), classification (`'C'`), or non-standard (`NULL`).
 
 ---
 
-### 3. Map a Non-Standard Code to a Standard Concept
+### 2. Map a Non-Standard Code to a Standard Concept
 ```sql
 SELECT *
 FROM concept_relationship
@@ -77,7 +78,7 @@ Find the standard `concept_id_2`.
 
 ---
 
-### 4. Explore Concept Relationships
+### 3. Explore Concept Relationships
 ```sql
 SELECT cr.relationship_id,
        c.concept_name AS related_concept,
@@ -113,7 +114,7 @@ WHERE cr.concept_id_1 = <standard_concept_id>;
 ## Instructor Notes
 - Demonstrate basic SQL queries live.  
 - Encourage use of Athena to confirm concept IDs.  
-- Remind learners that vocabularies update frequently — document versions.  
+- Remind learners that major vocabulary releases come twice a year (February and August) and that each site loads them on its own schedule, so the version in use should be documented.  
 - Optional challenge: map ICD codes to SNOMED standards and compare results.
 
 ---

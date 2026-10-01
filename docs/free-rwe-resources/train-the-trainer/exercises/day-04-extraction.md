@@ -8,7 +8,7 @@
 
 !!! warning "Setup and extraction are site specific"
     These steps assume you have a generated cohort from Day 3 and read access to
-    your CDM. The method (SEARCH, ATLAS-exported SQL, or a local pipeline) and
+    your CDM. The method (ATLAS-exported SQL or a local pipeline) and
     the client (Databricks, DBeaver, Snowflake, Postgres, BigQuery, SQL Server,
     other) are whatever your site uses. Not everyone uses Databricks.
 
@@ -21,7 +21,6 @@ cohort you have access to). Record its `cohort_definition_id`.
 ## Step 2: Extract using your site's method
 Choose the path that matches your site:
 
-- **SEARCH:** run a cohort-based extraction and save the output to your working location.
 - **Exported SQL:** export the cohort and feature SQL from ATLAS and run it in your client.
 - **Local pipeline:** request or trigger the extract through your site's process.
 

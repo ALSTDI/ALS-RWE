@@ -30,7 +30,7 @@
 **Overview**
 - A practical, accessible introduction to the **OMOP Common Data Model**, vocabulary concepts, and the OHDSI ecosystem.  
 - Designed to address common questions from analysts, clinicians, and data engineers new to OMOP.  
-- Ideal for onboarding new OHDSI collaborators and supplementing the **Week 1 curriculum**.
+- Ideal for onboarding new OHDSI collaborators and supplementing the **Day 1 curriculum**.
 
 **Enroll:** [Click here to join the course →](https://ilearn.tuftsctsi.org/product?catalog=D1RS_2025_18)
 
@@ -44,7 +44,7 @@
 - *Observational Health Data Science, RWE, and OHDSI Tooling*  
 
 **Use in this program**
-- Great supplemental material for **Weeks 1–2** (CDM & Vocabularies)  
+- Great supplemental material for **Days 1 and 2** (CDM & Vocabularies)  
 - Deep dives for **ETL and Data Quality** sessions later in the curriculum  
 
 **Access:** [academy.ehden.eu → All Courses](https://academy.ehden.eu/course/index.php?categoryid=all)
@@ -128,18 +128,17 @@
 
 ## Train-the-Trainer downloads
 
-All materials below are ALS TDI branded and live in this repository so they
-travel together. Please keep the template with these materials rather than
-sharing it on its own.
+All materials below live in this repository so they travel together. The slide decks use plain black-and-white slides on standard PowerPoint layouts, so you can apply your own theme or branding from the Design tab.
 
 ### Feasibility First
 - [Instructor deck with notes (PPTX)](training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx), the full 30-minute deck with speaker script.
 - [Importable ATLAS cohort (JSON)](training/feasibility-first/kit/Demo-Cohort-Diabetes-Childbearing-Age.json), import into atlas-demo and save for the live demo.
-- [Kahoot quiz (CSV)](training/feasibility-first/kit/Kahoot-Quiz.csv), 10 questions on the feasibility workflow.
+- [Kahoot quiz (CSV)](training/feasibility-first/kit/Kahoot-Quiz.csv), on the feasibility workflow.
 - [Kit README](training/feasibility-first/kit/README.md), setup steps and the concept IDs used. Module pages start at [Feasibility First](feasibility-first/index.md).
 
 ### Slide template
-- [ALS TDI presentation template (PPTX)](templates/ALS-TDI-Template.pptx), use it as the starting point for any new deck.
+- [Plain template (PPTX)](templates/Plain-Template.pptx), the black-and-white template the decks are built on; use it as the starting point for a new deck.
+- [ALS TDI presentation template (PPTX)](templates/ALS-TDI-Template.pptx), for decks that need ALS TDI branding.
 
 ### Sample notebooks (Colab ready, synthetic data, no credentials)
 - Day 1, OMOP CDM and vocabularies: [download](notebooks/Day1-OMOP-CDM-and-Vocabularies.ipynb)
@@ -152,16 +151,21 @@ sharing it on its own.
 - [Cohort Definitions tutorial (DOCX)](training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx)
 
 ### Day 5, treatment pathways kit
-- [Instructor deck with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
+- [Lead instructor deck: Cohort Pathways in ATLAS](training/day-05-treatment-pathways/kit/ATLAS-Treatment-Pathways-Training.pptx)
+- [Worked example deck (type 2 diabetes), with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
 - [Participant workbook](training/day-05-treatment-pathways/kit/Participant-Workbook.pptx)
 - [Kahoot quiz (CSV)](training/day-05-treatment-pathways/kit/Kahoot-Quiz.csv)
 - The full kit (handouts, answer keys, scripts, interpretation guides) is in `training/day-05-treatment-pathways/kit/`.
 
-### Day 6, advanced analytics with HADES kit
+### Day 6, Part 2: patient-level prediction kit
 - [Instructor deck](training/day-06-hades/kit/Instructor-Deck.pptx)
 - [Participant workbook](training/day-06-hades/kit/Participant-Workbook.pptx)
 - [Kahoot quiz (CSV)](training/day-06-hades/kit/Kahoot-Quiz.csv)
 - The full kit is in `training/day-06-hades/kit/`.
+
+### Day 6, Part 1: cohort diagnostics and feature extraction
+- [Instructor deck with notes](training/day-06-hades/kit/Part-1-Instructor-Deck-with-Notes.pptx)
+- [Slide-by-slide script](training/day-06-hades/kit/Part-1-Slide-Script.md)
 
 > The large lecture decks (Day 1 to Day 6 full slide sets) are hosted separately
 > in Google Drive because of their size, and linked from there.

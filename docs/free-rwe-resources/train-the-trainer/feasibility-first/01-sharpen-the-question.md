@@ -23,11 +23,12 @@ Notice that four of the five rows depend on one hard thing: being able to identi
 Once the question is specified, feasibility is a sequence of concrete checks. Each one can be answered before you ever open a protocol.
 
 1. **Do the concepts exist in the vocabulary?** Is there a standard concept for pregestational diabetes, for preeclampsia, for metformin, for insulin? (Almost always yes. This is the easy check.)
-2. **Are those concepts present in the data?** A concept can exist in the vocabulary and never appear in your instance because that source never recorded it. Record count, not concept existence, is what matters.
-3. **Is the population the right one?** Childbearing-age people must actually be in the source. A geriatric claims database has diabetes in abundance and no pregnancies at all.
+2. **Are those concepts present in the data?** A concept can exist in the vocabulary and never appear in your instance because that source never recorded it. The record count in your source decides this check, not the existence of the concept.
+3. **Is the population the right one?** Childbearing-age people must actually be in the source. A database of mostly older adults has diabetes in abundance and very few pregnancies.
 4. **Can you anchor time?** You need a datable index event (here, pregnancy start) and enough observation time around it to see the exposure and the outcome.
-5. **Is there enough of it?** Even when everything is present, the count of people who satisfy all criteria at once may be too small to answer the comparative question. Feasibility includes rough power.
-6. **Are you allowed to look?** Getting aggregate counts for feasibility is usually lighter-touch than a full study, but your institution sets that line. Know it before you run anything.
+5. **Is the outcome the kind of event this source records?** Claims and EHR data capture different things, and an outcome that lives only in clinical notes will not be found in claims.
+6. **Is there enough of it?** Even when everything is present, the count of people who satisfy all criteria at once may be too small to answer the comparative question. Feasibility includes rough power.
+7. **Are you allowed to look?** Getting aggregate counts for feasibility is usually lighter-touch than a full study, but your institution sets that line. Know it before you run anything.
 
 !!! warning "The part that will take real work: pregnancy episodes"
     Identifying pregnancy in observational data is a known, nontrivial problem. A single obstetric code does not give you a start date, an end date, or a trimester. The OHDSI community has published pregnancy episode algorithms that assemble episodes from many signals (prenatal visits, gestational-age observations, delivery and outcome codes) and estimate start and end. If your question depends on gestational timing, as this one does through "first trimester" and "pregestational", you will need one of these algorithms applied to your instance, or you will need to build it.

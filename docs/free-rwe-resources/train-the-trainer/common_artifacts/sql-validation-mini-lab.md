@@ -1,9 +1,9 @@
-# SQL Validation Mini Lab (Weeks 2–4)
+# SQL Validation Mini Lab (Days 2 to 4)
 
 This mini lab guides you through **validating Atlas outputs in your SQL client** (Databricks or DBeaver).  
 You’ll export SQL from Atlas, run it yourself, and compare results — reinforcing transparency and reproducibility.
 
-> Use this lab in **Week 2 (Concept Sets)**, **Week 3 (Cohorts)**, and **Week 4 (SEARCH/Extraction)**.  
+> Use this lab on **Day 2 (Concept Sets)**, **Day 3 (Cohorts)**, and **Day 4 (Extraction)**.  
 > Keep your screenshots and notes; you’ll discuss them at the beginning of the following session.
 
 ---
@@ -27,22 +27,22 @@ You’ll export SQL from Atlas, run it yourself, and compare results — reinfor
 - **Result summary**: row counts, sample IDs, and any differences observed.
 - **Screenshots**: Atlas page(s) + SQL client output(s).
 
-> Tip: save all artifacts in your repo under a dated folder, e.g. `labs/week2_sql_validation/`.
+> Tip: save all artifacts in your repo under a dated folder, e.g. `labs/day2_sql_validation/`.
 
 ---
 
-## Week 2 — Validate Concept Sets in SQL
+## Day 2: Validate Concept Sets in SQL
 
 ### 1) Export Concept Set from Atlas
 1. In Atlas, open your **Concept Set**.
-2. Click **Export** → **SQL** (and/or **JSON**).
-3. Save as `conceptset_<name>_v1.sql` in your repo.
+2. Open the **Export** tab and copy the **concept identifier list** (the included concept IDs). Save the expression **JSON** as well, for version control.
+3. Save both in your repo, for example `conceptset_<name>_v1.json` and `conceptset_<name>_v1_ids.txt`.
 
 > **Screenshot Placeholder**: Atlas Concept Set Export
 
 ### 2) Run in Your SQL Client
 1. Open **Databricks** (SQL Warehouse) or **DBeaver**.
-2. Paste the exported SQL OR recreate logic with `concept` + `concept_ancestor` (see examples).
+2. Paste the concept IDs into the query below, or recreate the logic with `concept` + `concept_ancestor` (see examples).
 3. **Run** and record: `N` concepts returned, any non-standard concepts, domain distribution.
 
 ```sql
@@ -54,16 +54,16 @@ WHERE c.concept_id IN ( /* paste IDs from Atlas export */ );
 
 ### 3) Compare & Interpret
 - Do counts in SQL match the number of concepts expected from Atlas?
-- Any **non-standard** concepts? If yes, how did they appear?
-- Save results and a brief note to `labs/week2_sql_validation/notes.md`.
+- Any **non-standard** concepts? If yes, how did they get into the set? (A classification concept added with descendants is expected to show `C`.)
+- Save results and a brief note to `labs/day2_sql_validation/notes.md`.
 
 ---
 
-## Week 3 — Validate Cohort SQL in Your Client
+## Day 3: Validate Cohort SQL in Your Client
 
 ### 1) Export Cohort SQL from Atlas
 1. Open your **Cohort Definition**.
-2. Click **Export** → **SQL** (choose dialect closest to your DB).
+2. Open the **Export** tab, choose **SQL**, and pick the dialect closest to your database. The SQL has parameters (CDM schema, target cohort table, cohort ID) to fill in before you run it.
 3. Save as `cohort_<name>_v1.sql`.
 
 > **Screenshot Placeholder**: Atlas Cohort Export
@@ -88,10 +88,10 @@ WHERE condition_concept_id IN ( /* concept set IDs */ );
 
 ---
 
-## Week 4 — Validate SEARCH / Extraction Output
+## Day 4: Validate Extraction Output
 
 ### 1) Build & Export an Extraction Spec
-- In SEARCH (or Atlas if applicable), configure a cohort-aligned extraction.
+- Using your site's extraction path (ATLAS-exported SQL or a local pipeline), set up a cohort-aligned extraction.
 - Export or obtain the **SQL / spec** used to pull rows.
 
 ### 2) Re-run Manually in SQL Client
@@ -109,7 +109,7 @@ WHERE condition_concept_id IN ( /* concept set IDs */ )
 ### 3) Compare & Document
 - Do your manual counts match tool outputs?
 - If not, list potential causes (filters, join cardinality, missing links).
-- Save screenshots + a short summary to `labs/week4_sql_validation/summary.md`.
+- Save screenshots + a short summary to `labs/day4_sql_validation/summary.md`.
 
 ---
 
@@ -126,13 +126,13 @@ WHERE condition_concept_id IN ( /* concept set IDs */ )
 - [ ] SQL scripts (with comments) saved
 - [ ] Counts & differences documented
 - [ ] 2–3 screenshots included
-- [ ] Folder committed to repo: `labs/week2_sql_validation/`, `labs/week3_sql_validation/`, `labs/week4_sql_validation/`
+- [ ] Folder committed to repo: `labs/day2_sql_validation/`, `labs/day3_sql_validation/`, `labs/day4_sql_validation/`
 
 ---
 
 ## References
 - [OMOP SQL Examples](../common_artifacts/omop-vocab-sql-cheat-sheet.md)
-- [Book of OHDSI – Data Quality Concepts](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html)
+- [Book of OHDSI – Data Quality (Chapter 15)](https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html)
 - [Book of OHDSI – Standardized Vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html)
 - [Book of OHDSI – Common Data Model](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html)
 

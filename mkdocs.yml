@@ -53,7 +53,8 @@ nav:
             - "Day 3 · Cohort Definition": free-rwe-resources/train-the-trainer/modules/day-03-cohorts.md
             - "Day 4 · Data Extraction": free-rwe-resources/train-the-trainer/modules/day-04-extraction.md
             - "Day 5 · Treatment Pathways (Optional)": free-rwe-resources/train-the-trainer/modules/day-05-pathways.md
-            - "Day 6 · HADES (Optional)": free-rwe-resources/train-the-trainer/modules/day-06-hades.md
+            - "Day 6 · Part 1 · HADES Cohort Diagnostics (Optional)": free-rwe-resources/train-the-trainer/modules/day-06-hades.md
+            - "Day 6 · Part 2 · Patient-Level Prediction (Optional)": free-rwe-resources/train-the-trainer/modules/day-06-prediction.md
         - Exercises:
             - "Day 1 · Athena & CDM Vocabulary": free-rwe-resources/train-the-trainer/exercises/day-01-athena-cdm.md
             - "Day 1 · SQL Code Snippets": free-rwe-resources/train-the-trainer/exercises/code_snippets/day-01-snippets.md
@@ -61,7 +62,8 @@ nav:
             - "Day 3 · Cohorts in ATLAS": free-rwe-resources/train-the-trainer/exercises/day-03-cohorts.md
             - "Day 4 · Data Extraction": free-rwe-resources/train-the-trainer/exercises/day-04-extraction.md
             - "Day 5 · Treatment Pathways (Optional)": free-rwe-resources/train-the-trainer/exercises/day-05-pathways-optional.md
-            - "Day 6 · HADES (Optional)": free-rwe-resources/train-the-trainer/exercises/day-06-hades-optional.md
+            - "Day 6 · Part 1 · HADES Cohort Diagnostics (Optional)": free-rwe-resources/train-the-trainer/exercises/day-06-hades-optional.md
+            - "Day 6 · Part 2 · Patient-Level Prediction (Optional)": free-rwe-resources/train-the-trainer/exercises/day-06-prediction-optional.md
         - Common Artifacts:
             - "Environment Setup Handout": free-rwe-resources/train-the-trainer/common_artifacts/environment-setup-handout.md
             - "OMOP Vocabulary & SQL Cheat Sheet": free-rwe-resources/train-the-trainer/common_artifacts/omop-vocab-sql-cheat-sheet.md

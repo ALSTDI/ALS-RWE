@@ -4,7 +4,7 @@
 
 This is the artifact fellows keep. Fill it in for your own question. If any row in the first table is a hard no, you have your answer before you write a protocol, and that is a win, not a failure.
 
-## The seven checks
+## The checks
 
 | # | Check | What proves it |
 |:--|:--|:--|
@@ -20,7 +20,7 @@ For which OHDSI tool answers each check, see the [checks-to-tools appendix](08-c
 
 ## Reading your result
 
-- **All seven yes:** feasible at your site. Move to a formal cohort definition and pilot it locally.
+- **All yes:** feasible at your site. Move to a formal cohort definition and pilot it locally.
 - **1–5 yes but 6 no:** feasible only across the network. The question is sound; scope it as a network study and engage the [community](05-network-feasibility.md) early.
 - **3 no (population absent):** not feasible in this source. Do not try to fix it with mapping; take the question to a database that has the population.
 - **1 or 2 no (concepts absent or unmapped):** possibly a mapping or ETL issue. Ask your steward before concluding the question is dead.
