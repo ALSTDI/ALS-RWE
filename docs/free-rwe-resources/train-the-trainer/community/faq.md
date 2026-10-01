@@ -29,7 +29,7 @@ Answers to the most common questions from past cohorts, organized by topic.
 ??? question "What is the `concept_ancestor` table used for?"
     `concept_ancestor` stores pre-computed transitive ancestor/descendant pairs for all concepts that have hierarchical relationships. It is what makes **"include descendants"** work in a concept set.
 
-    Instead of listing every specific drug product for metformin, you join `drug_exposure` to `concept_ancestor` on `ancestor_concept_id = [metformin ingredient concept]` and the join automatically returns all products and formulations below that ingredient in the hierarchy.
+    Instead of listing every specific drug product for riluzole, you join `drug_exposure` to `concept_ancestor` on `ancestor_concept_id = [riluzole ingredient concept]` and the join automatically returns all products and formulations below that ingredient in the hierarchy.
 
 ??? question "What is an observation period, and why does it matter for cohort logic?"
     The `observation_period` table records the time intervals during which a person has sufficient observable data in the source system. It is the denominator for cohort analysis — a person can only be in a cohort during their observation period.
@@ -44,7 +44,7 @@ Answers to the most common questions from past cohorts, organized by topic.
     The most common causes:
 
     1. **Non-standard concepts in the set.** Open the **Included Concepts** tab in Atlas and check the standard concept column. A concept shown as Non-Standard will not match records in the standard concept fields of the CDM.
-    2. **Missing "Include Descendants."** You added the parent concept (e.g., the sulfonylurea drug class) but did not toggle "Include Descendants," so the query only looks for that exact concept_id — not the individual drugs below it.
+    2. **Missing "Include Descendants."** You added the parent concept (e.g., Motor neuron disease) but did not toggle "Include Descendants," so the query only looks for that exact concept_id — not the more specific concepts below it.
     3. **Schema or CDM version mismatch.** You are querying a different schema or CDM version than Atlas generated against.
     4. **Concept_id = 0 in CDM records.** Your CDM may have a high proportion of unmapped source codes (concept_id 0), which will not match any standard concept set.
 

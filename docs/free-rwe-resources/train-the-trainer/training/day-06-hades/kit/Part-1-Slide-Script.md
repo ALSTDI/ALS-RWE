@@ -32,7 +32,7 @@ Three names are needed for the rest of the session: the schema where the CDM liv
 
 ## Slide 8: Generate the Day 3 cohort with CohortGenerator
 
-Participants export the new-user metformin cohort from ATLAS as JSON and SQL, save both in a cohorts folder, and list the cohort in a small settings file. CohortGenerator reads those files, creates the cohort tables, and generates the cohort. Have each person compare the count in the new table with the count ATLAS reported for the same definition on the same data source. A difference usually means a different schema or a different version of the definition.
+Participants export the new-user riluzole cohort from ATLAS as JSON and SQL, save both in a cohorts folder, and list the cohort in a small settings file. CohortGenerator reads those files, creates the cohort tables, and generates the cohort. Have each person compare the count in the new table with the count ATLAS reported for the same definition on the same data source. A difference usually means a different schema or a different version of the definition.
 
 ## Slide 9: Run CohortDiagnostics on the generated cohort
 
@@ -52,7 +52,7 @@ The incidence output shows how often people enter the cohort by calendar period,
 
 ## Slide 13: Visit context shows where the index events were recorded
 
-This output shows the kind of visit recorded around cohort entry, such as outpatient, inpatient, or emergency. Use it to check whether the entry event is being recorded in the setting the study design assumes. Ask the group what they expected for a first metformin record at their site and whether the output agrees.
+This output shows the kind of visit recorded around cohort entry, such as outpatient, inpatient, or emergency. Use it to check whether the entry event is being recorded in the setting the study design assumes. Ask the group what they expected for a first riluzole record at their site and whether the output agrees.
 
 ## Slide 14: Build baseline covariates with FeatureExtraction
 
@@ -60,7 +60,7 @@ FeatureExtraction builds covariates for the people in a cohort from the time bef
 
 ## Slide 15: Read the covariate summary as a description of the cohort
 
-Sort the summary by mean value and read the most prevalent covariates. Ask whether the age and sex distribution, the prior conditions, and the prior drugs are what participants expected for new metformin users at their site, and whether anything is surprising. This is the R counterpart of the characterization run in ATLAS on Day 3, and the two should tell a similar story for the same cohort.
+Sort the summary by mean value and read the most prevalent covariates. Ask whether the age and sex distribution, the prior conditions, and the prior drugs are what participants expected for new riluzole users at their site, and whether anything is surprising. This is the R counterpart of the characterization run in ATLAS on Day 3, and the two should tell a similar story for the same cohort.
 
 ## Slide 16: Lab: run the cohort checks and the covariate summary on your own cohort
 

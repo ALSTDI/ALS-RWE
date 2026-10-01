@@ -15,7 +15,7 @@ Every clinical idea in OMOP is a **concept** with a numeric `concept_id`. The cr
 - A **standard concept** is the one canonical representation OMOP uses for a clinical idea. Conditions are standardized to SNOMED CT, drugs to RxNorm and its extension, measurements largely to LOINC. When you build a cohort, you build it from standard concepts.
 - A **non-standard (source) concept** is a code from the original source, such as an ICD-10-CM diagnosis or an NDC drug code. These are mapped to standard concepts through the vocabulary's "Maps to" relationships during ETL.
 
-Why this matters for feasibility: your source might record diabetes as an ICD-10-CM code, but you query for the SNOMED standard concept. If the ETL mapped ICD-10 to SNOMED correctly, your query finds those people. If a code was left unmapped, those records are invisible to a standard-concept query even though the information is sitting in the source. That is why "what is the unmapped rate?" is a steward question, not a technicality.
+For feasibility, the consequence is this: your source might record ALS as an ICD-10-CM code (G12.21), but you query for the SNOMED standard concept. If the ETL mapped ICD-10 to SNOMED correctly, your query finds those people. If a code was left unmapped, those records are invisible to a standard-concept query even though the information is sitting in the source. That is why "what is the unmapped rate?" is a steward question, not a technicality.
 
 ## Domains decide where to look
 
@@ -23,16 +23,16 @@ A concept belongs to a **domain**, and the domain tells you which table holds it
 
 | Idea | Domain | Table |
 |:--|:--|:--|
-| Preeclampsia | Condition | `CONDITION_OCCURRENCE` |
-| Metformin, insulin | Drug | `DRUG_EXPOSURE` |
+| Motor neuron disease, ALS | Condition | `CONDITION_OCCURRENCE` |
+| Riluzole, edaravone | Drug | `DRUG_EXPOSURE` |
 | Hemoglobin A1c | Measurement | `MEASUREMENT` |
-| Pregnancy / gestational age | Observation or Measurement | depends how it was recorded |
+| ALSFRS-R scores | Observation or Measurement | depends on how the site mapped them, and often not structured at all |
 
 If you look for a drug in the condition table you will find nothing and wrongly conclude the data is missing. Always confirm the domain first.
 
 ## Concept sets and hierarchies
 
-You rarely want a single concept. "Type 2 diabetes mellitus" has dozens of more specific descendants. OMOP vocabularies are hierarchical, so you can select a parent concept and include its descendants in one move. A **concept set** is a named, reusable bundle of concepts plus rules like "include descendants" or "exclude" a branch. You will build concept sets in ATLAS for diabetes, pregnancy, preeclampsia, metformin, and insulin, and reuse them across every cohort.
+You rarely want a single concept. "Motor neuron disease" has more specific descendants, including ALS. OMOP vocabularies are hierarchical, so you can select a parent concept and include its descendants in one move. A **concept set** is a named, reusable bundle of concepts plus rules like "include descendants" or "exclude" a branch. You will build concept sets in ATLAS for motor neuron disease, riluzole, and the ALSFRS-R, and reuse them across every cohort.
 
 ## The three checks this primer enables
 

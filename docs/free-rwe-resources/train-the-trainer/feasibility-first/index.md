@@ -1,9 +1,9 @@
 # Feasibility First — Is My Question Feasible?
 
-**A 30-minute exemplar for researchers new to OMOP/OHDSI.** It takes the position of a fellow who has a real question but does not yet know who to contact, what to ask, or whether the data can answer it, and walks from zero to a defensible go/no-go decision using the public ATLAS demo.
+**A 30-minute exemplar for researchers new to OMOP/OHDSI.** It takes the position of a researcher who has a real question but does not yet know who to contact, what to ask, or whether the data can answer it, and walks from zero to a defensible go/no-go decision using the public ATLAS demo.
 
 !!! note "About the running example"
-    This module was developed as a use case for the **JHU OHDSI MCH Fellowship**, so the running example is a pregnancy question (pregestational diabetes and preeclampsia). The **workflow is disease-agnostic** — the steps, checks, and tools are identical for any condition. Swap in your own target population, exposure, and outcome wherever the pregnancy example appears; nothing else changes.
+    The running example is the [ALS use case](../als-use-case.md) used across this program: motor neuron disease, riluzole, and the ALSFRS-R. The **workflow is disease-agnostic**; the steps, checks, and tools are the same for any condition. The original version of this module, built around a pregnancy question for the JHU OHDSI MCH Fellowship, is kept in the maternal and child health edition of the curriculum.
 
 [Start the walkthrough :material-arrow-right:](04-atlas-feasibility-walkthrough.md){ .md-button .md-button--primary }
 [Jump to the go/no-go checklist :material-checkbox-multiple-marked:](06-feasibility-checklist.md){ .md-button }
@@ -20,13 +20,13 @@
 
 ## Why this module sits at the front
 
-The daily curriculum (Days 1–6) teaches you to build. This module teaches you to check first. Feasibility assessment is cheap; running a study on the wrong data is expensive. The whole point is to move the moment you discover a question cannot be answered from month six to minute five.
+The daily curriculum (Days 1–6) teaches you to build. This module teaches you to check first. Feasibility assessment is cheap; running a study on the wrong data is expensive. The aim is to learn that a question cannot be answered before a protocol is written, not after.
 
-The public ATLAS demo makes that vivid. It runs on synthetic Medicare data (SynPUF), so diabetes records are abundant and pregnancy records are rare. The lesson is watching a large cohort count collapse when you add a childbearing-age requirement. That same collapse, caught early against your real instance, is a saved year.
+The ALSFRS-R makes the lesson concrete. The scale has LOINC codes, so a vocabulary search finds it at every site. At many sites the scores are written in clinic notes and never reach a structured table, so a count of records finds few or none. A cohort that requires a structured ALSFRS-R score can collapse to nothing while every concept in it exists.
 
 ## The running example
 
-> Among pregnant people with pregestational diabetes (type 1 or type 2, diagnosed before the pregnancy), how often does preeclampsia occur, and does that differ by first-trimester glucose-lowering medication (metformin versus insulin)?
+> Among people with motor neuron disease who start riluzole, what do the data show about their ALS Functional Rating Scale - Revised (ALSFRS-R) scores over the following year?
 
 Swap in your own question wherever you like. The steps do not change.
 
@@ -46,8 +46,7 @@ Facilitators should also read the [Facilitator notes](07-facilitator-notes.md) a
 
 ## How this connects to the rest of the curriculum
 
-This module is a fast, self-contained on-ramp. When you are ready to go deeper on any step, the core curriculum has the full treatment:
-
+- The concepts behind the example: [The ALS use case](../als-use-case.md).
 - Vocabulary and concepts in depth: [Day 1 · OMOP CDM](../modules/day-01-omop-cdm.md) and [Day 2 · Vocabulary & Data Quality](../modules/day-02-vocab-dqd.md).
 - Cohort definition mechanics: [Day 3 · Cohort Definition](../modules/day-03-cohorts.md).
 - Extraction and site-specific validation: [Day 4 · Data Extraction](../modules/day-04-extraction.md).
@@ -58,7 +57,7 @@ This module is a fast, self-contained on-ramp. When you are ready to go deeper o
 
 | File | Description |
 |:--|:--|
-| [Instructor Deck with Notes](../training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx) | Full 30-minute deck with the presenter script in the speaker notes |
-| [Importable ATLAS cohort (JSON)](../training/feasibility-first/kit/Demo-Cohort-Diabetes-Childbearing-Age.json) | Ready-to-import demo cohort; import into atlas-demo and save |
+| [Instructor Deck with Notes](../training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx) | Headline-only slides with the presenter script in the speaker notes |
+| [Slide-by-slide script](../training/feasibility-first/kit/Feasibility-Slide-Script.md) | The same script as a page |
 | [Kahoot Quiz (CSV)](../training/feasibility-first/kit/Kahoot-Quiz.csv) | Quiz on the feasibility workflow |
-| [Kit README](../training/feasibility-first/kit/README.md) | Setup steps, concept IDs, and the full-clinical-cohort notes |
+| [Kit README](../training/feasibility-first/kit/README.md) | How to build the demo cohort in ATLAS before class |

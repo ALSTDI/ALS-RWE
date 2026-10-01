@@ -51,6 +51,9 @@ DQD runs its checks against an OMOP CDM and reports each as a pass or fail again
 
 A useful habit is to run DQD early, read the failures, and decide which ones threaten your analysis. A failed check is not always fatal, and a passing dashboard does not guarantee the data answer your question.
 
+### A completeness problem DQD will not show: the ALSFRS-R
+The ALSFRS-R has LOINC codes for the scale, the total score, and each item. At many sites the scores are written in clinic notes and never reach a structured table. DQD checks the records that are in the CDM, so it has nothing to say about information that was never loaded. The check is a count of your own: how many structured ALSFRS-R records exist, and how many notes mention the scale? The queries are on [The ALS use case](../als-use-case.md) page.
+
 ### Data quality, or your concept set?
 A recurring lesson is that an unexpected result is often not a data problem at all. It is frequently a concept set that is too narrow, too broad, or built on non-standard concepts. Before blaming the data, confirm that your concept set captures what you intended. That is the bridge into Part 2.
 
@@ -59,13 +62,13 @@ A recurring lesson is that an unexpected result is often not a data problem at a
 ## Part 2: Concept sets
 
 ### What a concept set is
-A concept set is a named, reusable expression that defines a clinical idea, for example "all sulfonylureas" or "type 2 diabetes." The expression is a list of concepts, each with options to include descendants, include mapped source concepts, or exclude. You build it once and reuse it in cohort entry events, inclusion rules, and characterization.
+A concept set is a named, reusable expression that defines a clinical idea, for example "ALS medications" or "motor neuron disease." The expression is a list of concepts, each with options to include descendants, include mapped source concepts, or exclude. You build it once and reuse it in cohort entry events, inclusion rules, and characterization.
 
 ### Standard, classification, and non-standard concepts
-Clinical tables store standard concepts (`standard_concept = 'S'`), so a concept set should resolve to standard concepts. A classification concept (`standard_concept = 'C'`), such as the ATC class "Sulfonylureas," is not stored in the clinical tables; it reaches the data through its standard descendants, which is why a class is added together with its descendants. A non-standard source concept (an ICD-10-CM or NDC code) will not match records in the standard concept fields.
+Clinical tables store standard concepts (`standard_concept = 'S'`), so a concept set should resolve to standard concepts. A classification concept (`standard_concept = 'C'`), such as the ATC class N07XX (other nervous system drugs), which riluzole sits under, is not stored in the clinical tables; it reaches the data through its standard descendants, which is why a class is added together with its descendants. A non-standard source concept (an ICD-10-CM or NDC code) will not match records in the standard concept fields.
 
 ### Descendants
-A concept set entry can include descendants. Selecting the class "Sulfonylureas" with descendants pulls in the ingredients and every product below them in the hierarchy, so you do not have to list each one. The `concept_ancestor` table is what makes this work.
+A concept set entry can include descendants. Selecting the concept "Motor neuron disease" with descendants pulls in ALS and the other terms below it, and selecting the riluzole ingredient with descendants pulls in every product below it, so you do not have to list each one. The `concept_ancestor` table is what makes this work.
 
 ### Included Concepts and Included Source Codes
 In ATLAS, a concept set has tabs that show what the expression resolves to:

@@ -15,19 +15,19 @@ In OHDSI, a cohort is a set of persons who satisfy one or more criteria for a pe
 ## The four parts of a cohort definition
 ATLAS and the Book of OHDSI (chapter 10) present a cohort definition as cohort entry events, inclusion criteria, and cohort exit, all built on concept sets. This program teaches those as four parts so that the Day 2 concept set work stays in view:
 
-1. **Cohort entry event (initial event):** what event qualifies a person to enter, for example the first exposure to metformin? This is built on a concept set.
+1. **Cohort entry event (initial event):** what event qualifies a person to enter, for example the first exposure to riluzole? This is built on a concept set.
 2. **Concept set:** the reusable set of standard concepts that the entry event and rules reference. (This is the Day 2 building block.)
-3. **Inclusion criteria:** additional conditions applied to the entry events, for example "at least 365 days of prior observation" or "no prior insulin." In ATLAS there is no separate exclusion list; an exclusion is written as an inclusion rule that requires exactly zero occurrences of the excluded event.
+3. **Inclusion criteria:** additional conditions applied to the entry events, for example "at least 365 days of prior observation" or "no prior edaravone." In ATLAS there is no separate exclusion list; an exclusion is written as an inclusion rule that requires exactly zero occurrences of the excluded event.
 4. **Cohort exit:** when and how a person stops being in the cohort, for example at the end of continuous drug exposure or end of observation.
 
 ## Temporal logic
-Inclusion rules are usually time-relative. "No prior insulin" really means "no insulin exposure in some window before the entry event." Getting the window right (for example 365 days before, anytime prior, or during a fixed period) is where most cohort logic errors live, so it deserves explicit attention.
+Inclusion rules are usually time-relative. "No prior edaravone" really means "no edaravone exposure in some window before the entry event." Getting the window right (for example 365 days before, anytime prior, or during a fixed period) is where most cohort logic errors live, so it deserves explicit attention.
 
 ## Building a cohort in ATLAS
 ATLAS is the graphical interface for cohort building. The typical flow:
 
 1. Start a new cohort definition.
-2. Define the entry event using a concept set (for example new use of metformin).
+2. Define the entry event using a concept set (for example new use of riluzole).
 3. Set the required prior observation (ATLAS offers this in the entry event section) and add inclusion criteria, each as its own named rule with its temporal window.
 4. Define the exit.
 5. Save, generate against a CDM, and review the counts and attrition at each inclusion step.
@@ -46,7 +46,7 @@ Once a cohort is generated, characterization summarizes who is in it: demographi
 | [Instructor Deck](../training/day-03-cohort-definitions/kit/Instructor-Deck-with-Notes.pptx) | Full slide deck with speaker notes |
 | [Participant Workbook](../training/day-03-cohort-definitions/kit/Participant-Workbook.pptx) | Workbook with fill-in exercises |
 | [Kahoot Quiz](../training/day-03-cohort-definitions/kit/Kahoot-Quiz.csv) | Cohort definition quiz |
-| [Tutorial: Cohort Definitions Basics and Atlas](../training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx) | Written walkthrough of a metformin new-user example |
+| [Tutorial: Cohort Definitions Basics and Atlas](../training/day-03-cohort-definitions/tutorial/Cohort-Definitions-Basics-and-Atlas.docx) | Written walkthrough of a riluzole new-user example |
 
 The hands-on lab is on the [Day 3 exercise](../exercises/day-03-cohorts.md) page.
 

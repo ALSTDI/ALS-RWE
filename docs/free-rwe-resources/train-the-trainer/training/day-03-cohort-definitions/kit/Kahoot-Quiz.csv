@@ -1,7 +1,7 @@
 Question,Answer 1,Answer 2,Answer 3,Answer 4,Time limit,Correct
 An OHDSI cohort is best described as:,A list of patients with a specific diagnosis code,A SQL query that pulls patients from the CDM,Persons who satisfy criteria for a duration of time,An export of all CDM patients with a given condition,25,3
 "In ATLAS, how do you write an EXCLUSION criterion?",Add it to the Exclusion Criteria section,As an inclusion rule requiring exactly 0 occurrences,Use the 'NOT' toggle on the inclusion criterion,Exclusion criteria are not supported in ATLAS,25,2
-'365 days of continuous prior observation' in the metformin cohort means:,In the database for 365 total days,An observation period starting 365+ days before the entry event,Took metformin for 365 days,Enrolled in a study for 365 days,25,2
+'365 days of continuous prior observation' in the riluzole cohort means:,In the database for 365 total days,An observation period starting 365+ days before the entry event,Took riluzole for 365 days,Enrolled in a study for 365 days,25,2
 What does the attrition report show?,Which concept sets are included in the cohort,The SQL behind the cohort definition,The count remaining after each inclusion rule is applied,The characterization of the final cohort,20,3
 A cohort inclusion rule removes almost everyone. A first thing to check is:,Whether the CDM has very few patients,Whether the exit strategy is wrong,Whether the rule's temporal window is too strict,Whether Athena is reachable,25,3
 What is cohort characterization used for?,To generate the cohort SQL from ATLAS,"To summarize demographics, conditions, and drugs in the cohort",To run DQD on the cohort,To export the cohort to a spreadsheet,20,2

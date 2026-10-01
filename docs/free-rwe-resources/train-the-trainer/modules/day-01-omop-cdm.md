@@ -61,7 +61,7 @@ SELECT concept_id,
        vocabulary_id,
        standard_concept
 FROM concept
-WHERE concept_name LIKE 'Major depressive disorder%';
+WHERE concept_name LIKE 'Amyotrophic lateral sclerosis%';
 ```
 Identify which are standard (`'S'`), classification (`'C'`), or non-standard (`NULL`).
 

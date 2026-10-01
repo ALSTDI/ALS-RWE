@@ -2,7 +2,7 @@
 
 *Segment 5 · 26–29 minutes*
 
-Rare exposures, uncommon outcomes, and small subgroups often defeat a single institution simply on numbers. A question restricted to pregestational diabetes with a specific medication contrast can run out of people fast, even at a large center. This is what the OHDSI network is for, and understanding how it moves information is itself part of feasibility.
+Rare exposures, uncommon outcomes, and small subgroups often defeat a single institution simply on numbers. A question about an uncommon disease such as ALS, restricted to people who start one medication and have a recorded functional score, can run out of people fast, even at a large center. This is what the OHDSI network is for, and understanding how it moves information is itself part of feasibility.
 
 ## The core idea: results travel, records do not
 
@@ -14,10 +14,10 @@ That design is why the network can span dozens of databases and hundreds of mill
 
 In rough order of effort:
 
-1. **Read published data-source characterizations.** Many OHDSI databases publish Achilles profiles and characterization results. If you can see that a database holds a large childbearing-age obstetric population, you already know it is a candidate for your question.
-2. **Learn which databases carry your population.** Claims and EHR databases with commercial or general populations (rather than Medicare) are where pregnancies live. Prior OHDSI pregnancy and medication-safety studies name the databases they used; those citations are a shortcut.
-3. **Ask the community.** The [OHDSI Forums](https://forums.ohdsi.org) are the standard place to post a feasibility question. Describe your cohort and ask which network databases have the population and the obstetric detail. People who run those databases answer.
-4. **Look at prior network studies with similar cohorts.** If a pregnancy-safety study has already run across the network, its results and its site list tell you the question is feasible and roughly how large it can get.
+1. **Read published data-source characterizations.** Many OHDSI databases publish Achilles profiles and characterization results. If you can see that a database holds people with motor neuron disease and records functional scores, you already know it is a candidate for your question.
+2. **Learn which sources record your outcome.** Claims databases hold diagnoses and dispensed drugs and no assessment scores. EHR databases may hold the ALSFRS-R in notes. Disease registries, such as the [ALS TDI OMOP data set](../../../als-tdi-omop-data-set.md), collect the scale directly. Prior studies name the sources they used; those citations are a shortcut.
+3. **Ask the community.** The [OHDSI Forums](https://forums.ohdsi.org) are the standard place to post a feasibility question. Describe your cohort and ask which network databases have the population and structured ALSFRS-R scores. People who run those databases answer.
+4. **Look at prior network studies with similar cohorts.** If a study of ALS has already run across the network, its results and its site list tell you the question is feasible and roughly how large it can get.
 
 ## How a network study actually runs
 

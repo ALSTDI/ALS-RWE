@@ -35,15 +35,15 @@ Bring this list to your first conversation. You will not need every answer to st
     - What source data feed the OMOP CDM: EHR, claims, or both? Which EHR (Epic, Cerner/Oracle Health, other)?
     - Inpatient, outpatient, or both? Which facilities and service lines are included?
     - What calendar period does the data cover, and how far back is it reliable?
-    - **Does the source include people of childbearing age, and are obstetric and delivery encounters captured?** (Your load-bearing question for this exemplar.)
-    - Is there any mother–infant linkage?
+    - **Does the source include a neuromuscular or ALS clinic, and how are ALSFRS-R scores recorded there: as structured data, in flowsheets, or in notes?** (The deciding question for this exemplar.)
+    - Are clinic notes loaded into the CDM `NOTE` table, and has any text extraction been run on them?
 
 === "Model & vocabulary"
 
     - Which CDM version (5.3 or 5.4)?
     - Which vocabulary release, and how often is it updated?
     - Which domains are populated well: condition, drug, measurement, observation, procedure, device?
-    - Is there a pregnancy episode table or a pregnancy episode algorithm applied?
+    - Are any survey or assessment instruments mapped to LOINC, and into which table?
 
 === "Mapping quality"
 
@@ -68,14 +68,14 @@ Subject: OMOP CDM instance and ATLAS access for a feasibility check
 
 Hi [name],
 
-I'm a research fellow in an OMOP/OHDSI training
+I'm a researcher in an OMOP/OHDSI training
 program. I'm scoping a study and want to check feasibility against
 our OMOP CDM instance before I write anything up.
 
 Could you point me to whoever maintains the OMOP instance and ATLAS,
 or let me know if that's you? I have a short, specific list of
-questions (source data, CDM and vocabulary version, whether obstetric
-and childbearing-age data are captured, mapping coverage, and how to
+questions (source data, CDM and vocabulary version, whether ALSFRS-R
+scores are recorded as structured data or in notes, mapping coverage, and how to
 get read access for cohort feasibility counts).
 
 A 20-minute call would be ideal. I'm flexible [days/times].
@@ -86,4 +86,4 @@ Thanks,
 
 ## What "done" looks like for this step
 
-You have a name, a way to reach them, and answers to at least the source, population, CDM version, and access questions. That is enough to interpret everything you see in the ATLAS demo and to know whether your real instance can carry the target population. If the answer to the childbearing-age question is no, you have just saved yourself the entire study, and you move to the [network](05-network-feasibility.md) instead.
+You have a name, a way to reach them, and answers to at least the source, population, CDM version, and access questions. That is enough to interpret everything you see in the ATLAS demo and to know whether your real instance can supply the outcome. If the answer to the ALSFRS-R question is that the scores are only in notes, you have learned the cost of the study before starting it, and you can plan for extraction or look to the [network](05-network-feasibility.md) and to registries that collect the scale directly.

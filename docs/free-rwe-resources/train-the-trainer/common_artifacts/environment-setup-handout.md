@@ -26,7 +26,7 @@ A one-page participant handout to confirm you are ready before Day 1. For the fu
 
 1. Log in to ATLAS and create one throwaway concept set, then delete it.
 2. Run `SELECT * FROM person LIMIT 5;` against your training CDM in your own SQL client.
-3. Open Athena and look up one concept (for example metformin).
+3. Open Athena and look up one concept (for example riluzole).
 4. Confirm you can reach the program repository on GitHub.
 5. Record any blockers in the checklist and send them to your site support contact.
 

@@ -10,9 +10,9 @@ Each feasibility check on the [checklist](06-feasibility-checklist.md) is answer
 |:--|:--|:--|:--|
 | 1 | Concepts exist (and are standard) | **Athena** and **ATLAS → Search** | Search the vocabularies; confirm a standard concept, its domain, and its class before you build anything |
 | 2 | Concepts are present in the data | **Achilles** and **ATLAS concept set → Included Concepts** | Achilles profiles record and person counts per concept in a source; the concept set panel shows what your rules resolve to, with those counts |
-| 3 | Population fits | **Achilles** (age, sex, and observation profiles), shown in **ATLAS → Data Sources** | Read the age and sex distribution of the source; this is what shows that SynPUF is mostly 65 and older |
-| 4 | Time can be anchored | **ATLAS → Cohort Definition**, then **Cohort Diagnostics** | Define the index event and windows; Cohort Diagnostics breaks down index-event timing and observation time; pregnancy needs a pregnancy episode algorithm |
-| 5 | Outcome is capturable | **ATLAS → Search** counts for the outcome concepts, and your data steward | Check that the outcome is recorded in this type of source (claims and EHR data differ) and in which domain |
+| 3 | Population fits | **Achilles** (age, sex, and observation profiles), shown in **ATLAS → Data Sources** | Read the age and sex distribution and the domain reports for the source; the domain reports show which kinds of records a source holds |
+| 4 | Time can be anchored | **ATLAS → Cohort Definition**, then **Cohort Diagnostics** | Define the index event and windows; Cohort Diagnostics breaks down index-event timing and observation time |
+| 5 | Outcome is capturable | **ATLAS → Search** counts for the outcome concepts, and your data steward | Check that the outcome is recorded as structured data in this type of source and in which domain; for the ALSFRS-R, count the records and ask where the scores are kept |
 | 6 | Sample size is sufficient | **ATLAS cohort generation** (attrition), then **Cohort Diagnostics** (incidence, cohort counts) | Generate to see counts and attrition locally; Cohort Diagnostics is a common check before a network study |
 | 7 | Governance clears | Your data steward, the IRB, and any data use agreement | Governance is a question for people and policy, not for a tool |
 

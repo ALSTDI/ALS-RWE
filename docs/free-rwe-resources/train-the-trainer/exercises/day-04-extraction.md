@@ -15,7 +15,7 @@
 ---
 
 ## Step 1: Pick a cohort
-Use the new-user metformin cohort generated in Day 3 (or any small generated
+Use the new-user riluzole cohort generated in Day 3 (or any small generated
 cohort you have access to). Record its `cohort_definition_id`.
 
 ## Step 2: Extract using your site's method

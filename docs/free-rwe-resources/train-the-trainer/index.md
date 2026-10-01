@@ -4,7 +4,7 @@
 
 !!! tip "New here? Start with **Feasibility First** — is my question even answerable?"
 
-    A 30-minute exemplar that takes the position of a researcher with a real question but no idea who to contact, what to ask, or whether the data can answer it. It walks from zero to a go/no-go decision on the public ATLAS demo, and it comes with a slide deck, an importable ATLAS cohort, a data-steward worksheet, and a checks-to-tools appendix.
+    A 30-minute exemplar that takes the position of a researcher with a real question but no idea who to contact, what to ask, or whether the data can answer it. It walks from zero to a go/no-go decision on the public ATLAS demo, and it comes with a slide deck and script, a data-steward worksheet, and a checks-to-tools appendix.
 
     [Start Feasibility First :material-arrow-right:](feasibility-first/index.md){ .md-button .md-button--primary }
     [Go straight to the go/no-go checklist :material-checkbox-multiple-marked:](feasibility-first/06-feasibility-checklist.md){ .md-button }
@@ -12,6 +12,9 @@
 [Start with Environment Setup :material-arrow-right:](modules/00-environment-walkthrough.md){ .md-button .md-button--primary }
 [Jump to Syllabus :material-book-open-variant:](syllabus.md){ .md-button }
 [Find Your Learning Path :material-map-marker-path:](personas.md){ .md-button }
+
+!!! info "One ALS example runs through every session"
+    The sessions use motor neuron disease, ALS medications such as riluzole, and the ALSFRS-R as their running example. [The ALS use case](als-use-case.md) page defines it and lists the concepts. A maternal and child health edition of this curriculum, with diabetes and pregnancy examples, is kept in a separate repository.
 
 ---
 

@@ -16,7 +16,7 @@ SELECT concept_id,
        standard_concept,
        concept_code
 FROM cdm.concept
-WHERE LOWER(concept_name) LIKE '%type 2 diabetes%'
+WHERE LOWER(concept_name) LIKE '%amyotrophic lateral sclerosis%'
 ORDER BY standard_concept DESC, concept_name;
 ```
 > `standard_concept = 'S'` → standard concept; `'C'` → classification concept (for example an ATC drug class); `NULL` → non-standard (source) concept.
@@ -27,7 +27,7 @@ ORDER BY standard_concept DESC, concept_name;
 ```sql
 SELECT *
 FROM cdm.concept
-WHERE concept_id = 201826;   -- Type 2 diabetes mellitus (SNOMED code 44054006)
+WHERE concept_id = 373182;   -- Amyotrophic lateral sclerosis (SNOMED code 86044005)
 ```
 
 ---
@@ -60,7 +60,7 @@ ORDER BY domain_id, standard_concept;
 
 ### Find how a non-standard code maps to a standard concept
 ```sql
--- Uses the ICD-10-CM code E11.9; change the code and vocabulary to trace any source code
+-- Uses the ICD-10-CM code G12.21 (amyotrophic lateral sclerosis); change the code and vocabulary to trace any source code
 SELECT cr.concept_id_1,
        c1.concept_name  AS source_concept,
        c1.vocabulary_id AS source_vocab,
@@ -72,7 +72,7 @@ FROM cdm.concept_relationship cr
 JOIN cdm.concept c1 ON cr.concept_id_1 = c1.concept_id
 JOIN cdm.concept c2 ON cr.concept_id_2 = c2.concept_id
 WHERE c1.vocabulary_id = 'ICD10CM'
-  AND c1.concept_code = 'E11.9'
+  AND c1.concept_code = 'G12.21'
   AND cr.relationship_id = 'Maps to'
   AND cr.invalid_reason IS NULL;
 ```
@@ -88,7 +88,7 @@ SELECT cr.relationship_id,
        c2.domain_id
 FROM cdm.concept_relationship cr
 JOIN cdm.concept c2 ON cr.concept_id_2 = c2.concept_id
-WHERE cr.concept_id_1 = 201826   -- Type 2 diabetes mellitus
+WHERE cr.concept_id_1 = 373182   -- Amyotrophic lateral sclerosis
   AND cr.invalid_reason IS NULL
 ORDER BY cr.relationship_id;
 ```
@@ -104,7 +104,7 @@ SELECT c_source.concept_id,
        c_source.vocabulary_id
 FROM cdm.concept_relationship cr
 JOIN cdm.concept c_source ON cr.concept_id_1 = c_source.concept_id
-WHERE cr.concept_id_2    = 201826          -- target SNOMED concept
+WHERE cr.concept_id_2    = 373182          -- target SNOMED concept
   AND cr.relationship_id = 'Maps to'
   AND c_source.vocabulary_id IN ('ICD10CM', 'ICD9CM')
   AND cr.invalid_reason IS NULL;
@@ -124,7 +124,7 @@ SELECT ca.descendant_concept_id,
        ca.max_levels_of_separation
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
-WHERE ca.ancestor_concept_id = :sulfonylurea_class_concept_id   -- ATC class A10BB; look it up with: SELECT concept_id FROM cdm.concept WHERE vocabulary_id = 'ATC' AND concept_code = 'A10BB'
+WHERE ca.ancestor_concept_id = :motor_neuron_disease_concept_id   -- look it up with: SELECT concept_id FROM cdm.concept WHERE vocabulary_id = 'SNOMED' AND concept_code = '37340000'
 ORDER BY ca.min_levels_of_separation, c.concept_name;
 ```
 
@@ -138,7 +138,7 @@ SELECT ca.ancestor_concept_id,
        ca.min_levels_of_separation
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.ancestor_concept_id = c.concept_id
-WHERE ca.descendant_concept_id = 1503297   -- Metformin
+WHERE ca.descendant_concept_id = :riluzole_ingredient_concept_id   -- riluzole (look it up by name in the concept table)
   AND ca.min_levels_of_separation > 0
 ORDER BY ca.min_levels_of_separation;
 ```
@@ -190,13 +190,13 @@ LIMIT 25;
 
 ### Find drug exposures for a drug (using ancestor join)
 ```sql
--- Count metformin exposures (includes all descendants via concept_ancestor)
+-- Count riluzole exposures (includes all descendants via concept_ancestor)
 SELECT COUNT(*)                       AS total_exposures,
        COUNT(DISTINCT de.person_id)   AS unique_patients
 FROM cdm.drug_exposure de
 JOIN cdm.concept_ancestor ca
      ON ca.descendant_concept_id = de.drug_concept_id
-WHERE ca.ancestor_concept_id = 1503297;   -- Metformin ingredient
+WHERE ca.ancestor_concept_id = :riluzole_ingredient_concept_id;   -- riluzole ingredient
 ```
 
 ---

@@ -46,15 +46,15 @@ Fill in the [Environment Checklist Template](../common_artifacts/environment-che
 
 ### Step B1: Prepare cohort definition files
 
-Export your Day 3 metformin cohort from ATLAS:
+Export your Day 3 riluzole cohort from ATLAS:
 1. In ATLAS, open your cohort definition.
 2. Click **Export** → download the JSON and the SQL (choose your dialect).
 3. Save to a local project folder, e.g., `cohorts/` with a `CohortsToCreate.csv` index file.
 
-Save the JSON as `cohorts/MetforminNewUsers.json` and the SQL as `cohorts/MetforminNewUsers.sql`, so the file names match the cohort name. The `CohortsToCreate.csv` format:
+Save the JSON as `cohorts/RiluzoleNewUsers.json` and the SQL as `cohorts/RiluzoleNewUsers.sql`, so the file names match the cohort name. The `CohortsToCreate.csv` format:
 ```
 cohortId,cohortName
-1,MetforminNewUsers
+1,RiluzoleNewUsers
 ```
 
 ### Step B2: Run diagnostics
@@ -145,7 +145,7 @@ In the Shiny viewer, navigate to each section and answer these questions:
 
 **Visit Context:**
 - What proportion of index events occur in outpatient vs. inpatient settings?
-- Does this match what you would expect for a new metformin prescription?
+- Does this match what you would expect for a new riluzole prescription?
 
 Record your answers in a brief notes file: `diagnostics_output/notes.md`.
 
@@ -166,7 +166,7 @@ covariateData <- getDbCovariateData(
   cdmDatabaseSchema     = cdmDatabaseSchema,
   cohortDatabaseSchema  = cohortDatabaseSchema,
   cohortTable           = cohortTable,
-  cohortIds             = c(1),   # your metformin cohort ID
+  cohortIds             = c(1),   # your riluzole cohort ID
   covariateSettings     = covariateSettings,
   aggregated            = TRUE    # one summary row per covariate
 )
@@ -188,7 +188,7 @@ covariateData$covariates %>%
 ```
 
 **Questions to answer:**
-1. Which prior conditions are most prevalent? Are they what you expected for new metformin users at your site?
+1. Which prior conditions are most prevalent? Are they what you expected for new riluzole users at your site?
 2. What is the mean age and sex distribution of the cohort?
 3. Do any covariate values surprise you?
 

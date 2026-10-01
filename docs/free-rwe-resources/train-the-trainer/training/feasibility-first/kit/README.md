@@ -1,48 +1,39 @@
 # Feasibility First — Instructor Kit
 
-Materials for the "Is My Question Feasible?" exemplar module.
+Materials for the "Is My Question Feasible?" exemplar module, built on the [ALS use case](../../../als-use-case.md).
 
 ## Contents
 
 | File | What it is |
 |:--|:--|
-| `Feasibility-Instructor-Deck-with-Notes.pptx` | The ~30-minute slide deck. Full presenter script is in the speaker notes on every slide. Plain black-and-white slides on standard layouts. |
-| `Demo-Cohort-Diabetes-Childbearing-Age.json` | A ready-to-import ATLAS cohort definition for the live demo. Import it into the public ATLAS demo and save it so you screen-share a saved definition instead of typing live. |
+| `Feasibility-Instructor-Deck-with-Notes.pptx` | Headline-only slides for the 30-minute session, with the presenter script in the speaker notes. Plain black-and-white slides on standard layouts. |
+| `Feasibility-Slide-Script.md` | The same script as a page, slide by slide. |
 | `Kahoot-Quiz.csv` | A Kahoot quiz on the feasibility workflow. Kahoot's spreadsheet import uses its own template, so paste these columns into that template before importing. |
 
-## Pre-building the ATLAS demo (do this once, before class)
+## Building the ATLAS demo cohort (do this once, before class)
 
-The importable cohort is built to demonstrate the collapse cleanly on the public demo's synthetic Medicare data (SynPUF), using only concepts that are guaranteed present. It does **not** depend on obstetric concepts, which are rare in SynPUF. The collapse trigger is a demographic rule: female, age 15–44 at the first diabetes record. On a mostly 65+ Medicare population that rule removes nearly everyone, which is the population-problem lesson. SynPUF includes some beneficiaries under 65 who qualify through disability, so the count after the rule is small and may not be zero; run it before class and note the dated counts.
+This kit does not ship an importable cohort file. The concept IDs for motor neuron disease, riluzole, and the ALSFRS-R should be picked in the ATLAS vocabulary search, so that they match the vocabulary version on the instance you use.
 
 1. Open [https://atlas-demo.ohdsi.org](https://atlas-demo.ohdsi.org) in Chrome.
-2. Go to **Cohort Definitions → New Cohort**.
-3. Open the **Export** tab, then the **JSON** sub-tab.
-4. Paste the full contents of `Demo-Cohort-Diabetes-Childbearing-Age.json` and click **Import** (or **Reload**).
-5. Give it a name (for example, "Feasibility Demo — diabetes, childbearing age") and **Save**.
-6. Open the **Generation** tab and **Generate** against the SynPUF source. Confirm the counts before class.
+2. Go to **Concept Sets** and build the sets below, each with **Descendants** checked:
+    - **Motor neuron disease:** search `motor neuron disease` and add the SNOMED Condition concept (SNOMED code 37340000). Amyotrophic lateral sclerosis (concept_id 373182) is one of its descendants.
+    - **Riluzole:** search `riluzole` and add the RxNorm ingredient.
+    - **ALSFRS-R:** search `ALSFRS-R` and add the LOINC total score (code 82953-1), or all of the scale's concepts. If the demo vocabulary does not list them, note that and show them in [Athena](https://athena.ohdsi.org/) during the session.
+3. Go to **Cohort Definitions → New Cohort** and define:
+    - **Entry event:** a drug exposure from the Riluzole set, limited to the earliest event per person.
+    - **Inclusion rule 1:** at least 1 condition occurrence from the Motor neuron disease set, any time before and up to the index date.
+    - **Inclusion rule 2:** at least 1 ALSFRS-R record between 1 and 365 days after the index date. Use an observation or a measurement criterion to match the domain of the concepts you added.
+4. Give the cohort a name (for example, "Feasibility Demo: riluzole, motor neuron disease, ALSFRS-R") and **Save**.
+5. Open the **Generation** tab and **Generate** against the SynPUF source.
 
-What you should see, and narrate live:
+What to look for, and to write down with the date:
 
-- Diabetes alone (the entry event): a large count.
-- After the female-childbearing-age inclusion rule: the attrition report shows a small fraction remaining.
-- The optional metformin rule is there to show how an exposure arm attaches; it is not needed for the collapse.
+- The count after the entry event.
+- The count after the motor neuron disease rule.
+- The count after the ALSFRS-R rule. SynPUF is synthetic Medicare claims, and claims do not record assessment scores, so this count is expected to be zero.
 
-The **attrition report** in the Generation tab is the visual you want on screen at the moment of collapse. It shows exactly how many people each rule removed.
+These counts were not checked on the public demo when this kit was written. If the riluzole or motor neuron disease counts are too small to show a clear drop, make the entry event the motor neuron disease diagnosis and keep the ALSFRS-R rule, which shows the same lesson.
 
-## Concept IDs used (confirm in Athena for your vocabulary version)
+## The same check at your own site
 
-| Concept | concept_id | Vocabulary | Domain |
-|:--|:--|:--|:--|
-| Diabetes mellitus (+descendants) | 201820 | SNOMED | Condition |
-| metformin (+descendants) | 1503297 | RxNorm | Drug |
-| FEMALE | 8532 | Gender | Gender |
-
-## The full clinical cohort (build at your own instance)
-
-The demo cohort above is intentionally simple so it works on synthetic data. The full research question (pregestational diabetes → preeclampsia, by metformin vs insulin) needs obstetric data your institution's OMOP instance has and SynPUF does not. Build those concept sets at your instance by searching [Athena](https://athena.ohdsi.org). Suggested standard-concept searches, each with **include descendants**:
-
-- **Preeclampsia** — search "Preeclampsia", Condition domain, SNOMED. Confirm the standard concept before use.
-- **Insulin** — search "insulin", Drug domain, RxNorm ingredient level.
-- **Pregnancy / delivery** — pregnancy identification needs a **pregnancy episode algorithm**, not a single code. See the OHDSI Pregnancy work; do not approximate it with one obstetric concept.
-
-Resolve these at your instance rather than copying IDs, so the concepts match your vocabulary version.
+At your own instance the ALSFRS-R count may be low for a different reason: the scores are in clinic notes. The [ALS use case](../../../als-use-case.md) page has queries that count structured ALSFRS-R records and notes that mention the scale.

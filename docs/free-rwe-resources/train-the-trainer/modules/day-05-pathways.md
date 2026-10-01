@@ -24,10 +24,10 @@ This type of analysis is well-suited to OMOP data because it operates on standar
 ## Key concepts
 
 ### Target cohort
-The population you want to study, for example new users of any anti-diabetic medication, or patients with a first ALS diagnosis. The analysis traces treatment sequences *within* this population.
+The population you want to study, for example people with a motor neuron disease diagnosis. The analysis traces treatment sequences *within* this population.
 
 ### Event cohorts
-The treatments or procedures you want to track. Each event cohort defines one "step" in the sequence — for example, separate cohorts for metformin, sulfonylureas, GLP-1 agonists. ATLAS traces which event cohorts each person passes through, in order.
+The treatments or procedures you want to track. Each event cohort defines one "step" in the sequence — for example, separate cohorts for riluzole and edaravone. ATLAS traces which event cohorts each person passes through, in order.
 
 ### Where exposure length and gaps are set
 Cohort Pathways has no gap or persistence setting of its own. How long an exposure lasts, and how many days without supply are tolerated before the exposure ends, are set in each **event cohort's exit rule** (for example, end of continuous drug exposure with a 30-day persistence window). Follow-up time comes from the target cohort's entry and exit.
@@ -47,7 +47,7 @@ Cohort Pathways has no gap or persistence setting of its own. How long an exposu
 | 9:30 – 9:50 | Overview: what pathway analysis answers and when to use it |
 | 9:50 – 10:30 | Cohort Pathways in ATLAS: target cohorts, event cohorts, settings (lead deck) |
 | 10:30 – 10:45 | Break |
-| 10:45 – 11:15 | Worked example: type 2 diabetes (worked example deck and live demo) |
+| 10:45 – 11:15 | Worked example: ALS medications (worked example deck and live demo) |
 | 11:15 – 12:15 | Hands-on: build and run a pathway analysis |
 | 12:15 – 12:45 | Reading the sunburst plot and the Tabular view; group discussion |
 | 12:45 – 1:00 | Recap and homework |
@@ -59,13 +59,14 @@ Day 5 is a half-day session. The times follow the sample schedule on the program
 ## Slides & Materials
 
 - :material-presentation: **Lead instructor deck (Cohort Pathways in ATLAS):** [Download PPTX](../training/day-05-treatment-pathways/kit/ATLAS-Treatment-Pathways-Training.pptx)
-- :material-presentation: **Worked example deck (type 2 diabetes), with notes:** [Download PPTX](../training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
+- :material-presentation: **Worked example deck (ALS medications), with notes:** [Download PPTX](../training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
 - :material-notebook: **Participant workbook:** [Download PPTX](../training/day-05-treatment-pathways/kit/Participant-Workbook.pptx)
 - :material-help-circle: **Kahoot quiz (CSV):** [Download](../training/day-05-treatment-pathways/kit/Kahoot-Quiz.csv)
 - :material-file-document: **Participant handout:** [Download PPTX](../training/day-05-treatment-pathways/kit/Participant-Handout.pptx)
 - :material-key: **Answer key (instructor):** [Download PPTX](../training/day-05-treatment-pathways/kit/Instructor-Answer-Key.pptx)
 - :material-presentation-play: **Live demo script:** [Download PPTX](../training/day-05-treatment-pathways/kit/Live-Demo-Script.pptx)
-- :material-chart-donut: **Diabetes pathway interpretation guide:** [Download PPTX](../training/day-05-treatment-pathways/kit/Diabetes-Pathway-Interpretation-Guide.pptx)
+- :material-chart-donut: **ALS pathway interpretation guide:** [Download PPTX](../training/day-05-treatment-pathways/kit/ALS-Pathway-Interpretation-Guide.pptx)
+- :material-pill: **ALS medication concept sets:** [Download PPTX](../training/day-05-treatment-pathways/kit/ALS-Medication-Concept-Sets.pptx)
 - :material-flask: **Colab notebook:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ALSTDI/ALS-RWE/blob/main/docs/free-rwe-resources/train-the-trainer/notebooks/Day5-Treatment-Pathways.ipynb)
 
 ---
@@ -89,7 +90,7 @@ ATLAS does not draw one. The TreatmentPatterns R package computes pathways outsi
 
 ## Instructor Notes
 
-- **Reuse Day 3 cohorts.** The new-user metformin cohort from Day 3 can serve as the target cohort here with minimal setup, letting the group focus on the pathway configuration rather than cohort building.
+- **Reuse Day 3 cohorts.** The new-user riluzole cohort from Day 3 can serve as the target cohort here with minimal setup, letting the group focus on the pathway configuration rather than cohort building.
 - **Demonstrate sensitivity to the event cohort exit rule.** Build one event cohort twice, with a 30-day and a 90-day persistence window, and show the group how the pathway changes. Then change the combination window and compare again.
 - **Invite interpretation.** Ask participants whether the most common first step matches what they expected, and discuss possible reasons for any difference, including data capture.
 - **Synthetic data caveat.** The Colab notebook uses synthetic data; real pathway results will look very different. The goal of the notebook is to practice the mechanics.

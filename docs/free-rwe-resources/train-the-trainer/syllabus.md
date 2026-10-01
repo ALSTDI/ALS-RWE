@@ -53,6 +53,7 @@ These modules are not part of the session sequence and can be assigned for conti
 
 | **Resource** | **Purpose / Description** |
 |---------------|---------------------------|
+| [The ALS Use Case](als-use-case.md) | The running example for every session: motor neuron disease, ALS medications, and the ALSFRS-R, with the concepts and lookup queries. |
 | [Environment Checklist Template](common_artifacts/environment-checklist-template.md) | Validate all required system access before Day 1. |
 | [OMOP SQL Examples](common_artifacts/omop-vocab-sql-cheat-sheet.md) | Common SQL patterns for exploring concepts, ancestors, and cohort logic in Databricks or DBeaver. |
 | [SQL Validation Mini Lab](common_artifacts/sql-validation-mini-lab.md) | Step-by-step guide to export Atlas SQL, run validation queries, and compare outputs. |

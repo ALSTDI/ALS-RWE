@@ -8,4 +8,4 @@ Which table pre-computes ALL ancestor-descendant pairs for hierarchy traversal?,
 What does concept_id = 0 in condition_occurrence mean?,The record was deleted,The concept is standard,The source code was not mapped to a standard concept,The condition has no ICD code,20,3
 "Which OMOP table stores lab results, vital signs, and other quantitative findings?",observation,measurement,condition_occurrence,procedure_occurrence,15,2
 Why does OMOP keep the source code alongside the standard concept?,In case SNOMED is not available,For auditability: analysts can trace back to the original code,ATLAS requires ICD codes for cohort building,SNOMED is not yet complete for all conditions,25,2
-An ATC drug class such as Sulfonylureas has which standard_concept value?,S (standard),C (classification),NULL (non-standard),0 (unmapped),20,2
+An ATC drug class (for example N07XX, other nervous system drugs) has which standard_concept value?,S (standard),C (classification),NULL (non-standard),0 (unmapped),20,2

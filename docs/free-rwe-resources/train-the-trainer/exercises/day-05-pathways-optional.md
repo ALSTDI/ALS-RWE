@@ -17,30 +17,27 @@
 
 ## Background: the example analysis
 
-This exercise uses **type 2 diabetes treatment sequences** as the clinical example, because:
+This exercise uses **ALS medication sequences** as the example, because:
 
-- Several drug classes are used (metformin, sulfonylureas, DPP-4 inhibitors, GLP-1 agonists, insulin)
-- Switching and add-on patterns can be seen in the sequences
+- ALS has few medications, so the pathways are short and easy to read
+- A second medication may be added to the first or started later, which shows how combinations are handled
 - The Day 2 and Day 3 exercises already built the underlying concept sets and cohorts
 
-Adapt to your own disease area by substituting your target condition and relevant drug classes.
+Adapt to your own disease area by substituting your target condition and the relevant drugs.
 
 ---
 
 ## Step 1: Assemble your cohorts
 
-You need one **target cohort** and at least three **event cohorts** already created in your ATLAS instance.
+You need one **target cohort** and the **event cohorts** already created in your ATLAS instance.
 
-**Target cohort (one of the following):**
-- New users of any anti-diabetic medication (broad — good for showing diverse pathways)
-- Patients newly diagnosed with type 2 diabetes (condition-based entry)
+**Target cohort:**
+- People with a motor neuron disease diagnosis (condition-based entry, using the Day 2 concept set)
 
 **Event cohorts (create or reuse from Day 2–3):**
-- Metformin (ingredient, include descendants)
-- Sulfonylureas (drug class, include descendants)
-- DPP-4 inhibitors (drug class, for example sitagliptin)
-- GLP-1 receptor agonists (drug class, for example semaglutide and liraglutide)
-- Insulins (drug class)
+- Riluzole (ingredient, include descendants)
+- Edaravone (ingredient, include descendants)
+- Any other ALS medication your site records, one cohort per ingredient
 
 If you already have some of these concept sets from Day 2, build cohorts from them now. Set the entry to the first exposure and the exit to the end of continuous drug exposure with a persistence window (for example 30 days), because the exit rule is where the allowed gap between fills is set.
 
@@ -49,9 +46,9 @@ If you already have some of these concept sets from Day 2, build cohorts from th
 ## Step 2: Configure the pathway analysis
 
 1. In ATLAS, choose **Cohort Pathways** in the left menu, then **New**.
-2. Set the **name**: `TtT Day5 T2D Pathways`.
+2. Set the **name**: `TtT Day5 ALS medication pathways`.
 3. Add the **target cohort** you identified in Step 1.
-4. Add each **event cohort** and give it a short label (e.g., "Metformin," "Sulfonylurea").
+4. Add each **event cohort** and give it a short label (e.g., "Riluzole," "Edaravone").
 5. Configure analysis settings:
     - **Combination window** (labeled Collapse Days in some ATLAS versions): 30 days (events that start within 30 days of each other are shown as a combination).
     - **Minimum cell count:** 5 (paths with fewer people are not shown).
@@ -90,7 +87,7 @@ Click **Tabular** to see the same results as a table.
 **Questions to answer:**
 1. Which full sequence is followed by the most people, and by what percent of the target cohort?
 2. Where do the sequences diverge most, at the first to second step or the second to third?
-3. Identify one sequence that you did not expect. What might explain it, including data capture?
+3. Identify one sequence that you did not expect. What might explain it, including data capture (for example infusions recorded as procedures, or medication supplied outside the health system)?
 
 ---
 
@@ -119,7 +116,7 @@ Write one sentence per change explaining what changed and how it affects interpr
 <details>
 <summary>Show facilitation notes</summary>
 
-- **Reuse Day 3 cohorts.** The metformin new-user cohort is an ideal target cohort; participants only need to add the additional event cohorts (sulfonylurea, DPP-4, etc.) before running the analysis.
+- **Reuse Day 2 and Day 3 work.** A motor neuron disease cohort built from the Day 2 concept set is the target cohort; participants only need to add the event cohorts (riluzole, edaravone, and any others) before running the analysis.
 - **Show sensitivity to settings.** Have the group run the analysis with two combination windows, or with event cohorts built on two persistence windows, and compare the results.
 - **Interpretation.** Invite participants to comment on whether the observed sequences match what they expected, and to offer reasons for any difference, including data capture.
 - **Colab notebook as fallback.** If ATLAS or CDM access fails for part of the group, the Colab notebook demonstrates the same concept set→pathway→visualization logic on synthetic data.

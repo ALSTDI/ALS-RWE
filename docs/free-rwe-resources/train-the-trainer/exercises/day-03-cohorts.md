@@ -11,7 +11,7 @@
 
 
 !!! abstract "What you will do"
-    1. Build a new-user metformin cohort in ATLAS.
+    1. Build a new-user riluzole cohort in ATLAS.
     2. Add an inclusion rule with a temporal window.
     3. Generate the cohort and read the attrition.
     4. Export the cohort SQL and re-run a count yourself.
@@ -23,15 +23,16 @@
 
 ## Step 1: Define the entry event
 1. In ATLAS, open **Cohort Definitions**, then **New Cohort**.
-2. Add an entry event of **drug exposure** using a metformin concept set (build one if needed, with descendants).
+2. Add an entry event of **drug exposure** using a riluzole concept set (build one if needed, with descendants).
 3. Restrict to the **first** exposure per person so this is a new-user design.
 
 ## Step 2: Add an inclusion rule with a window
 1. Require **at least 365 days of continuous observation before the entry event**, so that "new use" can be checked against a year of history. ATLAS offers this setting in the entry event section, which is how the written tutorial does it. If you add it as an inclusion rule instead (an observation period criterion), it becomes its own row in the attrition report.
-2. Optionally add a second rule: **no sulfonylurea exposure in the 365 days before entry.** Note that this exclusion is written as an inclusion rule that must be satisfied (count of prior sulfonylurea exposures equals zero).
+2. Add a second rule: **a motor neuron disease diagnosis on or before entry** (at least one condition occurrence from the Motor neuron disease concept set built on Day 2).
+3. To practice an exclusion, add **no edaravone exposure in the 365 days before entry.** This exclusion is written as an inclusion rule that requires exactly zero occurrences.
 
 ## Step 3: Generate and read attrition
-1. Define the exit (for example, end of continuous metformin exposure).
+1. Define the exit (for example, end of continuous riluzole exposure).
 2. Save and **generate** against your training CDM.
 3. Open the **attrition** report. Note how many people each inclusion rule removed. A rule that removes almost everyone, or no one, is a prompt to recheck the window and the logic.
 
@@ -58,7 +59,7 @@ If the counts disagree, check that you generated against the same CDM and vocabu
 <details>
 <summary>Show facilitation notes</summary>
 
-- The metformin new-user cohort is the canonical example in the written tutorial, so learners can follow along step for step.
+- The riluzole new-user cohort is the canonical example in the written tutorial, so learners can follow along step for step.
 - Spend time on the attrition report. It is the single best tool for teaching that cohort definitions are logic, not code lists.
 - When learners export SQL, have each name their warehouse and client. This reinforces that the definition is portable but the execution environment is local.
 </details>

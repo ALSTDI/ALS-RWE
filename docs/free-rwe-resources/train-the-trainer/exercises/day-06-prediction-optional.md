@@ -21,7 +21,7 @@ Write one sentence in this form before you run anything:
 
 > Among **[target cohort]**, who will have **[outcome]** within **[time-at-risk]** of cohort entry?
 
-For the guided lab, the target cohort is the new-user metformin cohort (cohort ID 1) and the outcome is the cohort you added as homework in Part 1 (cohort ID 2), with a time-at-risk of 1 to 365 days after cohort entry.
+For the guided lab, the target cohort is the new-user riluzole cohort (cohort ID 1) and the outcome is the cohort you added as homework in Part 1 (cohort ID 2), with a time-at-risk of 1 to 365 days after cohort entry.
 
 ---
 

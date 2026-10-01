@@ -16,7 +16,7 @@
 
 ## The prediction problem
 
-A patient-level prediction question has a fixed shape: among a **target cohort**, who will go on to have an **outcome** during a **time-at-risk**? For this session, the target cohort is the new-user metformin cohort from Day 3, the outcome is a cohort you define in ATLAS, and the time-at-risk is the year after cohort entry.
+A patient-level prediction question has a fixed shape: among a **target cohort**, who will go on to have an **outcome** during a **time-at-risk**? For this session, the target cohort is the new-user riluzole cohort from Day 3, the outcome is a cohort you define in ATLAS, and the time-at-risk is the year after cohort entry.
 
 Prediction estimates a person's risk of an outcome. It does not estimate the effect of a treatment. A covariate that predicts the outcome well is not shown to cause it, and a prediction model cannot tell you what would happen if care were changed. Questions about effects belong to population-level estimation (CohortMethod), which this program leaves for self-study.
 

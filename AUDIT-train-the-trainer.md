@@ -71,12 +71,25 @@ The Day 2 slide now shows the categories with their subcategories, the contexts,
 - **Day 5 decks.** `ATLAS-Treatment-Pathways-Training.pptx` is the lead instructor deck, and `Instructor-Deck-with-Notes.pptx` is the type 2 diabetes worked example that follows it. The Day 5 page and the resources page list them in that order.
 - **Day 6.** Cohort diagnostics and prediction are taught as separate half-day sessions. Part 1 (`modules/day-06-hades.md`) covers the HADES environment, CohortDiagnostics, and FeatureExtraction. Part 2 (`modules/day-06-prediction.md`, new, with its own exercise page) covers PatientLevelPrediction and uses the existing slide kit, quiz, and notebook. The navigation, overview, syllabus, and personas pages were updated.
 - **Repository.** The materials stay in the existing ALS TDI repository, so the clone commands, issue links, Colab badges, and branding were left as they are.
+- **Stray file removed.** The repository held a one-character file named `*` in the `docs` folder. Windows cannot create a file with that name, which stops a pull in GitHub Desktop with the error "invalid path 'docs/*'". The file is not in this copy; it also has to be deleted from the repository on GitHub before a Windows machine can pull.
 
 - **Slide format.** Every deck was rebuilt as plain black-and-white slides on standard PowerPoint layouts (title, title and content, two content, section header, title only), in Calibri, with gray table lines and no color fills. Because the text sits in real placeholders, a site can apply its own theme from the Design tab. The rebuild carried over the slide text and the speaker notes; a word-by-word comparison found only the intended removals: the quotation slides, the small labels above titles, the running footers and page numbers, the logo images on the Day 5 and Day 6 kit slides, and one illustrative chart with example values in the Day 5 lead deck. `templates/Plain-Template.pptx` is the empty template for new decks.
 - **Quotations.** The quotation slides (Lincoln, Newton, Deming, Churchill) were removed from the Module 0 and Day 1 to Day 3 decks.
 - **Day 6, Part 1 deck.** A new instructor deck, `Part-1-Instructor-Deck-with-Notes.pptx`, has headline-only slides with the detail in the speaker notes, and `Part-1-Slide-Script.md` holds the same text as a slide-by-slide script.
 
 One correction to the first version of this audit: it treated "grey segments" as something ATLAS does not show. The FinnGen ATLAS guide states that the end of a pathway is shown in grey, so the grey statements in the Day 5 kit were restored, with the wording "end of the pathway".
+
+## The ALS use case and the maternal and child health edition
+
+Added on 1 October 2026 at Danielle's request.
+
+- **Separate repository.** The curriculum with its diabetes, metformin, and pregnancy examples was copied into a standalone repository for maternal and child health (delivered as `MCH-train-the-trainer.zip`). It has its own MkDocs configuration, README, and notebooks ported to a diabetes and metformin example.
+- **This repository now uses one ALS example.** The running question is about people with motor neuron disease who start riluzole and their ALSFRS-R scores. The new page `als-use-case.md` defines it, lists the concepts and lookup queries, and summarizes how the ALS TDI OMOP data set records the ALSFRS-R, the diagnosis, and medications, drawing on the data set and 2026 refresh pages.
+- **What was converted.** Module 0 and Days 1 to 3 (decks, workbooks, quizzes, pages, exercises, snippets, and the Day 3 tutorial), the Day 5 kit and pages (now ALS medications; two decks were renamed to `ALS-Medication-Concept-Sets.pptx` and `ALS-Pathway-Interpretation-Guide.pptx`), the Day 6 pages and Part 1 deck, the cheat sheet, and the FAQ.
+- **Feasibility First.** The pages were rewritten around the ALS question. The lesson is that the ALSFRS-R has LOINC codes and is often recorded in notes, so a concept can exist and still be absent from the structured data. The deck was rebuilt with headline-only slides and a script. The importable diabetes cohort file was removed from this repository (it remains in the maternal and child health edition), and the kit README gives build steps for the ALS demo cohort.
+- **ALSFRS-R in the sessions.** Day 1 covers which table holds it, Day 2 treats it as a completeness problem that DQD does not show and adds a notebook step comparing structured scores with scores in notes, and Day 3 adds it to the characterization discussion.
+
+Statements about where ALSFRS-R scores are kept, about infusions recorded as procedures, and about medication supplied outside a health system are written as things that happen at many sites, not as rules. Adjust them to what you see in practice.
 
 ## Decisions and checks that remain
 
@@ -86,14 +99,16 @@ One correction to the first version of this audit: it treated "grey segments" as
 - **Day 5 lead deck.** Its tab names now follow the documented Design and Executions tabs and the View reports link. The "View SQL" item, the Versions and Messages tabs, and the description of the tabular summaries were not confirmed against a current ATLAS release.
 - **Day 6, Part 1.** The CohortGenerator and CohortDiagnostics code was not run against a database and was not re-checked against the package documentation.
 - **Day 6, Part 2.** The code on the new page follows the PatientLevelPrediction vignette and was not run against a database. The lab needs an outcome cohort, which Part 1 now assigns as homework.
-- **Concept IDs.** Confirm in Athena: 201826, 201820, 1503297, 8507, 8532, and 373182. The notebook IDs for riluzole, edaravone, baclofen, gastrostomy, forced vital capacity, and bulbar onset are labeled as placeholders and were not looked up.
-- **Feasibility demo counts.** The saved cohort was not run against the public demo. SynPUF includes Medicare beneficiaries under 65, so the count after the age and sex rule is small and probably not zero. Run it, and write the dated counts into the deck notes. The claim that the demo needs no account was left as written.
+- **Concept IDs and codes.** Confirm in Athena: the ALS concept 373182, the SNOMED code 37340000 for motor neuron disease, the mapping of ICD-10-CM G12.21, the LOINC codes for the ALSFRS-R, and which ID in the range 42529071 to 42529084 is the total score (the Day 2 notebook assumes the last one). Riluzole, edaravone, and motor neuron disease are looked up by name or code in the pages, so no concept ID is hard-coded for them. The other notebook IDs are labeled as placeholders.
+- **Feasibility demo counts.** The ALS demo cohort (first riluzole exposure, a motor neuron disease diagnosis, an ALSFRS-R record) was not built or run on the public ATLAS demo. Claims data hold no assessment scores, so the last rule is expected to empty the cohort; the riluzole and motor neuron disease counts in SynPUF are unknown. Build it before class and write the dated counts into the deck notes. The kit README gives a fallback if those counts are too small.
 - **Community pages.** Office hours, the weekly meeting time, and the statement that sessions are recorded read as facts about a running program. Confirm them or mark the pages as templates.
 - **Resources page.** Two different talks by Asieh Golozar link to the same video, and the note about lecture decks in Google Drive has no link.
 - **Quiz import.** Kahoot imports its own spreadsheet template, so the CSV columns need to be pasted into that template.
 - **Syllabus introduction.** It says the program "bridges Epic Clarity experience"; nothing else in the materials mentions Epic Clarity.
 - **Rebuilt slides.** The rebuild was automated, so open each deck once before teaching from it. Slides that were laid out as cards or diagrams are now lists or tables, and a few may read better with a manual touch.
 - **House style and slide density.** Only the text that was rewritten follows your house style. Untouched text still has em dashes, "data is", "matters", and headings with counts. Apart from the new Day 6, Part 1 deck, the decks still hold their full text on the slides; moving them to headline-only slides with the detail in the notes would be a separate piece of work.
+- **Athena screenshots.** The Day 1 exercise screenshots still show a type 2 diabetes search; a caption says so. Replace them with ALS screenshots when convenient.
+- **Stub file.** `training/day1-omop-cdm/Day1.pptx` is a one-byte file that PowerPoint cannot open. It was left in place and can be deleted.
 - **Pages outside this folder.** `free-rwe-resources.md` and `stardustt-approach.md` mention the program and the Kahn paper and were not audited.
 
 ## Sources
@@ -110,3 +125,4 @@ One correction to the first version of this audit: it treated "grey segments" as
 - OHDSI forum, Cohort Pathways settings: https://forums.ohdsi.org/t/cohort-pathways-in-atlas-faq/9511
 - PatientLevelPrediction vignette code: https://rdrr.io/cran/PatientLevelPrediction/src/inst/doc/BuildingPredictiveModels.R
 - Hripcsak et al. (2016), treatment pathways across the OHDSI network: https://doi.org/10.1073/pnas.1510502113
+- LOINC, ALSFRS-R panel and total score: https://loinc.org/82954-9 and https://loinc.org/82953-1/

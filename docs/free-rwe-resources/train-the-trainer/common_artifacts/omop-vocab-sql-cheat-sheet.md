@@ -70,18 +70,22 @@ WHERE cr.concept_id_2    = 373182         -- ALS SNOMED concept
 ## 3. Concept Ancestor (Hierarchy)
 
 ```sql
--- Look up a drug class first: the ATC class for sulfonylureas has code A10BB
--- and is a classification concept (standard_concept = 'C')
+-- Look up the broad concept first: Motor neuron disease has SNOMED code 37340000
 SELECT concept_id, concept_name, standard_concept
 FROM cdm.concept
-WHERE vocabulary_id = 'ATC' AND concept_code = 'A10BB';
+WHERE vocabulary_id = 'SNOMED' AND concept_code = '37340000';
+
+-- Look up an ingredient by name
+SELECT concept_id, concept_name
+FROM cdm.concept
+WHERE vocabulary_id = 'RxNorm' AND concept_class_id = 'Ingredient' AND LOWER(concept_name) = 'riluzole';
 
 -- All descendants of a concept (for concept set coverage)
 SELECT ca.descendant_concept_id, c.concept_name,
        ca.min_levels_of_separation
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
-WHERE ca.ancestor_concept_id = :sulfonylurea_class_concept_id    -- the concept_id returned above
+WHERE ca.ancestor_concept_id = :motor_neuron_disease_concept_id    -- the concept_id returned above
   AND ca.min_levels_of_separation >= 1
 ORDER BY ca.min_levels_of_separation, c.concept_name;
 
@@ -89,7 +93,7 @@ ORDER BY ca.min_levels_of_separation, c.concept_name;
 SELECT ca.descendant_concept_id, c.concept_name
 FROM cdm.concept_ancestor ca
 JOIN cdm.concept c ON ca.descendant_concept_id = c.concept_id
-WHERE ca.ancestor_concept_id       = 1503297    -- Metformin
+WHERE ca.ancestor_concept_id       = :riluzole_ingredient_concept_id    -- riluzole
   AND ca.min_levels_of_separation  = 1;
 
 -- Count descendants by level
@@ -140,7 +144,7 @@ SELECT COUNT(*)                     AS total_exposures,
        COUNT(DISTINCT de.person_id) AS unique_patients
 FROM cdm.drug_exposure de
 JOIN cdm.concept_ancestor ca ON ca.descendant_concept_id = de.drug_concept_id
-WHERE ca.ancestor_concept_id = 1503297;   -- Metformin
+WHERE ca.ancestor_concept_id = :riluzole_ingredient_concept_id;   -- riluzole
 
 -- Drug era (pre-computed continuous exposure periods)
 SELECT person_id, drug_concept_id,
@@ -149,13 +153,13 @@ SELECT person_id, drug_concept_id,
 FROM cdm.drug_era
 WHERE drug_concept_id IN (
     SELECT descendant_concept_id FROM cdm.concept_ancestor
-    WHERE ancestor_concept_id = 1503297
+    WHERE ancestor_concept_id = :riluzole_ingredient_concept_id
 );
 ```
 
 ### Measurement
 ```sql
--- Find standard measurement concepts (e.g., HbA1c)
+-- Find measurement records for a concept (e.g., creatinine)
 SELECT m.person_id,
        c.concept_name,
        m.value_as_number,
@@ -163,10 +167,31 @@ SELECT m.person_id,
        m.measurement_date
 FROM cdm.measurement m
 JOIN cdm.concept c ON m.measurement_concept_id = c.concept_id
-WHERE c.concept_name LIKE '%Hemoglobin A1c%'
+WHERE c.concept_name LIKE '%Creatinine%'
   AND c.standard_concept = 'S'
 ORDER BY m.measurement_date;
 ```
+
+### ALSFRS-R (check both tables, and the notes)
+```sql
+-- Structured ALSFRS-R records, wherever the site mapped them
+SELECT 'observation' AS source_table, COUNT(*) AS n_rows, COUNT(DISTINCT o.person_id) AS persons
+FROM cdm.observation o
+JOIN cdm.concept c ON c.concept_id = o.observation_concept_id
+WHERE c.vocabulary_id = 'LOINC' AND c.concept_name LIKE '%ALSFRS-R%'
+UNION ALL
+SELECT 'measurement', COUNT(*), COUNT(DISTINCT m.person_id)
+FROM cdm.measurement m
+JOIN cdm.concept c ON c.concept_id = m.measurement_concept_id
+WHERE c.vocabulary_id = 'LOINC' AND c.concept_name LIKE '%ALSFRS-R%';
+
+-- Notes that mention the scale (if the NOTE table is loaded)
+SELECT COUNT(*) AS notes, COUNT(DISTINCT person_id) AS persons
+FROM cdm.note
+WHERE LOWER(note_text) LIKE '%alsfrs%';
+```
+
+See [The ALS use case](../als-use-case.md) for the LOINC codes and for what an empty result means.
 
 ### Visit Occurrence
 ```sql

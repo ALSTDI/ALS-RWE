@@ -131,10 +131,10 @@
 All materials below live in this repository so they travel together. The slide decks use plain black-and-white slides on standard PowerPoint layouts, so you can apply your own theme or branding from the Design tab.
 
 ### Feasibility First
-- [Instructor deck with notes (PPTX)](training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx), the full 30-minute deck with speaker script.
-- [Importable ATLAS cohort (JSON)](training/feasibility-first/kit/Demo-Cohort-Diabetes-Childbearing-Age.json), import into atlas-demo and save for the live demo.
+- [Instructor deck with notes (PPTX)](training/feasibility-first/kit/Feasibility-Instructor-Deck-with-Notes.pptx), headline-only slides with the script in the notes.
+- [Slide-by-slide script](training/feasibility-first/kit/Feasibility-Slide-Script.md), the same text as the speaker notes.
 - [Kahoot quiz (CSV)](training/feasibility-first/kit/Kahoot-Quiz.csv), on the feasibility workflow.
-- [Kit README](training/feasibility-first/kit/README.md), setup steps and the concept IDs used. Module pages start at [Feasibility First](feasibility-first/index.md).
+- [Kit README](training/feasibility-first/kit/README.md), steps for building the demo cohort in ATLAS. Module pages start at [Feasibility First](feasibility-first/index.md).
 
 ### Slide template
 - [Plain template (PPTX)](templates/Plain-Template.pptx), the black-and-white template the decks are built on; use it as the starting point for a new deck.
@@ -152,7 +152,7 @@ All materials below live in this repository so they travel together. The slide d
 
 ### Day 5, treatment pathways kit
 - [Lead instructor deck: Cohort Pathways in ATLAS](training/day-05-treatment-pathways/kit/ATLAS-Treatment-Pathways-Training.pptx)
-- [Worked example deck (type 2 diabetes), with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
+- [Worked example deck (ALS medications), with notes](training/day-05-treatment-pathways/kit/Instructor-Deck-with-Notes.pptx)
 - [Participant workbook](training/day-05-treatment-pathways/kit/Participant-Workbook.pptx)
 - [Kahoot quiz (CSV)](training/day-05-treatment-pathways/kit/Kahoot-Quiz.csv)
 - The full kit (handouts, answer keys, scripts, interpretation guides) is in `training/day-05-treatment-pathways/kit/`.

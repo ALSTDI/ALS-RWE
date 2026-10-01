@@ -18,7 +18,7 @@
 ## Athena Vocabulary Exploration Exercise
 
 This exercise focuses exclusively on exploring the **OMOP Standardized Vocabularies** using [Athena](https://athena.ohdsi.org/).  
-You’ll investigate how OMOP organizes concepts, relationships, and hierarchies — using *Type 2 Diabetes Mellitus* as an example condition.
+You’ll investigate how OMOP organizes concepts, relationships, and hierarchies — using *amyotrophic lateral sclerosis* as an example condition.
 
 ---
 
@@ -38,7 +38,7 @@ By the end of this exercise, participants will be able to:
 
 ### Step 1.1 — Search for a Clinical Condition
 1. Open [Athena](https://athena.ohdsi.org/).  
-2. Search for **“Type 2 Diabetes Mellitus.”**  
+2. Search for **“Amyotrophic lateral sclerosis.”**  
 3. Identify:
    - The **standard concept** (the Concept column shows Standard)  
    - A related **non-standard concept** (the Concept column shows Non-standard)  
@@ -46,6 +46,8 @@ By the end of this exercise, participants will be able to:
    - The **domain**, **vocabulary**, and **concept class**
 
 ![Athena search results placeholder](../assets/day1/athena-search.png)
+
+*The screenshots on this page were taken with a type 2 diabetes search. The steps are the same for ALS.*
 
 **Trainer Prompts**
 - What distinguishes “standard” vs “non-standard” in OMOP?  
@@ -70,7 +72,7 @@ By the end of this exercise, participants will be able to:
 ## Section 2 – Vocabulary Interpretation and Mapping Logic
 
 ### Step 2.1 — Explore Relationships
-Choose a **non-standard ICD10CM** code for Type 2 Diabetes and inspect its mappings.
+Open the **non-standard ICD10CM** code G12.21 (amyotrophic lateral sclerosis) and inspect its mappings.
 
 ![Athena relationships placeholder](../assets/day1/athena-relationships.png)
 
@@ -82,7 +84,7 @@ Choose a **non-standard ICD10CM** code for Type 2 Diabetes and inspect its mappi
 ---
 
 ### Step 2.2 — Vocabulary Hierarchy Practice
-Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
+Search for *Motor neuron disease*, the broader concept above ALS.
 
 - Count how many **descendants** the top-level concept has.  
 - Identify one or two that might be **too specific**.  
@@ -104,7 +106,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 - How does vocabulary hierarchy influence inclusion/exclusion?
 
 **Trainer Extension**
-- Explore a multi-domain concept like “HbA1c.”  
+- Search for “ALSFRS-R” and look at the LOINC concepts for the scale, the total score, and the items.  
   - Compare Measurement vs Observation domains.  
   - Why does domain assignment matter for analytics?
 
@@ -122,8 +124,8 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 **Example Discussion**
 
-- *Standard concept:* `Type 2 diabetes mellitus` (concept_id 201826, SNOMED code 44054006)  
-- *Non-standard concept:* `E11.9 – Type 2 diabetes mellitus without complications` (ICD10CM) → maps to concept_id 201826  
+- *Standard concept:* `Amyotrophic lateral sclerosis` (concept_id 373182, SNOMED code 86044005)  
+- *Non-standard concept:* `G12.21 – Amyotrophic lateral sclerosis` (ICD10CM) → maps to concept_id 373182  
 - OMOP standardizes to SNOMED so EHR diagnoses share a common meaning.  
 - ICD codes map to SNOMED via “Maps to” relationships in Athena.
 
@@ -187,7 +189,7 @@ Pick another condition (e.g., *Hypertension*, *Asthma*, *Heart Failure*).
 
 ---
 
-??? question "Q7. If you search for *Type 2 Diabetes Mellitus* in Athena, which vocabulary is typically standard for the Condition domain?"
+??? question "Q7. If you search for *Amyotrophic lateral sclerosis* in Athena, which vocabulary is typically standard for the Condition domain?"
     **Answer:**  
     **SNOMED CT**, which supplies most of the standard concepts for conditions in OMOP.
 
@@ -250,7 +252,7 @@ Answers are embedded but collapsed by default to encourage active recall.
 
     | Prompt | Answer / Talking Points |
     |:--|:--|
-    | How do “Is a” and “Subsumes” define hierarchy, and what does `concept_ancestor` add? | “Is a” points from a child to its direct parent (e.g., *Type 2 Diabetes* **is a** *Diabetes*), and “Subsumes” is the same link read from parent to child. The `concept_ancestor` table stores every ancestor and descendant pair at any distance, which is what “include descendants” uses. |
+    | How do “Is a” and “Subsumes” define hierarchy, and what does `concept_ancestor` add? | “Is a” points from a child to its direct parent (e.g., *Amyotrophic lateral sclerosis* **is a** *Motor neuron disease*), and “Subsumes” is the same link read from parent to child. The `concept_ancestor` table stores every ancestor and descendant pair at any distance, which is what “include descendants” uses. |
     | Why might “Maps to” differ from “Is a”? | “Maps to” connects a source concept to the standard concept that represents it (a standard concept maps to itself), while “Is a” expresses hierarchy between a narrower and a broader concept. |
     | When reviewing descendants, how do you decide what’s “too specific”? | Look for concepts that narrow the condition beyond your study purpose (e.g., “Hypertension complicating pregnancy” for a general hypertension study), and decide with the study team whether to exclude them. |
 
@@ -286,7 +288,7 @@ Answers are embedded but collapsed by default to encourage active recall.
     | What mapping errors could affect cohort counts? | Missing or incorrect “Maps to” links can misclassify or exclude patients. |
     | Why can’t non-standard codes be used directly? | The standard concept fields in the clinical tables hold standard concepts, so a query on source concepts in those fields finds nothing. Source concepts are kept in the source concept fields. |
     | How does vocabulary hierarchy influence inclusion/exclusion? | The ancestor/descendant range affects cohort breadth — too high = over-inclusive, too low = overly narrow. |
-    | Multi-domain example (*HbA1c*): what does domain assignment change? | The domain of the standard concept decides which table the record goes into. HbA1c results belong to the Measurement domain, so you look for them in `measurement`. |
+    | ALSFRS-R example: what does domain assignment change? | The domain of the standard concept decides which table the record goes into. Check the domain of the ALSFRS-R LOINC concepts in Athena; the ALS TDI data set stores the scores in `observation`. Finding the concept in Athena says nothing about whether a site has any records, since the scores are often kept in notes. |
 
     ---
 

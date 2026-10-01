@@ -21,7 +21,7 @@
 
 | # | Tool | What to Verify | Status | Notes |
 |:--|:--|:--|:--|:--|
-| 1.1 | **Athena** | Open [athena.ohdsi.org](https://athena.ohdsi.org) and search for "Metformin" — do results appear? | ☐ Pass · ☐ Blocked | |
+| 1.1 | **Athena** | Open [athena.ohdsi.org](https://athena.ohdsi.org) and search for "riluzole" — do results appear? | ☐ Pass · ☐ Blocked | |
 | 1.2 | **ATLAS** | Log in to your site's ATLAS instance · Create and delete a throwaway concept set | ☐ Pass · ☐ Blocked | ATLAS URL: |
 | 1.3 | **Atlas: cohort export** | Open any existing cohort definition and confirm the Export tab shows both JSON and SQL | ☐ Pass · ☐ Blocked | |
 | 1.4 | **GitHub** | Open [github.com/ALSTDI/ALS-RWE](https://github.com/ALSTDI/ALS-RWE) and confirm you can view files | ☐ Pass · ☐ Blocked | |
