@@ -41,3 +41,7 @@ Bring the network into your feasibility decision explicitly. Three outcomes are 
 ## The honest limits
 
 Be candid about what the network is not. It is not instantaneous, it is not a single sign-on to everyone's raw data, and it does not remove the need for local governance at each site. What it is: a disciplined way to answer a question across many populations without any of them exposing their people. For questions like this one, where the relevant subgroups are frequently too small at one site, that tradeoff is often the only path to an answer with enough power to trust.
+
+## Planning a network study step by step
+
+[Network Study Paint By Numbers](https://www.boycedatascience.com/network-study-paint-by-numbers){target="_blank"} walks through the planning of a network study, from concept sets and cohort definitions to exposure windows and network feasibility exercises, with a published OHDSI network study as the worked example. The [Real-World Evidence Literature Map](https://boycelab.github.io/rwe-knowledge/){target="_blank"} helps find prior studies by disease area, data source, and network.

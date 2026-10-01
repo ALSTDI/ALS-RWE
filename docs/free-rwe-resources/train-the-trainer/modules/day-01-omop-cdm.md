@@ -108,6 +108,7 @@ WHERE cr.concept_id_1 = <standard_concept_id>;
 - [**OMOP CDM Reference**](https://ohdsi.github.io/CommonDataModel/)  
 - [**Athena Vocabulary Browser**](https://athena.ohdsi.org/)  
 - [**OHDSI Forum**](https://forums.ohdsi.org/) – discussion & support  
+- [**The OMOP ETL Worksheet**](https://www.boycedatascience.com/omop-etl){target="_blank"} – a step-by-step worksheet for an OMOP conversion  
 
 ---
 

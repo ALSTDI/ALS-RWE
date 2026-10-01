@@ -147,6 +147,8 @@ The hands-on lab is on the [Part 2 exercise](../exercises/day-06-prediction-opti
 - Book of OHDSI, Chapter 13 (Patient-Level Prediction): [ohdsi.github.io/TheBookOfOhdsi/PatientLevelPrediction.html](https://ohdsi.github.io/TheBookOfOhdsi/PatientLevelPrediction.html)
 - [PatientLevelPrediction documentation](https://ohdsi.github.io/PatientLevelPrediction/)
 - [HADES package documentation](https://ohdsi.github.io/Hades/)
+- [Network Study Paint By Numbers](https://www.boycedatascience.com/network-study-paint-by-numbers){target="_blank"}, for planning a study that runs across sites
+- [Manuscript Paint by Numbers](https://www.boycedatascience.com/manuscript-paint-by-numbers){target="_blank"}, for writing up the results
 
 ---
 

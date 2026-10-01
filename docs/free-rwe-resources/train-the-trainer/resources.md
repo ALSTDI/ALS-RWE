@@ -4,6 +4,12 @@
 
 ---
 
+## Companion tools
+
+Free browser tools that go with the sessions, including the Analytic Use Case Generator and Network Study Paint By Numbers, are listed on the [Companion Tools](tools.md) page.
+
+---
+
 ## Core OHDSI Resources
 
 > Key official sites and references maintained by the global OHDSI community.

@@ -60,6 +60,8 @@ library(Hades)
 
 ---
 
+Participants who are new to Git or to a terminal can use the [GitHub Starter Kit](https://www.boycedatascience.com/github-starter-kit){target="_blank"} and the [Command Line Starter Kit](https://www.boycedatascience.com/command-line-starter-kit){target="_blank"} before the session.
+
 ## :material-checkbox-multiple-marked: Environment Checklist Template
 
 Trainers may clone and adapt this checklist for local use.  

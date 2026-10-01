@@ -42,3 +42,5 @@ You now have a specification, not only an idea. Every later step maps back to it
 - The [vocabulary primer](03-vocab-and-cdm-primer.md) is how you check that concepts exist and are standard.
 - The [ATLAS walkthrough](04-atlas-feasibility-walkthrough.md) tests presence and counts against real (synthetic) data.
 - The [checklist](06-feasibility-checklist.md) turns all of it into a go/no-go call.
+
+To work through this step with your own question, use the Analytic Use Case Generator, which takes an idea through the OHDSI analytic use cases and gives a feasibility scorecard. It is listed with the other [companion tools](../tools.md).
